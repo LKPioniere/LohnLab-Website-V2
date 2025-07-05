@@ -3,6 +3,7 @@ import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Crown, DollarSign, Gift, PiggyBank, TrendingUp, Calculator, Shield, Zap, CheckCircle, ArrowRight, Target, Users, FileCheck } from "lucide-react";
+import optimierungsInsights from "@assets/image_1751747818868.png";
 
 export default function Lohnoptimierung() {
   const scrollToSection = (sectionId: string) => {
@@ -212,6 +213,34 @@ export default function Lohnoptimierung() {
               <h3 className="text-xl font-bold text-orange-800 mb-3">Altersvorsorge</h3>
               <p className="text-orange-700">
                 Aufbau einer betrieblichen Rentenversicherung mit langfristigem Rentenpotential.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Optimierungs-Insights */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
+              Optimierungs-Insights in Echtzeit
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Das LohnLab Cockpit zeigt Ihnen sofort nach jeder Lohnberechnung konkrete Optimierungspotentiale auf
+            </p>
+          </div>
+
+          <div className="bg-gray-50 rounded-2xl p-8 shadow-xl">
+            <img 
+              src={optimierungsInsights}
+              alt="LohnLab Optimierungs-Insights Dashboard"
+              className="w-full rounded-lg shadow-lg"
+            />
+            <div className="mt-6 text-center">
+              <p className="text-gray-600">
+                <strong>Echte Optimierungs-Insights:</strong> Das Dashboard zeigt sofort die mögliche Lohnkosten-Ersparnis, 
+                prozentuale Einsparungen und verwendete Lohnbausteine für maximale Transparenz.
               </p>
             </div>
           </div>

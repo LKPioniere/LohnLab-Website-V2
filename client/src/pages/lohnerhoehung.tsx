@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import berechnungsparameter from "@assets/image_1751747879061.png";
 
 export default function Lohnerhoehung() {
   const scrollToSection = (sectionId: string) => {
@@ -181,6 +182,32 @@ export default function Lohnerhoehung() {
                 <li>• Alle Steuerklassen</li>
                 <li>• Aktuelle Beitragssätze</li>
               </ul>
+            </div>
+          </div>
+
+          {/* Berechnungsparameter Screenshot */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-[var(--lohn-primary)] mb-4">
+                Einfache Bedienung, professionelle Ergebnisse
+              </h3>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Intuitive Benutzeroberfläche für schnelle und exakte Lohnberechnungen
+              </p>
+            </div>
+            
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-xl">
+              <img 
+                src={berechnungsparameter}
+                alt="LohnLab Berechnungsparameter Interface"
+                className="w-full rounded-lg shadow-lg"
+              />
+              <div className="mt-6 text-center">
+                <p className="text-gray-600">
+                  <strong>Professionelle Benutzerführung:</strong> Wählen Sie zwischen gemeinsamen Faktoren für alle Mitarbeiter 
+                  oder individuellen Werten. Das System führt Sie Schritt für Schritt durch die Berechnung.
+                </p>
+              </div>
             </div>
           </div>
 

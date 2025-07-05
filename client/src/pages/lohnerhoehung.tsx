@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
@@ -7,6 +8,10 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import berechnungsparameter from "@assets/image_1751747879061.png";
 
 export default function Lohnerhoehung() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import DevelopmentStatus from "@/components/development-status";
@@ -10,6 +11,10 @@ import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />

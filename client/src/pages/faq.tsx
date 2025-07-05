@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
@@ -212,6 +212,10 @@ export default function FAQ() {
   const handleAccordionChange = (value: string) => {
     setOpenAccordion(openAccordion === value ? "" : value);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -473,7 +477,7 @@ export default function FAQ() {
                 <HelpCircle className="mx-auto mb-3" size={32} />
                 <h3 className="font-semibold mb-2">Persönliche Beratung</h3>
                 <Link href="/kontakt">
-                  <Button variant="outline" size="sm" className="mt-2 border-white text-white hover:bg-white hover:text-[var(--lohn-primary)]">
+                  <Button size="sm" className="mt-2 bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
                     Termin buchen
                   </Button>
                 </Link>

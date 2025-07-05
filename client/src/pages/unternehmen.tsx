@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import TeamSection from "@/components/team-section";
 import ContactSection from "@/components/contact-section";
@@ -45,8 +46,8 @@ function HeroSectionUnternehmen() {
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Happy employees in modern office" 
+              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              alt="Professional tax advisor working with documents and calculator" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
@@ -170,6 +171,10 @@ function ProductFeaturesUnternehmen() {
 }
 
 export default function Unternehmen() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />

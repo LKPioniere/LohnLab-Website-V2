@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import datevLogo from "@assets/images-removebg-preview_1751751686149.png";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -46,8 +47,8 @@ export default function HeroSection() {
             />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center">
-                  <span className="text-[var(--lohn-primary)] text-xl font-bold">D</span>
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center p-2">
+                  <img src={datevLogo} alt="DATEV Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-[var(--lohn-primary)] font-semibold">DATEV Integration</p>

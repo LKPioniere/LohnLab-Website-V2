@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,10 @@ import salaryCalculationImage from "@assets/image_1751749408078.png";
 import employeeDataImage from "@assets/image_1751749442993.png";
 
 export default function Neueinstellungen() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />

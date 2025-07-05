@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
@@ -6,6 +7,10 @@ import { Crown, DollarSign, Gift, PiggyBank, TrendingUp, Calculator, Shield, Zap
 import optimierungsInsights from "@assets/image_1751747818868.png";
 
 export default function Lohnoptimierung() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {

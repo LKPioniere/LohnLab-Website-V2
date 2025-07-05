@@ -26,6 +26,10 @@ export default function Kontakt() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema),
     defaultValues: {

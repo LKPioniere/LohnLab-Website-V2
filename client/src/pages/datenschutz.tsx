@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 
 export default function Datenschutz() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />

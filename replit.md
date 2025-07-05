@@ -111,3 +111,6 @@ Changelog:
 - July 05, 2025: Created dedicated feature page for "Lohnerhöhung" with detailed benefits comparison
 - July 05, 2025: Restructured homepage to highlight key features and direct to feature pages
 - July 05, 2025: Enhanced user experience by removing tags and adding current page highlighting
+- July 05, 2025: Added new "Neueinstellungen" feature with dedicated page and highlights on both landing pages
+- July 05, 2025: Integrated real application screenshots for salary calculation and employee data entry
+- July 05, 2025: Updated all percentage values from 15% to 50% for realistic cost savings display

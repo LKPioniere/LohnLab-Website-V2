@@ -103,6 +103,14 @@ export default function Navigation() {
                     <div className="font-medium">Lohnoptimierung</div>
                     <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
                   </Link>
+                  <Link 
+                    href="/loesungen/neueinstellungen"
+                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    onClick={() => setIsSolutionsOpen(false)}
+                  >
+                    <div className="font-medium">Neueinstellungen</div>
+                    <div className="text-sm text-gray-500">Optimale Gehaltspakete und DATEV-Integration</div>
+                  </Link>
                 </div>
               )}
             </div>

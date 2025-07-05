@@ -8,6 +8,8 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
+  const [isMobileLoginOpen, setIsMobileLoginOpen] = useState(false);
   const [location] = useLocation();
   
   const scrollToSection = (sectionId: string) => {
@@ -160,45 +162,119 @@ export default function Navigation() {
         
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-2">
               <Link 
                 href="/"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
+                className={`px-4 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${location === '/' ? 'text-[var(--lohn-primary)] bg-gray-50' : ''}`}
               >
                 Startseite
               </Link>
               
-              {/* Mobile Login Links */}
-              <div className="space-y-2 pt-2 border-t border-gray-100">
-                <div className="text-sm text-gray-500 font-medium">Login:</div>
-                <a 
-                  href="https://cockpit.lohnlab.de"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
-                  onClick={() => setIsMobileMenuOpen(false)}
+              {/* Mobile Solutions Dropdown */}
+              <div className="border-y border-gray-100">
+                <button
+                  onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}
+                  className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
                 >
-                  <ExternalLink className="w-4 h-4 mr-2 text-[var(--lohn-teal)]" />
-                  LohnLab Cockpit
-                </a>
-                <a 
-                  href="https://lohnlab-cockpit-kanzleipaket-udfcfcdagr.mymemberspot.de/auth/login?redirectTo=%2Flibrary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <BookOpen className="w-4 h-4 mr-2 text-[var(--lohn-teal)]" />
-                  Handbücher
-                </a>
+                  <span>Lösungen</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isMobileSolutionsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isMobileSolutionsOpen && (
+                  <div className="bg-gray-50 py-2">
+                    <Link 
+                      href="/loesungen/lohnerhoehung"
+                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                    >
+                      <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
+                        <TrendingUp className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Lohnerhöhung</div>
+                        <div className="text-sm text-gray-500">Exakte Berechnungen</div>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/loesungen/lohnoptimierung"
+                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                    >
+                      <div className="w-8 h-8 bg-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
+                        <DollarSign className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Lohnoptimierung</div>
+                        <div className="text-sm text-gray-500">Bis zu 50% Einsparung</div>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/loesungen/neueinstellungen"
+                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                    >
+                      <div className="w-8 h-8 bg-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
+                        <UserPlus className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium">Neueinstellungen</div>
+                        <div className="text-sm text-gray-500">Optimale Gehaltspakete</div>
+                      </div>
+                    </Link>
+                  </div>
+                )}
               </div>
               
-              <Link href="/kontakt">
-                <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full w-fit">
-                  Kontakt
-                </Button>
-              </Link>
+              {/* Mobile Login Dropdown */}
+              <div className="border-b border-gray-100">
+                <button
+                  onClick={() => setIsMobileLoginOpen(!isMobileLoginOpen)}
+                  className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
+                >
+                  <span>Login</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isMobileLoginOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isMobileLoginOpen && (
+                  <div className="bg-gray-50 py-2">
+                    <a 
+                      href="https://cockpit.lohnlab.de"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileLoginOpen(false);}}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
+                      <div>
+                        <div className="font-medium">LohnLab Cockpit</div>
+                        <div className="text-sm text-gray-500">Zur Anwendung</div>
+                      </div>
+                    </a>
+                    <a 
+                      href="https://lohnlab-cockpit-kanzleipaket-udfcfcdagr.mymemberspot.de/auth/login?redirectTo=%2Flibrary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileLoginOpen(false);}}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                    >
+                      <BookOpen className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
+                      <div>
+                        <div className="font-medium">Handbücher & Anleitungen</div>
+                        <div className="text-sm text-gray-500">Für Kunden und Partner</div>
+                      </div>
+                    </a>
+                  </div>
+                )}
+              </div>
+              
+              <div className="px-4 pt-4">
+                <Link href="/kontakt" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full w-full">
+                    Kontakt
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         )}

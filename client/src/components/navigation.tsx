@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown, ExternalLink, BookOpen } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@assets/LohnLab_Logo_Blue300px (1)_1751742744672.png";
@@ -51,30 +51,48 @@ export default function Navigation() {
               </button>
               
               {isSolutionsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 py-4">
+                  <div className="px-4 py-2 border-b border-gray-100">
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Unsere Lösungen</h3>
+                  </div>
                   <Link 
                     href="/loesungen/lohnerhoehung"
-                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
-                    <div className="font-medium">Lohnerhöhung</div>
-                    <div className="text-sm text-gray-500">Exakte Berechnungen für alle Mitarbeiter</div>
+                    <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
+                      <TrendingUp className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Lohnerhöhung</div>
+                      <div className="text-sm text-gray-500">Exakte Berechnungen für alle Mitarbeiter</div>
+                    </div>
                   </Link>
                   <Link 
                     href="/loesungen/lohnoptimierung"
-                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
-                    <div className="font-medium">Lohnoptimierung</div>
-                    <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
+                    <div className="w-8 h-8 bg-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
+                      <DollarSign className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Lohnoptimierung</div>
+                      <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
+                    </div>
                   </Link>
                   <Link 
                     href="/loesungen/neueinstellungen"
-                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
-                    <div className="font-medium">Neueinstellungen</div>
-                    <div className="text-sm text-gray-500">Optimale Gehaltspakete und DATEV-Integration</div>
+                    <div className="w-8 h-8 bg-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
+                      <UserPlus className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Neueinstellungen</div>
+                      <div className="text-sm text-gray-500">Optimale Gehaltspakete und DATEV-Integration</div>
+                    </div>
                   </Link>
                 </div>
               )}

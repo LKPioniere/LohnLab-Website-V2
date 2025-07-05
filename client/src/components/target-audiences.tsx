@@ -1,13 +1,6 @@
 import { UserCheck, Building, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function TargetAudiences() {
-  const scrollToContact = () => {
-    const element = document.getElementById('kontakt');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="py-20 bg-gray-50">
@@ -47,12 +40,7 @@ export default function TargetAudiences() {
                 <span className="text-gray-700">Nahtlose DATEV Integration</span>
               </div>
             </div>
-            <Button 
-              onClick={scrollToContact}
-              className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-xl py-3 font-medium"
-            >
-              Informationen für Steuerberater
-            </Button>
+
           </div>
 
           <div id="unternehmen" className="bg-white rounded-2xl p-8 shadow-lg">
@@ -84,12 +72,7 @@ export default function TargetAudiences() {
                 <span className="text-gray-700">Präzise Budgetplanung</span>
               </div>
             </div>
-            <Button 
-              onClick={scrollToContact}
-              className="w-full bg-[var(--lohn-teal)] text-[var(--lohn-primary)] hover:bg-[var(--lohn-teal)]/80 transition-colors rounded-xl py-3 font-medium"
-            >
-              Informationen für Unternehmen
-            </Button>
+
           </div>
         </div>
       </div>

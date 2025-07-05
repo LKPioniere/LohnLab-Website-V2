@@ -4,6 +4,7 @@ import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Euro, Wallet, TrendingUp, Users, BarChart3, FileDown, Send, RefreshCw, Shield, Calculator, Zap, FileCheck, Check } from "lucide-react";
+import dashboardImage from "@assets/image_1751748026881.png";
 
 function HeroSectionUnternehmen() {
   const scrollToSection = (sectionId: string) => {
@@ -55,7 +56,7 @@ function HeroSectionUnternehmen() {
                 </div>
                 <div>
                   <p className="text-[var(--lohn-primary)] font-semibold">Kostenoptimierung</p>
-                  <p className="text-gray-600 text-sm">Bis zu 15% Ersparnis</p>
+                  <p className="text-gray-600 text-sm">Bis zu 50% Ersparnis</p>
                 </div>
               </div>
             </div>
@@ -84,7 +85,7 @@ function ProductFeaturesUnternehmen() {
               <TrendingUp className="text-[var(--lohn-primary)] text-2xl" />
             </div>
             <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Kostenoptimierung</h3>
-            <p className="text-gray-600 mb-6">Reduzieren Sie Ihre Lohnnebenkosten durch clevere Gehaltsoptimierung um bis zu 15%.</p>
+            <p className="text-gray-600 mb-6">Reduzieren Sie Ihre Lohnnebenkosten durch clevere Gehaltsoptimierung um bis zu 50%.</p>
             <div className="bg-[var(--lohn-teal)]/10 rounded-xl p-4">
               <p className="text-sm text-[var(--lohn-primary)]"><strong>Beispiel:</strong> Bei 50 Mitarbeitern sparen Sie bis zu 50.000€ pro Jahr</p>
             </div>
@@ -116,8 +117,8 @@ function ProductFeaturesUnternehmen() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Modern HR dashboard" 
+              src={dashboardImage} 
+              alt="LohnLab Dashboard für Unternehmen" 
               className="rounded-2xl shadow-xl w-full h-auto"
             />
           </div>

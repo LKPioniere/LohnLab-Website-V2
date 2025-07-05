@@ -14,12 +14,13 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Mehr Service für Ihre Mandanten. 
-              <span className="text-[var(--lohn-teal)]"> Ohne Zusatzaufwand.</span>
+              <span className="text-[var(--lohn-teal)]">LohnLab.</span> Das innovative
+              <br />Lohnkosten-Management der Zukunft.
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Das LohnLab Cockpit - Die moderne Lohnoptimierungslösung für Steuerberater. 
-              Mehrwert, der sich rechnet.
+              Fachkräftemangel und Mitarbeiterbindung beschäftigt aktuell sehr viele Firmen.
+              LohnLab unterstützt Unternehmen in Zusammenarbeit mit ihren Steuerberatern dabei 
+              hohe Mehrwerte für Mitarbeiter zu generieren und zu nutzen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 

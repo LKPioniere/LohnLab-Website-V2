@@ -1,4 +1,5 @@
 import Navigation from "@/components/navigation";
+import TeamSection from "@/components/team-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -22,8 +23,8 @@ function HeroSectionUnternehmen() {
               <span className="text-white"> Weniger Kosten für Sie.</span>
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Das LohnLab Cockpit optimiert Ihre Lohnkosten und steigert die Zufriedenheit Ihrer Mitarbeiter - 
-              durch clevere Gehaltsoptimierung.
+              Fachkräftemangel und Mitarbeiterbindung beschäftigt aktuell sehr viele Firmen. 
+              LohnLab unterstützt Sie dabei, hohe Mehrwerte für Ihre Mitarbeiter zu generieren und zu nutzen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
@@ -173,6 +174,7 @@ export default function Unternehmen() {
       <Navigation />
       <HeroSectionUnternehmen />
       <ProductFeaturesUnternehmen />
+      <TeamSection />
       <ContactSection />
       <Footer />
     </div>

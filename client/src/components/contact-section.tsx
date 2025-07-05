@@ -144,7 +144,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium">Adresse</p>
-                    <p className="text-blue-100">Musterstraße 123<br />12345 Musterstadt</p>
+                    <p className="text-blue-100">Hauptstraße 20<br />63755 Alzenau</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -153,7 +153,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium">E-Mail</p>
-                    <p className="text-blue-100">info@lohnlab.de</p>
+                    <p className="text-blue-100">service@lohnlab.de</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -162,7 +162,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium">Telefon</p>
-                    <p className="text-blue-100">+49 (0) 123 456 789</p>
+                    <p className="text-blue-100">06023 / 9180-10</p>
                   </div>
                 </div>
               </div>

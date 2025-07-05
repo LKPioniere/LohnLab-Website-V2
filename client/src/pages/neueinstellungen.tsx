@@ -24,10 +24,10 @@ export default function Neueinstellungen() {
               gestalten Sie Neueinstellungen effizienter und kostensparender.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100">
+              <Button size="lg" className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
                 Kostenlos testen
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[var(--lohn-primary)]">
+              <Button size="lg" variant="outline" className="border-white text-blue-600 bg-white hover:bg-gray-100">
                 Demo anfordern
               </Button>
             </div>
@@ -267,16 +267,10 @@ export default function Neueinstellungen() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100">
-              Neueinstellungen optimieren
-              <ArrowRight className="ml-2" size={20} />
+          <div className="flex justify-center">
+            <Button size="lg" className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
+              Termin vereinbaren
             </Button>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[var(--lohn-primary)]">
-                Beratung vereinbaren
-              </Button>
-            </Link>
           </div>
         </div>
       </section>

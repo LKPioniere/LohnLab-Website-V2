@@ -1,5 +1,6 @@
 import { Linkedin } from "lucide-react";
 import { SiXing } from "react-icons/si";
+import lohnlabLogo from "@assets/LohnLab_Logo_White300px (1)_1751742744696.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -14,9 +15,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="text-2xl font-bold text-white mb-4">LöhnLab</div>
+            <img 
+              src={lohnlabLogo} 
+              alt="LohnLab Logo" 
+              className="h-8 w-auto mb-4"
+            />
             <p className="text-blue-100 mb-4">
-              LohnLab Cockpit - Die moderne Lohnoptimierungslösung für Steuerberater und Unternehmen. 
+              Das LohnLab Cockpit - Die moderne Lohnoptimierungslösung für Steuerberater und Unternehmen. 
               Mehr Service, weniger Aufwand.
             </p>
             <div className="flex space-x-4">

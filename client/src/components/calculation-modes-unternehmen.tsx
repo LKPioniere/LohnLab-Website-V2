@@ -1,23 +1,24 @@
-import { Euro, Wallet, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { Euro, Wallet, TrendingUp, Users, BarChart3, FileDown } from "lucide-react";
 
-export default function CalculationModes() {
+export default function CalculationModesUnternehmen() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-[var(--lohn-light)]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Drei Berechnungsmodi für jeden Bedarf</h2>
-          <p className="text-xl text-gray-600">Exakte Lohnberechnung auf DATEV-Niveau mit echtem hinterlegten Lohnprogramm</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Flexible Lohnerhöhungsoptionen für jede Situation</h2>
+          <p className="text-xl text-gray-600">Exakte Berechnungen mit echtem DATEV-Lohnprogramm für präzise Ergebnisse</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Berechnungsmodi */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
             <div className="w-16 h-16 bg-[var(--lohn-secondary)] rounded-2xl flex items-center justify-center mb-6">
               <Euro className="text-white text-2xl" />
             </div>
             <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Brutto-Modus</h3>
-            <p className="text-gray-600 mb-6">Klassische Bruttogehalt-Berechnung für bekannte Szenarien und Standardverhandlungen.</p>
+            <p className="text-gray-600 mb-6">Klassische Bruttogehalt-Berechnung für bekannte Budgetplanung.</p>
             <div className="bg-gray-50 rounded-xl p-4">
-              <p className="text-sm text-gray-600"><strong>Beispiel:</strong> Bruttogehalt von 4.000€ → Nettoauszahlung berechnen</p>
+              <p className="text-sm text-gray-600"><strong>Ideal für:</strong> Standardverhandlungen und bekannte Gehaltsstrukturen</p>
             </div>
           </div>
 
@@ -28,9 +29,9 @@ export default function CalculationModes() {
             <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">
               Netto-Modus <span className="text-[var(--lohn-teal)] text-sm font-normal">(Empfohlen)</span>
             </h3>
-            <p className="text-gray-600 mb-6">Der entscheidende Wert der nach Steuern und Abzügen wirklich beim Mitarbeiter ankommt.</p>
+            <p className="text-gray-600 mb-6">Mitarbeiter erfahren genau, was nach Steuern und Abzügen ankommt.</p>
             <div className="bg-[var(--lohn-teal)]/10 rounded-xl p-4">
-              <p className="text-sm text-[var(--lohn-primary)]"><strong>Vorteil:</strong> Mitarbeiter weiß genau, was am Ende auf dem Konto landet</p>
+              <p className="text-sm text-[var(--lohn-primary)]"><strong>Vorteil:</strong> Transparenz und Zufriedenheit bei Mitarbeitern</p>
             </div>
           </div>
 
@@ -39,16 +40,16 @@ export default function CalculationModes() {
               <TrendingUp className="text-white text-2xl" />
             </div>
             <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Lohnkosten-Modus</h3>
-            <p className="text-gray-600 mb-6">Arbeitgeber kann exakt sein Budget angeben und hat verlässliches Kostencontrolling.</p>
+            <p className="text-gray-600 mb-6">Exakte Budgetplanung - Sie geben Ihr Budget vor und erhalten die optimale Verteilung.</p>
             <div className="bg-gray-50 rounded-xl p-4">
-              <p className="text-sm text-gray-600"><strong>Beispiel:</strong> Budget 5.500€ → optimale Aufteilung berechnen</p>
+              <p className="text-sm text-gray-600"><strong>Perfekt für:</strong> Kostencontrolling und Budgetplanung</p>
             </div>
           </div>
         </div>
 
         {/* Erweiterte Features */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl mt-16">
-          <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-8 text-center">Erweiterte Lohnerhöhungs-Features für Mandanten</h3>
+        <div className="bg-white rounded-2xl p-8 shadow-xl mb-16">
+          <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-8 text-center">Erweiterte Lohnerhöhungs-Features</h3>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
@@ -69,7 +70,7 @@ export default function CalculationModes() {
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-[var(--lohn-teal)] rounded-full"></div>
-                  <span><strong>Individuelle Werte:</strong> Pro Mitarbeiter anpassbar ohne Einzelrechnungen</span>
+                  <span><strong>Individuelle Werte:</strong> Für jeden Mitarbeiter einzeln anpassbar</span>
                 </li>
               </ul>
             </div>
@@ -84,16 +85,48 @@ export default function CalculationModes() {
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-[var(--lohn-secondary)] rounded-full"></div>
-                  <span><strong>Arbeitgeberkosten:</strong> Direkte Kostendarstellung</span>
+                  <span><strong>Gesamtkosten:</strong> Direkte Kostendarstellung für Arbeitgeber</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-[var(--lohn-secondary)] rounded-full"></div>
-                  <span><strong>Effektiv Netto:</strong> Was beim Mitarbeiter ankommt</span>
+                  <span><strong>Netto-Erhöhung:</strong> Was bei jedem Mitarbeiter effektiv ankommt</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-[var(--lohn-secondary)] rounded-full"></div>
-                  <span><strong>Effektivität:</strong> Lohnkosten zu Netto-Ratio</span>
+                  <span><strong>Effektivität:</strong> Lohnkosten zu Netto-Ratio wird angezeigt</span>
                 </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Umsetzung */}
+        <div className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-2xl p-8 text-white">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Von der Berechnung zur Umsetzung</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <FileDown className="text-[var(--lohn-teal)] w-6 h-6" />
+                  <span>Transparente Probeabrechnungen im DATEV-Format</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Users className="text-[var(--lohn-teal)] w-6 h-6" />
+                  <span>Perfekt für Mitarbeiterkommunikation und interne Planung</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <TrendingUp className="text-[var(--lohn-teal)] w-6 h-6" />
+                  <span>Per Knopfdruck direkt an den Steuerberater übertragen</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <h4 className="text-lg font-semibold mb-4">Vorteile der direkten DATEV-Übertragung</h4>
+              <ul className="space-y-2 text-blue-100">
+                <li>✓ Keine Excel-Listen oder E-Mails mehr nötig</li>
+                <li>✓ Exakte Datenübertragung ohne Fehlerquellen</li>
+                <li>✓ Keine Rückfragen vom Steuerberater</li>
+                <li>✓ DSGVO-konforme und sichere Übertragung</li>
               </ul>
             </div>
           </div>

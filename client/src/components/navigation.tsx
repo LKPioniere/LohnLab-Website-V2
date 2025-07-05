@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "wouter";
+import lohnlabLogo from "@assets/LohnLab_Logo_Blue300px (1)_1751742744672.png";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
+  const isUnternehmenPage = location === '/unternehmen';
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -18,24 +22,25 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-[var(--lohn-primary)]">
-              LöhnLab
+            <Link href="/">
+              <img 
+                src={lohnlabLogo} 
+                alt="LohnLab Logo" 
+                className="h-8 w-auto"
+              />
+            </Link>
+            <div className="ml-3 px-3 py-1 bg-[var(--lohn-teal)]/10 text-[var(--lohn-primary)] text-xs font-medium rounded-full border border-[var(--lohn-teal)]/20">
+              {isUnternehmenPage ? 'Für Unternehmen' : 'Für Steuerberater'}
             </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('steuerberater')}
-              className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
-            >
+            <Link href="/" className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium">
               Für Steuerberater
-            </button>
-            <button 
-              onClick={() => scrollToSection('unternehmen')}
-              className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
-            >
+            </Link>
+            <Link href="/unternehmen" className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium">
               Für Unternehmen
-            </button>
+            </Link>
             <button 
               onClick={() => scrollToSection('roadmap')}
               className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
@@ -64,18 +69,20 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-4">
-              <button 
-                onClick={() => scrollToSection('steuerberater')}
+              <Link 
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
               >
                 Für Steuerberater
-              </button>
-              <button 
-                onClick={() => scrollToSection('unternehmen')}
+              </Link>
+              <Link 
+                href="/unternehmen"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
               >
                 Für Unternehmen
-              </button>
+              </Link>
               <button 
                 onClick={() => scrollToSection('roadmap')}
                 className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"

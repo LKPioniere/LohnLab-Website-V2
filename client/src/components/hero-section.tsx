@@ -15,34 +15,34 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              <span className="text-[var(--lohn-teal)]">LohnLab.</span> Das innovative
-              <br />Lohnkosten-Management der Zukunft.
+              <span className="text-[var(--lohn-teal)]">LohnLab Cockpit.</span> Lohnoptimierung 
+              <br />so einfach wie nie zuvor.
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Fachkräftemangel und Mitarbeiterbindung beschäftigt aktuell sehr viele Firmen.
-              LohnLab unterstützt Unternehmen in Zusammenarbeit mit ihren Steuerberatern dabei 
-              hohe Mehrwerte für Mitarbeiter zu generieren und zu nutzen.
+              Steigern Sie die Mitarbeiterzufriedenheit um bis zu 50% - bei gleichzeitiger Kosteneinsparung. 
+              Mit präzisen Berechnungen auf Profi-Niveau verwandeln Sie Lohnerhöhungen in Win-Win-Situationen 
+              für Unternehmen und Mitarbeiter.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 onClick={() => scrollToSection('kontakt')}
                 className="bg-[var(--lohn-teal)] text-[var(--lohn-primary)] hover:bg-white transition-colors rounded-full px-8 py-4 font-semibold"
               >
-                Demo anfragen
+                Jetzt Cockpit testen
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => scrollToSection('features')}
                 className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[var(--lohn-primary)] transition-colors rounded-full px-8 py-4 font-semibold"
               >
-                Mehr erfahren
+                Funktionen entdecken
               </Button>
             </div>
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Professional business team working together in modern office" 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              alt="Successful team celebrating financial growth and optimization results" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">

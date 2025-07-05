@@ -129,7 +129,7 @@ export default function Navigation() {
               {isLoginOpen && (
                 <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
                   <a 
-                    href="https://app.cockpit.de"
+                    href="https://cockpit.lohnlab.de"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
@@ -158,12 +158,11 @@ export default function Navigation() {
               )}
             </div>
             
-            <Button 
-              onClick={() => scrollToSection('kontakt')}
-              className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full"
-            >
-              Kontakt
-            </Button>
+            <Link href="/kontakt">
+              <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full">
+                Kontakt
+              </Button>
+            </Link>
           </div>
           
           <div className="md:hidden">
@@ -199,7 +198,7 @@ export default function Navigation() {
               <div className="space-y-2 pt-2 border-t border-gray-100">
                 <div className="text-sm text-gray-500 font-medium">Login:</div>
                 <a 
-                  href="https://app.cockpit.de"
+                  href="https://cockpit.lohnlab.de"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
@@ -220,12 +219,11 @@ export default function Navigation() {
                 </a>
               </div>
               
-              <Button 
-                onClick={() => scrollToSection('kontakt')}
-                className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full w-fit"
-              >
-                Kontakt
-              </Button>
+              <Link href="/kontakt">
+                <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full w-fit">
+                  Kontakt
+                </Button>
+              </Link>
             </div>
           </div>
         )}

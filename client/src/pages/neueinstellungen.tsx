@@ -24,12 +24,16 @@ export default function Neueinstellungen() {
               gestalten Sie Neueinstellungen effizienter und kostensparender.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
-                Kostenlos testen
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-blue-600 bg-white hover:bg-gray-100">
-                Demo anfordern
-              </Button>
+              <Link href="/kontakt">
+                <Button size="lg" className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
+                  Kostenlos testen
+                </Button>
+              </Link>
+              <Link href="/kontakt">
+                <Button size="lg" variant="outline" className="border-white text-blue-600 bg-white hover:bg-gray-100">
+                  Demo anfordern
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -268,9 +272,11 @@ export default function Neueinstellungen() {
           </div>
 
           <div className="flex justify-center">
-            <Button size="lg" className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
-              Termin vereinbaren
-            </Button>
+            <Link href="/kontakt">
+              <Button size="lg" className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
+                Termin vereinbaren
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

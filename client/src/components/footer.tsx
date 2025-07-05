@@ -67,12 +67,9 @@ export default function Footer() {
             <ul className="space-y-2 text-blue-100">
               <li><a href="#" className="hover:text-white transition-colors">Über uns</a></li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('kontakt')}
-                  className="hover:text-white transition-colors text-left"
-                >
+                <Link href="/kontakt" className="hover:text-white transition-colors">
                   Kontakt
-                </button>
+                </Link>
               </li>
               <li><Link href="/impressum" className="hover:text-white transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</Link></li>

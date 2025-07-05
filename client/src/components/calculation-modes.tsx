@@ -11,7 +11,7 @@ export default function CalculationModes() {
           <div className="flex justify-center">
             <Link 
               href="/loesungen/lohnerhoehung"
-              className="inline-flex items-center px-6 py-3 bg-[var(--lohn-teal)] text-[var(--lohn-primary)] rounded-full font-semibold hover:bg-[var(--lohn-teal)]/80 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-[var(--lohn-teal)] text-white rounded-full font-semibold hover:bg-[var(--lohn-teal)]/80 transition-colors"
             >
               Alle Details zur Lohnerhöhung →
             </Link>
@@ -21,26 +21,26 @@ export default function CalculationModes() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
             <div className="w-16 h-16 bg-[var(--lohn-teal)] rounded-2xl flex items-center justify-center mb-6">
-              <Euro className="text-[var(--lohn-primary)] text-2xl" />
+              <Euro className="text-white text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Statt Excel-Schätzungen</h3>
-            <p className="text-gray-600">Exakte Berechnungen mit allen Lohnfaktoren, Umlagen und Berufsgenossenschaftsbeiträgen.</p>
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Echte DATEV-Präzision</h3>
+            <p className="text-gray-600">Schluss mit Excel-Schätzungen! Millimetergenaue Berechnungen mit allen Umlagen und Steuerfaktoren.</p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
             <div className="w-16 h-16 bg-[var(--lohn-secondary)] rounded-2xl flex items-center justify-center mb-6">
               <Users className="text-white text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Mehrere Mitarbeiter</h3>
-            <p className="text-gray-600">Berechnung für alle Mitarbeiter gleichzeitig statt Einzelrechnungen.</p>
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Massenberechnung auf Knopfdruck</h3>
+            <p className="text-gray-600">Optimieren Sie das ganze Team in einem Rutsch - Zeit sparen, Effizienz maximieren.</p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
             <div className="w-16 h-16 bg-[var(--lohn-purple)] rounded-2xl flex items-center justify-center mb-6">
               <BarChart3 className="text-white text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Probeabrechnungen</h3>
-            <p className="text-gray-600">DATEV-konforme Probeabrechnungen für transparente Kommunikation.</p>
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Profi-Vergleichsrechnungen</h3>
+            <p className="text-gray-600">Transparente Vorher-Nachher-Abrechnungen überzeugen Ihre Mitarbeiter sofort.</p>
           </div>
         </div>
 

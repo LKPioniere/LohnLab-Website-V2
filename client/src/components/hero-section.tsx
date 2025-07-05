@@ -41,18 +41,18 @@ export default function HeroSection() {
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Professional tax advisor in modern office" 
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              alt="Professional business team working together in modern office" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center p-2">
+                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center p-3">
                   <img src={datevLogo} alt="DATEV Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-[var(--lohn-primary)] font-semibold">DATEV Integration</p>
-                  <p className="text-gray-600 text-sm">Echte Lohnberechnung</p>
+                  <p className="text-gray-600 text-sm">Stamm- und Bewegungsdaten</p>
                 </div>
               </div>
             </div>

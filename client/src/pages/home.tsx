@@ -7,7 +7,6 @@ import DatevIntegration from "@/components/datev-integration";
 import TargetAudiences from "@/components/target-audiences";
 import TeamSection from "@/components/team-section";
 import DashboardPreview from "@/components/dashboard-preview";
-import DemoCalculator from "@/components/demo-calculator";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
@@ -23,7 +22,6 @@ export default function Home() {
       <TargetAudiences />
       <DashboardPreview />
       <TeamSection />
-      <DemoCalculator />
       <ContactSection />
       <Footer />
     </div>

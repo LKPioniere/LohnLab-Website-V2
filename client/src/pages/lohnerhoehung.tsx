@@ -2,7 +2,7 @@ import Navigation from "@/components/navigation";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle } from "lucide-react";
+import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import berechnungsparameter from "@assets/image_1751747879061.png";
 
@@ -507,7 +507,7 @@ export default function Lohnerhoehung() {
                 <div className="mt-6">
                   <a href="/lohnoptimierung" className="inline-flex items-center text-white hover:text-yellow-300 transition-colors">
                     <span className="border-b border-white hover:border-yellow-300">Detaillierte Informationen zur Lohnoptimierung</span>
-                    <FileDown className="w-4 h-4 ml-2" />
+                    <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
                 </div>
               </div>

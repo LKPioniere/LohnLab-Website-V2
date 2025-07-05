@@ -1,4 +1,5 @@
 import { RefreshCw, Shield, Calculator, FileDown, Send } from "lucide-react";
+import dashboardImage from "@assets/image_1751748026881.png";
 
 export default function DatevIntegration() {
   return (
@@ -43,8 +44,8 @@ export default function DatevIntegration() {
           </div>
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="DATEV integration visualization" 
+              src={dashboardImage} 
+              alt="LohnLab Dashboard mit DATEV Integration" 
               className="rounded-2xl shadow-xl w-full h-auto"
             />
           </div>

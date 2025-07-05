@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import datevLogo from "@assets/images-removebg-preview_1751751686149.png";
+import cockpitScreenshot from "@assets/Lohnlab - Pitch Unternehmen_1751752770144.png";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -15,13 +16,13 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              <span className="text-[var(--lohn-teal)]">LohnLab Cockpit.</span> Lohnoptimierung 
-              <br />so einfach wie nie zuvor.
+              <span className="text-[var(--lohn-teal)]">LohnLab Cockpit.</span> Das professionelle 
+              <br />Werkzeug für Lohnoptimierung.
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Steigern Sie die Mitarbeiterzufriedenheit um bis zu 50% - bei gleichzeitiger Kosteneinsparung. 
-              Mit präzisen Berechnungen auf Profi-Niveau verwandeln Sie Lohnerhöhungen in Win-Win-Situationen 
-              für Unternehmen und Mitarbeiter.
+              Die All-in-One-Lösung für Unternehmen und Steuerberater. Sparen Sie bis zu 50% der Lohnkosten 
+              durch intelligente Gehaltsoptimierung - von Lohnerhöhungen über Neueinstellungen bis hin zu 
+              umfassenden Branchenvergleichen und DATEV-Integration.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
@@ -41,8 +42,8 @@ export default function HeroSection() {
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Successful team celebrating financial growth and optimization results" 
+              src={cockpitScreenshot}
+              alt="LohnLab Cockpit Dashboard mit Gehaltsverteilung und Branchenvergleich" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">

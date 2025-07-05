@@ -23,7 +23,7 @@ export default function CalculationModes() {
             <div className="w-16 h-16 bg-[var(--lohn-teal)] rounded-2xl flex items-center justify-center mb-6">
               <Euro className="text-white text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Echte DATEV-Präzision</h3>
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Profi-Präzision statt Schätzung</h3>
             <p className="text-gray-600">Schluss mit Excel-Schätzungen! Millimetergenaue Berechnungen mit allen Umlagen und Steuerfaktoren.</p>
           </div>
 

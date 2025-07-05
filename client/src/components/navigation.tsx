@@ -10,24 +10,12 @@ export default function Navigation() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [location] = useLocation();
   
-  // Determine audience type based on current page
-  const audienceType = location === '/unternehmen' ? 'unternehmen' : 'steuerberater';
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
-  };
-
-  const toggleAudience = () => {
-    // Navigate to the appropriate page based on current audience type
-    if (audienceType === 'steuerberater') {
-      window.location.href = '/unternehmen';
-    } else {
-      window.location.href = '/';
-    }
   };
 
   return (
@@ -42,30 +30,6 @@ export default function Navigation() {
                 className="h-8 w-auto"
               />
             </Link>
-          </div>
-          
-          {/* Audience Toggle Slider */}
-          <div className="hidden md:flex items-center bg-gray-100 rounded-full p-1">
-            <button
-              onClick={toggleAudience}
-              className={`px-4 py-2 rounded-full transition-all text-sm font-medium ${
-                audienceType === 'steuerberater' 
-                  ? 'bg-[var(--lohn-primary)] text-white' 
-                  : 'text-gray-600 hover:text-[var(--lohn-primary)]'
-              }`}
-            >
-              Steuerberater
-            </button>
-            <button
-              onClick={toggleAudience}
-              className={`px-4 py-2 rounded-full transition-all text-sm font-medium ${
-                audienceType === 'unternehmen' 
-                  ? 'bg-[var(--lohn-primary)] text-white' 
-                  : 'text-gray-600 hover:text-[var(--lohn-primary)]'
-              }`}
-            >
-              Unternehmen
-            </button>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -184,14 +148,7 @@ export default function Navigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
               >
-                Für Steuerberater
-              </Link>
-              <Link 
-                href="/unternehmen"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
-              >
-                Für Unternehmen
+                Startseite
               </Link>
               
               {/* Mobile Login Links */}

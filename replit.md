@@ -116,3 +116,4 @@ Changelog:
 - July 05, 2025: Updated all percentage values from 15% to 50% for realistic cost savings display
 - July 05, 2025: Created dedicated contact page (/kontakt) with HubSpot integration and updated all CTA buttons
 - July 05, 2025: Implemented comprehensive FAQ page with employee/employer view switching and search functionality
+- July 05, 2025: Simplified architecture - removed Unternehmen page and audience toggle, unified single-page approach

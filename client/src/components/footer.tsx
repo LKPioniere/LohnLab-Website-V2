@@ -54,15 +54,12 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('roadmap')}
-                  className="hover:text-white transition-colors text-left"
-                >
+                <span className="text-gray-400 cursor-not-allowed">
                   Roadmap
-                </button>
+                </span>
               </li>
-              <li><a href="#" className="hover:text-white transition-colors">Preise</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><span className="text-gray-400 cursor-not-allowed">Preise</span></li>
+              <li><span className="text-gray-400 cursor-not-allowed">FAQ</span></li>
             </ul>
           </div>
           <div>

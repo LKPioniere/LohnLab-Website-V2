@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@assets/LohnLab_Logo_Blue300px (1)_1751742744672.png";
@@ -7,6 +7,7 @@ import lohnlabLogo from "@assets/LohnLab_Logo_Blue300px (1)_1751742744672.png";
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [location] = useLocation();
   
   // Determine audience type based on current page
@@ -115,12 +116,48 @@ export default function Navigation() {
               )}
             </div>
             
-            <button 
-              onClick={() => scrollToSection('roadmap')}
-              className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
-            >
-              Entwicklung
-            </button>
+            {/* Login Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLoginOpen(!isLoginOpen)}
+                className="flex items-center space-x-1 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
+              >
+                <span>Login</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isLoginOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isLoginOpen && (
+                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                  <a 
+                    href="https://app.cockpit.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    onClick={() => setIsLoginOpen(false)}
+                  >
+                    <ExternalLink className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
+                    <div>
+                      <div className="font-medium">LohnLab Cockpit</div>
+                      <div className="text-sm text-gray-500">Zur Anwendung</div>
+                    </div>
+                  </a>
+                  <a 
+                    href="https://lohnlab-cockpit-kanzleipaket-udfcfcdagr.mymemberspot.de/auth/login?redirectTo=%2Flibrary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    onClick={() => setIsLoginOpen(false)}
+                  >
+                    <BookOpen className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
+                    <div>
+                      <div className="font-medium">Handbücher & Anleitungen</div>
+                      <div className="text-sm text-gray-500">Für Kunden und Partner</div>
+                    </div>
+                  </a>
+                </div>
+              )}
+            </div>
+            
             <Button 
               onClick={() => scrollToSection('kontakt')}
               className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full"
@@ -157,12 +194,32 @@ export default function Navigation() {
               >
                 Für Unternehmen
               </Link>
-              <button 
-                onClick={() => scrollToSection('roadmap')}
-                className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
-              >
-                Entwicklung
-              </button>
+              
+              {/* Mobile Login Links */}
+              <div className="space-y-2 pt-2 border-t border-gray-100">
+                <div className="text-sm text-gray-500 font-medium">Login:</div>
+                <a 
+                  href="https://app.cockpit.de"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2 text-[var(--lohn-teal)]" />
+                  LohnLab Cockpit
+                </a>
+                <a 
+                  href="https://lohnlab-cockpit-kanzleipaket-udfcfcdagr.mymemberspot.de/auth/login?redirectTo=%2Flibrary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium text-left"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <BookOpen className="w-4 h-4 mr-2 text-[var(--lohn-teal)]" />
+                  Handbücher
+                </a>
+              </div>
+              
               <Button 
                 onClick={() => scrollToSection('kontakt')}
                 className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full w-fit"

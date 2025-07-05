@@ -16,13 +16,15 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              <span className="text-[var(--lohn-teal)]">LohnLab Cockpit.</span> Das professionelle 
-              <br />Werkzeug für Lohnoptimierung.
+              <span className="text-[var(--lohn-teal)]">LohnLab Cockpit.</span> Ihr digitales 
+              <br />Werkzeug für moderne Lohnoptimierung.
             </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Die All-in-One-Lösung für Unternehmen und Steuerberater. Sparen Sie bis zu 50% der Lohnkosten 
-              durch intelligente Gehaltsoptimierung - von Lohnerhöhungen über Neueinstellungen bis hin zu 
-              umfassenden Branchenvergleichen und DATEV-Integration.
+            <p className="text-xl mb-6 text-blue-100">
+              Ob Lohnerhöhung, Neueinstellung oder Mitarbeiterbindung – das Cockpit vereinfacht die Umsetzung, 
+              spart Lohnkosten und schafft Klarheit für Unternehmen und Steuerberater.
+            </p>
+            <p className="text-lg mb-8 text-[var(--lohn-teal)] font-semibold">
+              Effizient. Verständlich. Rechtssicher.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
@@ -42,18 +44,18 @@ export default function HeroSection() {
           </div>
           <div className="relative">
             <img 
-              src={cockpitScreenshot}
-              alt="LohnLab Cockpit Dashboard mit Gehaltsverteilung und Branchenvergleich" 
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              alt="Zufriedenes Team bei der Arbeit - moderne Lohnoptimierung mit LohnLab" 
               className="rounded-2xl shadow-2xl w-full h-auto"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl">
-              <div className="flex items-center space-x-3">
-                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center p-3">
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-xl">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center p-1">
                   <img src={datevLogo} alt="DATEV Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <p className="text-[var(--lohn-primary)] font-semibold">DATEV Integration</p>
-                  <p className="text-gray-600 text-sm">Stamm- und Bewegungsdaten</p>
+                  <p className="text-[var(--lohn-primary)] font-semibold text-sm">DATEV Integration</p>
+                  <p className="text-gray-600 text-xs">Stamm- und Bewegungsdaten</p>
                 </div>
               </div>
             </div>

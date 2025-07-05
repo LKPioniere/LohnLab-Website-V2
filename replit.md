@@ -114,3 +114,5 @@ Changelog:
 - July 05, 2025: Added new "Neueinstellungen" feature with dedicated page and highlights on both landing pages
 - July 05, 2025: Integrated real application screenshots for salary calculation and employee data entry
 - July 05, 2025: Updated all percentage values from 15% to 50% for realistic cost savings display
+- July 05, 2025: Created dedicated contact page (/kontakt) with HubSpot integration and updated all CTA buttons
+- July 05, 2025: Implemented comprehensive FAQ page with employee/employer view switching and search functionality

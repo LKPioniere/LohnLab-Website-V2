@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, Mail, MapPin, Calendar, MessageSquare, Users, Building } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, MessageSquare, Users, Building, Handshake } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -142,7 +142,7 @@ export default function Kontakt() {
             <Card className="text-center">
               <CardHeader>
                 <div className="w-12 h-12 bg-[var(--lohn-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageSquare className="text-white" size={24} />
+                  <Handshake className="text-white" size={24} />
                 </div>
                 <CardTitle className="text-[var(--lohn-primary)]">Partner</CardTitle>
                 <CardDescription>Sie sind Steuerberater oder Wirtschaftsprüfer?</CardDescription>

@@ -59,7 +59,7 @@ export default function Footer() {
                 </span>
               </li>
               <li><span className="text-gray-400 cursor-not-allowed">Preise</span></li>
-              <li><span className="text-gray-400 cursor-not-allowed">FAQ</span></li>
+              <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>
           <div>

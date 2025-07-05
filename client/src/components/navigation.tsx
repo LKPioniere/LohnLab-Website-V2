@@ -93,7 +93,15 @@ export default function Navigation() {
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="font-medium">Lohnerhöhung</div>
-                    <div className="text-sm text-gray-500">Exakte Berechnungen auf DATEV-Niveau</div>
+                    <div className="text-sm text-gray-500">Exakte Berechnungen für alle Mitarbeiter</div>
+                  </Link>
+                  <Link 
+                    href="/loesungen/lohnoptimierung"
+                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    onClick={() => setIsSolutionsOpen(false)}
+                  >
+                    <div className="font-medium">Lohnoptimierung</div>
+                    <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
                   </Link>
                 </div>
               )}

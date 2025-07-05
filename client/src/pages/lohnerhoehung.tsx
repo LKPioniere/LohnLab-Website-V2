@@ -2,7 +2,8 @@ import Navigation from "@/components/navigation";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target } from "lucide-react";
+import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 export default function Lohnerhoehung() {
   const scrollToSection = (sectionId: string) => {
@@ -24,7 +25,7 @@ export default function Lohnerhoehung() {
               Lohnerhöhung leicht gemacht
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-              Präzise Lohnberechnungen auf DATEV-Niveau – für Steuerberater und Unternehmen. 
+              Präzise Lohnberechnungen für Steuerberater und Unternehmen. 
               Schluss mit Excel-Schätzungen und ungenauen Online-Rechnern.
             </p>
             <div className="flex justify-center space-x-4">
@@ -188,62 +189,124 @@ export default function Lohnerhoehung() {
             <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-8 text-center">
               LohnLab vs. Herkömmliche Methoden
             </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="border-b-2 border-gray-200">
-                    <th className="pb-4 text-gray-600 font-medium">Kriterium</th>
-                    <th className="pb-4 text-center">Excel-Schätzung</th>
-                    <th className="pb-4 text-center">Online-Rechner</th>
-                    <th className="pb-4 text-center bg-[var(--lohn-teal)]/10 rounded-t-lg">
-                      <span className="text-[var(--lohn-primary)] font-bold">LohnLab Cockpit</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="space-y-4">
-                  <tr className="border-b border-gray-100">
-                    <td className="py-4 font-medium">Genauigkeit</td>
-                    <td className="py-4 text-center">❌ Ungenau</td>
-                    <td className="py-4 text-center">⚠️ Eingeschränkt</td>
-                    <td className="py-4 text-center bg-[var(--lohn-teal)]/10">
-                      <span className="text-green-600 font-medium">✅ DATEV-Niveau</span>
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-4 font-medium">Mehrere Mitarbeiter</td>
-                    <td className="py-4 text-center">❌ Einzeln</td>
-                    <td className="py-4 text-center">❌ Einzeln</td>
-                    <td className="py-4 text-center bg-[var(--lohn-teal)]/10">
-                      <span className="text-green-600 font-medium">✅ Gleichzeitig</span>
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-4 font-medium">Speichern & Wiederholen</td>
-                    <td className="py-4 text-center">⚠️ Manuell</td>
-                    <td className="py-4 text-center">❌ Nicht möglich</td>
-                    <td className="py-4 text-center bg-[var(--lohn-teal)]/10">
-                      <span className="text-green-600 font-medium">✅ Automatisch</span>
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="py-4 font-medium">Midi-/Minijobs</td>
-                    <td className="py-4 text-center">❌ Nicht unterstützt</td>
-                    <td className="py-4 text-center">❌ Meist nicht</td>
-                    <td className="py-4 text-center bg-[var(--lohn-teal)]/10">
-                      <span className="text-green-600 font-medium">✅ Vollständig</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-4 font-medium">Probeabrechnungen</td>
-                    <td className="py-4 text-center">❌ Nicht möglich</td>
-                    <td className="py-4 text-center">❌ Nicht möglich</td>
-                    <td className="py-4 text-center bg-[var(--lohn-teal)]/10">
-                      <span className="text-green-600 font-medium">✅ DATEV-Format</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <TooltipProvider>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left">
+                  <thead>
+                    <tr className="border-b-2 border-gray-200">
+                      <th className="pb-4 text-gray-600 font-medium">Kriterium</th>
+                      <th className="pb-4 text-center">Excel-Schätzung</th>
+                      <th className="pb-4 text-center">Online-Rechner</th>
+                      <th className="pb-4 text-center bg-[var(--lohn-purple)] text-white rounded-t-lg">
+                        LohnLab Cockpit
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="space-y-4">
+                    <tr className="border-b border-gray-100">
+                      <td className="py-4 font-medium">
+                        <div className="flex items-center space-x-2">
+                          <span>Genauigkeit</span>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <HelpCircle className="w-4 h-4 text-gray-400" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p>Präzise Berechnung aller steuerlichen und sozialversicherungsrechtlichen Aspekte einer Lohnerhöhung, einschließlich progressiver Steuereffekte und individueller Freibeträge.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
+                      </td>
+                      <td className="py-4 text-center">❌ Ungenau</td>
+                      <td className="py-4 text-center">⚠️ Eingeschränkt</td>
+                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
+                        <span className="font-medium">✅ Professionell</span>
+                      </td>
+                    </tr>
+                    <tr className="border-b border-gray-100">
+                      <td className="py-4 font-medium">
+                        <div className="flex items-center space-x-2">
+                          <span>Mehrere Mitarbeiter</span>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <HelpCircle className="w-4 h-4 text-gray-400" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p>Gleichzeitige Berechnung für alle Mitarbeiter eines Unternehmens mit unterschiedlichen Gehaltsstufen, Steuerklassen und Arbeitszeitmodellen.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
+                      </td>
+                      <td className="py-4 text-center">❌ Einzeln</td>
+                      <td className="py-4 text-center">❌ Einzeln</td>
+                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
+                        <span className="font-medium">✅ Gleichzeitig</span>
+                      </td>
+                    </tr>
+                    <tr className="border-b border-gray-100">
+                      <td className="py-4 font-medium">
+                        <div className="flex items-center space-x-2">
+                          <span>Speichern & Wiederholen</span>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <HelpCircle className="w-4 h-4 text-gray-400" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p>Alle Berechnungen werden automatisch gespeichert und können jederzeit reproduziert werden. Ideal für Vergleichsrechnungen und Dokumentationszwecke.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
+                      </td>
+                      <td className="py-4 text-center">⚠️ Manuell</td>
+                      <td className="py-4 text-center">❌ Nicht möglich</td>
+                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
+                        <span className="font-medium">✅ Automatisch</span>
+                      </td>
+                    </tr>
+                    <tr className="border-b border-gray-100">
+                      <td className="py-4 font-medium">
+                        <div className="flex items-center space-x-2">
+                          <span>Midi-/Minijobs</span>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <HelpCircle className="w-4 h-4 text-gray-400" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p>Vollständige Unterstützung für geringfügige Beschäftigungen und Midijobs mit korrekter Berechnung der reduzierten Sozialversicherungsbeiträge.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
+                      </td>
+                      <td className="py-4 text-center">❌ Nicht unterstützt</td>
+                      <td className="py-4 text-center">❌ Meist nicht</td>
+                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
+                        <span className="font-medium">✅ Vollständig</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="py-4 font-medium">
+                        <div className="flex items-center space-x-2">
+                          <span>Probeabrechnungen</span>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <HelpCircle className="w-4 h-4 text-gray-400" />
+                            </TooltipTrigger>
+                            <TooltipContent className="max-w-xs">
+                              <p>Erstellung von detaillierten Probeabrechnungen zur Mandantenkommunikation mit allen relevanten Berechnungsdetails und Hinweisen.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
+                      </td>
+                      <td className="py-4 text-center">❌ Nicht möglich</td>
+                      <td className="py-4 text-center">❌ Nicht möglich</td>
+                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
+                        <span className="font-medium">✅ Professionell</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </TooltipProvider>
           </div>
         </div>
       </section>
@@ -268,31 +331,31 @@ export default function Lohnerhoehung() {
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
+                  <Target className="text-green-600 mt-1 w-5 h-5" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Mandantenberatung auf höchstem Niveau</h4>
-                    <p className="text-gray-600">Präzise Berechnungen schaffen Vertrauen und Kompetenz.</p>
+                    <h4 className="font-semibold text-gray-800">Gewaltiger Mandantenvorteil</h4>
+                    <p className="text-gray-600">Geben Sie Ihren Mandanten einen entscheidenden Wettbewerbsvorteil in die Hand.</p>
+                  </div>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Timer className="text-green-600 mt-1 w-5 h-5" />
+                  <div>
+                    <h4 className="font-semibold text-gray-800">Zeit sparen für Ihre Sachbearbeiter</h4>
+                    <p className="text-gray-600">Kein E-Mail-Ping-Pong mehr bei Lohnfragen - alle Antworten sofort verfügbar.</p>
+                  </div>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <FileCheck className="text-green-600 mt-1 w-5 h-5" />
+                  <div>
+                    <h4 className="font-semibold text-gray-800">Vollständige Datentransparenz</h4>
+                    <p className="text-gray-600">Alle relevanten Berechnungsdetails und Hintergründe auf einen Blick.</p>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Zeitersparnis bei Lohnerhöhungen</h4>
-                    <p className="text-gray-600">Alle Mitarbeiter gleichzeitig berechnen statt Einzelrechnungen.</p>
-                  </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Transparente Kommunikation</h4>
-                    <p className="text-gray-600">Probeabrechnungen für klare Mandantenkommunikation.</p>
-                  </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Direkte DATEV-Integration</h4>
-                    <p className="text-gray-600">Nahtlose Übertragung ins DATEV-System.</p>
+                    <h4 className="font-semibold text-gray-800">Nahtlose Integration</h4>
+                    <p className="text-gray-600">Direkter Export in Ihr gewohntes System.</p>
                   </div>
                 </li>
               </ul>
@@ -336,6 +399,91 @@ export default function Lohnerhoehung() {
                   </div>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Lohnoptimierung - Kirsche auf der Sahnetorte */}
+      <section className="py-20 bg-gradient-to-br from-[var(--lohn-purple)] via-purple-600 to-[var(--lohn-primary)] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-6">
+              <Crown className="w-16 h-16 text-yellow-400" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Die Kirsche auf der Sahnetorte
+            </h2>
+            <p className="text-xl text-purple-100 max-w-3xl mx-auto">
+              Zusätzlich zur exakten Lohnberechnung bietet das Cockpit <strong>Lohnoptimierung</strong> an - 
+              realistische und rechtskonforme Vorschläge für bis zu <strong>50% Kosteneinsparung</strong>.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Was ist Lohnoptimierung?</h3>
+              <p className="text-purple-100 mb-6 leading-relaxed">
+                Die Nutzung von steuer- und sozialversicherungsoptimierten Lohnbausteinen wie 
+                Sachbezügen, Fahrtkosten oder Kindergartenkostenzuschüssen. Mit dem gleichen Budget 
+                erhalten Sie die angedachte Lohnerhöhung plus echte Mitarbeiterbindung.
+              </p>
+              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                <h4 className="font-semibold mb-4 flex items-center">
+                  <Gift className="w-5 h-5 mr-2" />
+                  Was können Sie mit der Ersparnis tun?
+                </h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center space-x-3">
+                    <DollarSign className="w-4 h-4 text-green-300" />
+                    <span>Reinvestition ins eigene Unternehmen</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <TrendingUp className="w-4 h-4 text-green-300" />
+                    <span>Nettoplus on top zur Lohnerhöhung</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <Gift className="w-4 h-4 text-green-300" />
+                    <span>Benefits wie Jobtickets oder Krankenversicherung</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <PiggyBank className="w-4 h-4 text-green-300" />
+                    <span>Betriebliche Rentenversicherung</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6">Maximale Ersparnis-Analyse</h3>
+              <div className="space-y-6">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-medium">Mögliche Kosteneinsparung:</span>
+                    <span className="text-2xl font-bold text-green-300">bis zu 50%</span>
+                  </div>
+                  <div className="w-full bg-white/20 rounded-full h-3">
+                    <div className="bg-gradient-to-r from-green-400 to-green-300 h-3 rounded-full" style={{width: '50%'}}></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold mb-3">Das Tool zeigt Ihnen:</h4>
+                  <ul className="space-y-2 text-purple-100">
+                    <li>• Maximale Ersparnis für den Arbeitgeber</li>
+                    <li>• Optimale Verwendung der gesparten Mittel</li>
+                    <li>• Rechtskonforme Umsetzungsvorschläge</li>
+                    <li>• Langzeit-Rentenpotential für Mitarbeiter</li>
+                  </ul>
+                </div>
+                
+                <div className="mt-6">
+                  <a href="/lohnoptimierung" className="inline-flex items-center text-white hover:text-yellow-300 transition-colors">
+                    <span className="border-b border-white hover:border-yellow-300">Detaillierte Informationen zur Lohnoptimierung</span>
+                    <FileDown className="w-4 h-4 ml-2" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

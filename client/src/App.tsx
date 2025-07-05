@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Unternehmen from "@/pages/unternehmen";
 import Lohnerhoehung from "@/pages/lohnerhoehung";
+import Lohnoptimierung from "@/pages/lohnoptimierung";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
 
@@ -16,6 +17,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/unternehmen" component={Unternehmen} />
       <Route path="/loesungen/lohnerhoehung" component={Lohnerhoehung} />
+      <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} />
+      <Route path="/lohnoptimierung" component={Lohnoptimierung} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route component={NotFound} />

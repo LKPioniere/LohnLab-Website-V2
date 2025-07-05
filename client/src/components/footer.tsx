@@ -22,8 +22,8 @@ export default function Footer() {
               className="h-8 w-auto mb-4"
             />
             <p className="text-blue-100 mb-4">
-              Das LohnLab Cockpit - Die moderne Lohnoptimierungslösung für Steuerberater und Unternehmen. 
-              Mehr Service, weniger Aufwand.
+              Ihr digitales Werkzeug für moderne Lohnoptimierung - entwickelt für Steuerberater und Unternehmen, 
+              die auf Präzision und Effizienz setzen.
             </p>
             <div className="flex space-x-4">
               <a 

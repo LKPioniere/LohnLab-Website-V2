@@ -7,10 +7,10 @@ export default function DatevIntegration() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">Nahtlose DATEV Integration</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">DATEV-Integration: Ihr Startvorteil</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Über die API-Schnittstelle zu DATEV wird das Cockpit immer mit den aktuellen 
-              Stammdaten der Mitarbeiter aktuell gehalten.
+              Für Steuerberater: Nutzen Sie Ihre vorhandene DATEV-Infrastruktur. 
+              Für Unternehmen: Profitieren Sie von der bewährten Zusammenarbeit mit Ihrem Steuerberater.
             </p>
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
@@ -19,7 +19,7 @@ export default function DatevIntegration() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[var(--lohn-primary)]">Automatische Synchronisation</h4>
-                  <p className="text-gray-600">Stammdaten werden automatisch aktualisiert</p>
+                  <p className="text-gray-600">Keine doppelte Datenpflege - Stammdaten aktualisieren sich automatisch</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -28,7 +28,7 @@ export default function DatevIntegration() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[var(--lohn-primary)]">Sichere Datenübertragung</h4>
-                  <p className="text-gray-600">Verschlüsselte Verbindung zu DATEV</p>
+                  <p className="text-gray-600">Bank-Standard-Verschlüsselung für höchste Datensicherheit</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -36,8 +36,8 @@ export default function DatevIntegration() {
                   <Calculator className="text-white text-lg" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--lohn-primary)]">Echte Lohnberechnung</h4>
-                  <p className="text-gray-600">Präzise Berechnung auf DATEV-Niveau</p>
+                  <h4 className="font-semibold text-[var(--lohn-primary)]">Professionelle Lohnberechnung</h4>
+                  <p className="text-gray-600">Präzise Kalkulationen nach DATEV-Standards - verlässlich und korrekt</p>
                 </div>
               </div>
             </div>

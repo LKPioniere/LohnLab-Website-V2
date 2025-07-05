@@ -12,14 +12,14 @@ export default function DemoCalculator() {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Beispielrechnung</h2>
-          <p className="text-xl text-gray-600">So funktioniert Lohnoptimierung in der Praxis</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Praxis-Beispiel: Messbare Erfolge</h2>
+          <p className="text-xl text-gray-600">Sehen Sie selbst, wie Lohnoptimierung konkrete Ergebnisse liefert</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-6">Bei jeder Gehaltserhöhung oder Neueinstellung</h3>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-6">Optimierung auf Knopfdruck</h3>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -62,11 +62,11 @@ export default function DemoCalculator() {
 
             <div>
               <div className="bg-gradient-to-br from-[var(--lohn-teal)] to-[var(--lohn-secondary)] rounded-xl p-6 text-white">
-                <h4 className="text-lg font-semibold mb-4">Rechenbeispiel</h4>
+                <h4 className="text-lg font-semibold mb-4">Ihr Business Case</h4>
                 <p className="text-sm opacity-90 mb-4">
-                  Schon bei nur <strong>50 optimierten Mitarbeitenden</strong> generieren Sie 
-                  <strong> 1.352 € pro Monat</strong>, das sind <strong>16.230 Euro Zusatzhonorar pro Jahr</strong> – 
-                  ohne zusätzliche Mitarbeiter, ohne Mehraufwand und ohne rechtliches Risiko.
+                  <strong>Für Steuerberater:</strong> Bei nur 50 optimierten Mitarbeitenden generieren Sie 
+                  <strong>1.352 € monatlich</strong> - das sind <strong>16.230 € Zusatzhonorar pro Jahr</strong>.<br/>
+                  <strong>Für Unternehmen:</strong> Bis zu 50% Lohnkosteneinsparung bei gesteigerter Mitarbeiterzufriedenheit.
                 </p>
                 <div className="bg-white/20 rounded-lg p-4">
                   <div className="text-2xl font-bold">+ 1.352 €</div>
@@ -76,16 +76,16 @@ export default function DemoCalculator() {
 
               <div className="mt-6 space-y-4">
                 <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
-                  <span className="text-gray-600">Zusätzliche Einnahme pro Jahr:</span>
+                  <span className="text-gray-600">Steuerberater - Zusatzerlös/Jahr:</span>
                   <span className="font-bold text-[var(--lohn-primary)]">16.230 €</span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
-                  <span className="text-gray-600">Aufwand für Beratung:</span>
-                  <span className="font-bold text-gray-500">Minimal</span>
+                  <span className="text-gray-600">Unternehmen - Kosteneinsparung:</span>
+                  <span className="font-bold text-[var(--lohn-secondary)]">Bis zu 50%</span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-[var(--lohn-teal)]/10 rounded-lg">
-                  <span className="text-[var(--lohn-primary)]">ROI der Mandanten:</span>
-                  <span className="font-bold text-[var(--lohn-primary)]">Bis zu 800% p.a.</span>
+                  <span className="text-[var(--lohn-primary)]">Implementierungsaufwand:</span>
+                  <span className="font-bold text-[var(--lohn-primary)]">Minimal</span>
                 </div>
               </div>
             </div>

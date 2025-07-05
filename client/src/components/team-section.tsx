@@ -5,11 +5,11 @@ export default function TeamSection() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Über uns</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Die Köpfe hinter LohnLab</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Fachkräftemangel und Mitarbeiterbindung beschäftigt aktuell sehr viele Firmen.
-            Die LohnLab unterstützt Unternehmen in Zusammenarbeit mit ihren Steuerberatern dabei 
-            hohe Mehrwerte für Mitarbeiter zu generieren und zu nutzen.
+            Zwei Experten, eine Mission: Lohnoptimierung für Unternehmen und Steuerberater so einfach 
+            und effektiv wie möglich zu gestalten. Erfahrung trifft Innovation - zum Nutzen Ihrer Mandanten 
+            und Mitarbeiter.
           </p>
         </div>
 

@@ -5,8 +5,8 @@ export default function DevelopmentStatus() {
     <section id="roadmap" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4">Entwicklungsstand</h2>
-          <p className="text-gray-600 text-lg">Aktueller Fortschritt der LohnLab Cockpit Entwicklung</p>
+          <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4">Transparenter Fortschritt</h2>
+          <p className="text-gray-600 text-lg">So entwickelt sich Ihr digitales Lohnoptimierungs-Werkzeug</p>
         </div>
         
         <div className="max-w-4xl mx-auto">

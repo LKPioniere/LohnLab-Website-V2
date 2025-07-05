@@ -1,103 +1,50 @@
 import { Euro, Wallet, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { Link } from "wouter";
 
 export default function CalculationModes() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-[var(--lohn-light)]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Drei Berechnungsmodi für jeden Bedarf</h2>
-          <p className="text-xl text-gray-600">Exakte Lohnberechnung auf DATEV-Niveau mit echtem hinterlegten Lohnprogramm</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">Lohnerhöhung: Exakt statt Pi mal Daumen</h2>
+          <p className="text-xl text-gray-600 mb-6">Präzise Lohnberechnungen auf DATEV-Niveau mit echtem hinterlegten Lohnprogramm</p>
+          <div className="flex justify-center">
+            <Link 
+              href="/loesungen/lohnerhoehung"
+              className="inline-flex items-center px-6 py-3 bg-[var(--lohn-teal)] text-[var(--lohn-primary)] rounded-full font-semibold hover:bg-[var(--lohn-teal)]/80 transition-colors"
+            >
+              Alle Details zur Lohnerhöhung →
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-            <div className="w-16 h-16 bg-[var(--lohn-secondary)] rounded-2xl flex items-center justify-center mb-6">
-              <Euro className="text-white text-2xl" />
+            <div className="w-16 h-16 bg-[var(--lohn-teal)] rounded-2xl flex items-center justify-center mb-6">
+              <Euro className="text-[var(--lohn-primary)] text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Brutto-Modus</h3>
-            <p className="text-gray-600 mb-6">Klassische Bruttogehalt-Berechnung für bekannte Szenarien und Standardverhandlungen.</p>
-            <div className="bg-gray-50 rounded-xl p-4">
-              <p className="text-sm text-gray-600"><strong>Beispiel:</strong> Bruttogehalt von 4.000€ → Nettoauszahlung berechnen</p>
-            </div>
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Statt Excel-Schätzungen</h3>
+            <p className="text-gray-600">Exakte Berechnungen mit allen Lohnfaktoren, Umlagen und Berufsgenossenschaftsbeiträgen.</p>
           </div>
 
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-2 border-[var(--lohn-teal)]">
-            <div className="w-16 h-16 bg-[var(--lohn-teal)] rounded-2xl flex items-center justify-center mb-6">
-              <Wallet className="text-[var(--lohn-primary)] text-2xl" />
+          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+            <div className="w-16 h-16 bg-[var(--lohn-secondary)] rounded-2xl flex items-center justify-center mb-6">
+              <Users className="text-white text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">
-              Netto-Modus <span className="text-[var(--lohn-teal)] text-sm font-normal">(Empfohlen)</span>
-            </h3>
-            <p className="text-gray-600 mb-6">Der entscheidende Wert der nach Steuern und Abzügen wirklich beim Mitarbeiter ankommt.</p>
-            <div className="bg-[var(--lohn-teal)]/10 rounded-xl p-4">
-              <p className="text-sm text-[var(--lohn-primary)]"><strong>Vorteil:</strong> Mitarbeiter weiß genau, was am Ende auf dem Konto landet</p>
-            </div>
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Mehrere Mitarbeiter</h3>
+            <p className="text-gray-600">Berechnung für alle Mitarbeiter gleichzeitig statt Einzelrechnungen.</p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
             <div className="w-16 h-16 bg-[var(--lohn-purple)] rounded-2xl flex items-center justify-center mb-6">
-              <TrendingUp className="text-white text-2xl" />
+              <BarChart3 className="text-white text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Lohnkosten-Modus</h3>
-            <p className="text-gray-600 mb-6">Arbeitgeber kann exakt sein Budget angeben und hat verlässliches Kostencontrolling.</p>
-            <div className="bg-gray-50 rounded-xl p-4">
-              <p className="text-sm text-gray-600"><strong>Beispiel:</strong> Budget 5.500€ → optimale Aufteilung berechnen</p>
-            </div>
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Probeabrechnungen</h3>
+            <p className="text-gray-600">DATEV-konforme Probeabrechnungen für transparente Kommunikation.</p>
           </div>
         </div>
 
-        {/* Erweiterte Features */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl mt-16">
-          <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-8 text-center">Erweiterte Lohnerhöhungs-Features für Mandanten</h3>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[var(--lohn-secondary)] rounded-xl flex items-center justify-center mr-4">
-                  <Users className="text-white text-lg" />
-                </div>
-                <h4 className="text-xl font-semibold text-[var(--lohn-primary)]">Flexible Erhöhungsoptionen</h4>
-              </div>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[var(--lohn-teal)] rounded-full"></div>
-                  <span><strong>Gemeinsamer Faktor:</strong> z.B. 5% für alle Mitarbeiter</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[var(--lohn-teal)] rounded-full"></div>
-                  <span><strong>Fester Betrag:</strong> z.B. 300€ brutto mehr für alle</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[var(--lohn-teal)] rounded-full"></div>
-                  <span><strong>Individuelle Werte:</strong> Pro Mitarbeiter anpassbar ohne Einzelrechnungen</span>
-                </li>
-              </ul>
-            </div>
 
-            <div>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-xl flex items-center justify-center mr-4">
-                  <BarChart3 className="text-[var(--lohn-primary)] text-lg" />
-                </div>
-                <h4 className="text-xl font-semibold text-[var(--lohn-primary)]">Transparente Ergebnisse</h4>
-              </div>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[var(--lohn-secondary)] rounded-full"></div>
-                  <span><strong>Arbeitgeberkosten:</strong> Direkte Kostendarstellung</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[var(--lohn-secondary)] rounded-full"></div>
-                  <span><strong>Effektiv Netto:</strong> Was beim Mitarbeiter ankommt</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-[var(--lohn-secondary)] rounded-full"></div>
-                  <span><strong>Effektivität:</strong> Lohnkosten zu Netto-Ratio</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@assets/LohnLab_Logo_Blue300px (1)_1751742744672.png";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [audienceType, setAudienceType] = useState<'steuerberater' | 'unternehmen'>('steuerberater');
   const [location] = useLocation();
-  const isUnternehmenPage = location === '/unternehmen';
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -15,6 +16,10 @@ export default function Navigation() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
+  };
+
+  const toggleAudience = () => {
+    setAudienceType(audienceType === 'steuerberater' ? 'unternehmen' : 'steuerberater');
   };
 
   return (
@@ -29,18 +34,64 @@ export default function Navigation() {
                 className="h-8 w-auto"
               />
             </Link>
-            <div className="ml-3 px-3 py-1 bg-[var(--lohn-teal)]/10 text-[var(--lohn-primary)] text-xs font-medium rounded-full border border-[var(--lohn-teal)]/20">
-              {isUnternehmenPage ? 'Für Unternehmen' : 'Für Steuerberater'}
-            </div>
+          </div>
+          
+          {/* Audience Toggle Slider */}
+          <div className="hidden md:flex items-center bg-gray-100 rounded-full p-1">
+            <button
+              onClick={toggleAudience}
+              className={`px-4 py-2 rounded-full transition-all text-sm font-medium ${
+                audienceType === 'steuerberater' 
+                  ? 'bg-[var(--lohn-primary)] text-white' 
+                  : 'text-gray-600 hover:text-[var(--lohn-primary)]'
+              }`}
+            >
+              Steuerberater
+            </button>
+            <button
+              onClick={toggleAudience}
+              className={`px-4 py-2 rounded-full transition-all text-sm font-medium ${
+                audienceType === 'unternehmen' 
+                  ? 'bg-[var(--lohn-primary)] text-white' 
+                  : 'text-gray-600 hover:text-[var(--lohn-primary)]'
+              }`}
+            >
+              Unternehmen
+            </button>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium">
-              Für Steuerberater
+            <Link 
+              href="/" 
+              className={`text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${location === '/' ? 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]' : ''}`}
+            >
+              Startseite
             </Link>
-            <Link href="/unternehmen" className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium">
-              Für Unternehmen
-            </Link>
+            
+            {/* Solutions Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                className={`flex items-center space-x-1 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${location.includes('/loesungen') ? 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]' : ''}`}
+              >
+                <span>Lösungen</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isSolutionsOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                  <Link 
+                    href="/loesungen/lohnerhoehung"
+                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    onClick={() => setIsSolutionsOpen(false)}
+                  >
+                    <div className="font-medium">Lohnerhöhung</div>
+                    <div className="text-sm text-gray-500">Exakte Berechnungen auf DATEV-Niveau</div>
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <button 
               onClick={() => scrollToSection('roadmap')}
               className="text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"

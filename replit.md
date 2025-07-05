@@ -106,4 +106,8 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
-- July 05, 2025. Initial setup
+- July 05, 2025: Initial setup
+- July 05, 2025: Implemented new navigation structure with "Lösungen" dropdown menu and audience toggle slider
+- July 05, 2025: Created dedicated feature page for "Lohnerhöhung" with detailed benefits comparison
+- July 05, 2025: Restructured homepage to highlight key features and direct to feature pages
+- July 05, 2025: Enhanced user experience by removing tags and adding current page highlighting

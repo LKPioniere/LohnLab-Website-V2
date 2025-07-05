@@ -1,5 +1,6 @@
 import { Linkedin } from "lucide-react";
 import { SiXing } from "react-icons/si";
+import { Link } from "wouter";
 import lohnlabLogo from "@assets/LohnLab_Logo_White300px (1)_1751742744696.png";
 
 export default function Footer() {
@@ -76,13 +77,13 @@ export default function Footer() {
                   Kontakt
                 </button>
               </li>
-              <li><a href="#" className="hover:text-white transition-colors">Impressum</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Datenschutz</a></li>
+              <li><Link href="/impressum" className="hover:text-white transition-colors">Impressum</Link></li>
+              <li><Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</Link></li>
             </ul>
           </div>
         </div>
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-blue-100">
-          <p>&copy; 2024 LohnLab GmbH. Alle Rechte vorbehalten.</p>
+          <p>&copy; 2025 LohnLab GmbH. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

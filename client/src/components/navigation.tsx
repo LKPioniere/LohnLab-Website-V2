@@ -7,8 +7,10 @@ import lohnlabLogo from "@assets/LohnLab_Logo_Blue300px (1)_1751742744672.png";
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  const [audienceType, setAudienceType] = useState<'steuerberater' | 'unternehmen'>('steuerberater');
   const [location] = useLocation();
+  
+  // Determine audience type based on current page
+  const audienceType = location === '/unternehmen' ? 'unternehmen' : 'steuerberater';
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -19,7 +21,12 @@ export default function Navigation() {
   };
 
   const toggleAudience = () => {
-    setAudienceType(audienceType === 'steuerberater' ? 'unternehmen' : 'steuerberater');
+    // Navigate to the appropriate page based on current audience type
+    if (audienceType === 'steuerberater') {
+      window.location.href = '/unternehmen';
+    } else {
+      window.location.href = '/';
+    }
   };
 
   return (

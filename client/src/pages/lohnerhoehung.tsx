@@ -391,7 +391,7 @@ export default function Lohnerhoehung() {
                       <th className="pb-4 text-gray-600 font-medium">Kriterium</th>
                       <th className="pb-4 text-center">Excel-Schätzung</th>
                       <th className="pb-4 text-center">Online-Rechner</th>
-                      <th className="pb-4 text-center bg-blue-500 text-white rounded-t-lg">
+                      <th className="pb-4 text-center bg-[var(--lohn-primary)] text-white">
                         LohnLab Cockpit
                       </th>
                     </tr>
@@ -400,7 +400,7 @@ export default function Lohnerhoehung() {
                     <tr className="border-b border-gray-100">
                       <td className="py-4 font-medium">
                         <div className="flex items-center space-x-2">
-                          <span>Genauigkeit</span>
+                          <span>Exakter Lohn</span>
                           <Tooltip>
                             <TooltipTrigger>
                               <HelpCircle className="w-4 h-4 text-gray-400" />
@@ -411,16 +411,16 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
-                      <td className="py-4 text-center text-gray-600 font-mono">~</td>
-                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">~</td>
+                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
                         ✓
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
                       <td className="py-4 font-medium">
                         <div className="flex items-center space-x-2">
-                          <span>Mehrere Mitarbeiter</span>
+                          <span>Massenbearbeitung</span>
                           <Tooltip>
                             <TooltipTrigger>
                               <HelpCircle className="w-4 h-4 text-gray-400" />
@@ -431,16 +431,16 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✓</td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
-                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✓</td>
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
+                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
                         ✓
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
                       <td className="py-4 font-medium">
                         <div className="flex items-center space-x-2">
-                          <span>Speichern & Wiederholen</span>
+                          <span>Drafts</span>
                           <Tooltip>
                             <TooltipTrigger>
                               <HelpCircle className="w-4 h-4 text-gray-400" />
@@ -451,9 +451,9 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✓</td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
-                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✓</td>
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
+                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
                         ✓
                       </td>
                     </tr>
@@ -471,9 +471,9 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
-                      <td className="py-4 text-center text-gray-600 font-mono">~</td>
-                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">~</td>
+                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
                         ✓
                       </td>
                     </tr>
@@ -491,9 +491,9 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
-                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
-                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
+                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
+                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
                         ✓
                       </td>
                     </tr>

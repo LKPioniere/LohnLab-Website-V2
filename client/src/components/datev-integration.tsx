@@ -51,41 +51,41 @@ export default function DatevIntegration() {
           </div>
         </div>
 
-        {/* Erweiterte DATEV-Features */}
+        {/* Praktischer Workflow */}
         <div className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-2xl p-8 text-white mt-16">
-          <h3 className="text-2xl font-bold mb-8 text-center">Von der Berechnung zur Umsetzung</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">So funktioniert es in der Praxis</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calculator className="text-white text-xl" />
               </div>
-              <h4 className="font-semibold mb-3">Berechnung</h4>
-              <p className="text-blue-100 text-sm">Präzise Lohnoptimierung mit echtem DATEV-Lohnprogramm</p>
+              <h4 className="font-semibold mb-3">Exakte Berechnung</h4>
+              <p className="text-blue-100 text-sm">Lohnerhöhungen und neue Gehälter werden mit aktuellen DATEV-Stammdaten berechnet</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileDown className="text-white text-xl" />
               </div>
-              <h4 className="font-semibold mb-3">Probeabrechnungen</h4>
-              <p className="text-blue-100 text-sm">Transparente Downloads im DATEV-Format für Mandantenkommunikation</p>
+              <h4 className="font-semibold mb-3">Entwürfe speichern</h4>
+              <p className="text-blue-100 text-sm">Verschiedene Szenarien jederzeit für spätere Meetings oder Entscheidungen zwischenspeichern</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Send className="text-white text-xl" />
               </div>
-              <h4 className="font-semibold mb-3">Umsetzung</h4>
-              <p className="text-blue-100 text-sm">Direkte Übertragung ins DATEV-System ohne Medienbrüche</p>
+              <h4 className="font-semibold mb-3">Umsetzung per Klick</h4>
+              <p className="text-blue-100 text-sm">Alle optimierten Gehaltsdaten gehen per Knopfdruck zurück ins DATEV-System</p>
             </div>
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h4 className="text-lg font-semibold mb-4">Vorteile für Unternehmen und ihre Steuerberater</h4>
+            <h4 className="text-lg font-semibold mb-4">Vorteile für Steuerberater und Unternehmen</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-blue-100">
               <div>
-                <p>✓ Kein Email-Ping-Pong</p>
+                <p>✓ Kein E-Mail-Ping-Pong</p>
                 <p>✓ Keine Übertragungsfehler</p>
               </div>
               <div>

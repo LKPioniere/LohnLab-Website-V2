@@ -421,10 +421,10 @@ export default function Lohnerhoehung() {
                         </div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-mono font-bold text-lg">✕</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-yellow-100 text-yellow-600 rounded-full font-mono font-bold text-lg">~</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">~</span>
                       </td>
                       <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
@@ -447,10 +447,10 @@ export default function Lohnerhoehung() {
                         </div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-600 rounded-full font-mono font-bold text-lg">✓</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✓</span>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-mono font-bold text-lg">✕</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
                       </td>
                       <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
@@ -473,10 +473,10 @@ export default function Lohnerhoehung() {
                         </div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-600 rounded-full font-mono font-bold text-lg">✓</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✓</span>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-mono font-bold text-lg">✕</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
                       </td>
                       <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
@@ -499,10 +499,10 @@ export default function Lohnerhoehung() {
                         </div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-mono font-bold text-lg">✕</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-yellow-100 text-yellow-600 rounded-full font-mono font-bold text-lg">~</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">~</span>
                       </td>
                       <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>

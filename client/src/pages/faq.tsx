@@ -17,6 +17,7 @@ import { useMutation } from "@tanstack/react-query";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import faqArbeitgeberPdf from "@assets/FAQ_LohnLab_Arbeitgeber (2)_1751828923975.pdf";
+import faqPreviewImg from "@/assets/faq-preview.png";
 
 export default function FAQ() {
   const [activeView, setActiveView] = useState<"mitarbeiter" | "arbeitgeber">("mitarbeiter");
@@ -282,70 +283,161 @@ export default function FAQ() {
             )}
           </div>
 
-          {/* FAQ Content */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
-            <div className="mb-6">
-              <Badge variant="secondary" className="mb-2">
-                {activeView === "mitarbeiter" ? "Mitarbeiter-FAQ" : "Arbeitgeber-FAQ"}
-              </Badge>
-              <p className="text-gray-600">
-                {activeView === "mitarbeiter" 
-                  ? "Antworten zu Ihrem Lohnkonzept, der givve® Card und weiteren Mitarbeiter-Services."
-                  : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für Ihr Unternehmen."
-                }
-              </p>
-              
-              {activeView === "arbeitgeber" && (
-                <div className="mt-4 p-4 bg-gradient-to-r from-[var(--lohn-primary)]/5 to-[var(--lohn-secondary)]/5 rounded-lg border border-[var(--lohn-primary)]/20">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-semibold text-[var(--lohn-primary)] mb-1">
-                        Umfassende FAQ als PDF
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        Alle wichtigen Fragen und Antworten für Arbeitgeber kompakt zusammengefasst
-                      </p>
-                    </div>
-                    <Button 
-                      asChild 
-                      className="bg-[var(--lohn-primary)] hover:bg-[var(--lohn-primary)]/90 text-white"
-                    >
-                      <a 
-                        href={faqArbeitgeberPdf} 
-                        download="LohnLab_FAQ_Arbeitgeber.pdf"
-                        className="flex items-center gap-2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Download size={16} />
-                        PDF herunterladen
-                      </a>
-                    </Button>
-                  </div>
+          {/* FAQ Content - Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Column - FAQ List */}
+            <div className="lg:col-span-2">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <div className="mb-6">
+                  <Badge variant="secondary" className="mb-2">
+                    {activeView === "mitarbeiter" ? "Mitarbeiter-FAQ" : "Arbeitgeber-FAQ"}
+                  </Badge>
+                  <p className="text-gray-600">
+                    {activeView === "mitarbeiter" 
+                      ? "Antworten zu Ihrem Lohnkonzept, der givve® Card und weiteren Mitarbeiter-Services."
+                      : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für Ihr Unternehmen."
+                    }
+                  </p>
                 </div>
-              )}
+
+                {filteredFAQs.length > 0 ? (
+                  <Accordion type="single" collapsible value={openAccordion} onValueChange={handleAccordionChange}>
+                    {filteredFAQs.map((faq) => (
+                      <AccordionItem key={faq.id} value={faq.id}>
+                        <AccordionTrigger className="text-left hover:text-[var(--lohn-primary)]">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-gray-700 leading-relaxed">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                ) : (
+                  <div className="text-center py-8">
+                    <HelpCircle className="mx-auto text-gray-400 mb-4" size={48} />
+                    <p className="text-gray-600 mb-2">Keine passenden Fragen gefunden.</p>
+                    <p className="text-sm text-gray-500">Versuchen Sie einen anderen Suchbegriff oder stellen Sie Ihre Frage unten.</p>
+                  </div>
+                )}
+              </div>
             </div>
 
-            {filteredFAQs.length > 0 ? (
-              <Accordion type="single" collapsible value={openAccordion} onValueChange={handleAccordionChange}>
-                {filteredFAQs.map((faq) => (
-                  <AccordionItem key={faq.id} value={faq.id}>
-                    <AccordionTrigger className="text-left hover:text-[var(--lohn-primary)]">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            ) : (
-              <div className="text-center py-8">
-                <HelpCircle className="mx-auto text-gray-400 mb-4" size={48} />
-                <p className="text-gray-600 mb-2">Keine passenden Fragen gefunden.</p>
-                <p className="text-sm text-gray-500">Versuchen Sie einen anderen Suchbegriff oder stellen Sie Ihre Frage unten.</p>
+            {/* Right Column - PDF Preview and Useful Links */}
+            <div className="space-y-6">
+              {/* PDF Preview for Arbeitgeber */}
+              {activeView === "arbeitgeber" && (
+                <div className="bg-white rounded-lg shadow-sm border p-6">
+                  <h3 className="font-semibold text-[var(--lohn-primary)] mb-4">
+                    Umfassende FAQ als PDF
+                  </h3>
+                  <div className="mb-4">
+                    <div className="w-full h-48 bg-gray-50 rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-shadow">
+                      <img 
+                        src={faqPreviewImg} 
+                        alt="FAQ PDF Vorschau" 
+                        className="w-full h-full object-cover"
+                        onClick={() => window.open(faqArbeitgeberPdf, '_blank')}
+                      />
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Alle wichtigen Fragen und Antworten für Arbeitgeber kompakt zusammengefasst
+                  </p>
+                  <Button 
+                    asChild 
+                    className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-primary)]/90 text-white"
+                  >
+                    <a 
+                      href={faqArbeitgeberPdf} 
+                      download="LohnLab_FAQ_Arbeitgeber.pdf"
+                      className="flex items-center justify-center gap-2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Download size={16} />
+                      PDF herunterladen
+                    </a>
+                  </Button>
+                </div>
+              )}
+
+              {/* Useful Links */}
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="font-semibold text-[var(--lohn-primary)] mb-4">
+                  Nützliche Links
+                </h3>
+                <div className="space-y-3">
+                  {/* Mitarbeiter-spezifische Links */}
+                  {activeView === "mitarbeiter" && (
+                    <>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                      >
+                        <a 
+                          href="https://card.givve.com/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink size={16} />
+                          givve® Card Portal
+                        </a>
+                      </Button>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                      >
+                        <a 
+                          href="https://cleverlunch.de/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink size={16} />
+                          cleverlunch
+                        </a>
+                      </Button>
+                    </>
+                  )}
+                  
+                  {/* Arbeitgeber-spezifische Links */}
+                  {activeView === "arbeitgeber" && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                    >
+                      <Link 
+                        href="/"
+                        className="flex items-center gap-2"
+                      >
+                        <ExternalLink size={16} />
+                        LohnLab Cockpit
+                      </Link>
+                    </Button>
+                  )}
+                  
+                  {/* Für beide Gruppen verfügbar */}
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                  >
+                    <Link 
+                      href="/kontakt"
+                      className="flex items-center gap-2"
+                    >
+                      <ExternalLink size={16} />
+                      Persönliche Beratung
+                    </Link>
+                  </Button>
+                </div>
               </div>
-            )}
+            </div>
           </div>
 
           {/* Question Submission */}
@@ -453,70 +545,7 @@ export default function FAQ() {
         </div>
       </section>
 
-      {/* Quick Links */}
-      <section className="py-16 bg-[var(--lohn-primary)] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Nützliche Links</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">
-              <CardContent className="p-6 text-center">
-                <ExternalLink className="mx-auto mb-3" size={32} />
-                <h3 className="font-semibold mb-2">givve® Card Portal</h3>
-                <a 
-                  href="https://card.givve.com/login" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/90 hover:text-white underline"
-                >
-                  Karten-Login
-                </a>
-              </CardContent>
-            </Card>
 
-            <Card className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">
-              <CardContent className="p-6 text-center">
-                <ExternalLink className="mx-auto mb-3" size={32} />
-                <h3 className="font-semibold mb-2">cleverlunch</h3>
-                <a 
-                  href="https://app.mehrgehalt.de/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/90 hover:text-white underline"
-                >
-                  Essensmarken-Portal
-                </a>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">
-              <CardContent className="p-6 text-center">
-                <ExternalLink className="mx-auto mb-3" size={32} />
-                <h3 className="font-semibold mb-2">LohnLab Cockpit</h3>
-                <a 
-                  href="https://cockpit.lohnlab.de" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/90 hover:text-white underline"
-                >
-                  Direkt zum Cockpit
-                </a>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">
-              <CardContent className="p-6 text-center">
-                <HelpCircle className="mx-auto mb-3" size={32} />
-                <h3 className="font-semibold mb-2">Persönliche Beratung</h3>
-                <Link href="/kontakt">
-                  <Button size="sm" className="mt-2 bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90">
-                    Termin buchen
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>

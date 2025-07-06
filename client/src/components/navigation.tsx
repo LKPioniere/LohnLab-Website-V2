@@ -14,42 +14,64 @@ export default function Navigation() {
   const [location] = useLocation();
   const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isDarkHero, setIsDarkHero] = useState(false);
+  const [heroBgColor, setHeroBgColor] = useState('');
   
-  // Function to detect if hero section has dark background
+  // Function to detect hero section background and extract colors
   const detectHeroBackground = () => {
     const heroSection = document.querySelector('section');
     if (heroSection) {
       const styles = window.getComputedStyle(heroSection);
       const bgColor = styles.backgroundColor;
       const bgImage = styles.backgroundImage;
-      
-      // Check class names for gradients or dark backgrounds
       const classNames = heroSection.className;
+      
+      // Check for gradients
       const hasGradient = classNames.includes('bg-gradient') || 
                          classNames.includes('from-[var(--lohn-primary)]') ||
                          classNames.includes('to-[var(--lohn-secondary)]') ||
                          bgImage.includes('gradient');
       
-      // Check for specific dark color variables or classes
+      // If it's a gradient, create a similar gradient for nav
+      if (hasGradient) {
+        if (classNames.includes('from-[var(--lohn-primary)]') && classNames.includes('to-[var(--lohn-secondary)]')) {
+          setHeroBgColor('linear-gradient(to bottom right, var(--lohn-primary), var(--lohn-secondary))');
+        } else if (classNames.includes('bg-gradient-to-br')) {
+          // Extract the gradient from computed styles or recreate it
+          setHeroBgColor('linear-gradient(to bottom right, #1e40af, #0f766e)'); // fallback gradient
+        } else {
+          setHeroBgColor('linear-gradient(to right, var(--lohn-primary), var(--lohn-secondary))');
+        }
+        return true;
+      }
+      
+      // For solid colors
+      if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+        setHeroBgColor(bgColor);
+        
+        // Parse RGB values to determine darkness
+        if (bgColor.includes('rgb')) {
+          const rgbMatch = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+          if (rgbMatch) {
+            const [_, r, g, b] = rgbMatch.map(Number);
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            return luminance < 0.5;
+          }
+        }
+      }
+      
+      // Check for dark CSS classes
       const hasDarkBg = classNames.includes('bg-[var(--lohn-primary)]') ||
                        classNames.includes('bg-gray-900') ||
                        classNames.includes('bg-black') ||
                        classNames.includes('bg-slate-900');
       
-      // Parse RGB values to determine darkness
-      let isDarkColor = false;
-      if (bgColor.includes('rgb')) {
-        const rgbMatch = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-        if (rgbMatch) {
-          const [_, r, g, b] = rgbMatch.map(Number);
-          // Calculate luminance to determine if color is dark
-          const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-          isDarkColor = luminance < 0.5;
-        }
+      if (hasDarkBg) {
+        setHeroBgColor('var(--lohn-primary)'); // fallback to primary color
+        return true;
       }
-      
-      return hasGradient || hasDarkBg || isDarkColor;
     }
+    
+    setHeroBgColor('');
     return false;
   };
 
@@ -93,21 +115,24 @@ export default function Navigation() {
 
   // Dynamic styles based on hero visibility and background
   const navBgClass = isHeroVisible && isDarkHero 
-    ? "bg-transparent" 
+    ? "" 
     : "bg-white shadow-sm border-b border-gray-100";
+  
+  const navStyle = isHeroVisible && isDarkHero && heroBgColor
+    ? { background: heroBgColor }
+    : {};
   
   const textColorClass = isHeroVisible && isDarkHero 
     ? "text-white" 
     : "text-gray-700";
   
-  const hoverColorClass = isHeroVisible && isDarkHero 
-    ? "hover:text-gray-200" 
-    : "hover:text-[var(--lohn-primary)]";
-  
   const logoSrc = isHeroVisible && isDarkHero ? lohnlabLogoWhite : lohnlabLogo;
 
   return (
-    <nav className={`${navBgClass} sticky top-0 z-50 transition-all duration-300`}>
+    <nav 
+      className={`${navBgClass} sticky top-0 z-50 transition-all duration-300`}
+      style={navStyle}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">

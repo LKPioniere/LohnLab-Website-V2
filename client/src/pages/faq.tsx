@@ -264,13 +264,13 @@ export default function FAQ() {
 
           {/* PDF Download for Employers */}
           {activeView === "arbeitgeber" && (
-            <div className="bg-[var(--lohn-primary)] bg-opacity-5 rounded-lg shadow-sm border border-[var(--lohn-primary)] border-opacity-20 p-6 mb-8">
+            <div className="bg-[var(--lohn-primary)] rounded-lg shadow-sm p-6 mb-8">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-[var(--lohn-primary)] mb-2">
+                  <h3 className="text-lg font-semibold text-white mb-2">
                     FAQ für Arbeitgeber - PDF Download
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-white opacity-90">
                     Laden Sie hier alle wichtigen Fragen und Antworten für Arbeitgeber als PDF herunter.
                   </p>
                 </div>

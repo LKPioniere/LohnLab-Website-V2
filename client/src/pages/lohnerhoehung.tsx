@@ -336,32 +336,14 @@ export default function Lohnerhoehung() {
 
           {/* Probeabrechnung - Detailed Section */}
           <div className="bg-teal-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-teal-200 mb-12 relative">
-            {/* PDF Icon positioned over left edge */}
-            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-              <img src={pdfIcon} alt="PDF Icon" className="w-8 h-8" />
-            </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Screenshot first on left side */}
+              {/* Text Content - Left Side */}
               <div className="order-first">
-                <div className="relative">
-                  <img 
-                    src={payrollComparison} 
-                    alt="LohnLab Cockpit - Probeabrechnung Vergleich" 
-                    className="w-3/4 mx-auto rounded-xl shadow-lg border border-gray-200 cursor-pointer"
-                    onClick={() => setIsPDFExpanded(true)}
-                  />
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Professionell
-                  </div>
-                  <div className="absolute top-4 right-1/4 bg-white/90 p-2 rounded-lg">
-                    <Expand className="text-gray-600 text-lg" />
-                  </div>
+                <div className="inline-flex items-center px-4 py-2 bg-[var(--lohn-teal)]/10 text-[var(--lohn-teal)] rounded-full text-sm font-medium mb-6">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Professionell
                 </div>
-              </div>
-              
-              {/* Text on right side */}
-              <div className="order-last ml-8 lg:ml-0">
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Probeabrechnung</h3>
                 <div className="space-y-4 text-gray-600">
                   <p className="text-lg">
@@ -375,35 +357,69 @@ export default function Lohnerhoehung() {
                   </p>
                 </div>
               </div>
+              
+              {/* Image - Right Side */}
+              <div className="order-last relative">
+                {/* Professional Tab on left edge */}
+                <div className="absolute -left-4 top-8 bg-[var(--lohn-teal)] text-white px-4 py-2 rounded-r-lg shadow-lg z-10">
+                  <div className="flex items-center space-x-2">
+                    <FileText className="w-4 h-4" />
+                    <span className="font-medium text-sm">Professionell</span>
+                  </div>
+                </div>
+                
+                <div className="relative">
+                  <img 
+                    src={payrollComparison} 
+                    alt="LohnLab Cockpit - Probeabrechnung Vergleich" 
+                    className="w-3/4 mx-auto rounded-xl shadow-lg border border-gray-200 cursor-pointer"
+                    onClick={() => setIsPDFExpanded(true)}
+                  />
+                  <div className="absolute top-4 right-1/4 bg-white/90 p-2 rounded-lg">
+                    <Expand className="text-gray-600 text-lg" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Comparison Table */}
-          <div className="bg-white rounded-2xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-8 text-center">
-              LohnLab vs. Herkömmliche Methoden
-            </h3>
+          <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-2xl border border-gray-100">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center px-6 py-3 bg-[var(--lohn-primary)]/10 text-[var(--lohn-primary)] rounded-full text-sm font-medium mb-4">
+                <BarChart3 className="w-4 h-4 mr-2" />
+                Vergleichsanalyse
+              </div>
+              <h3 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4">
+                LohnLab vs. Herkömmliche Methoden
+              </h3>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Sehen Sie auf einen Blick, warum LohnLab Cockpit die professionellste Lösung für Ihre Lohnberechnungen ist
+              </p>
+            </div>
             <TooltipProvider>
               <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table className="w-full text-left rounded-2xl overflow-hidden shadow-lg">
                   <thead>
-                    <tr className="border-b-2 border-gray-200">
-                      <th className="pb-4 text-gray-600 font-medium">Kriterium</th>
-                      <th className="pb-4 text-center">Excel-Schätzung</th>
-                      <th className="pb-4 text-center">Online-Rechner</th>
-                      <th className="pb-4 text-center bg-[var(--lohn-primary)] text-white">
-                        LohnLab Cockpit
+                    <tr className="bg-gradient-to-r from-gray-50 to-gray-100">
+                      <th className="py-6 px-6 text-gray-700 font-semibold text-lg">Kriterium</th>
+                      <th className="py-6 px-4 text-center text-gray-700 font-semibold">Excel-Schätzung</th>
+                      <th className="py-6 px-4 text-center text-gray-700 font-semibold">Online-Rechner</th>
+                      <th className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white font-semibold relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
+                        <span className="relative z-10">LohnLab Cockpit</span>
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="space-y-4">
-                    <tr className="border-b border-gray-100">
-                      <td className="py-4 font-medium">
-                        <div className="flex items-center space-x-2">
+                  <tbody className="bg-white divide-y divide-gray-100">
+                    <tr className="hover:bg-gray-50/50 transition-colors">
+                      <td className="py-6 px-6 font-semibold text-gray-800">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-2 h-8 bg-[var(--lohn-primary)] rounded-full"></div>
                           <span>Exakter Lohn</span>
                           <Tooltip>
                             <TooltipTrigger>
-                              <HelpCircle className="w-4 h-4 text-gray-400" />
+                              <HelpCircle className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
                             </TooltipTrigger>
                             <TooltipContent className="max-w-xs">
                               <p>Präzise Berechnung aller steuerlichen und sozialversicherungsrechtlichen Aspekte einer Lohnerhöhung, einschließlich progressiver Steuereffekte und individueller Freibeträge.</p>
@@ -411,14 +427,19 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">~</td>
-                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
-                        ✓
+                      <td className="py-6 px-4 text-center">
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-mono font-bold text-lg">✕</span>
+                      </td>
+                      <td className="py-6 px-4 text-center">
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-yellow-100 text-yellow-600 rounded-full font-mono font-bold text-lg">~</span>
+                      </td>
+                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
+                        <span className="relative z-10 inline-flex items-center justify-center w-8 h-8 bg-white/20 text-white rounded-full font-mono font-bold text-lg">✓</span>
                       </td>
                     </tr>
-                    <tr className="border-b border-gray-100">
-                      <td className="py-4 font-medium">
+                    <tr className="hover:bg-gray-50/50 transition-colors">
+                      <td className="py-6 px-6 font-semibold text-gray-800">
                         <div className="flex items-center space-x-2">
                           <span>Massenbearbeitung</span>
                           <Tooltip>
@@ -431,14 +452,14 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✓</td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
-                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
+                      <td className="py-6 px-4 text-center">✓</td>
+                      <td className="py-6 px-4 text-center">✕</td>
+                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         ✓
                       </td>
                     </tr>
-                    <tr className="border-b border-gray-100">
-                      <td className="py-4 font-medium">
+                    <tr className="hover:bg-gray-50/50 transition-colors">
+                      <td className="py-6 px-6 font-semibold text-gray-800">
                         <div className="flex items-center space-x-2">
                           <span>Drafts</span>
                           <Tooltip>
@@ -451,14 +472,14 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✓</td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
-                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
+                      <td className="py-6 px-4 text-center">✓</td>
+                      <td className="py-6 px-4 text-center">✕</td>
+                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         ✓
                       </td>
                     </tr>
-                    <tr className="border-b border-gray-100">
-                      <td className="py-4 font-medium">
+                    <tr className="hover:bg-gray-50/50 transition-colors">
+                      <td className="py-6 px-6 font-semibold text-gray-800">
                         <div className="flex items-center space-x-2">
                           <span>Midi-/Minijobs</span>
                           <Tooltip>
@@ -471,14 +492,14 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">~</td>
-                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
+                      <td className="py-6 px-4 text-center">✕</td>
+                      <td className="py-6 px-4 text-center">~</td>
+                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         ✓
                       </td>
                     </tr>
                     <tr>
-                      <td className="py-4 font-medium">
+                      <td className="py-6 px-6 font-semibold text-gray-800">
                         <div className="flex items-center space-x-2">
                           <span>Probeabrechnungen</span>
                           <Tooltip>
@@ -491,9 +512,9 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
-                      <td className="py-4 text-center text-gray-600 font-mono font-bold">✕</td>
-                      <td className="py-4 text-center bg-[var(--lohn-primary)] text-white font-mono font-bold">
+                      <td className="py-6 px-4 text-center">✕</td>
+                      <td className="py-6 px-4 text-center">✕</td>
+                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         ✓
                       </td>
                     </tr>

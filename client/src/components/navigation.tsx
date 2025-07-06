@@ -43,9 +43,12 @@ export default function Navigation() {
             </Link>
             
             {/* Solutions Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsSolutionsOpen(true)}
+              onMouseLeave={() => setIsSolutionsOpen(false)}
+            >
               <button
-                onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
                 className={`flex items-center space-x-1 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${location.includes('/loesungen') ? 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]' : ''}`}
               >
                 <span>Lösungen</span>
@@ -101,9 +104,12 @@ export default function Navigation() {
             </div>
             
             {/* Login Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsLoginOpen(true)}
+              onMouseLeave={() => setIsLoginOpen(false)}
+            >
               <button
-                onClick={() => setIsLoginOpen(!isLoginOpen)}
                 className="flex items-center space-x-1 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
               >
                 <span>Login</span>

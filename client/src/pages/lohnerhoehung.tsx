@@ -202,9 +202,9 @@ export default function Lohnerhoehung() {
                     </div>
 
                     {/* Dynamic Netto Amount */}
-                    <div className="bg-white rounded-lg p-3 border border-gray-200 inline-block">
-                      <div className="text-center">
-                        <span className="text-xs text-gray-600 block">Netto-Betrag:</span>
+                    <div className="bg-white rounded-lg p-3 border border-gray-200 w-full">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">Netto-Betrag:</span>
                         <div className="text-xl font-bold text-[rgb(15,34,137)] transition-all duration-300">
                           {calculateNettoAmount()}
                         </div>

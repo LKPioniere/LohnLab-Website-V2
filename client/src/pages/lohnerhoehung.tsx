@@ -395,10 +395,7 @@ export default function Lohnerhoehung() {
                     <tr className="bg-gradient-to-r from-gray-50 to-gray-100">
                       <th className="py-6 px-6 text-gray-700 font-semibold text-lg">Kriterium</th>
                       <th className="py-6 px-4 text-center text-gray-700 font-semibold">
-                        <div className="flex items-center justify-center space-x-2">
-                          <img src={excelIcon} alt="Excel" className="w-6 h-6" />
-                          <span>Excel</span>
-                        </div>
+                        <img src={excelIcon} alt="Excel" className="w-8 h-8 mx-auto" />
                       </th>
                       <th className="py-6 px-4 text-center text-gray-700 font-semibold">Online-Rechner</th>
                       <th className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white font-semibold relative">
@@ -528,10 +525,10 @@ export default function Lohnerhoehung() {
                         </div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-mono font-bold text-lg">✕</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-mono font-bold text-lg">✕</span>
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
                       </td>
                       <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>

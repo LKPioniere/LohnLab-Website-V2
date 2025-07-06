@@ -37,7 +37,7 @@ export default function DatevIntegration() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[var(--lohn-primary)]">Rückübertragung</h4>
-                  <p className="text-gray-600">Optimierte Gehaltsdaten zurück ins DATEV – nahtlos und fehlerfrei</p>
+                  <p className="text-gray-600">Optimierte Gehaltsdaten zurück nach DATEV – nahtlos und fehlerfrei</p>
                 </div>
               </div>
             </div>
@@ -51,48 +51,46 @@ export default function DatevIntegration() {
           </div>
         </div>
 
-        {/* Intelligenter Datenkreislauf */}
+        {/* Erweiterte DATEV-Features */}
         <div className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-2xl p-8 text-white mt-16">
-          <h3 className="text-2xl font-bold mb-8 text-center">Der intelligente Datenkreislauf</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">Von der Berechnung zur Umsetzung</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Database className="text-white text-xl" />
+                <Calculator className="text-white text-xl" />
               </div>
-              <h4 className="font-semibold mb-3">Stammdaten-Sync</h4>
-              <p className="text-blue-100 text-sm">Ihre DATEV-Daten fließen automatisch ins Cockpit – immer aktuell, immer präzise</p>
+              <h4 className="font-semibold mb-3">Berechnung</h4>
+              <p className="text-blue-100 text-sm">Präzise Lohnoptimierung mit echtem DATEV-Lohnprogramm</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calculator className="text-white text-xl" />
+                <FileDown className="text-white text-xl" />
               </div>
-              <h4 className="font-semibold mb-3">Intelligente Optimierung</h4>
-              <p className="text-blue-100 text-sm">Lohnerhöhungen und Neueinstellungen werden mit echten Daten berechnet – fehlerfrei</p>
+              <h4 className="font-semibold mb-3">Probeabrechnungen</h4>
+              <p className="text-blue-100 text-sm">Transparente Downloads im DATEV-Format für Mandantenkommunikation</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Send className="text-white text-xl" />
               </div>
-              <h4 className="font-semibold mb-3">Nahtlose Rückführung</h4>
-              <p className="text-blue-100 text-sm">Optimierte Gehaltsdaten kehren direkt ins DATEV zurück – ohne Medienbruch</p>
+              <h4 className="font-semibold mb-3">Umsetzung</h4>
+              <p className="text-blue-100 text-sm">Direkte Übertragung ins DATEV-System ohne Medienbrüche</p>
             </div>
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h4 className="text-lg font-semibold mb-4">Revolution für Steuerberater und Unternehmen</h4>
+            <h4 className="text-lg font-semibold mb-4">Vorteile für Unternehmen und ihre Steuerberater</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-blue-100">
               <div>
-                <p>✓ Bidirektionale Schnittstelle eliminiert Doppelarbeiten</p>
-                <p>✓ Echte Stammdaten statt Schätzungen</p>
-                <p>✓ Fehlerfreie Datenübertragung</p>
+                <p>✓ Kein Email-Ping-Pong</p>
+                <p>✓ Keine Übertragungsfehler</p>
               </div>
               <div>
-                <p>✓ Automatisierter Workflow spart Stunden</p>
-                <p>✓ DSGVO-konforme Verschlüsselung</p>
-                <p>✓ Sofortige Verfügbarkeit optimierter Daten</p>
+                <p>✓ DSGVO-konform</p>
+                <p>✓ Zeitersparnis durch Automatisierung</p>
               </div>
             </div>
           </div>

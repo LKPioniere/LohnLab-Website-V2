@@ -143,24 +143,8 @@ export default function Lohnerhoehung() {
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Problem Description */}
-              <div className="mr-8 lg:mr-0">
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Ungenaue Online-Rechner</h3>
-                <div className="space-y-4 text-gray-600">
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Ungewisse Aktualität:</strong> Online Brutto-Nettorechner gibt es viele, sie rechnen immerhin schonmal einen genaueren Lohn. Aber wer gibt mir die Garantie, dass sie immer die aktuellen kalkulatorischen Regelungen des BAMF verfolgen?
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Einzelbearbeitung:</strong> Sobald ich mehr als einen Mitarbeiter habe, muss ich in mühevoller Handarbeit jeden Mitarbeiter einzeln durchrechnen.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Fehlende Stammdaten:</strong> Sie kennen natürlich nicht meine Personalstammdaten, also muss ich sie jedes Mal eingeben.
-                  </p>
-                </div>
-              </div>
-
               {/* Interactive Calculator Demo */}
-              <div className="order-last lg:order-last">
+              <div className="order-first">
                 <div className="relative">
                   <div 
                     className="rounded-xl p-8 border-2 shadow-lg"
@@ -169,10 +153,6 @@ export default function Lohnerhoehung() {
                       borderColor: 'rgb(15,34,137)'
                     }}
                   >
-                    <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      Aufwändig
-                    </div>
-                    
                     <h4 className="text-xl font-semibold text-white mb-6 text-center">
                       Übergangsbereich berücksichtigen?
                     </h4>
@@ -184,14 +164,14 @@ export default function Lohnerhoehung() {
                         <span className="text-sm text-blue-200">{isMinijobActive ? "An" : "Aus"}</span>
                       </div>
                       <div 
-                        className={`relative w-full h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
+                        className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
                           isMinijobActive ? "bg-green-400" : "bg-white/20"
                         }`}
                         onClick={handleMinijobToggle}
                       >
                         <div 
                           className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
-                            isMinijobActive ? "transform translate-x-10" : "translate-x-1"
+                            isMinijobActive ? "transform translate-x-8" : "translate-x-1"
                           }`}
                         />
                       </div>
@@ -204,29 +184,49 @@ export default function Lohnerhoehung() {
                         <span className="text-sm text-blue-200">{isMidijobActive ? "An" : "Aus"}</span>
                       </div>
                       <div 
-                        className={`relative w-full h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
+                        className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
                           isMidijobActive ? "bg-green-400" : "bg-white/20"
                         }`}
                         onClick={handleMidijobToggle}
                       >
                         <div 
                           className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
-                            isMidijobActive ? "transform translate-x-10" : "translate-x-1"
+                            isMidijobActive ? "transform translate-x-8" : "translate-x-1"
                           }`}
                         />
                       </div>
                     </div>
 
                     {/* Dynamic Netto Amount */}
-                    <div className="bg-white rounded-xl p-6 border border-gray-200">
+                    <div className="bg-white rounded-lg p-3 border border-gray-200 inline-block">
                       <div className="text-center">
-                        <span className="text-sm text-gray-600 block mb-2">Netto-Betrag:</span>
-                        <div className="text-3xl font-bold text-[rgb(15,34,137)] transition-all duration-300">
+                        <span className="text-xs text-gray-600 block">Netto-Betrag:</span>
+                        <div className="text-xl font-bold text-[rgb(15,34,137)] transition-all duration-300">
                           {calculateNettoAmount()}
                         </div>
                       </div>
                     </div>
+                    
+                    <div className="absolute bottom-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      Aufwändig
+                    </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Problem Description */}
+              <div className="order-last lg:order-last ml-8 lg:ml-0">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Ungenaue Online-Rechner</h3>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Ungewisse Aktualität:</strong> Online Brutto-Nettorechner sind weit verbreitet und rechnen bereits präziser als Excel-Schätzungen. Doch wer garantiert, dass diese Tools stets die neuesten kalkulatorischen Regelungen des BAMF berücksichtigen?
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Einzelbearbeitung:</strong> Bei mehreren Mitarbeitern bedeutet dies mühevolle Handarbeit - jeder Einzelne muss separat durchgerechnet werden.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Fehlende Stammdaten:</strong> Da diese Rechner keine Personalstammdaten kennen, müssen alle relevanten Informationen bei jeder Berechnung erneut eingegeben werden.
+                  </p>
                 </div>
               </div>
             </div>

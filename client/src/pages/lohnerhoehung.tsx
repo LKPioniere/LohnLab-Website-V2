@@ -87,7 +87,7 @@ export default function Lohnerhoehung() {
       </section>
 
       {/* Problem Statement */}
-      <section id="problem" className="py-20 bg-gray-50">
+      <section id="problem" className="py-20 bg-red-25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
@@ -412,10 +412,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center">❌ Ungenau</td>
-                      <td className="py-4 text-center">⚠️ Eingeschränkt</td>
+                      <td className="py-4 text-center text-gray-600">✗</td>
+                      <td className="py-4 text-center text-gray-600">≈</td>
                       <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✅ Professionell</span>
+                        <span className="font-medium">✓ Professionell</span>
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
@@ -432,10 +432,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center">❌ Einzeln</td>
-                      <td className="py-4 text-center">❌ Einzeln</td>
+                      <td className="py-4 text-center text-gray-600">✓</td>
+                      <td className="py-4 text-center text-gray-600">✗</td>
                       <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✅ Gleichzeitig</span>
+                        <span className="font-medium">✓ Gleichzeitig</span>
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
@@ -452,10 +452,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center">⚠️ Manuell</td>
-                      <td className="py-4 text-center">❌ Nicht möglich</td>
+                      <td className="py-4 text-center text-gray-600">✓</td>
+                      <td className="py-4 text-center text-gray-600">✗</td>
                       <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✅ Automatisch</span>
+                        <span className="font-medium">✓ Automatisch</span>
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
@@ -472,10 +472,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center">❌ Nicht unterstützt</td>
-                      <td className="py-4 text-center">❌ Meist nicht</td>
+                      <td className="py-4 text-center text-gray-600">✗</td>
+                      <td className="py-4 text-center text-gray-600">≈</td>
                       <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✅ Vollständig</span>
+                        <span className="font-medium">✓ Vollständig</span>
                       </td>
                     </tr>
                     <tr>
@@ -492,10 +492,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center">❌ Nicht möglich</td>
-                      <td className="py-4 text-center">❌ Nicht möglich</td>
+                      <td className="py-4 text-center text-gray-600">✗</td>
+                      <td className="py-4 text-center text-gray-600">✗</td>
                       <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✅ Professionell</span>
+                        <span className="font-medium">✓ Professionell</span>
                       </td>
                     </tr>
                   </tbody>

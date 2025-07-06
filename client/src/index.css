@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom background for problem section */
+.bg-red-25 {
+  background-color: rgb(254, 251, 251);
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);

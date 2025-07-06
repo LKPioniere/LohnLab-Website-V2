@@ -3,7 +3,7 @@ import Navigation from "@/components/navigation";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X } from "lucide-react";
+import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import berechnungsparameter from "@/assets/berechnungsparameter.png";
 import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
@@ -11,10 +11,32 @@ import excelIcon from "@/assets/excel-icon.png";
 
 export default function Lohnerhoehung() {
   const [isImageExpanded, setIsImageExpanded] = useState(false);
+  const [isMinijobActive, setIsMinijobActive] = useState(false);
+  const [isMidijobActive, setIsMidijobActive] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleMinijobToggle = () => {
+    setIsMinijobActive(!isMinijobActive);
+    if (!isMinijobActive) {
+      setIsMidijobActive(false); // Deactivate Midijob when activating Minijob
+    }
+  };
+
+  const handleMidijobToggle = () => {
+    setIsMidijobActive(!isMidijobActive);
+    if (!isMidijobActive) {
+      setIsMinijobActive(false); // Deactivate Minijob when activating Midijob
+    }
+  };
+
+  const calculateNettoAmount = () => {
+    if (isMinijobActive) return "524€";
+    if (isMidijobActive) return "1.450€";
+    return "2.200€";
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -116,14 +138,89 @@ export default function Lohnerhoehung() {
           {/* Other Problems - Card Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                <Calculator className="text-red-600 text-2xl" />
+            {/* Online Calculator Problem - Interactive Section */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100 relative">
+              {/* Browser Icon positioned over left edge */}
+              <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+                <Globe className="text-blue-600 text-2xl" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Ungenaue Online-Rechner</h3>
-              <p className="text-gray-600">
-                Tools wie brutto-netto-rechner.de berücksichtigen nicht alle Faktoren wie Umlagen, Berufsgenossenschaftsbeiträge oder Midi-/Minijobs.
-              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                {/* Interactive Calculator Demo */}
+                <div className="order-first">
+                  <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-4 text-center">
+                      Übergangsbereich berücksichtigen?
+                    </h4>
+                    
+                    {/* Minijob Slider */}
+                    <div className="mb-6">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-gray-700">Minijob (bis 538 €)</span>
+                        <span className="text-sm text-gray-500">{isMinijobActive ? "An" : "Aus"}</span>
+                      </div>
+                      <div 
+                        className={`relative w-full h-6 rounded-full cursor-pointer transition-colors ${
+                          isMinijobActive ? "bg-blue-500" : "bg-gray-300"
+                        }`}
+                        onClick={handleMinijobToggle}
+                      >
+                        <div 
+                          className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow-md transition-transform ${
+                            isMinijobActive ? "transform translate-x-8" : ""
+                          }`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Midijob Slider */}
+                    <div className="mb-6">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-gray-700">Midijob (bis 2.000 €)</span>
+                        <span className="text-sm text-gray-500">{isMidijobActive ? "An" : "Aus"}</span>
+                      </div>
+                      <div 
+                        className={`relative w-full h-6 rounded-full cursor-pointer transition-colors ${
+                          isMidijobActive ? "bg-blue-500" : "bg-gray-300"
+                        }`}
+                        onClick={handleMidijobToggle}
+                      >
+                        <div 
+                          className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow-md transition-transform ${
+                            isMidijobActive ? "transform translate-x-8" : ""
+                          }`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Dynamic Netto Amount */}
+                    <div className="bg-white rounded-lg p-4 border border-gray-200">
+                      <div className="text-center">
+                        <span className="text-sm text-gray-600">Netto-Betrag:</span>
+                        <div className="text-2xl font-bold text-[var(--lohn-primary)] mt-1">
+                          {calculateNettoAmount()}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Problem Description */}
+                <div className="ml-8 lg:ml-0">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">Ungenaue Online-Rechner</h3>
+                  <div className="space-y-3 text-gray-600">
+                    <p>
+                      <strong className="text-gray-800">Ungewisse Aktualität:</strong> Online Brutto-Nettorechner gibt es viele, sie rechnen immerhin schonmal einen genaueren Lohn. Aber wer gibt mir die Garantie, dass sie immer die aktuellen kalkulatorischen Regelungen des BAMF verfolgen?
+                    </p>
+                    <p>
+                      <strong className="text-gray-800">Einzelbearbeitung:</strong> Sobald ich mehr als einen Mitarbeiter habe, muss ich in mühevoller Handarbeit jeden Mitarbeiter einzeln durchrechnen.
+                    </p>
+                    <p>
+                      <strong className="text-gray-800">Fehlende Stammdaten:</strong> Sie kennen natürlich nicht meine Personalstammdaten, also muss ich sie jedes Mal eingeben.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">

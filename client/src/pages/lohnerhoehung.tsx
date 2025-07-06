@@ -243,8 +243,7 @@ export default function Lohnerhoehung() {
         </div>
       </section>
 
-      {/* Clear visual separator between problems and solutions */}
-      <div className="bg-gradient-to-r from-red-100 via-gray-100 to-green-100 h-2"></div>
+
 
       {/* Solution */}
       <section id="vorteile" className="py-20 bg-gray-50">
@@ -392,7 +391,7 @@ export default function Lohnerhoehung() {
                       <th className="pb-4 text-gray-600 font-medium">Kriterium</th>
                       <th className="pb-4 text-center">Excel-Schätzung</th>
                       <th className="pb-4 text-center">Online-Rechner</th>
-                      <th className="pb-4 text-center bg-[var(--lohn-purple)] text-white rounded-t-lg">
+                      <th className="pb-4 text-center bg-blue-500 text-white rounded-t-lg">
                         LohnLab Cockpit
                       </th>
                     </tr>
@@ -412,10 +411,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600">✗</td>
-                      <td className="py-4 text-center text-gray-600">≈</td>
-                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✓ Professionell</span>
+                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
+                      <td className="py-4 text-center text-gray-600 font-mono">~</td>
+                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                        ✓
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
@@ -432,10 +431,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600">✓</td>
-                      <td className="py-4 text-center text-gray-600">✗</td>
-                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✓ Gleichzeitig</span>
+                      <td className="py-4 text-center text-gray-600 font-mono">✓</td>
+                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
+                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                        ✓
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
@@ -452,10 +451,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600">✓</td>
-                      <td className="py-4 text-center text-gray-600">✗</td>
-                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✓ Automatisch</span>
+                      <td className="py-4 text-center text-gray-600 font-mono">✓</td>
+                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
+                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                        ✓
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
@@ -472,10 +471,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600">✗</td>
-                      <td className="py-4 text-center text-gray-600">≈</td>
-                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✓ Vollständig</span>
+                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
+                      <td className="py-4 text-center text-gray-600 font-mono">~</td>
+                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                        ✓
                       </td>
                     </tr>
                     <tr>
@@ -492,10 +491,10 @@ export default function Lohnerhoehung() {
                           </Tooltip>
                         </div>
                       </td>
-                      <td className="py-4 text-center text-gray-600">✗</td>
-                      <td className="py-4 text-center text-gray-600">✗</td>
-                      <td className="py-4 text-center bg-[var(--lohn-purple)] text-white">
-                        <span className="font-medium">✓ Professionell</span>
+                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
+                      <td className="py-4 text-center text-gray-600 font-mono">✕</td>
+                      <td className="py-4 text-center bg-blue-500 text-white font-mono">
+                        ✓
                       </td>
                     </tr>
                   </tbody>

@@ -25,19 +25,19 @@ export const GENERAL_BENEFITS = [
  */
 export const HIRING_BENEFITS = [
   {
-    title: 'Dreifache Flexibilität',
-    description: 'Berechnung ab Netto-Wunsch, verfügbarem Budget oder Brutto-Vorgabe - Sie haben die Wahl.'
+    title: 'Flexibler Startpunkt',
+    description: 'Ob Brutto, Netto oder Arbeitgeberbudget – Sie entscheiden, wie gerechnet wird.'
   },
   {
     title: 'Intelligente Vorlagen',
     description: 'Abteilungs- und positionsspezifische Benefit-Pakete einmal definieren, immer wieder nutzen.'
   },
   {
-    title: 'Sofortige Rentabilität',
-    description: 'Sehen Sie auf einen Blick, welche Kosten entstehen und wie sich das Investment rechnet.'
+    title: 'Schnelle Datenweitergabe',
+    description: 'Alle relevanten Mitarbeiterdaten erfassen und per Klick an den Steuerberater übermitteln.'
   },
   {
-    title: 'HR-Effizienz steigern',
-    description: 'Beschleunigen Sie Gehaltsverhandlungen mit transparenten, optimierten Angeboten.'
+    title: 'Zahlt sich doppelt aus',
+    description: 'Bieten Sie Ihren Favoriten mehr Netto als der Wettbewerb – und sparen dabei selbst bares Geld.'
   }
 ];

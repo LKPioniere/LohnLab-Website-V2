@@ -52,7 +52,7 @@ export default function ProductFeaturesSection() {
             <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-6">
               Mühelos Fachkräfte gewinnen
             </h3>
-            <BenefitsList benefits={HIRING_BENEFITS} />
+            <BenefitsList benefits={HIRING_BENEFITS} isHiringBenefits={true} />
           </div>
           <div className="order-2 lg:order-2">
             <img 

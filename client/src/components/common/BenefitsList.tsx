@@ -24,7 +24,7 @@ export default function BenefitsList({ benefits, isHiringBenefits = false }: Ben
         
         return (
           <div key={index} className="flex items-start space-x-3">
-            <div className={`w-6 h-6 ${iconBgColor} rounded-full flex items-center justify-center mt-1`}>
+            <div className={`${isLastHiringBenefit ? 'w-8 h-8' : 'w-6 h-6'} ${iconBgColor} rounded-full flex items-center justify-center mt-1`}>
               <Icon className={`${iconColor} text-sm`} />
             </div>
             <div>

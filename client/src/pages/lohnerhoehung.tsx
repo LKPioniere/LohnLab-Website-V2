@@ -135,102 +135,100 @@ export default function Lohnerhoehung() {
             </div>
           </div>
 
-          {/* Other Problems - Card Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            {/* Online Calculator Problem - Interactive Section */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100 relative">
-              {/* Browser Icon positioned over left edge */}
-              <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-                <Globe className="text-blue-600 text-2xl" />
+          {/* Online Calculator Problem - Full Width Section */}
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-red-100 mb-12 relative">
+            {/* Browser Icon positioned over right edge */}
+            <div className="absolute -right-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+              <Globe className="text-blue-600 text-2xl" />
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Problem Description */}
+              <div className="mr-8 lg:mr-0">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Ungenaue Online-Rechner</h3>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Ungewisse Aktualität:</strong> Online Brutto-Nettorechner gibt es viele, sie rechnen immerhin schonmal einen genaueren Lohn. Aber wer gibt mir die Garantie, dass sie immer die aktuellen kalkulatorischen Regelungen des BAMF verfolgen?
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Einzelbearbeitung:</strong> Sobald ich mehr als einen Mitarbeiter habe, muss ich in mühevoller Handarbeit jeden Mitarbeiter einzeln durchrechnen.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Fehlende Stammdaten:</strong> Sie kennen natürlich nicht meine Personalstammdaten, also muss ich sie jedes Mal eingeben.
+                  </p>
+                </div>
               </div>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                {/* Interactive Calculator Demo */}
-                <div className="order-first">
-                  <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-4 text-center">
+
+              {/* Interactive Calculator Demo */}
+              <div className="order-last lg:order-last">
+                <div className="relative">
+                  <div 
+                    className="rounded-xl p-8 border-2 shadow-lg"
+                    style={{ 
+                      background: 'linear-gradient(135deg, rgb(15,34,137) 0%, rgb(25,54,177) 100%)',
+                      borderColor: 'rgb(15,34,137)'
+                    }}
+                  >
+                    <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      Aufwändig
+                    </div>
+                    
+                    <h4 className="text-xl font-semibold text-white mb-6 text-center">
                       Übergangsbereich berücksichtigen?
                     </h4>
                     
                     {/* Minijob Slider */}
                     <div className="mb-6">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gray-700">Minijob (bis 538 €)</span>
-                        <span className="text-sm text-gray-500">{isMinijobActive ? "An" : "Aus"}</span>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-sm font-medium text-white">Minijob (bis 538 €)</span>
+                        <span className="text-sm text-blue-200">{isMinijobActive ? "An" : "Aus"}</span>
                       </div>
                       <div 
-                        className={`relative w-full h-6 rounded-full cursor-pointer transition-colors ${
-                          isMinijobActive ? "bg-blue-500" : "bg-gray-300"
+                        className={`relative w-full h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
+                          isMinijobActive ? "bg-green-400" : "bg-white/20"
                         }`}
                         onClick={handleMinijobToggle}
                       >
                         <div 
-                          className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow-md transition-transform ${
-                            isMinijobActive ? "transform translate-x-8" : ""
+                          className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
+                            isMinijobActive ? "transform translate-x-10" : "translate-x-1"
                           }`}
                         />
                       </div>
                     </div>
 
                     {/* Midijob Slider */}
-                    <div className="mb-6">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gray-700">Midijob (bis 2.000 €)</span>
-                        <span className="text-sm text-gray-500">{isMidijobActive ? "An" : "Aus"}</span>
+                    <div className="mb-8">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-sm font-medium text-white">Midijob (bis 2.000 €)</span>
+                        <span className="text-sm text-blue-200">{isMidijobActive ? "An" : "Aus"}</span>
                       </div>
                       <div 
-                        className={`relative w-full h-6 rounded-full cursor-pointer transition-colors ${
-                          isMidijobActive ? "bg-blue-500" : "bg-gray-300"
+                        className={`relative w-full h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
+                          isMidijobActive ? "bg-green-400" : "bg-white/20"
                         }`}
                         onClick={handleMidijobToggle}
                       >
                         <div 
-                          className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow-md transition-transform ${
-                            isMidijobActive ? "transform translate-x-8" : ""
+                          className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
+                            isMidijobActive ? "transform translate-x-10" : "translate-x-1"
                           }`}
                         />
                       </div>
                     </div>
 
                     {/* Dynamic Netto Amount */}
-                    <div className="bg-white rounded-lg p-4 border border-gray-200">
+                    <div className="bg-white rounded-xl p-6 border border-gray-200">
                       <div className="text-center">
-                        <span className="text-sm text-gray-600">Netto-Betrag:</span>
-                        <div className="text-2xl font-bold text-[var(--lohn-primary)] mt-1">
+                        <span className="text-sm text-gray-600 block mb-2">Netto-Betrag:</span>
+                        <div className="text-3xl font-bold text-[rgb(15,34,137)] transition-all duration-300">
                           {calculateNettoAmount()}
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Problem Description */}
-                <div className="ml-8 lg:ml-0">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Ungenaue Online-Rechner</h3>
-                  <div className="space-y-3 text-gray-600">
-                    <p>
-                      <strong className="text-gray-800">Ungewisse Aktualität:</strong> Online Brutto-Nettorechner gibt es viele, sie rechnen immerhin schonmal einen genaueren Lohn. Aber wer gibt mir die Garantie, dass sie immer die aktuellen kalkulatorischen Regelungen des BAMF verfolgen?
-                    </p>
-                    <p>
-                      <strong className="text-gray-800">Einzelbearbeitung:</strong> Sobald ich mehr als einen Mitarbeiter habe, muss ich in mühevoller Handarbeit jeden Mitarbeiter einzeln durchrechnen.
-                    </p>
-                    <p>
-                      <strong className="text-gray-800">Fehlende Stammdaten:</strong> Sie kennen natürlich nicht meine Personalstammdaten, also muss ich sie jedes Mal eingeben.
-                    </p>
-                  </div>
-                </div>
               </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                <Users className="text-red-600 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Einzelberechnung</h3>
-              <p className="text-gray-600">
-                Jeder Mitarbeiter muss einzeln berechnet werden – zeitaufwändig und fehleranfällig bei größeren Teams.
-              </p>
             </div>
           </div>
         </div>

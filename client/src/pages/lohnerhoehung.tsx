@@ -224,7 +224,7 @@ export default function Lohnerhoehung() {
                     <strong className="text-gray-800">Ungewisse Aktualität:</strong> Online Brutto-Nettorechner sind weit verbreitet und rechnen bereits präziser als Excel-Schätzungen. Doch wer garantiert, dass diese Tools stets die neuesten kalkulatorischen Regelungen des BAMF berücksichtigen?
                   </p>
                   <p className="text-lg">
-                    <strong className="text-gray-800">Hoher Aufwand:</strong> Bei mehreren Mitarbeitern bedeutet dies mühevolle Handarbeit - jeder Einzelne muss separat durchgerechnet werden. Da diese Rechner keine Personalstammdaten kennen, müssen alle relevanten Informationen bei jeder Berechnung erneut eingegeben werden.
+                    <strong className="text-gray-800">Hoher Aufwand:</strong> Jeder Mitarbeiter muss einzeln durchgerechnet und alle Stammdaten wiederholt eingegeben werden.
                   </p>
                   <p className="text-lg">
                     <strong className="text-gray-800">Fehlende Funktionen:</strong> Die meisten Online-Rechner können gar keinen Übergangsbereich berechnen und weisen nicht alle Arbeitgeberkosten oberhalb des Bruttogehaltes aus.

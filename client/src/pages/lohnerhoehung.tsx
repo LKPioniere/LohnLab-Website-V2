@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import berechnungsparameter from "@/assets/berechnungsparameter.png";
+import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
 
 export default function Lohnerhoehung() {
   useEffect(() => {
@@ -65,16 +66,46 @@ export default function Lohnerhoehung() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                <AlertCircle className="text-red-600 text-2xl" />
+          {/* Excel Problem - Detailed Section */}
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-red-100 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div>
+                <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                  <AlertCircle className="text-red-600 text-2xl" />
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Das Excel-Dilemma</h3>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Kein integrierter Lohnrechner:</strong> Excel kann nur mit simplen Faktoren 
+                    vom Brutto zu den Lohnkosten hochrechnen für eine Budgetplanung. Das genaue Netto bleibt dabei völlig außer Acht.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Ständige Datenpflege:</strong> Die Excel-Tabelle muss konstant mit den 
+                    aktuellen Mitarbeiterdaten gepflegt werden - ein zeitaufwändiger und fehleranfälliger Prozess.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Unübersichtlichkeit:</strong> Eine Excel-Tabelle kann schnell wahnsinnig 
+                    unübersichtlich werden, besonders bei größeren Teams oder komplexeren Lohnstrukturen.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Excel-Schätzungen</h3>
-              <p className="text-gray-600">
-                Grobe "Pi mal Daumen" Berechnungen führen zu ungenauen Ergebnissen und falschen Erwartungen bei Mitarbeitern.
-              </p>
+              <div className="order-first lg:order-last">
+                <div className="relative">
+                  <img 
+                    src={excelSalaryCalculation} 
+                    alt="Excel-Tabelle mit Lohnberechnungen" 
+                    className="w-full rounded-xl shadow-lg border border-gray-200"
+                  />
+                  <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Problematisch
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          {/* Other Problems - Card Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
               <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">

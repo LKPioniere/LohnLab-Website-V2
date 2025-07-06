@@ -296,12 +296,15 @@ export default function Navigation() {
         </div>
         
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
+          <div 
+            className="md:hidden py-4 border-t border-gray-100"
+            style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : {}}
+          >
             <div className="flex flex-col space-y-2">
               <Link 
                 href="/"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${location === '/' ? 'text-[var(--lohn-primary)] bg-gray-50' : ''}`}
+                className={`px-4 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors font-medium ${location === '/' ? (isHeroVisible && isDarkHero ? 'text-gray-200 bg-white/10' : 'text-[var(--lohn-primary)] bg-gray-50') : ''}`}
               >
                 Startseite
               </Link>
@@ -310,18 +313,20 @@ export default function Navigation() {
               <div className="border-y border-gray-100">
                 <button
                   onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}
-                  className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
+                  className={`w-full px-4 py-3 flex items-center justify-between ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors font-medium`}
                 >
                   <span>Lösungen</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isMobileSolutionsOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isMobileSolutionsOpen && (
-                  <div className="bg-gray-50 py-2">
+                  <div 
+                    className={`py-2 ${isHeroVisible && isDarkHero ? 'bg-black/20' : 'bg-gray-50'}`}
+                  >
                     <Link 
                       href="/loesungen/lohnerhoehung"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
-                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors`}
                     >
                       <div className="w-10 h-10 bg-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
                         <TrendingUp className="w-5 h-5 text-white" />
@@ -334,7 +339,7 @@ export default function Navigation() {
                     <Link 
                       href="/loesungen/lohnoptimierung"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
-                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors`}
                     >
                       <div className="w-10 h-10 bg-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
                         <Crown className="w-5 h-5 text-yellow-400" />
@@ -347,7 +352,7 @@ export default function Navigation() {
                     <Link 
                       href="/loesungen/neueinstellungen"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
-                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors`}
                     >
                       <div className="w-10 h-10 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
                         <UserPlus className="w-5 h-5 text-white" />
@@ -365,20 +370,20 @@ export default function Navigation() {
               <div className="border-b border-gray-100">
                 <button
                   onClick={() => setIsMobileLoginOpen(!isMobileLoginOpen)}
-                  className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
+                  className={`w-full px-4 py-3 flex items-center justify-between ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors font-medium`}
                 >
                   <span>Login</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isMobileLoginOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isMobileLoginOpen && (
-                  <div className="bg-gray-50 py-2">
+                  <div className={`py-2 ${isHeroVisible && isDarkHero ? 'bg-black/20' : 'bg-gray-50'}`}>
                     <a 
                       href="https://cockpit.lohnlab.de"
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileLoginOpen(false);}}
-                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors`}
                     >
                       <ExternalLink className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
                       <div>
@@ -391,7 +396,7 @@ export default function Navigation() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileLoginOpen(false);}}
-                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
+                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors`}
                     >
                       <BookOpen className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
                       <div>

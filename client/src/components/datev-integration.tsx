@@ -51,7 +51,7 @@ export default function DatevIntegration() {
           </div>
         </div>
 
-        {/* Praktischer Workflow */}
+        {/* Intelligenter Datenkreislauf */}
         <div className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-2xl p-8 text-white mt-16">
           <h3 className="text-2xl font-bold mb-8 text-center">So funktioniert es in der Praxis</h3>
           

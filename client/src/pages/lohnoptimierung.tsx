@@ -33,10 +33,10 @@ export default function Lohnoptimierung() {
               Lohnoptimierung
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto text-purple-100">
-              Bis zu 50% Kosteneinsparung bei Lohnerhöhungen durch intelligente Nutzung 
+              Bis zu 50% Kosteneinsparung bei Lohnerhöhungen durch intelligente Nutzung <br className="block sm:hidden" />
               steuer- und sozialversicherungsoptimierter Lohnbausteine.
             </p>
-            <div className="flex justify-center space-x-4">
+            <div className="flex justify-center space-x-4 sm:space-x-6 px-6 sm:px-0">
               <Button 
                 onClick={() => scrollToSection('kontakt')}
                 className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 transition-colors rounded-full px-8 py-4 font-semibold"

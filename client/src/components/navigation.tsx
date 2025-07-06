@@ -334,7 +334,7 @@ export default function Navigation() {
                       </div>
                       <div>
                         <div className="font-medium">Lohnerhöhung</div>
-                        <div className="text-sm text-gray-500">Exakte Berechnungen</div>
+                        <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Exakte Berechnungen</div>
                       </div>
                     </Link>
                     <Link 
@@ -347,7 +347,7 @@ export default function Navigation() {
                       </div>
                       <div>
                         <div className="font-medium">Lohnoptimierung</div>
-                        <div className="text-sm text-gray-500">Bis zu 50% Einsparung</div>
+                        <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Bis zu 50% Einsparung</div>
                       </div>
                     </Link>
                     <Link 
@@ -360,7 +360,7 @@ export default function Navigation() {
                       </div>
                       <div>
                         <div className="font-medium">Neueinstellungen</div>
-                        <div className="text-sm text-gray-500">Optimale Gehaltspakete</div>
+                        <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Optimale Gehaltspakete</div>
                       </div>
                     </Link>
                   </div>
@@ -392,7 +392,7 @@ export default function Navigation() {
                       <ExternalLink className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
                       <div>
                         <div className="font-medium">LohnLab Cockpit</div>
-                        <div className="text-sm text-gray-500">Zur Anwendung</div>
+                        <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Zur Anwendung</div>
                       </div>
                     </a>
                     <a 
@@ -405,7 +405,7 @@ export default function Navigation() {
                       <BookOpen className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
                       <div>
                         <div className="font-medium">Handbücher & Anleitungen</div>
-                        <div className="text-sm text-gray-500">Für Kunden und Partner</div>
+                        <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Für Kunden und Partner</div>
                       </div>
                     </a>
                   </div>

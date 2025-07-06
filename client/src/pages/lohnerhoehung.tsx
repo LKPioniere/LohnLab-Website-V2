@@ -137,8 +137,8 @@ export default function Lohnerhoehung() {
 
           {/* Online Calculator Problem - Full Width Section */}
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-red-100 mb-12 relative">
-            {/* Browser Icon positioned over right edge */}
-            <div className="absolute -right-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+            {/* Browser Icon positioned over left edge */}
+            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
               <Globe className="text-blue-600 text-2xl" />
             </div>
             
@@ -174,7 +174,6 @@ export default function Lohnerhoehung() {
                         </div>
                         <div className="flex-1">
                           <span className="text-sm font-medium text-white">Minijob (bis 538 €)</span>
-                          <span className="text-sm text-blue-200 ml-2">{isMinijobActive ? "An" : "Aus"}</span>
                         </div>
                       </div>
                     </div>
@@ -196,7 +195,6 @@ export default function Lohnerhoehung() {
                         </div>
                         <div className="flex-1">
                           <span className="text-sm font-medium text-white">Midijob (bis 2.000 €)</span>
-                          <span className="text-sm text-blue-200 ml-2">{isMidijobActive ? "An" : "Aus"}</span>
                         </div>
                       </div>
                     </div>
@@ -226,10 +224,10 @@ export default function Lohnerhoehung() {
                     <strong className="text-gray-800">Ungewisse Aktualität:</strong> Online Brutto-Nettorechner sind weit verbreitet und rechnen bereits präziser als Excel-Schätzungen. Doch wer garantiert, dass diese Tools stets die neuesten kalkulatorischen Regelungen des BAMF berücksichtigen?
                   </p>
                   <p className="text-lg">
-                    <strong className="text-gray-800">Einzelbearbeitung:</strong> Bei mehreren Mitarbeitern bedeutet dies mühevolle Handarbeit - jeder Einzelne muss separat durchgerechnet werden.
+                    <strong className="text-gray-800">Hoher Aufwand:</strong> Bei mehreren Mitarbeitern bedeutet dies mühevolle Handarbeit - jeder Einzelne muss separat durchgerechnet werden. Da diese Rechner keine Personalstammdaten kennen, müssen alle relevanten Informationen bei jeder Berechnung erneut eingegeben werden.
                   </p>
                   <p className="text-lg">
-                    <strong className="text-gray-800">Fehlende Stammdaten:</strong> Da diese Rechner keine Personalstammdaten kennen, müssen alle relevanten Informationen bei jeder Berechnung erneut eingegeben werden.
+                    <strong className="text-gray-800">Fehlende Funktionen:</strong> Die meisten Online-Rechner können gar keinen Übergangsbereich berechnen und weisen nicht alle Arbeitgeberkosten oberhalb des Bruttogehaltes aus.
                   </p>
                 </div>
               </div>

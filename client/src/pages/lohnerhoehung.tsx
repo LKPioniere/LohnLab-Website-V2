@@ -139,7 +139,7 @@ export default function Lohnerhoehung() {
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-red-100 mb-12 relative">
             {/* Browser Icon positioned over left edge */}
             <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-              <Globe className="text-blue-600 text-2xl" />
+              <Globe className="text-blue-600 text-3xl" />
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">

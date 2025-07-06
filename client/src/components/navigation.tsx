@@ -62,7 +62,7 @@ export default function Navigation() {
                   </div>
                   <Link 
                     href="/lohnerhoehung"
-                    className="block px-4 py-4 text-gray-700 hover:bg-gradient-to-r hover:from-[var(--lohn-primary)]/10 hover:via-[var(--lohn-secondary)]/10 hover:to-[var(--lohn-purple)]/10 transition-all duration-300"
+                    className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
@@ -77,7 +77,7 @@ export default function Navigation() {
                   </Link>
                   <Link 
                     href="/lohnoptimierung"
-                    className="block px-4 py-4 text-gray-700 hover:bg-gradient-to-r hover:from-[var(--lohn-purple)]/10 hover:to-[var(--lohn-primary)]/10 transition-all duration-300"
+                    className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
@@ -92,7 +92,7 @@ export default function Navigation() {
                   </Link>
                   <Link 
                     href="/neueinstellungen"
-                    className="block px-4 py-4 text-gray-700 hover:bg-gradient-to-r hover:from-[var(--lohn-primary)]/10 hover:to-[var(--lohn-teal)]/10 transition-all duration-300"
+                    className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">

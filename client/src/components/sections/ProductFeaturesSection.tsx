@@ -47,18 +47,18 @@ export default function ProductFeaturesSection() {
 
         {/* Neueinstellungen Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
+            <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-6">
+              Neue Mitarbeiter perfekt einpreisen
+            </h3>
+            <BenefitsList benefits={HIRING_BENEFITS} />
+          </div>
+          <div className="order-2 lg:order-2">
             <img 
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
               alt="Team bei der Planung von Neueinstellungen" 
               className="rounded-2xl shadow-xl w-full h-auto"
             />
-          </div>
-          <div className="order-1 lg:order-2">
-            <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-6">
-              Neue Mitarbeiter perfekt einpreisen
-            </h3>
-            <BenefitsList benefits={HIRING_BENEFITS} />
           </div>
         </div>
       </div>

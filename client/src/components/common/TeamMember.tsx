@@ -25,7 +25,7 @@ export default function TeamMember({ name, role, description, image }: TeamMembe
       case 'Martin':
         return {
           color: 'var(--lohn-purple)',
-          badge: 'Steuerberater'
+          badge: 'Botschafter'
         };
       default:
         return {

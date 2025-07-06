@@ -66,34 +66,47 @@ export default function Lohnerhoehung() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                <AlertCircle className="text-red-600 text-2xl" />
+            {/* Problem 1 - Gradient Background */}
+            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 shadow-lg border-2 border-red-200 hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                <AlertCircle className="text-white text-3xl" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Excel-Schätzungen</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-bold text-red-800 mb-4">Excel-Schätzungen</h3>
+              <p className="text-red-700 leading-relaxed">
                 Grobe "Pi mal Daumen" Berechnungen führen zu ungenauen Ergebnissen und falschen Erwartungen bei Mitarbeitern.
               </p>
+              <div className="mt-4 flex items-center text-red-600 font-semibold">
+                <span className="text-sm">❌ Unzuverlässige Ergebnisse</span>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                <Calculator className="text-red-600 text-2xl" />
+            {/* Problem 2 - Card with Pattern */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-orange-400 hover:shadow-xl hover:border-l-8 transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="w-16 h-16 bg-orange-400 rounded-xl flex items-center justify-center mb-6 relative z-10">
+                <Calculator className="text-white text-2xl" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Ungenaue Online-Rechner</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 relative z-10">Ungenaue Online-Rechner</h3>
+              <p className="text-gray-600 relative z-10 leading-relaxed">
                 Tools wie brutto-netto-rechner.de berücksichtigen nicht alle Faktoren wie Umlagen, Berufsgenossenschaftsbeiträge oder Midi-/Minijobs.
               </p>
+              <div className="mt-4 text-orange-600 font-medium text-sm relative z-10">
+                ⚠️ Unvollständige Berechnungen
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                <Users className="text-red-600 text-2xl" />
+            {/* Problem 3 - Dark Theme Card */}
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:from-gray-700 hover:to-gray-800 transition-all duration-300 text-white">
+              <div className="w-18 h-18 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6">
+                <Users className="text-gray-900 text-2xl" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Einzelberechnung</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold mb-4">Einzelberechnung</h3>
+              <p className="text-gray-300 leading-relaxed">
                 Jeder Mitarbeiter muss einzeln berechnet werden – zeitaufwändig und fehleranfällig bei größeren Teams.
               </p>
+              <div className="mt-4 flex items-center text-yellow-400 font-semibold">
+                <span className="text-sm">⏱️ Zeitaufwändig</span>
+              </div>
             </div>
           </div>
         </div>

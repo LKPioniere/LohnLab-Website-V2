@@ -16,9 +16,9 @@ export default function ProductFeaturesSection() {
             Lohnoptimierung neu gedacht
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Intelligente Gehaltsgestaltung durch Sachbezüge, Essenzuschüsse und Fahrtkostenbeteiligungen. 
-            <span className="text-[var(--lohn-secondary)] font-semibold"> Bis zu 50% Lohnkosteneinsparung</span> 
-            bei gleichzeitig höherem Nettoeinkommen für Mitarbeiter.
+            Intelligente Gehaltsgestaltung durch die Nutzung von Lohnbausteinen. 
+            <span className="text-[var(--lohn-secondary)] font-semibold"> Bis zu 50% Lohnkosteneinsparung </span> 
+             oder mehr Netto für die Mitarbeiter.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ export default function ProductFeaturesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-1 lg:order-1">
             <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-6">
-              Neue Mitarbeiter perfekt einpreisen
+              Mühelos Fachkräfte gewinnen
             </h3>
             <BenefitsList benefits={HIRING_BENEFITS} />
           </div>

@@ -66,7 +66,7 @@ export default function Navigation() {
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 bg-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
                         <TrendingUp className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -81,7 +81,7 @@ export default function Navigation() {
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-purple)] via-purple-600 to-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 bg-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
                         <Crown className="w-5 h-5 text-yellow-400" />
                       </div>
                       <div>
@@ -96,7 +96,7 @@ export default function Navigation() {
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
                         <UserPlus className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -200,7 +200,7 @@ export default function Navigation() {
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
-                      <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 bg-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
                         <TrendingUp className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -213,7 +213,7 @@ export default function Navigation() {
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
-                      <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-purple)] via-purple-600 to-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 bg-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
                         <Crown className="w-5 h-5 text-yellow-400" />
                       </div>
                       <div>
@@ -226,7 +226,7 @@ export default function Navigation() {
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
-                      <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
                         <UserPlus className="w-5 h-5 text-white" />
                       </div>
                       <div>

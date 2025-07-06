@@ -10,12 +10,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Search, HelpCircle, Users, Building, ExternalLink, Send } from "lucide-react";
+import { Search, HelpCircle, Users, Building, ExternalLink, Send, Download } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
+import faqArbeitgeberPdf from "@assets/faq-arbeitgeber.pdf";
 
 export default function FAQ() {
   const [activeView, setActiveView] = useState<"mitarbeiter" | "arbeitgeber">("mitarbeiter");
@@ -293,6 +294,36 @@ export default function FAQ() {
                   : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für Ihr Unternehmen."
                 }
               </p>
+              
+              {activeView === "arbeitgeber" && (
+                <div className="mt-4 p-4 bg-gradient-to-r from-[var(--lohn-primary)]/5 to-[var(--lohn-secondary)]/5 rounded-lg border border-[var(--lohn-primary)]/20">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-semibold text-[var(--lohn-primary)] mb-1">
+                        Umfassende FAQ als PDF
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        Alle wichtigen Fragen und Antworten für Arbeitgeber kompakt zusammengefasst
+                      </p>
+                    </div>
+                    <Button 
+                      asChild 
+                      className="bg-[var(--lohn-primary)] hover:bg-[var(--lohn-primary)]/90 text-white"
+                    >
+                      <a 
+                        href={faqArbeitgeberPdf} 
+                        download="LohnLab_FAQ_Arbeitgeber.pdf"
+                        className="flex items-center gap-2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Download size={16} />
+                        PDF herunterladen
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              )}
             </div>
 
             {filteredFAQs.length > 0 ? (

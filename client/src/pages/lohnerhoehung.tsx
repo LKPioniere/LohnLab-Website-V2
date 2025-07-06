@@ -12,6 +12,7 @@ import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 import employeeSelection from "@/assets/employee-selection.png";
 import payrollComparison from "@/assets/payroll-comparison.png";
 import probeabrechnungPDF from "@/assets/Probeabrechnung.pdf";
+import pdfIcon from "@/assets/pdf-icon.png";
 
 export default function Lohnerhoehung() {
   const [isImageExpanded, setIsImageExpanded] = useState(false);
@@ -242,8 +243,11 @@ export default function Lohnerhoehung() {
         </div>
       </section>
 
+      {/* Clear visual separator between problems and solutions */}
+      <div className="bg-gradient-to-r from-red-100 via-gray-100 to-green-100 h-2"></div>
+
       {/* Solution */}
-      <section id="vorteile" className="py-20">
+      <section id="vorteile" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
@@ -332,14 +336,33 @@ export default function Lohnerhoehung() {
           </div>
 
           {/* Probeabrechnung - Detailed Section */}
-          <div className="bg-purple-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-purple-200 mb-12 relative">
-            {/* PDF Icon positioned over right edge */}
-            <div className="absolute -right-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-              <FileText className="text-purple-600 text-4xl" />
+          <div className="bg-teal-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-teal-200 mb-12 relative">
+            {/* PDF Icon positioned over left edge */}
+            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+              <img src={pdfIcon} alt="PDF Icon" className="w-8 h-8" />
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="mr-8 lg:mr-0">
+              {/* Screenshot first on left side */}
+              <div className="order-first">
+                <div className="relative">
+                  <img 
+                    src={payrollComparison} 
+                    alt="LohnLab Cockpit - Probeabrechnung Vergleich" 
+                    className="w-3/4 mx-auto rounded-xl shadow-lg border border-gray-200 cursor-pointer"
+                    onClick={() => setIsPDFExpanded(true)}
+                  />
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Professionell
+                  </div>
+                  <div className="absolute top-4 right-1/4 bg-white/90 p-2 rounded-lg">
+                    <Expand className="text-gray-600 text-lg" />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Text on right side */}
+              <div className="order-last ml-8 lg:ml-0">
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Probeabrechnung</h3>
                 <div className="space-y-4 text-gray-600">
                   <p className="text-lg">
@@ -352,48 +375,6 @@ export default function Lohnerhoehung() {
                     <strong className="text-gray-800">Perfekte Kommunikation:</strong> Damit gelingt die Mitarbeiterkommunikation perfekt mit transparenten Vor-/Nach-Vergleichen.
                   </p>
                 </div>
-              </div>
-              <div className="order-last lg:order-first">
-                <div className="relative">
-                  <img 
-                    src={payrollComparison} 
-                    alt="LohnLab Cockpit - Probeabrechnung Vergleich" 
-                    className="w-full rounded-xl shadow-lg border border-gray-200 cursor-pointer"
-                    onClick={() => setIsPDFExpanded(true)}
-                  />
-                  <div className="absolute bottom-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Professionell
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-lg">
-                    <Expand className="text-gray-600 text-lg" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Berechnungsparameter Screenshot */}
-          <div className="mt-20">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold text-[var(--lohn-primary)] mb-4">
-                Einfache Bedienung, professionelle Ergebnisse
-              </h3>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Intuitive Benutzeroberfläche für schnelle und exakte Lohnberechnungen
-              </p>
-            </div>
-            
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-xl">
-              <img 
-                src={berechnungsparameter}
-                alt="LohnLab Berechnungsparameter Interface"
-                className="w-full rounded-lg shadow-lg"
-              />
-              <div className="mt-6 text-center">
-                <p className="text-gray-600">
-                  <strong>Professionelle Benutzerführung:</strong> Wählen Sie zwischen gemeinsamen Faktoren für alle Mitarbeiter 
-                  oder individuellen Werten. Das System führt Sie Schritt für Schritt durch die Berechnung.
-                </p>
               </div>
             </div>
           </div>

@@ -159,41 +159,45 @@ export default function Lohnerhoehung() {
                     
                     {/* Minijob Slider */}
                     <div className="mb-6">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm font-medium text-white">Minijob (bis 538 €)</span>
-                        <span className="text-sm text-blue-200">{isMinijobActive ? "An" : "Aus"}</span>
-                      </div>
-                      <div 
-                        className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
-                          isMinijobActive ? "bg-green-400" : "bg-white/20"
-                        }`}
-                        onClick={handleMinijobToggle}
-                      >
+                      <div className="flex items-center gap-4">
                         <div 
-                          className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
-                            isMinijobActive ? "transform translate-x-8" : "translate-x-1"
+                          className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
+                            isMinijobActive ? "bg-green-400" : "bg-white/20"
                           }`}
-                        />
+                          onClick={handleMinijobToggle}
+                        >
+                          <div 
+                            className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
+                              isMinijobActive ? "transform translate-x-8" : "translate-x-1"
+                            }`}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <span className="text-sm font-medium text-white">Minijob (bis 538 €)</span>
+                          <span className="text-sm text-blue-200 ml-2">{isMinijobActive ? "An" : "Aus"}</span>
+                        </div>
                       </div>
                     </div>
 
                     {/* Midijob Slider */}
                     <div className="mb-8">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm font-medium text-white">Midijob (bis 2.000 €)</span>
-                        <span className="text-sm text-blue-200">{isMidijobActive ? "An" : "Aus"}</span>
-                      </div>
-                      <div 
-                        className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
-                          isMidijobActive ? "bg-green-400" : "bg-white/20"
-                        }`}
-                        onClick={handleMidijobToggle}
-                      >
+                      <div className="flex items-center gap-4">
                         <div 
-                          className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
-                            isMidijobActive ? "transform translate-x-8" : "translate-x-1"
+                          className={`relative w-16 h-8 rounded-full cursor-pointer transition-all duration-300 shadow-inner ${
+                            isMidijobActive ? "bg-green-400" : "bg-white/20"
                           }`}
-                        />
+                          onClick={handleMidijobToggle}
+                        >
+                          <div 
+                            className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
+                              isMidijobActive ? "transform translate-x-8" : "translate-x-1"
+                            }`}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <span className="text-sm font-medium text-white">Midijob (bis 2.000 €)</span>
+                          <span className="text-sm text-blue-200 ml-2">{isMidijobActive ? "An" : "Aus"}</span>
+                        </div>
                       </div>
                     </div>
 

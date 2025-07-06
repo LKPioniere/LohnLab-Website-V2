@@ -61,7 +61,7 @@ export default function DatevIntegration() {
                 <Calculator className="text-white text-xl" />
               </div>
               <h4 className="font-semibold mb-3">Exakte Berechnung</h4>
-              <p className="text-blue-100 text-sm">Lohnerhöhungen und neue Gehälter werden mit aktuellen DATEV-Stammdaten berechnet</p>
+              <p className="text-blue-100 text-sm">Lohnerhöhungen und neue Gehälter werden auf Basis aktueller Stammdaten berechnet</p>
             </div>
             
             <div className="text-center">
@@ -77,7 +77,7 @@ export default function DatevIntegration() {
                 <Send className="text-white text-xl" />
               </div>
               <h4 className="font-semibold mb-3">Umsetzung per Klick</h4>
-              <p className="text-blue-100 text-sm">Alle optimierten Gehaltsdaten gehen per Knopfdruck zurück ins DATEV-System</p>
+              <p className="text-blue-100 text-sm">Alle beschlossenen Änderungen gehen per Knopfdruck zurück ins DATEV-System</p>
             </div>
           </div>
 

@@ -3,11 +3,12 @@ import Navigation from "@/components/navigation";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe } from "lucide-react";
+import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe, Search } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import berechnungsparameter from "@/assets/berechnungsparameter.png";
 import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
 import excelIcon from "@/assets/excel-icon.png";
+import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 
 export default function Lohnerhoehung() {
   const [isImageExpanded, setIsImageExpanded] = useState(false);
@@ -139,7 +140,7 @@ export default function Lohnerhoehung() {
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-red-100 mb-12 relative">
             {/* Browser Icon positioned over left edge */}
             <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-              <Globe className="text-blue-600 text-3xl" />
+              <Globe className="text-blue-600 text-4xl" />
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -244,26 +245,48 @@ export default function Lohnerhoehung() {
               Unsere Lösung: Exakte Lohnberechnungen
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Das LohnLab Cockpit bietet präzise Berechnungen auf DATEV-Niveau mit allen relevanten Faktoren
+              Mit dem LohnLab Cockpit optimieren Sie Löhne intelligent und präzise
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="text-green-600 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">1. Exakte Ergebnisse</h3>
-              <p className="text-gray-600 mb-4">
-                Genaue Netto-, Brutto- und Lohnkostenberechnungen durch Berücksichtigung aller relevanten Faktoren.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Mitarbeiter- und Unternehmensstammdaten</li>
-                <li>• Alle Lohnfaktoren und Umlagen</li>
-                <li>• Berufsgenossenschaftsbeiträge</li>
-                <li>• Korrekte Arbeitgeberkostenfaktoren</li>
-              </ul>
+          {/* Exakte Ergebnisse - Detailed Section */}
+          <div className="bg-green-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-green-200 mb-12 relative">
+            {/* Search Icon positioned over left edge */}
+            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+              <Search className="text-green-600 text-4xl" />
             </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="ml-8 lg:ml-0">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Exakte Ergebnisse</h3>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Vollwertiger Lohnrechner:</strong> Das LohnLab Cockpit rechnet mit einem stets aktuellen Lohnrechner, der alle gesetzlichen Änderungen automatisch berücksichtigt.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Flexible Eingabe:</strong> Wählen Sie zwischen Netto-, Brutto- oder Lohnkosten-Eingabe - das System berechnet automatisch alle anderen Werte.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Vollständige Datenberücksichtigung:</strong> Alle Stammdaten der Mitarbeiter und relevante Unternehmensdaten wie BG-Beitragshöhen werden automatisch einbezogen.
+                  </p>
+                </div>
+              </div>
+              <div className="order-first lg:order-last">
+                <div className="relative">
+                  <img 
+                    src={lohnlabCalculatorPrecise} 
+                    alt="LohnLab Cockpit - Präzise Lohnberechnung" 
+                    className="w-full rounded-xl shadow-lg border border-gray-200"
+                  />
+                  <div className="absolute bottom-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Genau
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">

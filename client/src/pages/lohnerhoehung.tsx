@@ -1,14 +1,17 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink } from "lucide-react";
+import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import berechnungsparameter from "@/assets/berechnungsparameter.png";
 import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
+import excelIcon from "@/assets/excel-icon.png";
 
 export default function Lohnerhoehung() {
+  const [isImageExpanded, setIsImageExpanded] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -67,12 +70,14 @@ export default function Lohnerhoehung() {
           </div>
 
           {/* Excel Problem - Detailed Section */}
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-red-100 mb-12">
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-red-100 mb-12 relative">
+            {/* Excel Icon positioned over left edge */}
+            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+              <img src={excelIcon} alt="Excel" className="w-10 h-10" />
+            </div>
+            
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div>
-                <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                  <AlertCircle className="text-red-600 text-2xl" />
-                </div>
+              <div className="ml-8 lg:ml-0">
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Das Excel-Dilemma</h3>
                 <div className="space-y-4 text-gray-600">
                   <p className="text-lg">
@@ -94,10 +99,14 @@ export default function Lohnerhoehung() {
                   <img 
                     src={excelSalaryCalculation} 
                     alt="Excel-Tabelle mit Lohnberechnungen" 
-                    className="w-full rounded-xl shadow-lg border border-gray-200"
+                    className="w-full rounded-xl shadow-lg border border-gray-200 cursor-pointer transition-transform hover:scale-105"
+                    onClick={() => setIsImageExpanded(true)}
                   />
-                  <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Problematisch
+                  <div className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-lg opacity-75 hover:opacity-100 transition-opacity">
+                    <Expand className="w-4 h-4" />
+                  </div>
+                  <div className="absolute bottom-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Ungenau
                   </div>
                 </div>
               </div>
@@ -554,6 +563,29 @@ export default function Lohnerhoehung() {
 
       <ContactSection />
       <Footer />
+
+      {/* Image Expansion Modal */}
+      {isImageExpanded && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={() => setIsImageExpanded(false)}
+        >
+          <div className="relative max-w-6xl max-h-full">
+            <img 
+              src={excelSalaryCalculation} 
+              alt="Excel-Tabelle mit Lohnberechnungen - Vergrößerte Ansicht" 
+              className="max-w-full max-h-full rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setIsImageExpanded(false)}
+              className="absolute top-4 right-4 bg-white text-gray-800 rounded-full p-2 hover:bg-gray-100 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

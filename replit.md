@@ -103,32 +103,6 @@ LohnLab Cockpit is a modern payroll optimization solution designed for tax advis
 
 Preferred communication style: Simple, everyday language.
 
-## Project Structure (Refactored January 2025)
-
-### Client-Side Architecture
-```
-client/src/
-├── components/
-│   ├── common/         # Reusable UI components
-│   ├── forms/          # Form components
-│   ├── sections/       # Page section components
-│   └── ui/             # shadcn/ui components
-├── constants/          # Constants and static data
-├── hooks/
-│   └── api/           # API-related hooks
-├── lib/               # Utility libraries
-├── pages/             # Page components
-├── types/             # TypeScript type definitions
-└── utils/             # Utility functions
-```
-
-### Key Architectural Improvements
-- **Component Modularization**: Large components split into smaller, focused components
-- **Logic Extraction**: Business logic moved to custom hooks
-- **Data Centralization**: Static data moved to constants files
-- **Clear Folder Structure**: Components organized by type and purpose
-- **Code Reusability**: Common patterns extracted into reusable components
-
 ## Changelog
 
 Changelog:
@@ -143,5 +117,3 @@ Changelog:
 - July 05, 2025: Created dedicated contact page (/kontakt) with HubSpot integration and updated all CTA buttons
 - July 05, 2025: Implemented comprehensive FAQ page with employee/employer view switching and search functionality
 - July 05, 2025: Simplified architecture - removed Unternehmen page and audience toggle, unified single-page approach
-- January 2025: Major code refactoring - Split components into smaller files, extracted business logic to hooks, created clear folder structure, centralized constants and data
-- January 6, 2025: Asset reorganization - Moved all used assets from attached_assets to client/src/assets with clear naming convention and updated all import paths

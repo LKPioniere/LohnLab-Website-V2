@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import HeroSection from "@/components/sections/HeroSection";
+import HeroSection from "@/components/hero-section";
 import DevelopmentStatus from "@/components/development-status";
-import ProductFeaturesSection from "@/components/sections/ProductFeaturesSection";
+import ProductFeatures from "@/components/product-features";
 import CalculationModes from "@/components/calculation-modes";
 import DatevIntegration from "@/components/datev-integration";
-import TargetAudiencesSection from "@/components/sections/TargetAudiencesSection";
-import TeamSection from "@/components/sections/TeamSection";
-import ContactSection from "@/components/sections/ContactSection";
+import TargetAudiences from "@/components/target-audiences";
+import TeamSection from "@/components/team-section";
+import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
-import DemoCalculatorSection from "@/components/sections/DemoCalculatorSection";
 
 export default function Home() {
   useEffect(() => {
@@ -21,11 +20,10 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <DevelopmentStatus />
-      <ProductFeaturesSection />
-      <DemoCalculatorSection />
+      <ProductFeatures />
       <CalculationModes />
       <DatevIntegration />
-      <TargetAudiencesSection />
+      <TargetAudiences />
       <TeamSection />
       <ContactSection />
       <Footer />

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import ContactSection from "@/components/sections/ContactSection";
+import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Crown, DollarSign, Gift, PiggyBank, TrendingUp, Calculator, Shield, Zap, CheckCircle, ArrowRight, Target, Users, FileCheck } from "lucide-react";

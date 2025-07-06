@@ -3,18 +3,22 @@ import Navigation from "@/components/navigation";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe, Search } from "lucide-react";
+import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe, Search, FileText } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import berechnungsparameter from "@/assets/berechnungsparameter.png";
 import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
 import excelIcon from "@/assets/excel-icon.png";
 import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 import employeeSelection from "@/assets/employee-selection.png";
+import payrollComparison from "@/assets/payroll-comparison.png";
+import probeabrechnungPDF from "@/assets/Probeabrechnung.pdf";
 
 export default function Lohnerhoehung() {
   const [isImageExpanded, setIsImageExpanded] = useState(false);
   const [isMinijobActive, setIsMinijobActive] = useState(false);
   const [isMidijobActive, setIsMidijobActive] = useState(false);
+  const [isPDFExpanded, setIsPDFExpanded] = useState(false);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -289,8 +293,8 @@ export default function Lohnerhoehung() {
 
           {/* Mehrere Mitarbeiter - Detailed Section */}
           <div className="bg-blue-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-blue-200 mb-12 relative">
-            {/* Users Icon positioned over right edge */}
-            <div className="absolute -right-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+            {/* Users Icon positioned over left edge */}
+            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
               <Users className="text-blue-600 text-4xl" />
             </div>
             
@@ -303,14 +307,14 @@ export default function Lohnerhoehung() {
                     alt="LohnLab Cockpit - Mitarbeiter auswählen" 
                     className="w-full rounded-xl shadow-lg border border-gray-200"
                   />
-                  <div className="absolute bottom-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute bottom-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                     Effizient
                   </div>
                 </div>
               </div>
               
               {/* Text on right side */}
-              <div className="order-last mr-8 lg:mr-0">
+              <div className="order-last ml-8 lg:ml-0">
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Mehrere Mitarbeiter</h3>
                 <div className="space-y-4 text-gray-600">
                   <p className="text-lg">
@@ -327,67 +331,44 @@ export default function Lohnerhoehung() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <Users className="text-green-600 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">2. Mehrere Mitarbeiter</h3>
-              <p className="text-gray-600 mb-4">
-                Berechnung für beliebig viele Mitarbeiter gleichzeitig – keine Einzelberechnungen mehr nötig.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Gemeinsamer Faktor (z.B. 5% für alle)</li>
-                <li>• Fester Betrag (z.B. 300€ für alle)</li>
-                <li>• Individuelle Anpassungen möglich</li>
-              </ul>
+          {/* Probeabrechnung - Detailed Section */}
+          <div className="bg-purple-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-purple-200 mb-12 relative">
+            {/* PDF Icon positioned over right edge */}
+            <div className="absolute -right-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+              <FileText className="text-purple-600 text-4xl" />
             </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <FileCheck className="text-green-600 text-2xl" />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="mr-8 lg:mr-0">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Probeabrechnung</h3>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Sekundenschnelle Erstellung:</strong> Mit unserem Tool können in Sekunden für jeden Mitarbeiter Probeabrechnungen im DATEV-Look erstellt und heruntergeladen werden.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Einzigartige Darstellung:</strong> Diese besitzen als Besonderheit 2 statt einer Spalte - links das IST-Gehalt und rechts das neue inklusive Lohnerhöhung.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Perfekte Kommunikation:</strong> Damit gelingt die Mitarbeiterkommunikation perfekt mit transparenten Vor-/Nach-Vergleichen.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">3. Draft-Speicherung</h3>
-              <p className="text-gray-600 mb-4">
-                Speichern Sie Berechnungen als Entwürfe und rufen Sie sie jederzeit wieder auf.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Verschiedene Szenarien vergleichen</li>
-                <li>• Iterative Anpassungen möglich</li>
-                <li>• Keine Datenverluste</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <FileDown className="text-green-600 text-2xl" />
+              <div className="order-last lg:order-first">
+                <div className="relative">
+                  <img 
+                    src={payrollComparison} 
+                    alt="LohnLab Cockpit - Probeabrechnung Vergleich" 
+                    className="w-full rounded-xl shadow-lg border border-gray-200 cursor-pointer"
+                    onClick={() => setIsPDFExpanded(true)}
+                  />
+                  <div className="absolute bottom-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Professionell
+                  </div>
+                  <div className="absolute top-4 right-4 bg-white/90 p-2 rounded-lg">
+                    <Expand className="text-gray-600 text-lg" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">4. Probeabrechnungen</h3>
-              <p className="text-gray-600 mb-4">
-                Generieren Sie transparente Probeabrechnungen für die Kommunikation mit Mandanten oder Mitarbeitern.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• DATEV-konforme Darstellung</li>
-                <li>• Detaillierte Aufschlüsselung</li>
-                <li>• Professionelle Präsentation</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <Calculator className="text-green-600 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">5. DATEV-Niveau</h3>
-              <p className="text-gray-600 mb-4">
-                Exakter Rechner auf DATEV-Niveau mit allen speziellen Berechnungsarten.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Midi-Job Berechnungen</li>
-                <li>• Minijob-Berechnungen</li>
-                <li>• Alle Steuerklassen</li>
-                <li>• Aktuelle Beitragssätze</li>
-              </ul>
             </div>
           </div>
 
@@ -744,6 +725,44 @@ export default function Lohnerhoehung() {
             >
               <X className="w-6 h-6" />
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Expanded Image Modal */}
+      {expandedImage && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="relative max-w-6xl max-h-[90vh]">
+            <img 
+              src={expandedImage} 
+              alt="Vergrößerte Ansicht" 
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <button 
+              onClick={() => setExpandedImage(null)}
+              className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full transition-colors"
+            >
+              <X className="text-gray-800 text-xl" />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* PDF Modal */}
+      {isPDFExpanded && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-6xl h-[90vh] bg-white rounded-lg">
+            <button 
+              onClick={() => setIsPDFExpanded(false)}
+              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition-colors z-10"
+            >
+              <X className="text-xl" />
+            </button>
+            <iframe 
+              src={probeabrechnungPDF}
+              className="w-full h-full rounded-lg"
+              title="Probeabrechnung PDF"
+            />
           </div>
         </div>
       )}

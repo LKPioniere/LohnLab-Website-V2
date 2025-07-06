@@ -238,7 +238,7 @@ export default function FAQ() {
 
       {/* View Toggle */}
       <section className="py-12 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <h2 className="text-2xl font-bold text-[var(--lohn-primary)]">FAQ-Bereich auswählen</h2>
@@ -283,56 +283,63 @@ export default function FAQ() {
             )}
           </div>
 
-          {/* FAQ Content - Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - FAQ List */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="mb-6">
-                  <Badge variant="secondary" className="mb-2">
-                    {activeView === "mitarbeiter" ? "Mitarbeiter-FAQ" : "Arbeitgeber-FAQ"}
-                  </Badge>
-                  <p className="text-gray-600">
-                    {activeView === "mitarbeiter" 
-                      ? "Antworten zu Ihrem Lohnkonzept, der givve® Card und weiteren Mitarbeiter-Services."
-                      : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für Ihr Unternehmen."
-                    }
-                  </p>
-                </div>
-
-                {filteredFAQs.length > 0 ? (
-                  <Accordion type="single" collapsible value={openAccordion} onValueChange={handleAccordionChange}>
-                    {filteredFAQs.map((faq) => (
-                      <AccordionItem key={faq.id} value={faq.id}>
-                        <AccordionTrigger className="text-left hover:text-[var(--lohn-primary)]">
-                          {faq.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-gray-700 leading-relaxed">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                ) : (
-                  <div className="text-center py-8">
-                    <HelpCircle className="mx-auto text-gray-400 mb-4" size={48} />
-                    <p className="text-gray-600 mb-2">Keine passenden Fragen gefunden.</p>
-                    <p className="text-sm text-gray-500">Versuchen Sie einen anderen Suchbegriff oder stellen Sie Ihre Frage unten.</p>
-                  </div>
-                )}
+          {/* FAQ Content with Sidebar */}
+          <div className="relative">
+            {/* Main FAQ Container - Full Width */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <div className="mb-6">
+                <Badge variant="secondary" className="mb-2">
+                  {activeView === "mitarbeiter" ? "Mitarbeiter-FAQ" : "Arbeitgeber-FAQ"}
+                </Badge>
+                <p className="text-gray-600">
+                  {activeView === "mitarbeiter" 
+                    ? "Antworten zu Ihrem Lohnkonzept, der givve® Card und weiteren Mitarbeiter-Services."
+                    : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für Ihr Unternehmen."
+                  }
+                </p>
               </div>
+
+              {filteredFAQs.length > 0 ? (
+                <Accordion type="single" collapsible value={openAccordion} onValueChange={handleAccordionChange}>
+                  {filteredFAQs.map((faq) => (
+                    <AccordionItem key={faq.id} value={faq.id}>
+                      <AccordionTrigger className="text-left hover:text-[var(--lohn-primary)]">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-gray-700 leading-relaxed">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              ) : (
+                <div className="text-center py-8">
+                  <HelpCircle className="mx-auto text-gray-400 mb-4" size={48} />
+                  <p className="text-gray-600 mb-2">Keine passenden Fragen gefunden.</p>
+                  <p className="text-sm text-gray-500">Versuchen Sie einen anderen Suchbegriff oder stellen Sie Ihre Frage unten.</p>
+                </div>
+              )}
             </div>
 
-            {/* Right Column - PDF Preview and Useful Links */}
-            <div className="space-y-6">
+            {/* Floating Right Sidebar - Only on larger screens */}
+            <div className="hidden xl:block absolute top-0 -right-80 w-72 space-y-6">
               {/* PDF Preview for Arbeitgeber */}
               {activeView === "arbeitgeber" && (
-                <div className="bg-white rounded-lg shadow-sm border p-6">
-                  <h3 className="font-semibold text-[var(--lohn-primary)] mb-4">
-                    Umfassende FAQ als PDF
-                  </h3>
+                <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6 backdrop-blur-sm">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
+                      <Download size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                        FAQ als PDF
+                      </h3>
+                      <p className="text-xs text-gray-500">Kompakte Übersicht</p>
+                    </div>
+                  </div>
+                  
                   <div className="mb-4">
-                    <div className="w-full h-48 bg-gray-50 rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-shadow">
+                    <div className="w-full h-36 bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-all duration-300 hover:scale-105">
                       <img 
                         src={faqPreviewImg} 
                         alt="FAQ PDF Vorschau" 
@@ -341,12 +348,11 @@ export default function FAQ() {
                       />
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 mb-4">
-                    Alle wichtigen Fragen und Antworten für Arbeitgeber kompakt zusammengefasst
-                  </p>
+                  
                   <Button 
                     asChild 
-                    className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-primary)]/90 text-white"
+                    size="sm"
+                    className="w-full bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] hover:from-[var(--lohn-primary)]/90 hover:to-[var(--lohn-secondary)]/90 text-white shadow-md"
                   >
                     <a 
                       href={faqArbeitgeberPdf} 
@@ -355,7 +361,7 @@ export default function FAQ() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Download size={16} />
+                      <Download size={14} />
                       PDF herunterladen
                     </a>
                   </Button>
@@ -363,18 +369,28 @@ export default function FAQ() {
               )}
 
               {/* Useful Links */}
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="font-semibold text-[var(--lohn-primary)] mb-4">
-                  Nützliche Links
-                </h3>
-                <div className="space-y-3">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6 backdrop-blur-sm">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-teal)] to-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
+                    <ExternalLink size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                      Nützliche Links
+                    </h3>
+                    <p className="text-xs text-gray-500">Direkte Zugänge</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
                   {/* Mitarbeiter-spezifische Links */}
                   {activeView === "mitarbeiter" && (
                     <>
                       <Button
                         asChild
-                        variant="outline"
-                        className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
                       >
                         <a 
                           href="https://card.givve.com/" 
@@ -382,14 +398,17 @@ export default function FAQ() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2"
                         >
-                          <ExternalLink size={16} />
+                          <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                            <ExternalLink size={12} className="text-green-600" />
+                          </div>
                           givve® Card Portal
                         </a>
                       </Button>
                       <Button
                         asChild
-                        variant="outline"
-                        className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
                       >
                         <a 
                           href="https://cleverlunch.de/" 
@@ -397,7 +416,9 @@ export default function FAQ() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2"
                         >
-                          <ExternalLink size={16} />
+                          <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
+                            <ExternalLink size={12} className="text-orange-600" />
+                          </div>
                           cleverlunch
                         </a>
                       </Button>
@@ -408,14 +429,17 @@ export default function FAQ() {
                   {activeView === "arbeitgeber" && (
                     <Button
                       asChild
-                      variant="outline"
-                      className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
                     >
                       <Link 
                         href="/"
                         className="flex items-center gap-2"
                       >
-                        <ExternalLink size={16} />
+                        <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                          <ExternalLink size={12} className="text-blue-600" />
+                        </div>
                         LohnLab Cockpit
                       </Link>
                     </Button>
@@ -424,18 +448,166 @@ export default function FAQ() {
                   {/* Für beide Gruppen verfügbar */}
                   <Button
                     asChild
-                    variant="outline"
-                    className="w-full justify-start border-[var(--lohn-primary)]/20 hover:bg-[var(--lohn-primary)]/5"
+                    variant="ghost"
+                    size="sm"
+                    className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
                   >
                     <Link 
                       href="/kontakt"
                       className="flex items-center gap-2"
                     >
-                      <ExternalLink size={16} />
+                      <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
+                        <HelpCircle size={12} className="text-purple-600" />
+                      </div>
                       Persönliche Beratung
                     </Link>
                   </Button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile/Tablet Sidebar Content */}
+          <div className="xl:hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {/* PDF Preview for Arbeitgeber - Mobile */}
+            {activeView === "arbeitgeber" && (
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
+                    <Download size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                      FAQ als PDF
+                    </h3>
+                    <p className="text-xs text-gray-500">Kompakte Übersicht</p>
+                  </div>
+                </div>
+                
+                <div className="mb-4">
+                  <div className="w-full h-36 bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-all duration-300 hover:scale-105">
+                    <img 
+                      src={faqPreviewImg} 
+                      alt="FAQ PDF Vorschau" 
+                      className="w-full h-full object-cover"
+                      onClick={() => window.open(faqArbeitgeberPdf, '_blank')}
+                    />
+                  </div>
+                </div>
+                
+                <Button 
+                  asChild 
+                  size="sm"
+                  className="w-full bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] hover:from-[var(--lohn-primary)]/90 hover:to-[var(--lohn-secondary)]/90 text-white shadow-md"
+                >
+                  <a 
+                    href={faqArbeitgeberPdf} 
+                    download="LohnLab_FAQ_Arbeitgeber.pdf"
+                    className="flex items-center justify-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download size={14} />
+                    PDF herunterladen
+                  </a>
+                </Button>
+              </div>
+            )}
+
+            {/* Useful Links - Mobile */}
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-teal)] to-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
+                  <ExternalLink size={20} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                    Nützliche Links
+                  </h3>
+                  <p className="text-xs text-gray-500">Direkte Zugänge</p>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                {/* Mitarbeiter-spezifische Links */}
+                {activeView === "mitarbeiter" && (
+                  <>
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                    >
+                      <a 
+                        href="https://card.givve.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                          <ExternalLink size={12} className="text-green-600" />
+                        </div>
+                        givve® Card Portal
+                      </a>
+                    </Button>
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                    >
+                      <a 
+                        href="https://cleverlunch.de/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
+                          <ExternalLink size={12} className="text-orange-600" />
+                        </div>
+                        cleverlunch
+                      </a>
+                    </Button>
+                  </>
+                )}
+                
+                {/* Arbeitgeber-spezifische Links */}
+                {activeView === "arbeitgeber" && (
+                  <Button
+                    asChild
+                    variant="ghost"
+                    size="sm"
+                    className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                  >
+                    <Link 
+                      href="/"
+                      className="flex items-center gap-2"
+                    >
+                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                        <ExternalLink size={12} className="text-blue-600" />
+                      </div>
+                      LohnLab Cockpit
+                    </Link>
+                  </Button>
+                )}
+                
+                {/* Für beide Gruppen verfügbar */}
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                >
+                  <Link 
+                    href="/kontakt"
+                    className="flex items-center gap-2"
+                  >
+                    <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
+                      <HelpCircle size={12} className="text-purple-600" />
+                    </div>
+                    Persönliche Beratung
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

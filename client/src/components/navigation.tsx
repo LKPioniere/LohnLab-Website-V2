@@ -16,7 +16,7 @@ export default function Navigation() {
   const [isDarkHero, setIsDarkHero] = useState(false);
   const [heroBgColor, setHeroBgColor] = useState('');
   
-  // Function to detect hero section background and extract colors
+  // Function to detect hero section background and extract primary color
   const detectHeroBackground = () => {
     const heroSection = document.querySelector('section');
     if (heroSection) {
@@ -25,52 +25,16 @@ export default function Navigation() {
       const bgImage = styles.backgroundImage;
       const classNames = heroSection.className;
       
-      // Check for gradients
+      // Check for gradients or dark backgrounds
       const hasGradient = classNames.includes('bg-gradient') || 
                          classNames.includes('from-[var(--lohn-primary)]') ||
                          classNames.includes('to-[var(--lohn-secondary)]') ||
                          bgImage.includes('gradient');
       
-      // If it's a gradient, extract the actual gradient
+      // For gradients, use solid primary color instead of gradient
       if (hasGradient || bgImage.includes('gradient')) {
-        // Try to get the actual background image first
-        if (bgImage && bgImage.includes('gradient')) {
-          setHeroBgColor(bgImage);
-          return true;
-        }
-        
-        // Recreate gradient based on CSS classes found
-        if (classNames.includes('from-[var(--lohn-primary)]')) {
-          let gradient = '';
-          
-          // Determine gradient direction
-          if (classNames.includes('bg-gradient-to-br')) {
-            gradient = 'linear-gradient(to bottom right, ';
-          } else if (classNames.includes('bg-gradient-to-r')) {
-            gradient = 'linear-gradient(to right, ';
-          } else {
-            gradient = 'linear-gradient(135deg, ';
-          }
-          
-          // Add gradient colors based on what's found in classes
-          gradient += 'var(--lohn-primary)';
-          
-          if (classNames.includes('via-[var(--lohn-secondary)]')) {
-            gradient += ', var(--lohn-secondary)';
-          }
-          
-          if (classNames.includes('to-[var(--lohn-secondary)]')) {
-            gradient += ', var(--lohn-secondary)';
-          } else if (classNames.includes('to-[var(--lohn-purple)]')) {
-            gradient += ', var(--lohn-purple)';
-          }
-          
-          gradient += ')';
-          setHeroBgColor(gradient);
-        } else {
-          // Try to extract computed background color as fallback
-          setHeroBgColor(bgColor || 'var(--lohn-primary)');
-        }
+        // Always use solid primary color for navigation
+        setHeroBgColor('var(--lohn-primary)');
         return true;
       }
       

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@/assets/lohnlab-logo-blue.png";
+import lohnlabLogoWhite from "@/assets/lohnlab-logo-white.png";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,7 +12,77 @@ export default function Navigation() {
   const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
   const [isMobileLoginOpen, setIsMobileLoginOpen] = useState(false);
   const [location] = useLocation();
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isDarkHero, setIsDarkHero] = useState(false);
   
+  // Function to detect if hero section has dark background
+  const detectHeroBackground = () => {
+    const heroSection = document.querySelector('section');
+    if (heroSection) {
+      const styles = window.getComputedStyle(heroSection);
+      const bgColor = styles.backgroundColor;
+      const bgImage = styles.backgroundImage;
+      
+      // Check class names for gradients or dark backgrounds
+      const classNames = heroSection.className;
+      const hasGradient = classNames.includes('bg-gradient') || 
+                         classNames.includes('from-[var(--lohn-primary)]') ||
+                         classNames.includes('to-[var(--lohn-secondary)]') ||
+                         bgImage.includes('gradient');
+      
+      // Check for specific dark color variables or classes
+      const hasDarkBg = classNames.includes('bg-[var(--lohn-primary)]') ||
+                       classNames.includes('bg-gray-900') ||
+                       classNames.includes('bg-black') ||
+                       classNames.includes('bg-slate-900');
+      
+      // Parse RGB values to determine darkness
+      let isDarkColor = false;
+      if (bgColor.includes('rgb')) {
+        const rgbMatch = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (rgbMatch) {
+          const [_, r, g, b] = rgbMatch.map(Number);
+          // Calculate luminance to determine if color is dark
+          const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+          isDarkColor = luminance < 0.5;
+        }
+      }
+      
+      return hasGradient || hasDarkBg || isDarkColor;
+    }
+    return false;
+  };
+
+  // Scroll detection effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector('section'); // First section is typically hero
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        const isVisible = rect.bottom > 0;
+        setIsHeroVisible(isVisible);
+        
+        // Detect if hero has dark background
+        if (isVisible) {
+          setIsDarkHero(detectHeroBackground());
+        }
+      }
+    };
+
+    // Initial check
+    setTimeout(() => {
+      handleScroll();
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [location]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -20,16 +91,31 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
+  // Dynamic styles based on hero visibility and background
+  const navBgClass = isHeroVisible && isDarkHero 
+    ? "bg-transparent" 
+    : "bg-white shadow-sm border-b border-gray-100";
+  
+  const textColorClass = isHeroVisible && isDarkHero 
+    ? "text-white" 
+    : "text-gray-700";
+  
+  const hoverColorClass = isHeroVisible && isDarkHero 
+    ? "hover:text-gray-200" 
+    : "hover:text-[var(--lohn-primary)]";
+  
+  const logoSrc = isHeroVisible && isDarkHero ? lohnlabLogoWhite : lohnlabLogo;
+
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <nav className={`${navBgClass} sticky top-0 z-50 transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/">
               <img 
-                src={lohnlabLogo} 
+                src={logoSrc} 
                 alt="LohnLab Logo" 
-                className="h-8 w-auto"
+                className="h-8 w-auto transition-all duration-300"
               />
             </Link>
           </div>
@@ -37,7 +123,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               href="/" 
-              className={`text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${location === '/' ? 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]' : ''}`}
+              className={`${textColorClass} ${isHeroVisible && isDarkHero ? 'hover:text-gray-200' : 'hover:text-[var(--lohn-primary)]'} transition-colors font-medium ${location === '/' ? (isHeroVisible && isDarkHero ? 'text-white border-b-2 border-white' : 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]') : ''}`}
             >
               Startseite
             </Link>
@@ -49,7 +135,7 @@ export default function Navigation() {
               onMouseLeave={() => setIsSolutionsOpen(false)}
             >
               <button
-                className={`flex items-center space-x-1 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${location.includes('/loesungen') ? 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]' : ''}`}
+                className={`flex items-center space-x-1 ${textColorClass} ${isHeroVisible && isDarkHero ? 'hover:text-gray-200' : 'hover:text-[var(--lohn-primary)]'} transition-colors font-medium ${location.includes('/loesungen') ? (isHeroVisible && isDarkHero ? 'text-white border-b-2 border-white' : 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]') : ''}`}
               >
                 <span>Lösungen</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} />
@@ -116,7 +202,7 @@ export default function Navigation() {
               onMouseLeave={() => setIsLoginOpen(false)}
             >
               <button
-                className="flex items-center space-x-1 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
+                className={`flex items-center space-x-1 ${textColorClass} ${isHeroVisible && isDarkHero ? 'hover:text-gray-200' : 'hover:text-[var(--lohn-primary)]'} transition-colors font-medium`}
               >
                 <span>Login</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${isLoginOpen ? 'rotate-180' : ''}`} />
@@ -155,7 +241,10 @@ export default function Navigation() {
             </div>
             
             <Link href="/kontakt">
-              <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full">
+              <Button className={`${isHeroVisible && isDarkHero 
+                ? 'bg-white text-[var(--lohn-primary)] hover:bg-gray-100' 
+                : 'bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)]'
+              } transition-colors rounded-full`}>
                 Kontakt
               </Button>
             </Link>
@@ -166,6 +255,7 @@ export default function Navigation() {
               variant="ghost" 
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`${textColorClass} ${isHeroVisible && isDarkHero ? 'hover:text-gray-200 hover:bg-white/10' : 'hover:text-[var(--lohn-primary)] hover:bg-gray-100'}`}
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
             </Button>

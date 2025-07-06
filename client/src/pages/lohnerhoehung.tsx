@@ -9,6 +9,7 @@ import berechnungsparameter from "@/assets/berechnungsparameter.png";
 import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
 import excelIcon from "@/assets/excel-icon.png";
 import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
+import employeeSelection from "@/assets/employee-selection.png";
 
 export default function Lohnerhoehung() {
   const [isImageExpanded, setIsImageExpanded] = useState(false);
@@ -281,6 +282,46 @@ export default function Lohnerhoehung() {
                   <div className="absolute bottom-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                     Genau
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mehrere Mitarbeiter - Detailed Section */}
+          <div className="bg-blue-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-blue-200 mb-12 relative">
+            {/* Users Icon positioned over right edge */}
+            <div className="absolute -right-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
+              <Users className="text-blue-600 text-4xl" />
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Screenshot first on left side */}
+              <div className="order-first">
+                <div className="relative">
+                  <img 
+                    src={employeeSelection} 
+                    alt="LohnLab Cockpit - Mitarbeiter auswählen" 
+                    className="w-full rounded-xl shadow-lg border border-gray-200"
+                  />
+                  <div className="absolute bottom-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Effizient
+                  </div>
+                </div>
+              </div>
+              
+              {/* Text on right side */}
+              <div className="order-last mr-8 lg:mr-0">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Mehrere Mitarbeiter</h3>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Massenberechnung:</strong> Mit unserem Tool können auf einen Schlag alle Mitarbeiter oder bestimmte Abteilungen berechnet werden.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Flexible Anpassung:</strong> Für jeden Mitarbeiter kann ein individueller Wert oder ein gemeinsamer Faktor angegeben werden.
+                  </p>
+                  <p className="text-lg">
+                    <strong className="text-gray-800">Intelligente Suchmaske:</strong> Die Suchfunktion hilft dabei, die gewünschten Mitarbeiter zu finden und gibt Aufschluss über die letzte Lohnerhöhung und deren Höhe.
+                  </p>
                 </div>
               </div>
             </div>

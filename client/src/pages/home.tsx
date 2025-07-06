@@ -3,7 +3,7 @@ import Navigation from "@/components/navigation";
 import HeroSection from "@/components/sections/HeroSection";
 import DevelopmentStatus from "@/components/development-status";
 import ProductFeaturesSection from "@/components/sections/ProductFeaturesSection";
-import CalculationModes from "@/components/calculation-modes";
+
 import DatevIntegration from "@/components/datev-integration";
 import TargetAudiencesSection from "@/components/sections/TargetAudiencesSection";
 import TeamSection from "@/components/sections/TeamSection";
@@ -23,7 +23,6 @@ export default function Home() {
       <DevelopmentStatus />
       <ProductFeaturesSection />
       <DemoCalculatorSection />
-      <CalculationModes />
       <DatevIntegration />
       <TargetAudiencesSection />
       <TeamSection />

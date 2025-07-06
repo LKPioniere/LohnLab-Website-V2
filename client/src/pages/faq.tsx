@@ -16,7 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
-import faqArbeitgeberPdf from "@assets/faq-arbeitgeber.pdf";
+import faqArbeitgeberPdf from "@assets/FAQ_LohnLab_Arbeitgeber (2)_1751828923975.pdf";
 
 export default function FAQ() {
   const [activeView, setActiveView] = useState<"mitarbeiter" | "arbeitgeber">("mitarbeiter");

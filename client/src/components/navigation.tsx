@@ -31,15 +31,45 @@ export default function Navigation() {
                          classNames.includes('to-[var(--lohn-secondary)]') ||
                          bgImage.includes('gradient');
       
-      // If it's a gradient, create a similar gradient for nav
-      if (hasGradient) {
-        if (classNames.includes('from-[var(--lohn-primary)]') && classNames.includes('to-[var(--lohn-secondary)]')) {
-          setHeroBgColor('linear-gradient(to bottom right, var(--lohn-primary), var(--lohn-secondary))');
-        } else if (classNames.includes('bg-gradient-to-br')) {
-          // Extract the gradient from computed styles or recreate it
-          setHeroBgColor('linear-gradient(to bottom right, #1e40af, #0f766e)'); // fallback gradient
+      // If it's a gradient, extract the actual gradient
+      if (hasGradient || bgImage.includes('gradient')) {
+        // Try to get the actual background image first
+        if (bgImage && bgImage.includes('gradient')) {
+          setHeroBgColor(bgImage);
+          return true;
+        }
+        
+        // Recreate gradient based on CSS classes found
+        if (classNames.includes('from-[var(--lohn-primary)]')) {
+          let gradient = '';
+          
+          // Determine gradient direction
+          if (classNames.includes('bg-gradient-to-br')) {
+            gradient = 'linear-gradient(to bottom right, ';
+          } else if (classNames.includes('bg-gradient-to-r')) {
+            gradient = 'linear-gradient(to right, ';
+          } else {
+            gradient = 'linear-gradient(135deg, ';
+          }
+          
+          // Add gradient colors based on what's found in classes
+          gradient += 'var(--lohn-primary)';
+          
+          if (classNames.includes('via-[var(--lohn-secondary)]')) {
+            gradient += ', var(--lohn-secondary)';
+          }
+          
+          if (classNames.includes('to-[var(--lohn-secondary)]')) {
+            gradient += ', var(--lohn-secondary)';
+          } else if (classNames.includes('to-[var(--lohn-purple)]')) {
+            gradient += ', var(--lohn-purple)';
+          }
+          
+          gradient += ')';
+          setHeroBgColor(gradient);
         } else {
-          setHeroBgColor('linear-gradient(to right, var(--lohn-primary), var(--lohn-secondary))');
+          // Try to extract computed background color as fallback
+          setHeroBgColor(bgColor || 'var(--lohn-primary)');
         }
         return true;
       }

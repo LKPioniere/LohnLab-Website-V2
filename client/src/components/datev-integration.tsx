@@ -1,4 +1,5 @@
 import { RefreshCw, Shield, Calculator, FileDown, Send, ArrowRight, ArrowLeft, Database, Users } from "lucide-react";
+import datevWorkflowImage from "@/assets/datev-lohnlab-workflow.png";
 
 export default function DatevIntegration() {
   return (
@@ -42,65 +43,11 @@ export default function DatevIntegration() {
             </div>
           </div>
           <div className="flex justify-center">
-            {/* Bidirectional DATEV-LohnLab Workflow Diagram */}
-            <div className="w-full max-w-md">
-              <svg viewBox="0 0 400 300" className="w-full h-auto">
-                {/* DATEV System */}
-                <rect x="50" y="50" width="100" height="60" rx="10" fill="#2563eb" />
-                <text x="100" y="75" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">DATEV</text>
-                <text x="100" y="90" textAnchor="middle" fill="white" fontSize="10">System</text>
-                
-                {/* LohnLab Cockpit */}
-                <rect x="250" y="50" width="100" height="60" rx="10" fill="#0891b2" />
-                <text x="300" y="75" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">LohnLab</text>
-                <text x="300" y="90" textAnchor="middle" fill="white" fontSize="10">Cockpit</text>
-                
-                {/* Top Arrow: DATEV to LohnLab (Stammdaten) */}
-                <path d="M160 65 L240 65" stroke="#10b981" strokeWidth="3" fill="none" markerEnd="url(#arrowhead-green)" />
-                <text x="200" y="60" textAnchor="middle" fill="#10b981" fontSize="11" fontWeight="bold">Stammdaten</text>
-                <text x="200" y="48" textAnchor="middle" fill="#6b7280" fontSize="9">Import</text>
-                
-                {/* Bottom Arrow: LohnLab to DATEV (Optimierte Daten) */}
-                <path d="M240 95 L160 95" stroke="#f59e0b" strokeWidth="3" fill="none" markerEnd="url(#arrowhead-orange)" />
-                <text x="200" y="110" textAnchor="middle" fill="#f59e0b" fontSize="11" fontWeight="bold">Optimierte Daten</text>
-                <text x="200" y="122" textAnchor="middle" fill="#6b7280" fontSize="9">Export</text>
-                
-                {/* Central Process Circle */}
-                <circle cx="200" cy="80" r="25" fill="rgba(34, 197, 94, 0.1)" stroke="#22c55e" strokeWidth="2" strokeDasharray="5,5">
-                  <animateTransform attributeName="transform" type="rotate" values="0 200 80;360 200 80" dur="10s" repeatCount="indefinite" />
-                </circle>
-                <text x="200" y="85" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">Live Sync</text>
-                
-                {/* Data Examples */}
-                <g>
-                  <rect x="30" y="140" width="140" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
-                  <text x="100" y="155" textAnchor="middle" fill="#334155" fontSize="11" fontWeight="bold">Stammdaten Flow</text>
-                  <text x="40" y="175" fill="#64748b" fontSize="9">• Mitarbeiter-Stammdaten</text>
-                  <text x="40" y="190" fill="#64748b" fontSize="9">• Aktuelle Gehälter</text>
-                  <text x="40" y="205" fill="#64748b" fontSize="9">• Sozialversicherung</text>
-                  <text x="40" y="220" fill="#64748b" fontSize="9">• Steuerklassen</text>
-                </g>
-                
-                <g>
-                  <rect x="230" y="140" width="140" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
-                  <text x="300" y="155" textAnchor="middle" fill="#334155" fontSize="11" fontWeight="bold">Optimierte Ausgabe</text>
-                  <text x="240" y="175" fill="#64748b" fontSize="9">• Neue Gehaltsstrukturen</text>
-                  <text x="240" y="190" fill="#64748b" fontSize="9">• Benefits-Pakete</text>
-                  <text x="240" y="205" fill="#64748b" fontSize="9">• Neueinstellungen</text>
-                  <text x="240" y="220" fill="#64748b" fontSize="9">• Anpassungen</text>
-                </g>
-                
-                {/* Arrow markers */}
-                <defs>
-                  <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
-                  </marker>
-                  <marker id="arrowhead-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b" />
-                  </marker>
-                </defs>
-              </svg>
-            </div>
+            <img 
+              src={datevWorkflowImage} 
+              alt="Bidirektionale DATEV-LohnLab Integration" 
+              className="rounded-2xl shadow-xl w-full max-w-md h-auto"
+            />
           </div>
         </div>
 

@@ -10,13 +10,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Search, HelpCircle, Users, Building, ExternalLink, Send, Download } from "lucide-react";
+import { Search, HelpCircle, Users, Building, ExternalLink, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
-import arbeitgeberFAQPdf from "@assets/FAQ_LohnLab_Arbeitgeber (1)_1751814736979.pdf";
 
 export default function FAQ() {
   const [activeView, setActiveView] = useState<"mitarbeiter" | "arbeitgeber">("mitarbeiter");
@@ -261,30 +260,6 @@ export default function FAQ() {
               </div>
             </div>
           </div>
-
-          {/* PDF Download for Employers */}
-          {activeView === "arbeitgeber" && (
-            <div className="bg-[var(--lohn-primary)] rounded-lg shadow-sm p-6 mb-8">
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    FAQ für Arbeitgeber - PDF Download
-                  </h3>
-                  <p className="text-white opacity-90">
-                    Laden Sie hier alle wichtigen Fragen und Antworten für Arbeitgeber als PDF herunter.
-                  </p>
-                </div>
-                <a 
-                  href={arbeitgeberFAQPdf}
-                  download="FAQ_LohnLab_Arbeitgeber.pdf"
-                  className="flex items-center gap-2 bg-[var(--lohn-primary)] text-white px-6 py-3 rounded-full hover:bg-[var(--lohn-secondary)] transition-colors font-medium whitespace-nowrap"
-                >
-                  <Download size={20} />
-                  PDF herunterladen
-                </a>
-              </div>
-            </div>
-          )}
 
           {/* Search */}
           <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">

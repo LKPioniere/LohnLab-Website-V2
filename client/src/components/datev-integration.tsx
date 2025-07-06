@@ -1,5 +1,5 @@
 import { RefreshCw, Shield, Calculator, FileDown, Send } from "lucide-react";
-import dashboardImage from "@assets/image_1751748026881.png";
+import dashboardImage from "@/assets/dashboard-preview.png";
 
 export default function DatevIntegration() {
   return (

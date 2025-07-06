@@ -4,8 +4,8 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, Users, FileCheck, Zap, Euro, TrendingUp, Settings, Download } from "lucide-react";
 import { Link } from "wouter";
-import salaryCalculationImage from "@assets/image_1751749408078.png";
-import employeeDataImage from "@assets/image_1751749442993.png";
+import salaryCalculationImage from "@/assets/salary-calculation.png";
+import employeeDataImage from "@/assets/employee-data-entry.png";
 
 export default function Neueinstellungen() {
   useEffect(() => {

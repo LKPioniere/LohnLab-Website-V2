@@ -1,7 +1,7 @@
 import { Linkedin } from "lucide-react";
 import { SiXing } from "react-icons/si";
 import { Link } from "wouter";
-import lohnlabLogo from "@assets/LohnLab_Logo_White300px (1)_1751742744696.png";
+import lohnlabLogo from "@/assets/lohnlab-logo-white.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {

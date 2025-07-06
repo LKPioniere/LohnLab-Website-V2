@@ -1,5 +1,5 @@
 import { Users, Euro, Calendar, TrendingUp, PieChart, BarChart3, Target, Award } from "lucide-react";
-import dashboardImage from "@assets/image_1751748026881.png";
+import dashboardImage from "@/assets/dashboard-preview.png";
 
 export default function DashboardPreview() {
   return (

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import lohnlabLogo from "@assets/LohnLab_Logo_Blue300px (1)_1751742744672.png";
+import lohnlabLogo from "@/assets/lohnlab-logo-blue.png";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

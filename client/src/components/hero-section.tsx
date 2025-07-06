@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import datevLogo from "@assets/images-removebg-preview_1751751686149.png";
-import cockpitScreenshot from "@assets/Lohnlab - Pitch Unternehmen_1751752770144.png";
+import datevLogo from "@/assets/datev-logo.png";
+import cockpitScreenshot from "@/assets/cockpit-screenshot.png";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {

@@ -16,10 +16,10 @@ export default function DemoCalculatorSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-            Praxis-Beispiel: 5% Lohnerhöhung optimiert
+            Lohnoptimierung aus der Praxis
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Vier Mitarbeiter erhalten 5% Brutto-Lohnerhöhung - und Sie sparen trotzdem Kosten.
+            Vier Mitarbeiter erhalten eine 5% Brutto-Lohnerhöhung - und Sie sparen trotzdem Kosten.
           </p>
         </div>
 

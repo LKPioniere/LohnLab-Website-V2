@@ -14,7 +14,7 @@ export default function TeamMember({ name, role, description, image }: TeamMembe
     switch(memberName) {
       case 'Michi':
         return {
-          color: 'var(--lohn-primary)',
+          color: 'var(--lohn-secondary)',
           badge: 'Vertrieb'
         };
       case 'Holger':

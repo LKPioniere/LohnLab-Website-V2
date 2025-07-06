@@ -61,7 +61,7 @@ export default function Navigation() {
                     <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Unsere Lösungen</h3>
                   </div>
                   <Link 
-                    href="/lohnerhoehung"
+                    href="/loesungen/lohnerhoehung"
                     className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
@@ -76,7 +76,7 @@ export default function Navigation() {
                     </div>
                   </Link>
                   <Link 
-                    href="/lohnoptimierung"
+                    href="/loesungen/lohnoptimierung"
                     className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
@@ -91,7 +91,7 @@ export default function Navigation() {
                     </div>
                   </Link>
                   <Link 
-                    href="/neueinstellungen"
+                    href="/loesungen/neueinstellungen"
                     className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
@@ -196,7 +196,7 @@ export default function Navigation() {
                 {isMobileSolutionsOpen && (
                   <div className="bg-gray-50 py-2">
                     <Link 
-                      href="/lohnerhoehung"
+                      href="/loesungen/lohnerhoehung"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
@@ -209,7 +209,7 @@ export default function Navigation() {
                       </div>
                     </Link>
                     <Link 
-                      href="/lohnoptimierung"
+                      href="/loesungen/lohnoptimierung"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
@@ -222,7 +222,7 @@ export default function Navigation() {
                       </div>
                     </Link>
                     <Link 
-                      href="/neueinstellungen"
+                      href="/loesungen/neueinstellungen"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >

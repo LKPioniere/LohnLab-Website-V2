@@ -31,27 +31,23 @@ export default function Navigation() {
                          classNames.includes('to-[var(--lohn-secondary)]') ||
                          bgImage.includes('gradient');
       
-      // For gradients, determine the dominant color based on the gradient combination
+      // For gradients, use specific RGB colors based on the page
       if (hasGradient || bgImage.includes('gradient')) {
-        // Analyze the gradient colors to choose the best navigation background
-        if (classNames.includes('from-[var(--lohn-primary)]') && classNames.includes('to-[var(--lohn-teal)]')) {
-          // Primary to teal gradient - use teal for navigation
-          setHeroBgColor('var(--lohn-teal)');
-        } else if (classNames.includes('from-[var(--lohn-primary)]') && classNames.includes('to-[var(--lohn-secondary)]')) {
-          // Primary to secondary gradient - use primary for navigation
-          setHeroBgColor('var(--lohn-primary)');
-        } else if (classNames.includes('from-[var(--lohn-purple)]')) {
-          // Purple gradient - use purple for navigation
-          setHeroBgColor('var(--lohn-purple)');
-        } else if (classNames.includes('from-[var(--lohn-teal)]')) {
-          // Teal gradient - use teal for navigation
-          setHeroBgColor('var(--lohn-teal)');
-        } else if (classNames.includes('from-[var(--lohn-secondary)]')) {
-          // Secondary gradient - use secondary for navigation
-          setHeroBgColor('var(--lohn-secondary)');
+        // Determine page-specific colors based on current path
+        const currentPath = window.location.pathname;
+        
+        if (currentPath === '/' || currentPath === '/faq' || currentPath === '/loesungen/lohnerhoehung') {
+          // Homepage, FAQ, Lohnerhöhung: RGB 15,34,137
+          setHeroBgColor('rgb(15, 34, 137)');
+        } else if (currentPath === '/loesungen/lohnoptimierung') {
+          // Optimierung: RGB 126,73,202
+          setHeroBgColor('rgb(126, 73, 202)');
+        } else if (currentPath === '/loesungen/neueinstellungen') {
+          // Neueinstellungen: RGB 39,72,133
+          setHeroBgColor('rgb(39, 72, 133)');
         } else {
-          // Default fallback to primary
-          setHeroBgColor('var(--lohn-primary)');
+          // Default fallback to homepage color
+          setHeroBgColor('rgb(15, 34, 137)');
         }
         return true;
       }

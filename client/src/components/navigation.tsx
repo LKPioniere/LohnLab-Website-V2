@@ -31,10 +31,28 @@ export default function Navigation() {
                          classNames.includes('to-[var(--lohn-secondary)]') ||
                          bgImage.includes('gradient');
       
-      // For gradients, use solid primary color instead of gradient
+      // For gradients, determine the dominant color based on the gradient combination
       if (hasGradient || bgImage.includes('gradient')) {
-        // Always use solid primary color for navigation
-        setHeroBgColor('var(--lohn-primary)');
+        // Analyze the gradient colors to choose the best navigation background
+        if (classNames.includes('from-[var(--lohn-primary)]') && classNames.includes('to-[var(--lohn-teal)]')) {
+          // Primary to teal gradient - use teal for navigation
+          setHeroBgColor('var(--lohn-teal)');
+        } else if (classNames.includes('from-[var(--lohn-primary)]') && classNames.includes('to-[var(--lohn-secondary)]')) {
+          // Primary to secondary gradient - use primary for navigation
+          setHeroBgColor('var(--lohn-primary)');
+        } else if (classNames.includes('from-[var(--lohn-purple)]')) {
+          // Purple gradient - use purple for navigation
+          setHeroBgColor('var(--lohn-purple)');
+        } else if (classNames.includes('from-[var(--lohn-teal)]')) {
+          // Teal gradient - use teal for navigation
+          setHeroBgColor('var(--lohn-teal)');
+        } else if (classNames.includes('from-[var(--lohn-secondary)]')) {
+          // Secondary gradient - use secondary for navigation
+          setHeroBgColor('var(--lohn-secondary)');
+        } else {
+          // Default fallback to primary
+          setHeroBgColor('var(--lohn-primary)');
+        }
         return true;
       }
       

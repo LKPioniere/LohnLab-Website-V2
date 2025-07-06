@@ -18,8 +18,11 @@ export default function DemoCalculatorSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
             Praxis-Beispiel: 5% Lohnerhöhung optimiert
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-4">
             Sehen Sie selbst, wie intelligente Lohnoptimierung sofort Kosten spart
+          </p>
+          <p className="text-lg text-gray-500 max-w-4xl mx-auto">
+            Das folgende Beispiel zeigt eine 5% Brutto-Lohnerhöhung für vier Mitarbeiter und die daraus resultierenden Kosteneinsparungen durch optimierte Gehaltsgestaltung.
           </p>
         </div>
 
@@ -102,15 +105,15 @@ export default function DemoCalculatorSection() {
                   <ul className="space-y-3 text-sm">
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-[var(--lohn-teal)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      Mitarbeiter erhalten volle 5% mehr Netto
+                      Mitarbeiter erhalten eine vollwertige Lohnerhöhung
                     </li>
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-[var(--lohn-purple)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      Sie sparen dabei {totalMonthlySavings} € monatlich
+                      Sie sparen dabei bis zu 50% der Kosten
                     </li>
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-[var(--lohn-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      Rechtssichere Umsetzung über DATEV
+                      LohnLab übernimmt die rechtssichere Umsetzung
                     </li>
                   </ul>
                 </div>

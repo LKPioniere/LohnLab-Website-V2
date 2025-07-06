@@ -321,7 +321,8 @@ export default function Navigation() {
                 
                 {isMobileSolutionsOpen && (
                   <div 
-                    className={`py-2 ${isHeroVisible && isDarkHero ? 'bg-black/20' : 'bg-gray-50'}`}
+                    className="py-2"
+                    style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : { background: '#f9fafb' }}
                   >
                     <Link 
                       href="/loesungen/lohnerhoehung"
@@ -377,7 +378,10 @@ export default function Navigation() {
                 </button>
                 
                 {isMobileLoginOpen && (
-                  <div className={`py-2 ${isHeroVisible && isDarkHero ? 'bg-black/20' : 'bg-gray-50'}`}>
+                  <div 
+                    className="py-2"
+                    style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : { background: '#f9fafb' }}
+                  >
                     <a 
                       href="https://cockpit.lohnlab.de"
                       target="_blank"

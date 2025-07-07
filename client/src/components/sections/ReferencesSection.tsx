@@ -83,17 +83,14 @@ export default function ReferencesSection() {
             // Stebah GmbH Clean Design
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 px-6 py-4 border-b border-blue-200">
+              <div className="bg-gradient-to-r from-gray-700 to-gray-800 px-6 py-4 border-b border-gray-600">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center">
                     <img 
                       src="src/assets/stebah-logo.png" 
                       alt="STEBAH Logo" 
                       className="h-12 w-auto"
                     />
-                    <div>
-                      <p className="text-sm text-blue-600 font-medium">Moderne Lohnoptimierung</p>
-                    </div>
                   </div>
                   <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg text-sm">
                     <CreditCard className="w-4 h-4 mr-2" />
@@ -107,7 +104,7 @@ export default function ReferencesSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
                   
                   {/* Profile */}
-                  <div className="text-center lg:text-left">
+                  <div className="text-center lg:text-left lg:pl-4">
                     <div className="w-28 h-28 mx-auto lg:mx-0 mb-4">
                       <img 
                         src={currentRef.image} 

@@ -1,8 +1,18 @@
-import { useState } from "react";
-import { Check, FlaskConical, Rocket, ChevronLeft, ChevronRight, Info, X, Activity } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Check, FlaskConical, Rocket, ChevronLeft, ChevronRight, Info, X, Activity, Calendar } from "lucide-react";
 
 export default function DevelopmentStatusSidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [daysLeft, setDaysLeft] = useState(0);
+
+  useEffect(() => {
+    // Calculate days until November 2024 (launch date)
+    const launchDate = new Date('2024-11-01');
+    const today = new Date();
+    const timeDiff = launchDate.getTime() - today.getTime();
+    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    setDaysLeft(daysDiff > 0 ? daysDiff : 0);
+  }, []);
 
   return (
     <>
@@ -82,16 +92,35 @@ export default function DevelopmentStatusSidebar() {
             </div>
           </div>
 
-          <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-            <h5 className="font-semibold text-[var(--lohn-primary)] text-sm mb-2">
-              Aktueller Fortschritt
-            </h5>
-            <div className="flex items-center justify-between text-xs text-gray-600">
-              <span>Gesamtfortschritt</span>
-              <span className="font-semibold">60%</span>
+          {/* Status Overview */}
+          <div className="mt-8 space-y-4">
+            <div className="p-4 bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-lg text-white">
+              <div className="flex items-center justify-between mb-2">
+                <h5 className="font-semibold text-sm flex items-center">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Countdown bis Launch
+                </h5>
+              </div>
+              <div className="text-center py-4">
+                <div className="text-4xl font-bold mb-1">{daysLeft}</div>
+                <div className="text-sm text-blue-100">Tage verbleibend</div>
+              </div>
+              <div className="text-xs text-blue-100 text-center border-t border-white/20 pt-3">
+                Geplanter Launch: November 2024
+              </div>
             </div>
-            <div className="mt-2 bg-gray-200 rounded-full h-2 w-full">
-              <div className="bg-gradient-to-r from-[var(--lohn-teal)] to-[var(--lohn-secondary)] h-full rounded-full" style={{ width: '60%' }}></div>
+
+            <div className="p-4 bg-blue-50 rounded-lg">
+              <h5 className="font-semibold text-[var(--lohn-primary)] text-sm mb-2">
+                Aktueller Fortschritt
+              </h5>
+              <div className="flex items-center justify-between text-xs text-gray-600">
+                <span>Gesamtfortschritt</span>
+                <span className="font-semibold">60%</span>
+              </div>
+              <div className="mt-2 bg-gray-200 rounded-full h-2 w-full">
+                <div className="bg-gradient-to-r from-[var(--lohn-teal)] to-[var(--lohn-secondary)] h-full rounded-full" style={{ width: '60%' }}></div>
+              </div>
             </div>
           </div>
         </div>

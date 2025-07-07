@@ -622,26 +622,28 @@ export default function NewHireCompensationAPI() {
               </div>
               <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Fachkräftemangel verschärft sich</h3>
               <div className="bg-red-50 rounded-lg p-4 mb-3">
-                <p className="text-3xl font-bold text-red-600 mb-1">76%</p>
-                <p className="text-sm text-gray-600">der Gen-Z bewerten Benefits als entscheidend</p>
+                <p className="text-3xl font-bold text-red-600 mb-1">81%</p>
+                <p className="text-sm text-gray-600">der Gen-Z werten Flexibilität höher als Gehalt</p>
               </div>
               <p className="text-gray-600 text-sm">
                 Unternehmen müssen attraktive Gehaltsstrukturen bieten, um qualifizierte Mitarbeiter zu gewinnen
               </p>
+              <p className="text-xs text-gray-400 mt-2">Quelle: Deloitte Global Gen Z Survey 2025</p>
             </div>
             
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center h-full">
               <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Lohnoptimierung als Standard</h3>
+              <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Benefits-Budget steigt</h3>
               <div className="bg-blue-50 rounded-lg p-4 mb-3">
-                <p className="text-3xl font-bold text-blue-600 mb-1">85%</p>
-                <p className="text-sm text-gray-600">mehr Nachfrage nach Benefits</p>
+                <p className="text-3xl font-bold text-blue-600 mb-1">66%</p>
+                <p className="text-sm text-gray-600">der Unternehmen bieten jetzt LSAs an</p>
               </div>
               <p className="text-gray-600 text-sm">
-                Steueroptimierte Gehaltsstrukturen werden vom Nice-to-have zum Must-have für Arbeitgeber
+                Lifestyle Spending Accounts werden zum Standard für moderne Arbeitgeber
               </p>
+              <p className="text-xs text-gray-400 mt-2">Quelle: SHRM Employee Benefit Trends 2025</p>
             </div>
             
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center h-full">
@@ -650,26 +652,28 @@ export default function NewHireCompensationAPI() {
               </div>
               <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Individuelle Lösungen</h3>
               <div className="bg-purple-50 rounded-lg p-4 mb-3">
-                <p className="text-3xl font-bold text-purple-600 mb-1">62%</p>
-                <p className="text-sm text-gray-600">wünschen personalisierte Benefits</p>
+                <p className="text-3xl font-bold text-purple-600 mb-1">63%</p>
+                <p className="text-sm text-gray-600">würden Gehalt für bessere Benefits tauschen</p>
               </div>
               <p className="text-gray-600 text-sm">
-                One-size-fits-all Ansätze funktionieren nicht mehr - Flexibilität ist gefragt
+                Personalisierte Benefits werden wichtiger als standardisierte Gehaltserhöhungen
               </p>
+              <p className="text-xs text-gray-400 mt-2">Quelle: BambooHR Benefits Report 2025</p>
             </div>
             
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center h-full">
               <div className="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Code className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Digitale Transformation</h3>
+              <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">HR-Automatisierung boomt</h3>
               <div className="bg-green-50 rounded-lg p-4 mb-3">
-                <p className="text-3xl font-bold text-green-600 mb-1">91%</p>
-                <p className="text-sm text-gray-600">setzen auf automatisierte Prozesse</p>
+                <p className="text-3xl font-bold text-green-600 mb-1">90%</p>
+                <p className="text-sm text-gray-600">nutzen Tech-Plattformen für Benefits</p>
               </div>
               <p className="text-gray-600 text-sm">
                 APIs und Automatisierung werden zur Grundvoraussetzung für effiziente HR-Prozesse
               </p>
+              <p className="text-xs text-gray-400 mt-2">Quelle: Paychex Employee Benefits Trends 2025</p>
             </div>
           </div>
         </div>

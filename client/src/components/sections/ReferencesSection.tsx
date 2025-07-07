@@ -1,4 +1,4 @@
-import { Star, ChevronLeft, ChevronRight, Quote, Film, Camera } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Quote, Film, Camera, CreditCard, Zap } from "lucide-react";
 import christopherImage from "@assets/CHristopher-Bausch-e1666084356146_1751895906988.jpg";
 import { useState } from "react";
 
@@ -31,6 +31,19 @@ const references: Reference[] = [
     backgroundColor: "bg-white",
     textColor: "text-gray-800",
     accentColor: "text-[var(--lohn-primary)]"
+  },
+  {
+    id: "julius-henne",
+    name: "Julius Henne",
+    title: "Geschäftsführer",
+    company: "Stebah GmbH & Co. KG",
+    quote: "Ich und meine Mitarbeiter sind von den vielfältigen Einsatzmöglichkeiten unserer Firmenkarte begeistert. Das Design passt perfekt zu unserem Unternehmen.",
+    image: "", // Will be rendered as card design
+    industry: "Corporate Services",
+    highlight: "Vielfältige Einsatzmöglichkeiten",
+    backgroundColor: "bg-gradient-to-br from-blue-600 to-blue-800",
+    textColor: "text-white",
+    accentColor: "text-orange-300"
   }
 ];
 
@@ -120,75 +133,175 @@ export default function ReferencesSection() {
                   <div className="mt-4 w-32 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
                 </div>
                 
-                {/* Main Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  
-                  {/* Actor Headshot Style Photo */}
-                  <div className="lg:col-span-4 text-center">
-                    <div className="relative inline-block">
-                      <div className="relative w-40 h-40 lg:w-48 lg:h-48 mx-auto">
-                        <img 
-                          src={currentRef.image} 
-                          alt={currentRef.name}
-                          className="w-full h-full rounded-full object-cover shadow-2xl border-4 border-white"
-                          style={{
-                            filter: 'contrast(1.1) saturate(1.1) brightness(1.05)',
-                            boxShadow: '0 20px 40px rgba(0,0,0,0.2), 0 0 0 8px rgba(255,255,255,0.1)'
-                          }}
-                        />
-                        {/* Star Badge */}
-                        <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg">
-                          <Star className="w-4 h-4 text-white fill-current" />
+                {/* Dynamic Content based on reference type */}
+                {currentRef.id === "julius-henne" ? (
+                  // Stebah Company Card Design
+                  <div className="space-y-8">
+                    {/* Corporate Card Design */}
+                    <div className="relative mx-auto max-w-md">
+                      <div className="relative w-full h-48 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-2xl overflow-hidden">
+                        {/* Card Background Pattern */}
+                        <div className="absolute inset-0 opacity-10">
+                          <div className="absolute top-4 left-4 w-32 h-32 border-2 border-white rounded-lg"></div>
+                          <div className="absolute bottom-4 right-4 w-24 h-24 border border-white rounded-full"></div>
                         </div>
-                        {/* Spotlight effect */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-radial from-transparent via-transparent to-black opacity-10"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Cast Information */}
-                  <div className="lg:col-span-8 space-y-6">
-                    
-                    {/* Character Info */}
-                    <div className="text-center lg:text-left">
-                      <h3 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">
-                        {currentRef.name}
-                      </h3>
-                      <p className="text-xl text-[var(--lohn-primary)] font-semibold mb-4">
-                        {currentRef.title}
-                      </p>
-                      
-                      {/* Cinema Credits */}
-                      <div className="space-y-2 text-gray-600">
-                        <p className="text-sm uppercase tracking-wider font-medium text-gray-500 mb-3">Starring in:</p>
-                        {currentRef.companies?.map((company, index) => (
-                          <div key={index} className="flex items-center justify-center lg:justify-start space-x-3">
-                            <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                            <span className="text-lg font-medium">{company}</span>
+                        
+                        {/* Card Content */}
+                        <div className="relative z-10 p-6 h-full flex flex-col justify-between text-white">
+                          {/* Top Section */}
+                          <div>
+                            <h3 className="text-2xl font-bold mb-1 tracking-wide">ZUM VERPULVERN!</h3>
+                            <div className="flex items-center space-x-4 mb-4">
+                              <div className="w-8 h-6 bg-gray-200 rounded-md"></div>
+                              <div className="flex space-x-1">
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                              </div>
+                            </div>
+                            <div className="text-3xl font-bold tracking-wider mb-2">STEBAH</div>
                           </div>
-                        ))}
+                          
+                          {/* Bottom Section */}
+                          <div className="space-y-2">
+                            <div className="text-xl font-mono tracking-wider">5219 6510 1234 5678</div>
+                            <div className="flex justify-between items-end">
+                              <div>
+                                <div className="text-xs opacity-80">GOOD THRU</div>
+                                <div className="text-sm font-bold">12/25</div>
+                                <div className="text-xs mt-1">MAX MUSTERMANN</div>
+                                <div className="text-xs">STEBAH</div>
+                              </div>
+                              <div className="flex space-x-1">
+                                <div className="w-8 h-8 bg-red-500 rounded-full opacity-90"></div>
+                                <div className="w-8 h-8 bg-orange-400 rounded-full opacity-90 -ml-2"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Card shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-45 transform translate-x-full opacity-30"></div>
                       </div>
                     </div>
                     
-                    {/* Featured Quote */}
-                    <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-[var(--lohn-primary)]">
-                      <div className="flex items-start space-x-4">
-                        <Quote className="w-6 h-6 text-[var(--lohn-primary)] mt-1 flex-shrink-0" />
-                        <blockquote className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium italic">
-                          „{currentRef.quote}"
-                        </blockquote>
+                    {/* Content Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                      {/* Company Info */}
+                      <div className="text-center lg:text-left space-y-4">
+                        <h3 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">
+                          {currentRef.name}
+                        </h3>
+                        <p className="text-xl text-[var(--lohn-primary)] font-semibold mb-4">
+                          {currentRef.title}
+                        </p>
+                        <div className="text-lg text-gray-600 font-medium">
+                          {currentRef.company}
+                        </div>
+                        
+                        {/* Corporate Features */}
+                        <div className="flex flex-wrap gap-2 justify-center lg:justify-start mt-6">
+                          <div className="flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full">
+                            <CreditCard className="w-4 h-4 mr-2" />
+                            <span className="text-sm font-medium">Firmenkarte</span>
+                          </div>
+                          <div className="flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full">
+                            <Zap className="w-4 h-4 mr-2" />
+                            <span className="text-sm font-medium">Vielfältige Nutzung</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    
-                    {/* Award Badge */}
-                    <div className="flex justify-center lg:justify-start">
-                      <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[var(--lohn-primary)] to-blue-600 text-white rounded-full shadow-lg">
-                        <Star className="w-5 h-5 mr-2 fill-current" />
-                        <span className="font-semibold">{currentRef.highlight}</span>
+                      
+                      {/* Quote Section */}
+                      <div className="space-y-4">
+                        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-l-4 border-blue-600">
+                          <div className="flex items-start space-x-4">
+                            <Quote className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+                            <blockquote className="text-lg text-gray-800 leading-relaxed font-medium italic">
+                              „{currentRef.quote}"
+                            </blockquote>
+                          </div>
+                        </div>
+                        
+                        {/* Highlight Badge */}
+                        <div className="flex justify-center lg:justify-start">
+                          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-full shadow-lg">
+                            <Star className="w-5 h-5 mr-2 fill-current" />
+                            <span className="font-semibold">{currentRef.highlight}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  // Cinema Design for Christopher Bausch
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    {/* Actor Headshot Style Photo */}
+                    <div className="lg:col-span-4 text-center">
+                      <div className="relative inline-block">
+                        <div className="relative w-40 h-40 lg:w-48 lg:h-48 mx-auto">
+                          <img 
+                            src={currentRef.image} 
+                            alt={currentRef.name}
+                            className="w-full h-full rounded-full object-cover shadow-2xl border-4 border-white"
+                            style={{
+                              filter: 'contrast(1.1) saturate(1.1) brightness(1.05)',
+                              boxShadow: '0 20px 40px rgba(0,0,0,0.2), 0 0 0 8px rgba(255,255,255,0.1)'
+                            }}
+                          />
+                          {/* Star Badge */}
+                          <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg">
+                            <Star className="w-4 h-4 text-white fill-current" />
+                          </div>
+                          {/* Spotlight effect */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-radial from-transparent via-transparent to-black opacity-10"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Cast Information */}
+                    <div className="lg:col-span-8 space-y-6">
+                      {/* Character Info */}
+                      <div className="text-center lg:text-left">
+                        <h3 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">
+                          {currentRef.name}
+                        </h3>
+                        <p className="text-xl text-[var(--lohn-primary)] font-semibold mb-4">
+                          {currentRef.title}
+                        </p>
+                        
+                        {/* Cinema Credits */}
+                        <div className="space-y-2 text-gray-600">
+                          <p className="text-sm uppercase tracking-wider font-medium text-gray-500 mb-3">Starring in:</p>
+                          {currentRef.companies?.map((company, index) => (
+                            <div key={index} className="flex items-center justify-center lg:justify-start space-x-3">
+                              <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                              <span className="text-lg font-medium">{company}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* Featured Quote */}
+                      <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-[var(--lohn-primary)]">
+                        <div className="flex items-start space-x-4">
+                          <Quote className="w-6 h-6 text-[var(--lohn-primary)] mt-1 flex-shrink-0" />
+                          <blockquote className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium italic">
+                            „{currentRef.quote}"
+                          </blockquote>
+                        </div>
+                      </div>
+                      
+                      {/* Award Badge */}
+                      <div className="flex justify-center lg:justify-start">
+                        <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[var(--lohn-primary)] to-blue-600 text-white rounded-full shadow-lg">
+                          <Star className="w-5 h-5 mr-2 fill-current" />
+                          <span className="font-semibold">{currentRef.highlight}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               
               {/* Subtle film grain overlay */}

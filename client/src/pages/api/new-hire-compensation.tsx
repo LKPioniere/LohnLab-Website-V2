@@ -20,6 +20,28 @@ export default function NewHireCompensationAPI() {
     setTimeout(() => setCopiedCode(null), 2000);
   };
 
+  // Simple JSON syntax highlighter
+  const highlightJSON = (json: string) => {
+    return json
+      .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
+        let cls = 'text-gray-400'; // default
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            cls = 'text-blue-400'; // key
+          } else {
+            cls = 'text-green-400'; // string
+          }
+        } else if (/true|false/.test(match)) {
+          cls = 'text-yellow-400'; // boolean
+        } else if (/null/.test(match)) {
+          cls = 'text-red-400'; // null
+        } else {
+          cls = 'text-purple-400'; // number
+        }
+        return `<span class="${cls}">${match}</span>`;
+      });
+  };
+
   const apiRequestExample = `{
   "amount": 5000,
   "mode": "brutto",
@@ -333,9 +355,10 @@ export default function NewHireCompensationAPI() {
                 {copiedCode === 'request' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
-            <pre className="text-green-400 text-sm overflow-x-auto">
-              <code>{apiRequestExample}</code>
-            </pre>
+            <pre 
+              className="text-sm overflow-x-auto"
+              dangerouslySetInnerHTML={{ __html: highlightJSON(apiRequestExample) }}
+            />
           </div>
         </div>
       </section>
@@ -368,9 +391,10 @@ export default function NewHireCompensationAPI() {
                     {copiedCode === 'response' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                   </Button>
                 </div>
-                <pre className="text-green-400 text-sm overflow-x-auto">
-                  <code>{apiResponseExample}</code>
-                </pre>
+                <pre 
+                  className="text-sm overflow-x-auto"
+                  dangerouslySetInnerHTML={{ __html: highlightJSON(apiResponseExample) }}
+                />
               </div>
               <div className="mt-4 bg-green-100 p-4 rounded-lg">
                 <p className="text-sm text-green-800 font-medium">
@@ -463,9 +487,10 @@ export default function NewHireCompensationAPI() {
                   {copiedCode === 'optionsList' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </Button>
               </div>
-              <pre className="text-green-400 text-sm overflow-x-auto">
-                <code>{getOptionsListResponse}</code>
-              </pre>
+              <pre 
+                className="text-sm overflow-x-auto"
+                dangerouslySetInnerHTML={{ __html: highlightJSON(getOptionsListResponse) }}
+              />
             </div>
           </div>
 
@@ -624,36 +649,6 @@ export default function NewHireCompensationAPI() {
               <h3 className="text-lg font-semibold mb-2">Digitalisierung der HR</h3>
               <p className="text-gray-600 mt-4">KI und Automatisierung werden erwartet</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Bereit für die Zukunft der Lohnoptimierung?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Integrieren Sie unsere API und starten Sie noch heute mit automatisierter Lohnoptimierung
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 text-lg px-8 py-4 rounded-full font-semibold"
-            >
-              <ExternalLink className="w-5 h-5 mr-2" />
-              API Zugang beantragen
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              onClick={() => document.getElementById('api-docs')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-white text-white hover:bg-white hover:text-[var(--lohn-primary)] text-lg px-8 py-4 rounded-full font-semibold"
-            >
-              Technische Dokumentation
-            </Button>
           </div>
         </div>
       </section>

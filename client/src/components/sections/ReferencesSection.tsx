@@ -85,18 +85,19 @@ export default function ReferencesSection() {
               {/* Header */}
               <div className="bg-gradient-to-r from-blue-50 to-blue-100 px-6 py-4 border-b border-blue-200">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                      <Building className="w-5 h-5 text-white" />
-                    </div>
+                  <div className="flex items-center space-x-4">
+                    <img 
+                      src="src/assets/stebah-logo.png" 
+                      alt="STEBAH Logo" 
+                      className="h-12 w-auto"
+                    />
                     <div>
-                      <h3 className="text-lg font-bold text-gray-800">STEBAH GmbH & Co. KG</h3>
-                      <p className="text-sm text-blue-600">Moderne Lohnoptimierung</p>
+                      <p className="text-sm text-blue-600 font-medium">Moderne Lohnoptimierung</p>
                     </div>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium">
-                    <CreditCard className="w-4 h-4 mr-1" />
-                    {currentRef.highlight}
+                  <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full shadow-lg text-sm">
+                    <CreditCard className="w-4 h-4 mr-2" />
+                    <span className="font-semibold">{currentRef.highlight}</span>
                   </div>
                 </div>
               </div>

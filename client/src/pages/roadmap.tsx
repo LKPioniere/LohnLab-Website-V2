@@ -391,7 +391,7 @@ export default function Roadmap() {
                   <CardContent className="p-0">
                     <div 
                       data-tf-live="01JZK3G8NZEAZ8W2RH5D997T00"
-                      style={{ height: '500px', width: '100%' }}
+                      style={{ height: '700px', width: '100%' }}
                     ></div>
                   </CardContent>
                 </Card>

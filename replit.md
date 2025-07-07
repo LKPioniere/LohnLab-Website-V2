@@ -145,4 +145,11 @@ Changelog:
 - July 05, 2025: Simplified architecture - removed Unternehmen page and audience toggle, unified single-page approach
 - January 2025: Major code refactoring - Split components into smaller files, extracted business logic to hooks, created clear folder structure, centralized constants and data
 - January 6, 2025: Asset reorganization - Moved all used assets from attached_assets to client/src/assets with clear naming convention and updated all import paths
-- January 7, 2025: Added comprehensive API section with new navigation menu and dedicated New Hire Compensation API page featuring market trends 2025, three strategic calculation modes (MaxErsparnis, MaxNetto, FreeCalc), target audience analysis, and detailed API documentation with request/response examples
+- January 7, 2025: Added comprehensive API section with new navigation menu and completely rebuilt New Hire Compensation API page featuring:
+  - Hero section with clear value proposition for flexible salary calculation
+  - "Aha effect" section showcasing flexibility, template system, and automatic optimization
+  - Interactive three optimization modes (MaxErsparnis, MaxNetto, FreeCalc) with mode selection
+  - Comprehensive API documentation with request/response examples
+  - getOptionsList API endpoint documentation with all available Lohnbausteine
+  - Additional services section (payroll integration, sample payroll statements, Lohnbausteine management)
+  - Market trends 2025 data highlighting the importance of digitalization and benefits

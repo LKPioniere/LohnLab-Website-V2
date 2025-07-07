@@ -161,28 +161,45 @@ export default function Navigation() {
               onMouseLeave={() => setIsSolutionsOpen(false)}
             >
               <button
-                className={`flex items-center space-x-1 ${textColorClass} ${isHeroVisible && isDarkHero ? 'hover:text-gray-200' : 'hover:text-[var(--lohn-primary)]'} transition-colors font-medium ${location.includes('/loesungen') ? (isHeroVisible && isDarkHero ? 'text-white border-b-2 border-white' : 'text-[var(--lohn-primary)] border-b-2 border-[var(--lohn-primary)]') : ''}`}
+                className={`group relative flex items-center space-x-1 px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
+                  location.includes('/loesungen') 
+                    ? (isHeroVisible && isDarkHero 
+                        ? 'text-white' 
+                        : 'text-[var(--lohn-primary)]') 
+                    : ''
+                }`}
               >
-                <span>Lösungen</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} />
+                <span className="relative">
+                  Lösungen
+                  <span className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
+                    location.includes('/loesungen')
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-100'
+                  } ${
+                    isHeroVisible && isDarkHero 
+                      ? 'bg-white' 
+                      : 'bg-[var(--lohn-primary)]'
+                  }`}></span>
+                </span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isSolutionsOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {isSolutionsOpen && (
-                <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-lg border border-gray-200 py-4">
-                  <div className="px-4 py-2 border-b border-gray-100">
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Unsere Lösungen</h3>
+                <div className="absolute top-full left-0 mt-3 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
+                  <div className="px-6 py-3 border-b border-gray-100">
+                    <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Unsere Lösungen</h3>
                   </div>
                   <Link 
                     href="/loesungen/lohnerhoehung"
-                    className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
+                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
-                        <TrendingUp className="w-5 h-5 text-white" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-primary)] to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                        <TrendingUp className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="font-medium">Lohnerhöhung</div>
+                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-primary)] transition-colors">Lohnerhöhung</div>
                         <div className="text-sm text-gray-500">Exakte Berechnungen für alle Mitarbeiter</div>
                       </div>
                     </div>

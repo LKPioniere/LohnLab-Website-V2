@@ -153,10 +153,10 @@ export default function Navigation() {
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {/* Solutions Dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setIsSolutionsOpen(true)}
               onMouseLeave={() => setIsSolutionsOpen(false)}
             >
@@ -185,7 +185,7 @@ export default function Navigation() {
               </button>
               
               {isSolutionsOpen && (
-                <div className="absolute top-full left-0 mt-3 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-fadeIn">
                   <div className="px-6 py-3 border-b border-gray-100">
                     <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Unsere Lösungen</h3>
                   </div>
@@ -206,30 +206,30 @@ export default function Navigation() {
                   </Link>
                   <Link 
                     href="/loesungen/lohnoptimierung"
-                    className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
+                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-all duration-300"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
-                        <Crown className="w-5 h-5 text-yellow-400" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-purple)] to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                        <Crown className="w-6 h-6 text-yellow-400" />
                       </div>
                       <div>
-                        <div className="font-medium">Lohnoptimierung</div>
+                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-purple)] transition-colors">Lohnoptimierung</div>
                         <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
                       </div>
                     </div>
                   </Link>
                   <Link 
                     href="/loesungen/neueinstellungen"
-                    className="block px-4 py-4 text-gray-700 hover:bg-gray-50 transition-colors"
+                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent transition-all duration-300"
                     onClick={() => setIsSolutionsOpen(false)}
                   >
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
-                        <UserPlus className="w-5 h-5 text-white" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                        <UserPlus className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="font-medium">Neueinstellungen</div>
+                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">Neueinstellungen</div>
                         <div className="text-sm text-gray-500">Optimale Gehaltspakete und DATEV-Integration</div>
                       </div>
                     </div>
@@ -240,57 +240,77 @@ export default function Navigation() {
             
             {/* Login Dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setIsLoginOpen(true)}
               onMouseLeave={() => setIsLoginOpen(false)}
             >
               <button
-                className={`flex items-center space-x-1 ${textColorClass} ${isHeroVisible && isDarkHero ? 'hover:text-gray-200' : 'hover:text-[var(--lohn-primary)]'} transition-colors font-medium`}
+                className={`group relative flex items-center space-x-1 px-3 py-2 ${textColorClass} font-medium transition-all duration-300`}
               >
-                <span>Login</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${isLoginOpen ? 'rotate-180' : ''}`} />
+                <span className="relative">
+                  Login
+                  <span className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 scale-x-0 group-hover:scale-x-100 ${
+                    isHeroVisible && isDarkHero 
+                      ? 'bg-white' 
+                      : 'bg-[var(--lohn-primary)]'
+                  }`}></span>
+                </span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isLoginOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {isLoginOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-fadeIn">
+                  <div className="px-6 py-3 border-b border-gray-100">
+                    <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Login & Ressourcen</h3>
+                  </div>
                   <a 
                     href="https://cockpit.lohnlab.de"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
                     onClick={() => setIsLoginOpen(false)}
                   >
-                    <ExternalLink className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
-                    <div>
-                      <div className="font-medium">LohnLab Cockpit</div>
-                      <div className="text-sm text-gray-500">Zur Anwendung</div>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                        <ExternalLink className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">LohnLab Cockpit</div>
+                        <div className="text-sm text-gray-500">Zur Anwendung</div>
+                      </div>
                     </div>
                   </a>
                   <a 
                     href="https://lohnlab-cockpit-kanzleipaket-udfcfcdagr.mymemberspot.de/auth/login?redirectTo=%2Flibrary"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-[var(--lohn-primary)] transition-colors"
+                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-orange-50 hover:to-transparent transition-all duration-300"
                     onClick={() => setIsLoginOpen(false)}
                   >
-                    <BookOpen className="w-5 h-5 mr-3 text-[var(--lohn-teal)]" />
-                    <div>
-                      <div className="font-medium">Handbücher & Anleitungen</div>
-                      <div className="text-sm text-gray-500">Für Kunden und Partner</div>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                        <BookOpen className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-800 group-hover:text-orange-500 transition-colors">Handbücher & Anleitungen</div>
+                        <div className="text-sm text-gray-500">Für Kunden und Partner</div>
+                      </div>
                     </div>
                   </a>
                 </div>
               )}
             </div>
             
-            <Link href="/kontakt">
-              <Button className={`${isHeroVisible && isDarkHero 
-                ? 'bg-white text-[var(--lohn-primary)] hover:bg-gray-100' 
-                : 'bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)]'
-              } transition-colors rounded-full`}>
-                Kontakt
-              </Button>
-            </Link>
+            <div className="ml-6">
+              <Link href="/kontakt">
+                <Button className={`${isHeroVisible && isDarkHero 
+                  ? 'bg-white text-[var(--lohn-primary)] hover:bg-gray-100 shadow-lg' 
+                  : 'bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] shadow-md'
+                } transition-all duration-300 rounded-full px-6 py-2.5 font-semibold`}>
+                  Kontakt
+                </Button>
+              </Link>
+            </div>
           </div>
           
           <div className="md:hidden">

@@ -107,25 +107,25 @@ export default function ReferencesSection() {
                   
                   {/* Profile */}
                   <div className="text-center lg:text-left">
-                    <div className="w-20 h-20 mx-auto lg:mx-0 mb-3">
+                    <div className="w-28 h-28 mx-auto lg:mx-0 mb-4">
                       <img 
                         src={currentRef.image} 
                         alt={currentRef.name}
                         className="w-full h-full rounded-full object-cover shadow-md border-3 border-blue-200"
                       />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800 mb-1">{currentRef.name}</h4>
-                    <p className="text-blue-600 font-semibold text-sm mb-1">{currentRef.title}</p>
-                    <p className="text-gray-600 text-xs">{currentRef.company}</p>
+                    <h4 className="text-2xl font-bold text-gray-800 mb-2">{currentRef.name}</h4>
+                    <p className="text-blue-600 font-semibold text-base mb-1">{currentRef.title}</p>
+                    <p className="text-gray-600 text-sm">{currentRef.company}</p>
                   </div>
                   
                   {/* Credit Card - Clean Integration */}
                   <div className="flex justify-center">
-                    <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-4 shadow-lg max-w-xs">
+                    <div className="max-w-xs">
                       <img 
                         src="src/assets/stebah-card.png" 
                         alt="Stebah Firmenkreditkarte" 
-                        className="w-full h-auto rounded-lg"
+                        className="w-full h-auto rounded-xl shadow-lg"
                       />
                     </div>
                   </div>
@@ -144,12 +144,32 @@ export default function ReferencesSection() {
             </div>
           ) : (
             // Compact Cinema Design for other references
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+            <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
               {/* Golden Header */}
               <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 h-4 rounded-t-2xl"></div>
               
+              {/* Left Curtain */}
+              <div className="absolute left-0 top-4 bottom-0 w-8 z-10">
+                <div className="relative h-full bg-gradient-to-br from-red-600 via-red-700 to-red-800 rounded-bl-2xl"
+                     style={{clipPath: 'polygon(0 0, 80% 0, 70% 20%, 75% 40%, 65% 60%, 70% 80%, 60% 100%, 0 100%)'}}>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-600 to-red-800 opacity-40"></div>
+                  <div className="absolute top-0 left-1/3 w-px h-full bg-red-900 opacity-60"></div>
+                  <div className="absolute top-0 left-2/3 w-px h-full bg-red-500 opacity-40"></div>
+                </div>
+              </div>
+              
+              {/* Right Curtain */}
+              <div className="absolute right-0 top-4 bottom-0 w-8 z-10">
+                <div className="relative h-full bg-gradient-to-bl from-red-600 via-red-700 to-red-800 rounded-br-2xl"
+                     style={{clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 40% 100%, 35% 80%, 30% 60%, 35% 40%, 25% 20%, 20% 0)'}}>
+                  <div className="absolute inset-0 bg-gradient-to-l from-red-800 via-red-600 to-red-800 opacity-40"></div>
+                  <div className="absolute top-0 right-1/3 w-px h-full bg-red-900 opacity-60"></div>
+                  <div className="absolute top-0 right-2/3 w-px h-full bg-red-500 opacity-40"></div>
+                </div>
+              </div>
+              
               {/* Main Content */}
-              <div className="p-6">
+              <div className="relative z-20 p-6 mx-8">
                 {/* Film Title Header */}
                 <div className="text-center mb-6">
                   <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 tracking-wide font-serif uppercase"

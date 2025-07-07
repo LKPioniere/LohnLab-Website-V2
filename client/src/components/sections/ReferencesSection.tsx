@@ -62,129 +62,174 @@ export default function ReferencesSection() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="relative">
-
-            
-            <div className="relative bg-gray-100 rounded-3xl shadow-2xl overflow-hidden">
-              {/* Golden curtain rod */}
-              <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 z-30 rounded-t-3xl"></div>
-              <div className="absolute top-2 left-0 w-full h-4 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500 z-30"></div>
+        <div className="max-w-6xl mx-auto">
+          <div className="relative transform perspective-1000">
+            {/* Main Cinema Screen Container */}
+            <div className="relative bg-gradient-to-b from-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200" 
+                 style={{transform: 'rotateX(2deg)', transformStyle: 'preserve-3d'}}>
               
-              {/* Left curtain */}
-              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-b from-red-700 via-red-800 to-red-700 z-20" 
-                   style={{clipPath: 'polygon(0 0, 85% 0, 75% 100%, 0 100%)'}}>
-                {/* Curtain texture */}
-                <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-600 to-red-800 opacity-60"></div>
-                <div className="absolute top-0 left-1/3 w-px h-full bg-red-900 opacity-50"></div>
-                <div className="absolute top-0 left-2/3 w-px h-full bg-red-600 opacity-30"></div>
+              {/* Golden Ornamental Frame */}
+              <div className="absolute top-0 left-0 w-full h-6 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 z-40 rounded-t-3xl">
+                <div className="absolute inset-0 bg-gradient-to-b from-yellow-300 to-yellow-600 opacity-50"></div>
+                <div className="absolute top-1 left-0 w-full h-2 bg-gradient-to-r from-yellow-200 via-white to-yellow-200 opacity-60"></div>
               </div>
               
-              {/* Right curtain */}
-              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-b from-red-700 via-red-800 to-red-700 z-20"
-                   style={{clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 25% 100%)'}}>
-                {/* Curtain texture */}
-                <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-600 to-red-800 opacity-60"></div>
-                <div className="absolute top-0 left-1/3 w-px h-full bg-red-900 opacity-50"></div>
-                <div className="absolute top-0 left-2/3 w-px h-full bg-red-600 opacity-30"></div>
+              {/* Left Curtain - Elegant and Draped */}
+              <div className="absolute left-0 top-6 bottom-0 w-20 z-30">
+                <div className="relative h-full bg-gradient-to-br from-red-600 via-red-700 to-red-800 rounded-bl-3xl"
+                     style={{clipPath: 'polygon(0 0, 80% 0, 70% 15%, 75% 30%, 65% 50%, 70% 70%, 60% 85%, 65% 100%, 0 100%)'}}>
+                  {/* Curtain texture and folds */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-600 to-red-800 opacity-40"></div>
+                  <div className="absolute top-0 left-1/4 w-px h-full bg-red-900 opacity-60"></div>
+                  <div className="absolute top-0 left-1/2 w-px h-full bg-red-500 opacity-40"></div>
+                  <div className="absolute top-0 left-3/4 w-px h-full bg-red-900 opacity-60"></div>
+                  {/* Curtain highlight */}
+                  <div className="absolute top-0 left-0 w-4 h-full bg-gradient-to-r from-red-500 to-transparent opacity-30"></div>
+                </div>
               </div>
               
-              {/* Cinema screen text overlay */}
-              <div className="absolute top-12 left-0 right-0 text-center z-20">
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 tracking-wider font-serif">
-                  From the creators of more Netto
-                </h3>
+              {/* Right Curtain - Mirrored */}
+              <div className="absolute right-0 top-6 bottom-0 w-20 z-30">
+                <div className="relative h-full bg-gradient-to-bl from-red-600 via-red-700 to-red-800 rounded-br-3xl"
+                     style={{clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 35% 100%, 40% 85%, 30% 70%, 35% 50%, 25% 30%, 30% 15%, 20% 0)'}}>
+                  {/* Curtain texture and folds */}
+                  <div className="absolute inset-0 bg-gradient-to-l from-red-800 via-red-600 to-red-800 opacity-40"></div>
+                  <div className="absolute top-0 right-1/4 w-px h-full bg-red-900 opacity-60"></div>
+                  <div className="absolute top-0 right-1/2 w-px h-full bg-red-500 opacity-40"></div>
+                  <div className="absolute top-0 right-3/4 w-px h-full bg-red-900 opacity-60"></div>
+                  {/* Curtain highlight */}
+                  <div className="absolute top-0 right-0 w-4 h-full bg-gradient-to-l from-red-500 to-transparent opacity-30"></div>
+                </div>
               </div>
               
-              {/* Cinema screen (white background) */}
-              <div className={`${currentRef.backgroundColor} mx-12 pt-20 pb-8 px-8 lg:px-12 relative z-10 min-h-[400px] flex items-center`}>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center w-full">
-              {/* Profile Image & Basic Info */}
-              <div className="text-center lg:text-left">
-                <div className="relative inline-block mb-6">
-                  <img 
-                    src={currentRef.image} 
-                    alt={currentRef.name}
-                    className="w-24 h-24 lg:w-32 lg:h-32 rounded-full object-cover shadow-lg border-4 border-white"
-                    style={{imageRendering: 'auto', filter: 'contrast(1.1) saturate(1.1)'}}
-                  />
-                  <div className="absolute -bottom-2 -right-2 bg-[var(--lohn-primary)] w-6 h-6 rounded-full flex items-center justify-center">
-                    <Star className="w-3 h-3 text-white fill-current" />
-                  </div>
+              {/* Projection Screen Area */}
+              <div className="relative mx-20 mt-6 p-12 bg-white rounded-lg shadow-inner z-20 min-h-[500px]">
+                
+                {/* Film Title Header */}
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-wider font-serif uppercase"
+                      style={{
+                        textShadow: '0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,215,0,0.3)',
+                        background: 'linear-gradient(135deg, #1f2937 0%, #374151 50%, #1f2937 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                      }}>
+                    From the creators of more Netto
+                  </h2>
+                  <div className="mt-4 w-32 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
                 </div>
                 
-                <h3 className={`text-xl font-bold ${currentRef.textColor} mb-2`}>
-                  {currentRef.name}
-                </h3>
-                <p className={`${currentRef.accentColor} font-medium mb-2`}>
-                  {currentRef.title}
-                </p>
-                <div className="text-sm text-gray-500">
-                  {currentRef.companies ? (
-                    <div className="space-y-1">
-                      {currentRef.companies.map((company, index) => (
-                        <div key={index} className="flex items-center justify-center lg:justify-start">
-                          <div className="w-2 h-2 bg-[var(--lohn-primary)] rounded-full mr-2"></div>
-                          <span>{company}</span>
+                {/* Main Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  
+                  {/* Actor Headshot Style Photo */}
+                  <div className="lg:col-span-4 text-center">
+                    <div className="relative inline-block">
+                      <div className="relative w-40 h-40 lg:w-48 lg:h-48 mx-auto">
+                        <img 
+                          src={currentRef.image} 
+                          alt={currentRef.name}
+                          className="w-full h-full rounded-full object-cover shadow-2xl border-4 border-white"
+                          style={{
+                            filter: 'contrast(1.1) saturate(1.1) brightness(1.05)',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.2), 0 0 0 8px rgba(255,255,255,0.1)'
+                          }}
+                        />
+                        {/* Star Badge */}
+                        <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg">
+                          <Star className="w-4 h-4 text-white fill-current" />
                         </div>
-                      ))}
+                        {/* Spotlight effect */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-radial from-transparent via-transparent to-black opacity-10"></div>
+                      </div>
                     </div>
-                  ) : (
-                    <span>{currentRef.company}</span>
-                  )}
-                </div>
-              </div>
-
-              {/* Quote & Details */}
-              <div className="lg:col-span-2">
-                <div className="mb-6">
-                  <div className={`inline-flex items-center px-4 py-2 bg-[var(--lohn-primary)]/10 ${currentRef.accentColor} rounded-full text-sm font-medium mb-4 border border-[var(--lohn-primary)]/20`}>
-                    <Star className="w-4 h-4 mr-2" />
-                    {currentRef.highlight}
                   </div>
                   
-                  <blockquote className={`text-lg lg:text-xl ${currentRef.textColor} leading-relaxed font-medium mb-4`}>
-                    „{currentRef.quote}"
-                  </blockquote>
+                  {/* Cast Information */}
+                  <div className="lg:col-span-8 space-y-6">
+                    
+                    {/* Character Info */}
+                    <div className="text-center lg:text-left">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">
+                        {currentRef.name}
+                      </h3>
+                      <p className="text-xl text-[var(--lohn-primary)] font-semibold mb-4">
+                        {currentRef.title}
+                      </p>
+                      
+                      {/* Cinema Credits */}
+                      <div className="space-y-2 text-gray-600">
+                        <p className="text-sm uppercase tracking-wider font-medium text-gray-500 mb-3">Starring in:</p>
+                        {currentRef.companies?.map((company, index) => (
+                          <div key={index} className="flex items-center justify-center lg:justify-start space-x-3">
+                            <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                            <span className="text-lg font-medium">{company}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Featured Quote */}
+                    <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-[var(--lohn-primary)]">
+                      <div className="flex items-start space-x-4">
+                        <Quote className="w-6 h-6 text-[var(--lohn-primary)] mt-1 flex-shrink-0" />
+                        <blockquote className="text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium italic">
+                          „{currentRef.quote}"
+                        </blockquote>
+                      </div>
+                    </div>
+                    
+                    {/* Award Badge */}
+                    <div className="flex justify-center lg:justify-start">
+                      <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[var(--lohn-primary)] to-blue-600 text-white rounded-full shadow-lg">
+                        <Star className="w-5 h-5 mr-2 fill-current" />
+                        <span className="font-semibold">{currentRef.highlight}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
+              </div>
+              
+              {/* Subtle film grain overlay */}
+              <div className="absolute inset-0 opacity-5 z-10 pointer-events-none"
+                   style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cfilter id="noise"%3E%3CfeTurbulence baseFrequency="0.9" /%3E%3C/filter%3E%3C/defs%3E%3Crect width="100%" height="100%" filter="url(%23noise)" opacity="0.4" /%3E%3C/svg%3E")'}}>
               </div>
             </div>
           </div>
 
           {/* Navigation - Only show when there are multiple references */}
-            {references.length > 1 && (
-              <div className="flex justify-center mt-8 space-x-4">
-                <button
-                  onClick={prevReference}
-                  className="p-2 bg-white/80 hover:bg-white rounded-full shadow-md transition-all duration-200"
-                >
-                  <ChevronLeft className="w-5 h-5 text-gray-600" />
-                </button>
-                
-                <div className="flex space-x-2 items-center">
-                  {references.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentIndex(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                        index === currentIndex 
-                          ? `${currentRef.accentColor.replace('text-', 'bg-')}` 
-                          : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                    />
-                  ))}
-                </div>
-                
-                <button
-                  onClick={nextReference}
-                  className="p-2 bg-white/80 hover:bg-white rounded-full shadow-md transition-all duration-200"
-                >
-                  <ChevronRight className="w-5 h-5 text-gray-600" />
-                </button>
+          {references.length > 1 && (
+            <div className="flex justify-center mt-8 space-x-4">
+              <button
+                onClick={prevReference}
+                className="p-2 bg-white/80 hover:bg-white rounded-full shadow-md transition-all duration-200"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-600" />
+              </button>
+              
+              <div className="flex space-x-2 items-center">
+                {references.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                      index === currentIndex 
+                        ? `bg-[var(--lohn-primary)]` 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
               </div>
-            )}
-          </div>
+              
+              <button
+                onClick={nextReference}
+                className="p-2 bg-white/80 hover:bg-white rounded-full shadow-md transition-all duration-200"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

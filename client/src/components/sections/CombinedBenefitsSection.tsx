@@ -2,7 +2,6 @@ import { TrendingUp, Euro, Calculator, Crown, Check, ArrowDown, ChevronRight } f
 import { DEMO_EMPLOYEES } from "@/constants/demo-data";
 import { GENERAL_BENEFITS } from "@/constants/benefits";
 import fruitBasketImage from "@/assets/fruit-basket.jpg";
-import EmployeeTable from "@/components/common/EmployeeTable";
 
 /**
  * Kombinierte Vorteile und Praxis-Demo Sektion
@@ -86,8 +85,36 @@ export default function CombinedBenefitsSection() {
             </div>
 
             {/* Mitarbeiter Tabelle */}
-            <div className="mb-8">
-              <EmployeeTable employees={DEMO_EMPLOYEES} />
+            <div className="mb-8 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="text-left py-3 text-[var(--lohn-primary)] font-semibold">ID</th>
+                    <th className="text-left py-3 text-[var(--lohn-primary)] font-semibold">Name</th>
+                    <th className="text-left py-3 text-[var(--lohn-primary)] font-semibold">Abteilung</th>
+                    <th className="text-left py-3 text-[var(--lohn-primary)] font-semibold">Gehalt alt</th>
+                    <th className="text-left py-3 text-[var(--lohn-primary)] font-semibold">Gehalt neu</th>
+                    <th className="text-left py-3 text-[var(--lohn-purple)] font-semibold">Ersparnis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {DEMO_EMPLOYEES.map((employee, index) => (
+                    <tr key={employee.id} className={index < DEMO_EMPLOYEES.length - 1 ? "border-b border-gray-100" : ""}>
+                      <td className="py-3">{employee.id}</td>
+                      <td className="py-3">{employee.name}</td>
+                      <td className="py-3">{employee.department}</td>
+                      <td className="py-3">{employee.salary}</td>
+                      <td className="py-3">{employee.newSalary}</td>
+                      <td className="py-3">
+                        <div className="flex items-center">
+                          <Crown className="w-4 h-4 text-[var(--lohn-purple)] mr-2" />
+                          <span className="text-[var(--lohn-purple)] font-semibold">{employee.monthlySavings}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
             {/* Gesamtersparnis Box */}

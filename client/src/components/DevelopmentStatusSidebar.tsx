@@ -9,7 +9,7 @@ export default function DevelopmentStatusSidebar() {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-lg rounded-l-lg p-3 z-50 transition-all duration-300 hover:shadow-xl ${
+        className={`fixed right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 shadow-lg rounded-l-lg p-3 z-40 transition-all duration-300 hover:shadow-xl ${
           isOpen ? 'translate-x-80' : ''
         }`}
       >
@@ -21,7 +21,7 @@ export default function DevelopmentStatusSidebar() {
 
       {/* Sidebar */}
       <div
-        className={`fixed right-0 top-0 h-full w-80 bg-white border-l border-gray-200 shadow-2xl z-40 transition-transform duration-300 overflow-y-auto ${
+        className={`fixed right-0 top-16 h-[calc(100%-4rem)] w-80 bg-white border-l border-gray-200 shadow-2xl z-30 transition-transform duration-300 overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

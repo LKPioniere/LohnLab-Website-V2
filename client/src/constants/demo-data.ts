@@ -9,7 +9,8 @@ export const DEMO_EMPLOYEES = [
     salary: "4.500 €", 
     newSalary: "4.725 €",
     increase: "5%",
-    monthlySavings: "76 €" 
+    monthlySavings: "76 €",
+    optimization: "Dienstwagen + Benefits"
   },
   { 
     id: "10164", 
@@ -18,7 +19,8 @@ export const DEMO_EMPLOYEES = [
     salary: "3.800 €", 
     newSalary: "3.990 €",
     increase: "5%",
-    monthlySavings: "52 €" 
+    monthlySavings: "52 €",
+    optimization: "Sachbezüge + Mobility"
   },
   { 
     id: "10168", 
@@ -27,7 +29,8 @@ export const DEMO_EMPLOYEES = [
     salary: "3.200 €", 
     newSalary: "3.360 €",
     increase: "5%",
-    monthlySavings: "43 €" 
+    monthlySavings: "43 €",
+    optimization: "Essenszuschuss + Benefits"
   },
   { 
     id: "10921", 
@@ -36,6 +39,7 @@ export const DEMO_EMPLOYEES = [
     salary: "3.600 €", 
     newSalary: "3.780 €",
     increase: "5%",
-    monthlySavings: "89 €" 
+    monthlySavings: "89 €",
+    optimization: "Homeoffice-Pauschale + Extras"
   },
 ] as const;

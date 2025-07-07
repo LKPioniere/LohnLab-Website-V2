@@ -153,3 +153,11 @@ Changelog:
   - getOptionsList API endpoint documentation with all available Lohnbausteine
   - Additional services section (payroll integration, sample payroll statements, Lohnbausteine management)
   - Market trends 2025 data highlighting the importance of digitalization and benefits
+- January 7, 2025: Updated contact page with modern design:
+  - Added LohnLab logo as browser favicon
+  - Changed browser tab title to simple "LohnLab"
+  - Completely redesigned contact page with modern UI
+  - Made both containers (calendar and form) the same length
+  - Calendar container is now completely white without blue header
+  - Fixed HubSpot calendar embedding with proper height to avoid scrolling
+  - Added grid backgrounds and modern hover effects throughout the page

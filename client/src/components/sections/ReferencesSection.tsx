@@ -1,4 +1,5 @@
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Quote, Film, Camera } from "lucide-react";
+import christopherImage from "@assets/CHristopher-Bausch-e1666084356146_1751895906988.jpg";
 import { useState } from "react";
 
 interface Reference {
@@ -24,12 +25,12 @@ const references: Reference[] = [
     company: "Casino Aschaffenburg & Arthouse Kinos Frankfurt",
     companies: ["Casino Aschaffenburg", "Arthouse Kinos Frankfurt"],
     quote: "Für uns als kleiner Betrieb ist individuelle Betreuung wichtig. Aus diesem Grund schätzen wir die Beratung durch LohnLab.",
-    image: "https://www.lohnlab.de/wp-content/uploads/2024/03/person-v5.s3.c519x0x2124x2124.w220.webp",
+    image: christopherImage,
     industry: "Entertainment",
     highlight: "Individuelle Betreuung",
-    backgroundColor: "bg-gradient-to-br from-purple-50 to-indigo-50",
-    textColor: "text-purple-900",
-    accentColor: "text-purple-600"
+    backgroundColor: "bg-gradient-to-br from-slate-900 via-gray-800 to-slate-700",
+    textColor: "text-white",
+    accentColor: "text-yellow-400"
   }
 ];
 
@@ -62,11 +63,17 @@ export default function ReferencesSection() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className={`${currentRef.backgroundColor} rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-200 relative overflow-hidden`}>
-            {/* Decorative Quote Icon */}
-            <div className="absolute top-8 right-8 opacity-10">
-              <Quote className="w-24 h-24 text-gray-400" />
+          <div className={`${currentRef.backgroundColor} rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-700 relative overflow-hidden`}>
+            {/* Cinema-themed decorative elements */}
+            <div className="absolute top-8 right-8 opacity-20">
+              <Film className="w-16 h-16 text-yellow-400" />
             </div>
+            <div className="absolute bottom-8 left-8 opacity-10">
+              <Camera className="w-20 h-20 text-yellow-300" />
+            </div>
+            {/* Film strip decoration */}
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400"></div>
+            <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400"></div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center relative z-10">
               {/* Profile Image & Basic Info */}
@@ -88,12 +95,12 @@ export default function ReferencesSection() {
                 <p className={`${currentRef.accentColor} font-medium mb-2`}>
                   {currentRef.title}
                 </p>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-300">
                   {currentRef.companies ? (
                     <div className="space-y-1">
                       {currentRef.companies.map((company, index) => (
                         <div key={index} className="flex items-center justify-center lg:justify-start">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
+                          <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
                           <span>{company}</span>
                         </div>
                       ))}
@@ -107,25 +114,14 @@ export default function ReferencesSection() {
               {/* Quote & Details */}
               <div className="lg:col-span-2">
                 <div className="mb-6">
-                  <div className={`inline-flex items-center px-4 py-2 bg-white/50 ${currentRef.accentColor} rounded-full text-sm font-medium mb-4`}>
-                    <span className="w-2 h-2 bg-current rounded-full mr-2"></span>
+                  <div className={`inline-flex items-center px-4 py-2 bg-yellow-400/20 ${currentRef.accentColor} rounded-full text-sm font-medium mb-4 border border-yellow-400/30`}>
+                    <Film className="w-4 h-4 mr-2" />
                     {currentRef.highlight}
                   </div>
                   
                   <blockquote className={`text-lg lg:text-xl ${currentRef.textColor} leading-relaxed font-medium mb-4`}>
                     „{currentRef.quote}"
                   </blockquote>
-                  
-                  <div className="flex items-center space-x-4 text-sm text-gray-600">
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                      <span>Branche: {currentRef.industry}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                      <span>Full-Service Lohnoptimierung</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

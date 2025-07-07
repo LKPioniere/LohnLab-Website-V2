@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/sections/HeroSection";
-import DevelopmentStatus from "@/components/development-status";
-import ProductFeaturesSection from "@/components/sections/ProductFeaturesSection";
-
+import DevelopmentStatusSidebar from "@/components/DevelopmentStatusSidebar";
+import FeatureCardsSection from "@/components/sections/FeatureCardsSection";
+import CombinedBenefitsSection from "@/components/sections/CombinedBenefitsSection";
+import HiringHighlightSection from "@/components/sections/HiringHighlightSection";
 import DatevIntegration from "@/components/datev-integration";
 import TargetAudiencesSection from "@/components/sections/TargetAudiencesSection";
 import ReferencesSection from "@/components/sections/ReferencesSection";
 import TeamSection from "@/components/sections/TeamSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
-import DemoCalculatorSection from "@/components/sections/DemoCalculatorSection";
 
 export default function Home() {
   useEffect(() => {
@@ -20,11 +20,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <DevelopmentStatusSidebar />
       <HeroSection />
-      <DevelopmentStatus />
-      <ProductFeaturesSection />
-      <DemoCalculatorSection />
+      <FeatureCardsSection />
+      <CombinedBenefitsSection />
       <ReferencesSection />
+      <HiringHighlightSection />
       <DatevIntegration />
       <TargetAudiencesSection />
       <TeamSection />

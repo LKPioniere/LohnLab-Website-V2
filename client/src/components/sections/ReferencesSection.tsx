@@ -62,25 +62,41 @@ export default function ReferencesSection() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className={`${currentRef.backgroundColor} rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-200 relative overflow-hidden`}>
-            {/* Red cinema curtain as decorative left border */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-b from-red-700 via-red-800 to-red-700 rounded-l-3xl">
-              {/* Curtain texture */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-600 to-red-800 opacity-60"></div>
-              <div className="absolute top-0 left-1/2 w-px h-full bg-red-900 opacity-50"></div>
-              <div className="absolute top-0 left-1/4 w-px h-full bg-red-600 opacity-30"></div>
-              <div className="absolute top-0 left-3/4 w-px h-full bg-red-600 opacity-30"></div>
-              {/* Curtain rod at top */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-600 to-yellow-500 rounded-t-3xl"></div>
+        <div className="max-w-5xl mx-auto">
+          <div className="relative">
+            {/* Cinema Screen Title */}
+            <div className="text-center mb-4">
+              <div className="inline-flex items-center px-6 py-2 bg-gray-900 text-white rounded-lg font-mono text-sm tracking-wider">
+                <Film className="w-4 h-4 mr-2" />
+                JETZT LÄUFT: KUNDENREFERENZ
+              </div>
             </div>
             
-            {/* Subtle decorative elements */}
-            <div className="absolute top-6 right-6 opacity-5">
-              <Film className="w-12 h-12 text-gray-400" />
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center relative z-10 ml-20">
+            <div className="relative bg-gray-100 rounded-3xl shadow-2xl overflow-hidden">
+              {/* Golden curtain rod */}
+              <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 z-30"></div>
+              
+              {/* Left curtain */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-b from-red-700 via-red-800 to-red-700 z-20" 
+                   style={{clipPath: 'polygon(0 0, 85% 0, 75% 100%, 0 100%)'}}>
+                {/* Curtain texture */}
+                <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-600 to-red-800 opacity-60"></div>
+                <div className="absolute top-0 left-1/3 w-px h-full bg-red-900 opacity-50"></div>
+                <div className="absolute top-0 left-2/3 w-px h-full bg-red-600 opacity-30"></div>
+              </div>
+              
+              {/* Right curtain */}
+              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-b from-red-700 via-red-800 to-red-700 z-20"
+                   style={{clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 25% 100%)'}}>
+                {/* Curtain texture */}
+                <div className="absolute inset-0 bg-gradient-to-r from-red-800 via-red-600 to-red-800 opacity-60"></div>
+                <div className="absolute top-0 left-1/3 w-px h-full bg-red-900 opacity-50"></div>
+                <div className="absolute top-0 left-2/3 w-px h-full bg-red-600 opacity-30"></div>
+              </div>
+              
+              {/* Cinema screen (white background) */}
+              <div className={`${currentRef.backgroundColor} mx-12 p-8 lg:p-12 relative z-10 min-h-[400px] flex items-center`}>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center w-full">
               {/* Profile Image & Basic Info */}
               <div className="text-center lg:text-left">
                 <div className="relative inline-block mb-6">
@@ -128,10 +144,12 @@ export default function ReferencesSection() {
                     „{currentRef.quote}"
                   </blockquote>
                 </div>
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Navigation - Only show when there are multiple references */}
+          {/* Navigation - Only show when there are multiple references */}
             {references.length > 1 && (
               <div className="flex justify-center mt-8 space-x-4">
                 <button

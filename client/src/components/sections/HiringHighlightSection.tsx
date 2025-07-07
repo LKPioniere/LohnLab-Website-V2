@@ -63,8 +63,8 @@ export default function HiringHighlightSection() {
               <div className="space-y-4">
                 <div className="bg-white/10 rounded-lg p-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-blue-100">Ersparnis</span>
-                    <span className="text-2xl font-bold text-[var(--lohn-accent)]">bis zu 50%</span>
+                    <span className="text-blue-100">Benefits</span>
+                    <span className="text-2xl font-bold text-[var(--lohn-accent)]">kostenneutral</span>
                   </div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">

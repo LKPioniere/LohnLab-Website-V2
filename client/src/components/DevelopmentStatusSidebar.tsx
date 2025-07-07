@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, FlaskConical, Rocket, ChevronLeft, ChevronRight, Info } from "lucide-react";
+import { Check, FlaskConical, Rocket, ChevronLeft, ChevronRight, Info, X, Activity } from "lucide-react";
 
 export default function DevelopmentStatusSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function DevelopmentStatusSidebar() {
       >
         <div className="flex items-center space-x-2">
           {isOpen ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
-          <Info className="w-5 h-5" />
+          <Activity className="w-5 h-5" />
         </div>
       </button>
 
@@ -26,9 +26,17 @@ export default function DevelopmentStatusSidebar() {
         }`}
       >
         <div className="p-6">
-          <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-2">
-            Entwicklungsstatus
-          </h3>
+          <div className="flex justify-between items-start mb-4">
+            <h3 className="text-xl font-bold text-[var(--lohn-primary)]">
+              Entwicklungsstatus
+            </h3>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
           <p className="text-gray-600 text-sm mb-6">
             So entwickelt sich Ihr digitales Lohnoptimierungs-Werkzeug
           </p>

@@ -638,7 +638,7 @@ export default function NewHireCompensationAPI() {
               <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Lohnoptimierung wird wichtiger</h3>
               <div className="bg-blue-50 rounded-lg p-4 mb-3">
                 <p className="text-3xl font-bold text-blue-600 mb-1">3.000€</p>
-                <p className="text-sm text-gray-600">zusätzliches Netto durch steuerfreie Benefits möglich</p>
+                <p className="text-sm text-gray-600">zusätzliches Netto pro Mitarbeiter/Jahr durch steuerfreie Benefits</p>
               </div>
               <p className="text-gray-600 text-sm">
                 Deutsche Unternehmen setzen verstärkt auf steueroptimierte Vergütungsstrategien statt reine Gehaltserhöhungen

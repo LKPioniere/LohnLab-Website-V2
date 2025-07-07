@@ -622,28 +622,28 @@ export default function NewHireCompensationAPI() {
               </div>
               <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Fachkräftemangel verschärft sich</h3>
               <div className="bg-red-50 rounded-lg p-4 mb-3">
-                <p className="text-3xl font-bold text-red-600 mb-1">81%</p>
-                <p className="text-sm text-gray-600">der Gen-Z werten Flexibilität höher als Gehalt</p>
+                <p className="text-3xl font-bold text-red-600 mb-1">570.000</p>
+                <p className="text-sm text-gray-600">unbesetzte Fachkräftestellen in Deutschland</p>
               </div>
               <p className="text-gray-600 text-sm">
-                Unternehmen müssen attraktive Gehaltsstrukturen bieten, um qualifizierte Mitarbeiter zu gewinnen
+                Deutsche Unternehmen müssen attraktive Gehaltsstrukturen und Benefits bieten, um im Wettbewerb zu bestehen
               </p>
-              <p className="text-xs text-gray-400 mt-2">Quelle: Deloitte Global Gen Z Survey 2025</p>
+              <p className="text-xs text-gray-400 mt-2">Quelle: Institut der Deutschen Wirtschaft (IW) 2025</p>
             </div>
             
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center h-full">
               <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Benefits-Budget steigt</h3>
+              <h3 className="text-lg font-semibold mb-3 text-[var(--lohn-primary)]">Lohnoptimierung wird wichtiger</h3>
               <div className="bg-blue-50 rounded-lg p-4 mb-3">
-                <p className="text-3xl font-bold text-blue-600 mb-1">66%</p>
-                <p className="text-sm text-gray-600">der Unternehmen bieten jetzt LSAs an</p>
+                <p className="text-3xl font-bold text-blue-600 mb-1">3.000€</p>
+                <p className="text-sm text-gray-600">zusätzliches Netto durch steuerfreie Benefits möglich</p>
               </div>
               <p className="text-gray-600 text-sm">
-                Lifestyle Spending Accounts werden zum Standard für moderne Arbeitgeber
+                Deutsche Unternehmen setzen verstärkt auf steueroptimierte Vergütungsstrategien statt reine Gehaltserhöhungen
               </p>
-              <p className="text-xs text-gray-400 mt-2">Quelle: SHRM Employee Benefit Trends 2025</p>
+              <p className="text-xs text-gray-400 mt-2">Quelle: Mitarbeiter-Benefits-Vergleich.de 2025</p>
             </div>
             
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center h-full">

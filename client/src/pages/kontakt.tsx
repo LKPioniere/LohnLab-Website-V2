@@ -99,6 +99,12 @@ export default function Kontakt() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[var(--lohn-primary)] via-blue-700 to-[var(--lohn-teal)] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10 bg-grid-16"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)',
+            backgroundSize: '20px 20px'
+          }}></div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center text-white">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">

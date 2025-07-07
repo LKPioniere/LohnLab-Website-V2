@@ -28,9 +28,9 @@ const references: Reference[] = [
     image: christopherImage,
     industry: "Entertainment",
     highlight: "Individuelle Betreuung",
-    backgroundColor: "bg-gradient-to-br from-slate-900 via-gray-800 to-slate-700",
+    backgroundColor: "bg-gradient-to-br from-red-900 via-red-800 to-red-700",
     textColor: "text-white",
-    accentColor: "text-yellow-400"
+    accentColor: "text-yellow-300"
   }
 ];
 
@@ -63,19 +63,31 @@ export default function ReferencesSection() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className={`${currentRef.backgroundColor} rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-700 relative overflow-hidden`}>
+          <div className={`${currentRef.backgroundColor} rounded-3xl p-8 lg:p-12 shadow-2xl border border-red-800 relative overflow-hidden`}>
+            {/* Red cinema curtain effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-red-900 via-red-700 to-red-900 opacity-90"></div>
+            <div className="absolute top-0 left-0 w-full h-full">
+              {/* Curtain pleats */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-30 transform skew-x-1"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-800 to-transparent opacity-20 transform -skew-x-1"></div>
+              {/* Curtain folds */}
+              <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-red-600 to-red-900 opacity-40"></div>
+              <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-red-600 to-red-900 opacity-40"></div>
+              <div className="absolute top-0 left-3/4 w-1 h-full bg-gradient-to-b from-red-600 to-red-900 opacity-40"></div>
+            </div>
+            {/* Golden curtain rod */}
+            <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 rounded-t-3xl"></div>
+            <div className="absolute top-1 left-0 w-full h-2 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500"></div>
+            
             {/* Cinema-themed decorative elements */}
-            <div className="absolute top-8 right-8 opacity-20">
-              <Film className="w-16 h-16 text-yellow-400" />
+            <div className="absolute top-8 right-8 opacity-20 z-20">
+              <Film className="w-16 h-16 text-yellow-300" />
             </div>
-            <div className="absolute bottom-8 left-8 opacity-10">
-              <Camera className="w-20 h-20 text-yellow-300" />
+            <div className="absolute bottom-8 left-8 opacity-15 z-20">
+              <Camera className="w-20 h-20 text-yellow-200" />
             </div>
-            {/* Film strip decoration */}
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400"></div>
-            <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400"></div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center relative z-30">
               {/* Profile Image & Basic Info */}
               <div className="text-center lg:text-left">
                 <div className="relative inline-block mb-6">
@@ -114,7 +126,7 @@ export default function ReferencesSection() {
               {/* Quote & Details */}
               <div className="lg:col-span-2">
                 <div className="mb-6">
-                  <div className={`inline-flex items-center px-4 py-2 bg-yellow-400/20 ${currentRef.accentColor} rounded-full text-sm font-medium mb-4 border border-yellow-400/30`}>
+                  <div className={`inline-flex items-center px-4 py-2 bg-yellow-300/20 ${currentRef.accentColor} rounded-full text-sm font-medium mb-4 border border-yellow-300/40 backdrop-blur-sm`}>
                     <Film className="w-4 h-4 mr-2" />
                     {currentRef.highlight}
                   </div>

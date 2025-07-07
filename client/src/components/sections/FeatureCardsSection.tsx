@@ -10,10 +10,10 @@ export default function FeatureCardsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-            Drei Wege zur Lohnoptimierung
+            Unsere Lösungen im Detail
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Wählen Sie die passende Lösung für Ihre individuellen Anforderungen
+            Entdecken Sie die vielfältigen Funktionen des LohnLab Cockpits
           </p>
         </div>
 

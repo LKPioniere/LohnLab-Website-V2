@@ -6,8 +6,8 @@ export default function DevelopmentStatusSidebar() {
   const [daysLeft, setDaysLeft] = useState(0);
 
   useEffect(() => {
-    // Calculate days until August 4, 2024 (MVP completion)
-    const mvpDate = new Date('2024-08-04');
+    // Calculate days until August 4, 2025 (MVP completion)
+    const mvpDate = new Date('2025-08-04');
     const today = new Date();
     const timeDiff = mvpDate.getTime() - today.getTime();
     const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
@@ -57,7 +57,7 @@ export default function DevelopmentStatusSidebar() {
               <div className="absolute left-0 top-1 w-6 h-6 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center">
                 <Check className="text-white w-4 h-4" />
               </div>
-              <div className="border-l-2 border-[var(--lohn-teal)] pl-4 pb-6 -ml-3">
+              <div className="pl-4 pb-6 -ml-3">
                 <h4 className="font-semibold text-[var(--lohn-primary)]">Entwicklung</h4>
                 <p className="text-gray-600 text-sm">Grundfunktionen implementiert</p>
                 <p className="text-[var(--lohn-teal)] font-medium text-xs mt-1">✓ Abgeschlossen</p>
@@ -69,10 +69,10 @@ export default function DevelopmentStatusSidebar() {
               <div className="absolute left-0 top-1 w-6 h-6 bg-[var(--lohn-secondary)] rounded-full flex items-center justify-center animate-pulse">
                 <FlaskConical className="text-white w-4 h-4" />
               </div>
-              <div className="border-l-2 border-gray-300 pl-4 pb-6 -ml-3">
+              <div className="pl-4 pb-6 -ml-3">
                 <h4 className="font-semibold text-[var(--lohn-primary)]">MVP Testing</h4>
                 <p className="text-gray-600 text-sm">Externe Tests mit Partnerkanzlei</p>
-                <p className="text-[var(--lohn-secondary)] font-medium text-xs mt-1">Start: 04. August 2024</p>
+                <p className="text-[var(--lohn-secondary)] font-medium text-xs mt-1">Start: 04. August 2025</p>
                 <div className="mt-2 bg-gray-100 rounded-full h-2 w-full">
                   <div className="bg-[var(--lohn-secondary)] h-full rounded-full" style={{ width: '60%' }}></div>
                 </div>
@@ -107,20 +107,7 @@ export default function DevelopmentStatusSidebar() {
               </div>
               <div className="text-xs text-blue-100 text-center border-t border-white/20 pt-3">
                 <div className="font-semibold">MVP Fertigstellung</div>
-                <div>04. August 2024</div>
-              </div>
-            </div>
-
-            <div className="p-4 bg-blue-50 rounded-lg">
-              <h5 className="font-semibold text-[var(--lohn-primary)] text-sm mb-2">
-                Aktueller Fortschritt
-              </h5>
-              <div className="flex items-center justify-between text-xs text-gray-600">
-                <span>Gesamtfortschritt</span>
-                <span className="font-semibold">60%</span>
-              </div>
-              <div className="mt-2 bg-gray-200 rounded-full h-2 w-full">
-                <div className="bg-gradient-to-r from-[var(--lohn-teal)] to-[var(--lohn-secondary)] h-full rounded-full" style={{ width: '60%' }}></div>
+                <div>04. August 2025</div>
               </div>
             </div>
           </div>

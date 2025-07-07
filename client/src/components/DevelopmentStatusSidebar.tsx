@@ -6,10 +6,10 @@ export default function DevelopmentStatusSidebar() {
   const [daysLeft, setDaysLeft] = useState(0);
 
   useEffect(() => {
-    // Calculate days until November 2024 (launch date)
-    const launchDate = new Date('2024-11-01');
+    // Calculate days until August 4, 2024 (MVP completion)
+    const mvpDate = new Date('2024-08-04');
     const today = new Date();
-    const timeDiff = launchDate.getTime() - today.getTime();
+    const timeDiff = mvpDate.getTime() - today.getTime();
     const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
     setDaysLeft(daysDiff > 0 ? daysDiff : 0);
   }, []);
@@ -72,7 +72,7 @@ export default function DevelopmentStatusSidebar() {
               <div className="border-l-2 border-gray-300 pl-4 pb-6 -ml-3">
                 <h4 className="font-semibold text-[var(--lohn-primary)]">MVP Testing</h4>
                 <p className="text-gray-600 text-sm">Externe Tests mit Partnerkanzlei</p>
-                <p className="text-[var(--lohn-secondary)] font-medium text-xs mt-1">In Bearbeitung</p>
+                <p className="text-[var(--lohn-secondary)] font-medium text-xs mt-1">Start: 04. August 2024</p>
                 <div className="mt-2 bg-gray-100 rounded-full h-2 w-full">
                   <div className="bg-[var(--lohn-secondary)] h-full rounded-full" style={{ width: '60%' }}></div>
                 </div>
@@ -98,7 +98,7 @@ export default function DevelopmentStatusSidebar() {
               <div className="flex items-center justify-between mb-2">
                 <h5 className="font-semibold text-sm flex items-center">
                   <Calendar className="w-4 h-4 mr-2" />
-                  Countdown bis Launch
+                  Nächster Meilenstein
                 </h5>
               </div>
               <div className="text-center py-4">
@@ -106,7 +106,8 @@ export default function DevelopmentStatusSidebar() {
                 <div className="text-sm text-blue-100">Tage verbleibend</div>
               </div>
               <div className="text-xs text-blue-100 text-center border-t border-white/20 pt-3">
-                Geplanter Launch: November 2024
+                <div className="font-semibold">MVP Fertigstellung</div>
+                <div>04. August 2024</div>
               </div>
             </div>
 

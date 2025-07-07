@@ -97,107 +97,129 @@ export default function Kontakt() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-teal)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[var(--lohn-primary)] via-blue-700 to-[var(--lohn-teal)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/10 bg-grid-16"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
               Kontakt & <br />
-              <span className="text-[var(--lohn-accent)]">Beratung</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lohn-accent)] to-yellow-300">Beratung</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed text-blue-100">
               Für Interessenten, Kunden und Partner - wir sind für Sie da.
             </p>
+            <div className="flex justify-center gap-4 text-sm">
+              <div className="flex items-center">
+                <Phone size={16} className="mr-2" />
+                <span>Persönliche Beratung</span>
+              </div>
+              <div className="flex items-center">
+                <Calendar size={16} className="mr-2" />
+                <span>Flexible Termine</span>
+              </div>
+              <div className="flex items-center">
+                <MessageSquare size={16} className="mr-2" />
+                <span>Schnelle Antwort</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Interessenten</CardTitle>
-                <CardDescription>Sie möchten das LohnLab Cockpit kennenlernen?</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Badge variant="secondary" className="mb-2">Kostenlose Demo</Badge>
-                <p className="text-sm text-gray-600">Lernen Sie alle Funktionen in einer persönlichen Demonstration kennen.</p>
-              </CardContent>
-            </Card>
+            <div className="group hover:scale-105 transition-transform duration-300">
+              <Card className="text-center h-full shadow-lg hover:shadow-xl transition-shadow border-0">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--lohn-primary)] to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-3 transition-transform">
+                    <Users className="text-white" size={28} />
+                  </div>
+                  <CardTitle className="text-[var(--lohn-primary)] text-xl">Interessenten</CardTitle>
+                  <CardDescription className="text-base">Sie möchten das LohnLab Cockpit kennenlernen?</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Badge className="mb-3 bg-blue-100 text-blue-700 hover:bg-blue-200">Kostenlose Demo</Badge>
+                  <p className="text-sm text-gray-600">Lernen Sie alle Funktionen in einer persönlichen Demonstration kennen.</p>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Building className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Kunden</CardTitle>
-                <CardDescription>Sie sind bereits LohnLab Kunde?</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Badge variant="secondary" className="mb-2">Support & Beratung</Badge>
-                <p className="text-sm text-gray-600">Wir helfen Ihnen bei Fragen zur Anwendung und Optimierung.</p>
-              </CardContent>
-            </Card>
+            <div className="group hover:scale-105 transition-transform duration-300">
+              <Card className="text-center h-full shadow-lg hover:shadow-xl transition-shadow border-0">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--lohn-teal)] to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-3 transition-transform">
+                    <Building className="text-white" size={28} />
+                  </div>
+                  <CardTitle className="text-[var(--lohn-primary)] text-xl">Kunden</CardTitle>
+                  <CardDescription className="text-base">Sie sind bereits LohnLab Kunde?</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Badge className="mb-3 bg-teal-100 text-teal-700 hover:bg-teal-200">Support & Beratung</Badge>
+                  <p className="text-sm text-gray-600">Wir helfen Ihnen bei Fragen zur Anwendung und Optimierung.</p>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Handshake className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Partner</CardTitle>
-                <CardDescription>Sie sind Steuerberater oder Wirtschaftsprüfer?</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Badge variant="secondary" className="mb-2">Partnerberatung</Badge>
-                <p className="text-sm text-gray-600">Erfahren Sie mehr über unser Partnerprogramm und Schulungen.</p>
-              </CardContent>
-            </Card>
+            <div className="group hover:scale-105 transition-transform duration-300">
+              <Card className="text-center h-full shadow-lg hover:shadow-xl transition-shadow border-0">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--lohn-accent)] to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-3 transition-transform">
+                    <Handshake className="text-white" size={28} />
+                  </div>
+                  <CardTitle className="text-[var(--lohn-primary)] text-xl">Partner</CardTitle>
+                  <CardDescription className="text-base">Sie sind Steuerberater oder Wirtschaftsprüfer?</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Badge className="mb-3 bg-yellow-100 text-yellow-700 hover:bg-yellow-200">Partnerberatung</Badge>
+                  <p className="text-sm text-gray-600">Erfahren Sie mehr über unser Partnerprogramm und Schulungen.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Contact Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* HubSpot Meetings Integration */}
             <div>
-              <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-6">
-                <Calendar className="inline-block mr-3" size={32} />
-                Termin vereinbaren
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Buchen Sie direkt einen passenden Termin für Ihre persönliche Beratung oder Demo.
-              </p>
-              
-              {/* HubSpot Meetings Embed */}
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <div 
-                  className="meetings-iframe-container" 
-                  data-src="https://meetings-eu1.hubspot.com/michael-schmitt?embed=true"
-                  style={{ minHeight: '600px' }}
-                ></div>
+              <div className="bg-[var(--lohn-primary)] rounded-2xl p-8 shadow-xl">
+                <h2 className="text-3xl font-bold text-white mb-4 flex items-center">
+                  <Calendar className="mr-3" size={32} />
+                  Termin vereinbaren
+                </h2>
+                <p className="text-lg text-blue-100 mb-8">
+                  Buchen Sie direkt einen passenden Termin für Ihre persönliche Beratung oder Demo.
+                </p>
+                
+                {/* HubSpot Meetings Embed */}
+                <div className="bg-white rounded-lg shadow-inner p-4">
+                  <div 
+                    className="meetings-iframe-container" 
+                    data-src="https://meetings-eu1.hubspot.com/michael-schmitt?embed=true"
+                    style={{ minHeight: '600px' }}
+                  ></div>
+                </div>
               </div>
             </div>
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-6">
-                <MessageSquare className="inline-block mr-3" size={32} />
-                Nachricht senden
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Alternativ können Sie uns auch direkt eine Nachricht senden. Wir melden uns zeitnah bei Ihnen.
-              </p>
+              <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4 flex items-center">
+                  <MessageSquare className="mr-3" size={32} />
+                  Nachricht senden
+                </h2>
+                <p className="text-lg text-gray-600 mb-8">
+                  Alternativ können Sie uns auch direkt eine Nachricht senden. Wir melden uns zeitnah bei Ihnen.
+                </p>
 
-              <Card>
-                <CardContent className="p-6">
-                  <Form {...form}>
+                <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                       <FormField
                         control={form.control}
@@ -278,68 +300,84 @@ export default function Kontakt() {
                       <Button 
                         type="submit" 
                         disabled={mutation.isPending}
-                        className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors"
+                        className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-lg py-6 text-lg font-semibold"
                       >
                         {mutation.isPending ? "Wird gesendet..." : "Nachricht senden"}
                       </Button>
                     </form>
                   </Form>
-                </CardContent>
-              </Card>
+                </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative">
+        <div className="absolute inset-0 bg-grid-gray-900/5 bg-grid-16"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-4">
               Weitere Kontaktmöglichkeiten
             </h2>
+            <p className="text-lg text-gray-600">Wir sind auf verschiedenen Wegen für Sie erreichbar</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Telefon</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg font-semibold text-gray-800">+49 6023 9170 100</p>
-                <p className="text-sm text-gray-600 mt-2">Mo-Fr: 9:00 - 17:00 Uhr</p>
-              </CardContent>
-            </Card>
+            <div className="group">
+              <Card className="text-center h-full hover:shadow-xl transition-all duration-300 border-0 bg-white">
+                <CardHeader>
+                  <div className="w-20 h-20 bg-gradient-to-br from-[var(--lohn-primary)] to-blue-700 rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Phone className="text-white" size={32} />
+                  </div>
+                  <CardTitle className="text-[var(--lohn-primary)] text-2xl">Telefon</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-xl font-bold text-gray-800 mb-2">+49 6023 9170 100</p>
+                  <p className="text-gray-600">Mo-Fr: 9:00 - 17:00 Uhr</p>
+                  <Button variant="outline" className="mt-4 group-hover:bg-[var(--lohn-primary)] group-hover:text-white transition-colors">
+                    Jetzt anrufen
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">E-Mail</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg font-semibold text-gray-800">kontakt@lohnlab.de</p>
-                <p className="text-sm text-gray-600 mt-2">Antwort innerhalb von 24h</p>
-              </CardContent>
-            </Card>
+            <div className="group">
+              <Card className="text-center h-full hover:shadow-xl transition-all duration-300 border-0 bg-white">
+                <CardHeader>
+                  <div className="w-20 h-20 bg-gradient-to-br from-[var(--lohn-teal)] to-cyan-600 rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Mail className="text-white" size={32} />
+                  </div>
+                  <CardTitle className="text-[var(--lohn-primary)] text-2xl">E-Mail</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-xl font-bold text-gray-800 mb-2">kontakt@lohnlab.de</p>
+                  <p className="text-gray-600">Antwort innerhalb von 24h</p>
+                  <Button variant="outline" className="mt-4 group-hover:bg-[var(--lohn-teal)] group-hover:text-white transition-colors">
+                    E-Mail schreiben
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Adresse</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg font-semibold text-gray-800">LohnLab GmbH</p>
-                <p className="text-sm text-gray-600">Hauptstraße 20</p>
-                <p className="text-sm text-gray-600">63755 Alzenau</p>
-              </CardContent>
-            </Card>
+            <div className="group">
+              <Card className="text-center h-full hover:shadow-xl transition-all duration-300 border-0 bg-white">
+                <CardHeader>
+                  <div className="w-20 h-20 bg-gradient-to-br from-[var(--lohn-accent)] to-yellow-500 rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <MapPin className="text-white" size={32} />
+                  </div>
+                  <CardTitle className="text-[var(--lohn-primary)] text-2xl">Adresse</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-xl font-bold text-gray-800">LohnLab GmbH</p>
+                  <p className="text-gray-600">Hauptstraße 20</p>
+                  <p className="text-gray-600 mb-2">63755 Alzenau</p>
+                  <Button variant="outline" className="mt-4 group-hover:bg-[var(--lohn-accent)] group-hover:text-white transition-colors">
+                    Route planen
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

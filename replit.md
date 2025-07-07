@@ -161,3 +161,11 @@ Changelog:
   - Calendar container is now completely white without blue header
   - Fixed HubSpot calendar embedding with proper height to avoid scrolling
   - Added grid backgrounds and modern hover effects throughout the page
+- January 7, 2025: Created Roadmap/Community page:
+  - Added comprehensive roadmap page with 3 tabs (Available Features, In Development, Feedback)
+  - Listed all current features including Givve integration, Excel import, multi-tenancy, and calculators
+  - Documented features in development with MVP release date (August 4, 2025)
+  - Added Typeform integration for community feedback
+  - Included direct message form as alternative to Typeform
+  - Improved tab design with rounded corners and better styling
+  - Added links in footer and development status sidebar

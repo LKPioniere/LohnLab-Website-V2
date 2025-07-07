@@ -4,9 +4,59 @@ import Footer from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle, Clock, Wrench, Lightbulb, Calendar, Users, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { CheckCircle, Clock, Wrench, Lightbulb, Calendar, Users, TrendingUp, MessageSquare, Send } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useToast } from "@/hooks/use-toast";
+
+const feedbackFormSchema = z.object({
+  name: z.string().min(1, "Name ist erforderlich"),
+  email: z.string().email("Ungültige E-Mail-Adresse"),
+  feedbackType: z.string().min(1, "Bitte wählen Sie eine Kategorie"),
+  message: z.string().min(10, "Nachricht muss mindestens 10 Zeichen lang sein"),
+});
+
+type FeedbackFormValues = z.infer<typeof feedbackFormSchema>;
 
 export default function Roadmap() {
+  const { toast } = useToast();
+  
+  const form = useForm<FeedbackFormValues>({
+    resolver: zodResolver(feedbackFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      feedbackType: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (values: FeedbackFormValues) => {
+    try {
+      // Simulate sending feedback
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Feedback gesendet!",
+        description: "Vielen Dank für Ihr wertvolles Feedback. Wir melden uns in Kürze bei Ihnen.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Fehler beim Senden",
+        description: "Bitte versuchen Sie es später erneut.",
+      });
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -146,18 +196,30 @@ export default function Roadmap() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="completed" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12">
-              <TabsTrigger value="completed" className="text-lg py-3">
-                <CheckCircle className="mr-2" size={20} />
-                Verfügbare Features
+            <TabsList className="grid w-full grid-cols-3 mb-12 bg-gray-100 p-1 rounded-xl">
+              <TabsTrigger 
+                value="completed" 
+                className="text-base sm:text-lg py-3 px-4 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-md data-[state=active]:text-[var(--lohn-primary)] transition-all"
+              >
+                <CheckCircle className="mr-2 hidden sm:inline-block" size={20} />
+                <span className="hidden sm:inline">Verfügbare Features</span>
+                <span className="sm:hidden">Verfügbar</span>
               </TabsTrigger>
-              <TabsTrigger value="development" className="text-lg py-3">
-                <Clock className="mr-2" size={20} />
-                In Entwicklung
+              <TabsTrigger 
+                value="development" 
+                className="text-base sm:text-lg py-3 px-4 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-md data-[state=active]:text-[var(--lohn-primary)] transition-all"
+              >
+                <Clock className="mr-2 hidden sm:inline-block" size={20} />
+                <span className="hidden sm:inline">In Entwicklung</span>
+                <span className="sm:hidden">Entwicklung</span>
               </TabsTrigger>
-              <TabsTrigger value="feedback" className="text-lg py-3">
-                <Lightbulb className="mr-2" size={20} />
-                Ideentank
+              <TabsTrigger 
+                value="feedback" 
+                className="text-base sm:text-lg py-3 px-4 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-md data-[state=active]:text-[var(--lohn-primary)] transition-all"
+              >
+                <Lightbulb className="mr-2 hidden sm:inline-block" size={20} />
+                <span className="hidden sm:inline">Ideentank</span>
+                <span className="sm:hidden">Ideen</span>
               </TabsTrigger>
             </TabsList>
             
@@ -308,23 +370,127 @@ export default function Roadmap() {
                 </p>
               </div>
               
-              <div className="max-w-4xl mx-auto">
-                <Card className="border-0 shadow-xl overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                {/* Typeform Option */}
+                <Card className="border-0 shadow-xl overflow-hidden h-fit">
                   <CardHeader className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-teal)] text-white">
-                    <CardTitle className="text-2xl flex items-center">
-                      <Lightbulb className="mr-3" size={28} />
-                      Community Feedback Formular
+                    <CardTitle className="text-xl flex items-center">
+                      <Lightbulb className="mr-3" size={24} />
+                      Umfangreiche Umfrage
                     </CardTitle>
-                    <CardDescription className="text-blue-100 text-base">
-                      Helfen Sie uns dabei, das LohnLab Cockpit noch besser zu machen. 
-                      Ihr Feedback fließt direkt in unsere Entwicklungsplanung ein.
+                    <CardDescription className="text-blue-100">
+                      Nehmen Sie an unserer detaillierten Community-Umfrage teil
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="p-0">
                     <div 
                       data-tf-live="01JZK3G8NZEAZ8W2RH5D997T00"
-                      style={{ height: '600px', width: '100%' }}
+                      style={{ height: '500px', width: '100%' }}
                     ></div>
+                  </CardContent>
+                </Card>
+                
+                {/* Direct Message Option */}
+                <Card className="border-0 shadow-xl h-fit">
+                  <CardHeader className="bg-gradient-to-r from-[var(--lohn-teal)] to-[var(--lohn-accent)] text-white">
+                    <CardTitle className="text-xl flex items-center">
+                      <MessageSquare className="mr-3" size={24} />
+                      Direktnachricht
+                    </CardTitle>
+                    <CardDescription className="text-gray-100">
+                      Senden Sie uns eine schnelle Nachricht mit Ihrem Feedback
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Name</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Ihr Name" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>E-Mail</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="ihre.email@beispiel.de" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="feedbackType"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Feedback-Kategorie</FormLabel>
+                              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Wählen Sie eine Kategorie" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  <SelectItem value="feature">Neue Feature-Idee</SelectItem>
+                                  <SelectItem value="improvement">Verbesserungsvorschlag</SelectItem>
+                                  <SelectItem value="bug">Fehlermeldung</SelectItem>
+                                  <SelectItem value="priority">Priorisierungswunsch</SelectItem>
+                                  <SelectItem value="general">Allgemeines Feedback</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="message"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Ihre Nachricht</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Teilen Sie uns Ihre Ideen, Vorschläge oder Feedback mit..." 
+                                  className="min-h-[120px]"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <Button 
+                          type="submit" 
+                          disabled={form.formState.isSubmitting}
+                          className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors"
+                        >
+                          {form.formState.isSubmitting ? (
+                            <>Wird gesendet...</>
+                          ) : (
+                            <>
+                              <Send className="mr-2" size={18} />
+                              Feedback senden
+                            </>
+                          )}
+                        </Button>
+                      </form>
+                    </Form>
                   </CardContent>
                 </Card>
               </div>

@@ -185,55 +185,57 @@ export default function Navigation() {
               </button>
               
               {isSolutionsOpen && (
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-fadeIn">
-                  <div className="px-6 py-3 border-b border-gray-100">
-                    <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Unsere Lösungen</h3>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
+                  <div className="w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
+                    <div className="px-6 py-3 border-b border-gray-100">
+                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Unsere Lösungen</h3>
+                    </div>
+                    <Link 
+                      href="/loesungen/lohnerhoehung"
+                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
+                      onClick={() => setIsSolutionsOpen(false)}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-primary)] to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                          <TrendingUp className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-primary)] transition-colors">Lohnerhöhung</div>
+                          <div className="text-sm text-gray-500">Exakte Berechnungen für alle Mitarbeiter</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/loesungen/lohnoptimierung"
+                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-all duration-300"
+                      onClick={() => setIsSolutionsOpen(false)}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-purple)] to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                          <Crown className="w-6 h-6 text-yellow-400" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-purple)] transition-colors">Lohnoptimierung</div>
+                          <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/loesungen/neueinstellungen"
+                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent transition-all duration-300"
+                      onClick={() => setIsSolutionsOpen(false)}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                          <UserPlus className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">Neueinstellungen</div>
+                          <div className="text-sm text-gray-500">Optimale Gehaltspakete und DATEV-Integration</div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                  <Link 
-                    href="/loesungen/lohnerhoehung"
-                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
-                    onClick={() => setIsSolutionsOpen(false)}
-                  >
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-primary)] to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                        <TrendingUp className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-primary)] transition-colors">Lohnerhöhung</div>
-                        <div className="text-sm text-gray-500">Exakte Berechnungen für alle Mitarbeiter</div>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link 
-                    href="/loesungen/lohnoptimierung"
-                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-all duration-300"
-                    onClick={() => setIsSolutionsOpen(false)}
-                  >
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-purple)] to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                        <Crown className="w-6 h-6 text-yellow-400" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-purple)] transition-colors">Lohnoptimierung</div>
-                        <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link 
-                    href="/loesungen/neueinstellungen"
-                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent transition-all duration-300"
-                    onClick={() => setIsSolutionsOpen(false)}
-                  >
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                        <UserPlus className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">Neueinstellungen</div>
-                        <div className="text-sm text-gray-500">Optimale Gehaltspakete und DATEV-Integration</div>
-                      </div>
-                    </div>
-                  </Link>
                 </div>
               )}
             </div>
@@ -259,44 +261,46 @@ export default function Navigation() {
               </button>
               
               {isLoginOpen && (
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-fadeIn">
-                  <div className="px-6 py-3 border-b border-gray-100">
-                    <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Login & Ressourcen</h3>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
+                  <div className="w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
+                    <div className="px-6 py-3 border-b border-gray-100">
+                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Login & Ressourcen</h3>
+                    </div>
+                    <a 
+                      href="https://cockpit.lohnlab.de"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
+                      onClick={() => setIsLoginOpen(false)}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                          <ExternalLink className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">LohnLab Cockpit</div>
+                          <div className="text-sm text-gray-500">Zur Anwendung</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a 
+                      href="https://lohnlab-cockpit-kanzleipaket-udfcfcdagr.mymemberspot.de/auth/login?redirectTo=%2Flibrary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-orange-50 hover:to-transparent transition-all duration-300"
+                      onClick={() => setIsLoginOpen(false)}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                          <BookOpen className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800 group-hover:text-orange-500 transition-colors">Handbücher & Anleitungen</div>
+                          <div className="text-sm text-gray-500">Für Kunden und Partner</div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                  <a 
-                    href="https://cockpit.lohnlab.de"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
-                    onClick={() => setIsLoginOpen(false)}
-                  >
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                        <ExternalLink className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">LohnLab Cockpit</div>
-                        <div className="text-sm text-gray-500">Zur Anwendung</div>
-                      </div>
-                    </div>
-                  </a>
-                  <a 
-                    href="https://lohnlab-cockpit-kanzleipaket-udfcfcdagr.mymemberspot.de/auth/login?redirectTo=%2Flibrary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-orange-50 hover:to-transparent transition-all duration-300"
-                    onClick={() => setIsLoginOpen(false)}
-                  >
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                        <BookOpen className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-800 group-hover:text-orange-500 transition-colors">Handbücher & Anleitungen</div>
-                        <div className="text-sm text-gray-500">Für Kunden und Partner</div>
-                      </div>
-                    </div>
-                  </a>
                 </div>
               )}
             </div>

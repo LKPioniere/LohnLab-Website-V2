@@ -154,6 +154,8 @@ export default function Navigation() {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
+
+            
             {/* Solutions Dropdown */}
             <div 
               className="relative"
@@ -294,7 +296,11 @@ export default function Navigation() {
             style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : {}}
           >
             <div className="flex flex-col space-y-2">
-              {/* Mobile Solutions Dropdown */}
+              <Link 
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`px-4 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors font-medium ${location === '/' ? (isHeroVisible && isDarkHero ? 'text-gray-200 bg-white/10' : 'text-[var(--lohn-primary)] bg-gray-50') : ''}`}
+              >
               <div className="border-y border-gray-100">
                 <button
                   onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}

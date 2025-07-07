@@ -1,5 +1,7 @@
-import { Star, ChevronLeft, ChevronRight, Quote, Film, Camera, CreditCard, Zap } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Quote, Film, Camera } from "lucide-react";
 import christopherImage from "@assets/CHristopher-Bausch-e1666084356146_1751895906988.jpg";
+import juliusImage from "../../../assets/julius-henne-photo.jpg";
+import stebahCardImage from "../../../assets/stebah-company-card.png";
 import { useState } from "react";
 
 interface Reference {
@@ -38,7 +40,7 @@ const references: Reference[] = [
     title: "Geschäftsführer",
     company: "Stebah GmbH & Co. KG",
     quote: "Ich und meine Mitarbeiter sind von den vielfältigen Einsatzmöglichkeiten unserer Firmenkarte begeistert. Das Design passt perfekt zu unserem Unternehmen.",
-    image: "", // Will be rendered as card design
+    image: juliusImage,
     industry: "Corporate Services",
     highlight: "Vielfältige Einsatzmöglichkeiten",
     backgroundColor: "bg-gradient-to-br from-blue-600 to-blue-800",
@@ -135,99 +137,101 @@ export default function ReferencesSection() {
                 
                 {/* Dynamic Content based on reference type */}
                 {currentRef.id === "julius-henne" ? (
-                  // Stebah Company Card Design
+                  // Julius Henne - Stebah Company Card Design
                   <div className="space-y-8">
-                    {/* Corporate Card Design */}
-                    <div className="relative mx-auto max-w-md">
-                      <div className="relative w-full h-48 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-2xl overflow-hidden">
-                        {/* Card Background Pattern */}
-                        <div className="absolute inset-0 opacity-10">
-                          <div className="absolute top-4 left-4 w-32 h-32 border-2 border-white rounded-lg"></div>
-                          <div className="absolute bottom-4 right-4 w-24 h-24 border border-white rounded-full"></div>
-                        </div>
-                        
-                        {/* Card Content */}
-                        <div className="relative z-10 p-6 h-full flex flex-col justify-between text-white">
-                          {/* Top Section */}
-                          <div>
-                            <h3 className="text-2xl font-bold mb-1 tracking-wide">ZUM VERPULVERN!</h3>
-                            <div className="flex items-center space-x-4 mb-4">
-                              <div className="w-8 h-6 bg-gray-200 rounded-md"></div>
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-white rounded-full"></div>
-                                <div className="w-2 h-2 bg-white rounded-full"></div>
-                                <div className="w-2 h-2 bg-white rounded-full"></div>
-                              </div>
-                            </div>
-                            <div className="text-3xl font-bold tracking-wider mb-2">STEBAH</div>
-                          </div>
-                          
-                          {/* Bottom Section */}
-                          <div className="space-y-2">
-                            <div className="text-xl font-mono tracking-wider">5219 6510 1234 5678</div>
-                            <div className="flex justify-between items-end">
-                              <div>
-                                <div className="text-xs opacity-80">GOOD THRU</div>
-                                <div className="text-sm font-bold">12/25</div>
-                                <div className="text-xs mt-1">MAX MUSTERMANN</div>
-                                <div className="text-xs">STEBAH</div>
-                              </div>
-                              <div className="flex space-x-1">
-                                <div className="w-8 h-8 bg-red-500 rounded-full opacity-90"></div>
-                                <div className="w-8 h-8 bg-orange-400 rounded-full opacity-90 -ml-2"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        {/* Card shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-45 transform translate-x-full opacity-30"></div>
+                    {/* Header with Corporate Branding */}
+                    <div className="text-center">
+                      <div className="inline-block bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-full text-xl font-bold tracking-wide shadow-lg">
+                        STEBAH Corporate Excellence
                       </div>
                     </div>
                     
-                    {/* Content Grid */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                      {/* Company Info */}
-                      <div className="text-center lg:text-left space-y-4">
-                        <h3 className="text-3xl font-bold text-gray-900 mb-2 tracking-wide">
-                          {currentRef.name}
-                        </h3>
-                        <p className="text-xl text-[var(--lohn-primary)] font-semibold mb-4">
-                          {currentRef.title}
-                        </p>
-                        <div className="text-lg text-gray-600 font-medium">
-                          {currentRef.company}
+                    {/* Main Content Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                      
+                      {/* Left Column - Person & Card */}
+                      <div className="space-y-6">
+                        {/* Julius Photo */}
+                        <div className="text-center">
+                          <div className="relative inline-block">
+                            <div className="relative w-48 h-48 mx-auto">
+                              <img 
+                                src={currentRef.image} 
+                                alt={currentRef.name}
+                                className="w-full h-full rounded-2xl object-cover shadow-2xl border-4 border-white"
+                                style={{
+                                  filter: 'contrast(1.1) saturate(1.1) brightness(1.05)',
+                                  boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                                }}
+                              />
+                              {/* Professional Badge */}
+                              <div className="absolute -bottom-3 -right-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+                                <Star className="w-6 h-6 fill-current" />
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Name & Title */}
+                          <div className="mt-6 text-center">
+                            <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                              {currentRef.name}
+                            </h3>
+                            <p className="text-xl text-blue-600 font-semibold mb-2">
+                              {currentRef.title}
+                            </p>
+                            <div className="text-lg text-gray-600 font-medium">
+                              {currentRef.company}
+                            </div>
+                          </div>
                         </div>
                         
-                        {/* Corporate Features */}
-                        <div className="flex flex-wrap gap-2 justify-center lg:justify-start mt-6">
-                          <div className="flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full">
-                            <CreditCard className="w-4 h-4 mr-2" />
-                            <span className="text-sm font-medium">Firmenkarte</span>
-                          </div>
-                          <div className="flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full">
-                            <Zap className="w-4 h-4 mr-2" />
-                            <span className="text-sm font-medium">Vielfältige Nutzung</span>
+                        {/* Company Card Display */}
+                        <div className="text-center">
+                          <div className="relative inline-block">
+                            <img 
+                              src={stebahCardImage} 
+                              alt="Stebah Firmenkarte"
+                              className="w-80 h-auto rounded-2xl shadow-2xl border-2 border-gray-200"
+                              style={{
+                                filter: 'contrast(1.05) saturate(1.1)',
+                                boxShadow: '0 20px 40px rgba(0,0,0,0.15)'
+                              }}
+                            />
+                            {/* Card glow effect */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-blue-400/20 via-transparent to-orange-400/20 rounded-2xl"></div>
                           </div>
                         </div>
                       </div>
                       
-                      {/* Quote Section */}
-                      <div className="space-y-4">
-                        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-l-4 border-blue-600">
+                      {/* Right Column - Quote & Content */}
+                      <div className="space-y-8">
+                        {/* Featured Quote */}
+                        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border-l-4 border-blue-600 shadow-lg">
                           <div className="flex items-start space-x-4">
-                            <Quote className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                            <blockquote className="text-lg text-gray-800 leading-relaxed font-medium italic">
+                            <Quote className="w-8 h-8 text-blue-600 mt-1 flex-shrink-0" />
+                            <blockquote className="text-2xl text-gray-800 leading-relaxed font-medium italic">
                               „{currentRef.quote}"
                             </blockquote>
                           </div>
                         </div>
                         
                         {/* Highlight Badge */}
-                        <div className="flex justify-center lg:justify-start">
-                          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-full shadow-lg">
-                            <Star className="w-5 h-5 mr-2 fill-current" />
-                            <span className="font-semibold">{currentRef.highlight}</span>
+                        <div className="text-center">
+                          <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-full shadow-xl">
+                            <Star className="w-6 h-6 mr-3 fill-current" />
+                            <span className="text-lg font-semibold">{currentRef.highlight}</span>
+                          </div>
+                        </div>
+                        
+                        {/* Corporate Stats */}
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+                            <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
+                            <div className="text-sm text-gray-600 font-medium">Zufriedenheit</div>
+                          </div>
+                          <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
+                            <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                            <div className="text-sm text-gray-600 font-medium">Verfügbarkeit</div>
                           </div>
                         </div>
                       </div>

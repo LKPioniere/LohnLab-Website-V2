@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Check, FlaskConical, Rocket, ChevronLeft, ChevronRight, Info, X, Activity, Calendar } from "lucide-react";
+import { Link } from "wouter";
 
 export default function DevelopmentStatusSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,6 +110,22 @@ export default function DevelopmentStatusSidebar() {
                 <div className="font-semibold">MVP Fertigstellung</div>
                 <div>04. August 2025</div>
               </div>
+            </div>
+            
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <div className="flex items-center mb-2">
+                <Info className="w-4 h-4 text-blue-500 mr-2" />
+                <h5 className="font-semibold text-sm text-gray-800">Roadmap & Community</h5>
+              </div>
+              <p className="text-xs text-gray-600 mb-3">
+                Verfolgen Sie unseren Fortschritt und gestalten Sie mit!
+              </p>
+              <Link 
+                href="/roadmap"
+                className="block w-full bg-[var(--lohn-primary)] text-white text-center py-2 px-4 rounded-lg text-sm font-medium hover:bg-[var(--lohn-secondary)] transition-colors"
+              >
+                Zur Roadmap
+              </Link>
             </div>
           </div>
         </div>

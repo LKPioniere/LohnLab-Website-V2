@@ -188,21 +188,23 @@ export default function Kontakt() {
             
             {/* HubSpot Meetings Integration */}
             <div>
-              <div className="bg-[var(--lohn-primary)] rounded-2xl p-8 shadow-xl">
-                <h2 className="text-3xl font-bold text-white mb-4 flex items-center">
-                  <Calendar className="mr-3" size={32} />
-                  Termin vereinbaren
-                </h2>
-                <p className="text-lg text-blue-100 mb-8">
-                  Buchen Sie direkt einen passenden Termin für Ihre persönliche Beratung oder Demo.
-                </p>
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-[var(--lohn-primary)] p-8">
+                  <h2 className="text-3xl font-bold text-white mb-4 flex items-center">
+                    <Calendar className="mr-3" size={32} />
+                    Termin vereinbaren
+                  </h2>
+                  <p className="text-lg text-blue-100">
+                    Buchen Sie direkt einen passenden Termin für Ihre persönliche Beratung oder Demo.
+                  </p>
+                </div>
                 
                 {/* HubSpot Meetings Embed */}
-                <div className="bg-white rounded-lg shadow-inner p-4">
+                <div className="bg-white">
                   <div 
                     className="meetings-iframe-container" 
                     data-src="https://meetings-eu1.hubspot.com/michael-schmitt?embed=true"
-                    style={{ minHeight: '600px' }}
+                    style={{ minHeight: '650px', backgroundColor: 'white', margin: '-1px' }}
                   ></div>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import ProductFeaturesSection from "@/components/sections/ProductFeaturesSection
 
 import DatevIntegration from "@/components/datev-integration";
 import TargetAudiencesSection from "@/components/sections/TargetAudiencesSection";
+import ReferencesSection from "@/components/sections/ReferencesSection";
 import TeamSection from "@/components/sections/TeamSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
@@ -25,6 +26,7 @@ export default function Home() {
       <DemoCalculatorSection />
       <DatevIntegration />
       <TargetAudiencesSection />
+      <ReferencesSection />
       <TeamSection />
       <ContactSection />
       <Footer />

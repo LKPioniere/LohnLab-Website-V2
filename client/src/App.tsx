@@ -12,6 +12,7 @@ import Kontakt from "@/pages/kontakt";
 import FAQ from "@/pages/faq";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
+import NewHireCompensationAPI from "@/pages/api/new-hire-compensation";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/lohnoptimierung" component={Lohnoptimierung} />
       <Route path="/kontakt" component={Kontakt} />
       <Route path="/faq" component={FAQ} />
+      <Route path="/api/new-hire-compensation" component={NewHireCompensationAPI} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route component={NotFound} />

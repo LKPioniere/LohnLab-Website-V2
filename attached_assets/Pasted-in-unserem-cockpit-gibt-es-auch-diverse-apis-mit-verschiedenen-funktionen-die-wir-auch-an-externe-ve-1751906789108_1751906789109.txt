@@ -1,0 +1,23 @@
+in unserem cockpit gibt es auch diverse apis mit verschiedenen funktionen die wir auch an externe verkaufen wollen, dazu benötigen wir einen weitern menüpunkt namens api mit den unterpunkten pro api. wir beginnen mit der ersten: mit ihr kann man das gehaölt für einen neuen mitarbeiter berechnen und sogar eine lohnoptimierung machen. ich gebe dir jetzt alle infos die ich habe und zu baust daraus eine schicke Subpage die alles wichtige über die Api erklärt und versucht sie zu verkaufen. frag mich vor beginn alles was du deiner meinung nach noch wissen musst um die seite erstellen zu können. nimm dir ein beispiel an anderen api websites von professionellen software entwicklern. post url: https://wbrpcogqizdtfelwhdtl.supabase.co/functions/v1/newHireCompensation; Was die API kann - Kernfunktionalität
+Die newHireCompensation API ist eine spezialisierte Lohnoptimierungs-Engine für neue Mitarbeiter mit drei strategischen Berechnungsmodi: MaxErsparnis-Modus, MaxNetto-Modus, FreeCalc-Modus. ielgruppe und Anwendungsfälle
+Primäre Zielgruppe:
+Große Unternehmen (500+ Mitarbeiter) mit häufigen Neueinstellungen
+Lohnabrechner und Steuerberater
+HR-Dienstleister
+Personalberatungen
+Sekundäre Zielgruppe:
+Mittelständische Unternehmen mit Wachstumsambitionen
+Start-ups mit Skalierungsplänen
+🚀 Einzigartige Mehrwerte für Unternehmen
+Für Arbeitgeber:
+Kostenoptimierung: Bis zu 30% Lohnnebenkosten-Ersparnis bei Neueinstellungen
+Wettbewerbsvorteil: Attraktivere Angebote bei gleichen Kosten
+Automatisierte Expertise: Komplexe Lohnoptimierung ohne Fachwissen
+Compliance-Sicherheit: Alle Berechnungen rechtssicher und aktuell
+Für neue Mitarbeiter:
+Höheres Netto: Mehr Geld in der Tasche bei gleichem Brutto
+Flexible Benefits: Individuelle Auswahl aus 15+ Lohnbausteinen
+Sofortige Optimierung: Von Tag 1 an optimiertes Gehaltspaket. Template-System:
+Verwendung bestehender Mitarbeiterdaten als Vorlage
+Automatische Übernahme von Standort-, Personal- und Vertragsdaten
+Individuelle Überschreibung aller Parameter möglich

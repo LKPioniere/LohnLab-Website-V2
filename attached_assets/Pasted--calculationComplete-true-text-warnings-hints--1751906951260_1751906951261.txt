@@ -1,0 +1,113 @@
+{
+    "calculationComplete": true,
+    "text": {
+        "warnings": [],
+        "hints": []
+    },
+    "normal": {
+        "einstellungsgehalt": {
+            "netto": 3054.75,
+            "brutto": 5000,
+            "lohnKosten": 6270.75,
+            "lohnicaResponse": {
+                "data": {
+                    "employee": {
+                        "health-insurance": 426.25,
+                        "income-tax": 797.25,
+                        "tax-total": 869,
+                        "nursing-care-insurance": 120,
+                        "solidarity-tax": 0,
+                        "church-tax": 71.75,
+                        "insurance-total": 1076.25,
+                        "unemployment-insurance": 65,
+                        "pension-insurance": 465
+                    },
+                    "employer": {
+                        "health-insurance": 426.25,
+                        "nursing-care-insurance": 90,
+                        "pension-insurance": 465,
+                        "unemployment-insurance": 65,
+                        "u1-contribution": 120,
+                        "u2-contribution": 22,
+                        "insolvency-contribution": 7.5,
+                        "insurance-total": 1195.75,
+                        "bg_costs": 75
+                    },
+                    "premiums": {
+                        "employee": {
+                            "health-insurance": 7.3,
+                            "health-insurance-supplemental": 1.225,
+                            "pension-insurance": 9.3,
+                            "unemployment-insurance": 1.3,
+                            "nursing-care-insurance": 2.4
+                        },
+                        "employer": {
+                            "health-insurance": 7.3,
+                            "health-insurance-supplemental": 1.225,
+                            "nursing-care-insurance": 1.8,
+                            "pension-insurance": 9.3,
+                            "unemployment-insurance": 1.3,
+                            "u1-contribution": 2.4,
+                            "u2-contribution": 0.44,
+                            "insolvency-contribution": 0.15
+                        }
+                    },
+                    "gross-income": 5000,
+                    "net-salary": 3054.75,
+                    "net-pay": 3054.75,
+                    "labor-cost": 6270.75,
+                    "midi-job": false
+                }
+            }
+        }
+    },
+    "optimiert": {
+        "einstellungsgehalt": {
+            "netto": 3054.75,
+            "brutto": 4663.21,
+            "lohnKosten": 6038.099999999999,
+            "lohnicaResponse": {}
+        },
+        "Lohnbausteine": [
+            {
+                "id": "",
+                "name": "Internet",
+                "betrag": 50,
+                "option_id": "86361d71-0249-4915-badc-d678838b7cac",
+                "lohnNebenKosten": 13.81
+            },
+            {
+                "id": "",
+                "name": "Sachbezug P8",
+                "betrag": 50,
+                "option_id": "d062b9c6-7c28-400d-b532-6fd26c1b2df9",
+                "lohnNebenKosten": 0
+            },
+            {
+                "id": "",
+                "name": "Handy",
+                "betrag": 20,
+                "option_id": "2c709c20-bb67-43a0-b089-999f53043cf9",
+                "lohnNebenKosten": 0
+            },
+            {
+                "id": "",
+                "name": "Fahrtkosten P15",
+                "betrag": 45,
+                "sonder_felder": {
+                    "kilometer berechnet": 10
+                },
+                "option_id": "cef7a7e2-f107-4a25-bde7-f6a4561dd65f",
+                "lohnNebenKosten": 7.46
+            }
+        ],
+        "summeAllerLohnbausteine": 165,
+        "Nebenkosten": {
+            "Lohnbausteine": 21.27,
+            "verguetungLohnLab": 21.95,
+            "verguetungCleverLunch": 0,
+            "gebuehrGivveCard": 2.79,
+            "summeAllerNebenkosten": 0
+        }
+    }
+}

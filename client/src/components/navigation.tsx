@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown, Code, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@/assets/lohnlab-logo-blue.png";
@@ -8,8 +8,10 @@ import lohnlabLogoWhite from "@/assets/lohnlab-logo-white.png";
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isApiOpen, setIsApiOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
+  const [isMobileApiOpen, setIsMobileApiOpen] = useState(false);
   const [isMobileLoginOpen, setIsMobileLoginOpen] = useState(false);
   const [location] = useLocation();
   const [isHeroVisible, setIsHeroVisible] = useState(true);
@@ -240,6 +242,62 @@ export default function Navigation() {
               )}
             </div>
             
+            {/* API Dropdown */}
+            <div 
+              className="relative group"
+              onMouseEnter={() => setIsApiOpen(true)}
+              onMouseLeave={() => setIsApiOpen(false)}
+            >
+              <button
+                className={`group relative flex items-center space-x-1 px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
+                  location.includes('/api') 
+                    ? (isHeroVisible && isDarkHero 
+                        ? 'text-white' 
+                        : 'text-[var(--lohn-primary)]') 
+                    : ''
+                }`}
+              >
+                <span className="relative">
+                  API
+                  <span className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
+                    location.includes('/api')
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-100'
+                  } ${
+                    isHeroVisible && isDarkHero 
+                      ? 'bg-white' 
+                      : 'bg-[var(--lohn-primary)]'
+                  }`}></span>
+                </span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isApiOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isApiOpen && (
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
+                  <div className="w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
+                    <div className="px-6 py-3 border-b border-gray-100">
+                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">API Services</h3>
+                    </div>
+                    <Link 
+                      href="/api/new-hire-compensation"
+                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-green-50 hover:to-transparent transition-all duration-300"
+                      onClick={() => setIsApiOpen(false)}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                          <Calculator className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800 group-hover:text-green-500 transition-colors">New Hire Compensation</div>
+                          <div className="text-sm text-gray-500">Lohnoptimierung für neue Mitarbeiter</div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+            
             {/* Login Dropdown */}
             <div 
               className="relative group"
@@ -387,6 +445,38 @@ export default function Navigation() {
                       <div>
                         <div className="font-medium">Neueinstellungen</div>
                         <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Optimale Gehaltspakete</div>
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+              
+              {/* Mobile API Dropdown */}
+              <div className="border-y border-gray-100">
+                <button
+                  onClick={() => setIsMobileApiOpen(!isMobileApiOpen)}
+                  className={`w-full px-4 py-3 flex items-center justify-between ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors font-medium`}
+                >
+                  <span>API</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isMobileApiOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isMobileApiOpen && (
+                  <div 
+                    className="py-2"
+                    style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : { background: '#f9fafb' }}
+                  >
+                    <Link 
+                      href="/api/new-hire-compensation"
+                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileApiOpen(false);}}
+                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors`}
+                    >
+                      <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+                        <Calculator className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-medium">New Hire Compensation</div>
+                        <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Lohnoptimierung API</div>
                       </div>
                     </Link>
                   </div>

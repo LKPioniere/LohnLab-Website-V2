@@ -145,3 +145,4 @@ Changelog:
 - July 05, 2025: Simplified architecture - removed Unternehmen page and audience toggle, unified single-page approach
 - January 2025: Major code refactoring - Split components into smaller files, extracted business logic to hooks, created clear folder structure, centralized constants and data
 - January 6, 2025: Asset reorganization - Moved all used assets from attached_assets to client/src/assets with clear naming convention and updated all import paths
+- January 7, 2025: Added comprehensive API section with new navigation menu and dedicated New Hire Compensation API page featuring market trends 2025, three strategic calculation modes (MaxErsparnis, MaxNetto, FreeCalc), target audience analysis, and detailed API documentation with request/response examples

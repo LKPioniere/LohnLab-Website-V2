@@ -24,9 +24,9 @@ export default function Home() {
       <DevelopmentStatus />
       <ProductFeaturesSection />
       <DemoCalculatorSection />
+      <ReferencesSection />
       <DatevIntegration />
       <TargetAudiencesSection />
-      <ReferencesSection />
       <TeamSection />
       <ContactSection />
       <Footer />

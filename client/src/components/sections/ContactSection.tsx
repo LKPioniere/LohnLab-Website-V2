@@ -10,7 +10,7 @@ export default function ContactSection() {
   const { formData, handleSubmit, handleInputChange, isSubmitting } = useContactForm();
 
   return (
-    <section id="kontakt" className="py-20 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white">
+    <section id="kontakt" className="py-32 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

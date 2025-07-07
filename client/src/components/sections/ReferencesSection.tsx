@@ -64,17 +64,12 @@ export default function ReferencesSection() {
 
         <div className="max-w-5xl mx-auto">
           <div className="relative">
-            {/* Cinema Screen Title */}
-            <div className="text-center mb-4">
-              <div className="inline-flex items-center px-6 py-2 bg-gray-900 text-white rounded-lg font-mono text-sm tracking-wider">
-                <Film className="w-4 h-4 mr-2" />
-                JETZT LÄUFT: KUNDENREFERENZ
-              </div>
-            </div>
+
             
             <div className="relative bg-gray-100 rounded-3xl shadow-2xl overflow-hidden">
               {/* Golden curtain rod */}
-              <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 z-30"></div>
+              <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 z-30 rounded-t-3xl"></div>
+              <div className="absolute top-2 left-0 w-full h-4 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500 z-30"></div>
               
               {/* Left curtain */}
               <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-b from-red-700 via-red-800 to-red-700 z-20" 
@@ -94,8 +89,15 @@ export default function ReferencesSection() {
                 <div className="absolute top-0 left-2/3 w-px h-full bg-red-600 opacity-30"></div>
               </div>
               
+              {/* Cinema screen text overlay */}
+              <div className="absolute top-12 left-0 right-0 text-center z-20">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 tracking-wider font-serif">
+                  From the creators of more Netto
+                </h3>
+              </div>
+              
               {/* Cinema screen (white background) */}
-              <div className={`${currentRef.backgroundColor} mx-12 p-8 lg:p-12 relative z-10 min-h-[400px] flex items-center`}>
+              <div className={`${currentRef.backgroundColor} mx-12 pt-20 pb-8 px-8 lg:px-12 relative z-10 min-h-[400px] flex items-center`}>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center w-full">
               {/* Profile Image & Basic Info */}
               <div className="text-center lg:text-left">
@@ -104,6 +106,7 @@ export default function ReferencesSection() {
                     src={currentRef.image} 
                     alt={currentRef.name}
                     className="w-24 h-24 lg:w-32 lg:h-32 rounded-full object-cover shadow-lg border-4 border-white"
+                    style={{imageRendering: 'auto', filter: 'contrast(1.1) saturate(1.1)'}}
                   />
                   <div className="absolute -bottom-2 -right-2 bg-[var(--lohn-primary)] w-6 h-6 rounded-full flex items-center justify-center">
                     <Star className="w-3 h-3 text-white fill-current" />

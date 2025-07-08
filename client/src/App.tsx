@@ -14,6 +14,7 @@ import Roadmap from "@/pages/roadmap";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
 import NewHireCompensationAPI from "@/pages/api/new-hire-compensation";
+import Berechnungsbeispiel from "@/pages/berechnungsbeispiel";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/faq" component={FAQ} />
       <Route path="/roadmap" component={Roadmap} />
       <Route path="/api/new-hire-compensation" component={NewHireCompensationAPI} />
+      <Route path="/berechnungsbeispiel" component={Berechnungsbeispiel} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route component={NotFound} />

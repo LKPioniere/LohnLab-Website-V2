@@ -169,3 +169,10 @@ Changelog:
   - Included direct message form as alternative to Typeform
   - Improved tab design with rounded corners and better styling
   - Added links in footer and development status sidebar
+- January 8, 2025: Enhanced roadmap page with comprehensive 3-phase development strategy:
+  - Phase 1 (Sept-Oct 2025): Salary calculation and optimization features
+  - Phase 2 (Q1-Q2 2026): Payroll concept management with document cloud, compliance dashboard, and automated contract generation
+  - Phase 3 (Q3-Q4 2026): Employee mobile app with Givve Card integration and digital signatures
+  - Added new "3-Phasen Roadmap" and "Unsere Vision" tabs
+  - Increased Typeform height to 700px for full visibility without scrolling
+  - Added grid structure to header areas on roadmap and contact pages

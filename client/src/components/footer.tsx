@@ -54,14 +54,9 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <Link href="/roadmap" className="hover:text-white transition-colors">
+                <span className="text-gray-400 cursor-not-allowed">
                   Roadmap
-                </Link>
-              </li>
-              <li>
-                <Link href="/berechnungsbeispiel" className="hover:text-white transition-colors">
-                  Berechnungsbeispiel
-                </Link>
+                </span>
               </li>
               <li><span className="text-gray-400 cursor-not-allowed">Preise</span></li>
               <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>

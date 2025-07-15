@@ -87,17 +87,26 @@ LohnLab Cockpit is a modern payroll optimization solution designed for tax advis
 ### Development Environment
 - **Development Server**: Vite dev server with HMR
 - **Backend Server**: Express with TypeScript compilation via tsx
-- **Database**: Neon serverless PostgreSQL
+- **Database**: In-memory storage (optional: Neon serverless PostgreSQL)
 
 ### Production Build
 1. **Frontend Build**: Vite builds React app to `dist/public`
 2. **Backend Build**: ESBuild bundles server code to `dist/index.js`
-3. **Database**: Drizzle migrations ensure schema consistency
+3. **Database**: In-memory storage by default, optional PostgreSQL support
 4. **Static Assets**: Frontend assets served by Express in production
 
+### Vercel Deployment (Added January 2025)
+- **Configuration**: `vercel.json` with serverless function setup
+- **API Handler**: `/api/index.js` wraps Express app for serverless
+- **Build Output**: Frontend to `dist/public`, backend to `dist/index.js`
+- **Environment**: VERCEL=1 flag prevents local server startup
+- **Database**: Works without DATABASE_URL using in-memory storage
+
 ### Environment Configuration
-- **DATABASE_URL**: PostgreSQL connection string (required)
+- **DATABASE_URL**: PostgreSQL connection string (optional)
 - **NODE_ENV**: Environment mode (development/production)
+- **VERCEL**: Set to "1" when running on Vercel
+- **PORT**: Server port (default: 5000)
 
 ## User Preferences
 
@@ -153,26 +162,12 @@ Changelog:
   - getOptionsList API endpoint documentation with all available Lohnbausteine
   - Additional services section (payroll integration, sample payroll statements, Lohnbausteine management)
   - Market trends 2025 data highlighting the importance of digitalization and benefits
-- January 7, 2025: Updated contact page with modern design:
-  - Added LohnLab logo as browser favicon
-  - Changed browser tab title to simple "LohnLab"
-  - Completely redesigned contact page with modern UI
-  - Made both containers (calendar and form) the same length
-  - Calendar container is now completely white without blue header
-  - Fixed HubSpot calendar embedding with proper height to avoid scrolling
-  - Added grid backgrounds and modern hover effects throughout the page
-- January 7, 2025: Created Roadmap/Community page:
-  - Added comprehensive roadmap page with 3 tabs (Available Features, In Development, Feedback)
-  - Listed all current features including Givve integration, Excel import, multi-tenancy, and calculators
-  - Documented features in development with MVP release date (August 4, 2025)
-  - Added Typeform integration for community feedback
-  - Included direct message form as alternative to Typeform
-  - Improved tab design with rounded corners and better styling
-  - Added links in footer and development status sidebar
-- January 8, 2025: Enhanced roadmap page with comprehensive 3-phase development strategy:
-  - Phase 1 (Sept-Oct 2025): Salary calculation and optimization features
-  - Phase 2 (Q1-Q2 2026): Payroll concept management with document cloud, compliance dashboard, and automated contract generation
-  - Phase 3 (Q3-Q4 2026): Employee mobile app with Givve Card integration and digital signatures
-  - Added new "3-Phasen Roadmap" and "Unsere Vision" tabs
-  - Increased Typeform height to 700px for full visibility without scrolling
-  - Added grid structure to header areas on roadmap and contact pages
+- January 14, 2025: Added "Berechnungsbeispiel" page showing salary increase calculation demo with 25 fictional employees, 5% salary increase vs. optimization comparison, charts using recharts library
+- January 14, 2025: Prepared project for Vercel deployment:
+  - Created vercel.json configuration for serverless deployment
+  - Added API handler at /api/index.js for serverless functions
+  - Updated server/index.ts to support both local and Vercel environments
+  - Created README.md with deployment instructions
+  - Made database configuration optional (works with in-memory storage)
+  - Added .env.example for environment variables
+  - Updated .gitignore for Vercel deployment files

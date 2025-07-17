@@ -38,35 +38,56 @@ export default function Advita() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      // Load Calendly CSS
-      const link = document.createElement('link');
-      link.href = 'https://assets.calendly.com/assets/external/widget.css';
-      link.rel = 'stylesheet';
-      document.head.appendChild(link);
+      // Check if Calendly is already loaded
+      if (window.Calendly) {
+        // Remove any existing badges
+        const existingBadges = document.querySelectorAll('.calendly-badge-widget');
+        existingBadges.forEach(badge => badge.remove());
+        
+        window.Calendly.initBadgeWidget({
+          url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
+          text: 'zur Terminvereinbarung',
+          color: '#ea580c',
+          textColor: '#ffffff',
+          branding: true
+        });
+        return;
+      }
 
-      // Load Calendly JS and initialize badge widget
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.type = 'text/javascript';
-      script.async = true;
-      script.onload = () => {
-        if (window.Calendly) {
-          window.Calendly.initBadgeWidget({
-            url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
-            text: 'zur Terminvereinbarung',
-            color: '#ea580c',
-            textColor: '#ffffff',
-            branding: true
-          });
-        }
-      };
-      document.head.appendChild(script);
+      // Load Calendly CSS only if not already loaded
+      if (!document.querySelector('link[href*="calendly"]')) {
+        const link = document.createElement('link');
+        link.href = 'https://assets.calendly.com/assets/external/widget.css';
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+      }
 
-      return () => {
-        document.head.removeChild(link);
-        document.head.removeChild(script);
-      };
+      // Load Calendly JS only if not already loaded
+      if (!document.querySelector('script[src*="calendly"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = () => {
+          if (window.Calendly) {
+            window.Calendly.initBadgeWidget({
+              url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
+              text: 'zur Terminvereinbarung',
+              color: '#ea580c',
+              textColor: '#ffffff',
+              branding: true
+            });
+          }
+        };
+        document.head.appendChild(script);
+      }
     }
+
+    return () => {
+      // Clean up badges when component unmounts
+      const badges = document.querySelectorAll('.calendly-badge-widget');
+      badges.forEach(badge => badge.remove());
+    };
   }, [isAuthenticated]);
 
   const handleLogin = (e: React.FormEvent) => {

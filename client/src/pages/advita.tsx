@@ -53,7 +53,7 @@ export default function Advita() {
         if (window.Calendly) {
           window.Calendly.initBadgeWidget({
             url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
-            text: 'Zeitplan Zeitfenster',
+            text: 'zur Terminvereinbarung',
             color: '#ea580c',
             textColor: '#ffffff',
             branding: true

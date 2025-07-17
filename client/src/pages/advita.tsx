@@ -39,19 +39,34 @@ export default function Advita() {
 
   useEffect(() => {
     if (isAuthenticated) {
+      // Clean up any existing badges first
+      const existingBadges = document.querySelectorAll('.calendly-badge-widget');
+      existingBadges.forEach(badge => {
+        if (badge && badge.parentNode) {
+          badge.parentNode.removeChild(badge);
+        }
+      });
+
+      // Function to initialize the badge widget
+      const initializeBadge = () => {
+        if (window.Calendly && window.Calendly.initBadgeWidget) {
+          try {
+            window.Calendly.initBadgeWidget({
+              url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
+              text: 'zur Terminvereinbarung',
+              color: '#ea580c',
+              textColor: '#ffffff',
+              branding: true
+            });
+          } catch (error) {
+            console.error('Error initializing Calendly badge:', error);
+          }
+        }
+      };
+
       // Check if Calendly is already loaded
       if (window.Calendly) {
-        // Remove any existing badges
-        const existingBadges = document.querySelectorAll('.calendly-badge-widget');
-        existingBadges.forEach(badge => badge.remove());
-        
-        window.Calendly.initBadgeWidget({
-          url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
-          text: 'zur Terminvereinbarung',
-          color: '#ea580c',
-          textColor: '#ffffff',
-          branding: true
-        });
+        initializeBadge();
         return;
       }
 
@@ -69,17 +84,7 @@ export default function Advita() {
         script.src = 'https://assets.calendly.com/assets/external/widget.js';
         script.type = 'text/javascript';
         script.async = true;
-        script.onload = () => {
-          if (window.Calendly) {
-            window.Calendly.initBadgeWidget({
-              url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
-              text: 'zur Terminvereinbarung',
-              color: '#ea580c',
-              textColor: '#ffffff',
-              branding: true
-            });
-          }
-        };
+        script.onload = initializeBadge;
         document.head.appendChild(script);
       }
     }
@@ -87,7 +92,11 @@ export default function Advita() {
     return () => {
       // Clean up badges when component unmounts
       const badges = document.querySelectorAll('.calendly-badge-widget');
-      badges.forEach(badge => badge.remove());
+      badges.forEach(badge => {
+        if (badge && badge.parentNode) {
+          badge.parentNode.removeChild(badge);
+        }
+      });
     };
   }, [isAuthenticated]);
 

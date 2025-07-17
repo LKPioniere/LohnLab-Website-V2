@@ -46,10 +46,7 @@ export default function Advita() {
         <Card className="w-full max-w-md border-orange-200">
           <CardHeader className="text-center">
             <img src={advitaLogo} alt="Advita Logo" className="h-16 mx-auto mb-4" />
-            <CardTitle className="text-2xl font-bold text-orange-800">Advita Partner Portal</CardTitle>
-            <CardDescription className="text-orange-600">
-              Für Pflegedienstleiter (PDLs) und Pflegedirektoren (PDs)
-            </CardDescription>
+            <CardTitle className="text-2xl font-bold text-orange-800">advita Card Portal</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
@@ -91,7 +88,7 @@ export default function Advita() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <img src={advitaLogo} alt="Advita Logo" className="h-12" />
-              <h1 className="text-2xl font-bold text-orange-800">Advita Card - Rollout Portal</h1>
+              <h1 className="text-2xl font-bold text-orange-800">advita Card - Rollout Portal</h1>
             </div>
             <p className="text-orange-600 font-medium">Für PDLs & PDs</p>
           </div>
@@ -351,23 +348,23 @@ export default function Advita() {
             <CardContent className="p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <img src={robertLinkedIn} alt="Robert Behrend" className="w-20 h-20 rounded-full object-cover" />
+                  <div className="flex items-center gap-6 mb-6">
+                    <img src={robertLinkedIn} alt="Robert Behrend" className="w-32 h-32 rounded-full object-cover" />
                     <div>
                       <h3 className="text-xl font-bold text-orange-800">Robert Behrend</h3>
                       <p className="text-orange-600">Projektleiter "advita Card"</p>
                       <p className="text-gray-600">Lohnkonzepte GmbH</p>
-                      <p className="text-gray-600">www.lohnkonzepte.de</p>
+                      <a href="https://www.lohnkonzepte.de" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-800 underline">www.lohnkonzepte.de</a>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Phone className="h-5 w-5 text-orange-600" />
-                      <span className="text-gray-700">01621 166 556 2</span>
+                      <a href="tel:+4916211665562" className="text-gray-700 hover:text-orange-600 underline">01621 166 556 2</a>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-orange-600" />
-                      <span className="text-gray-700">robert.behrend@lohnkonzepte.de</span>
+                      <a href="mailto:robert.behrend@lohnkonzepte.de" className="text-gray-700 hover:text-orange-600 underline">robert.behrend@lohnkonzepte.de</a>
                     </div>
                   </div>
                 </div>

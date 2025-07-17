@@ -1,9 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Download, Phone, Mail, Calendar, Play } from "lucide-react";
+
+// Calendly widget types
+declare global {
+  interface Window {
+    Calendly: {
+      initBadgeWidget: (options: {
+        url: string;
+        text: string;
+        color: string;
+        textColor: string;
+        branding: boolean;
+      }) => void;
+    };
+  }
+}
 import advitaLogo from "@/assets/advita/advita.0c1377e9.png";
 import rolloutPlan from "@/assets/advita/Rollout-Plan.png";
 import advitaVideo from "@/assets/advita/Advita_Video_Magdeburg.mp4";
@@ -20,6 +35,39 @@ export default function Advita() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      // Load Calendly CSS
+      const link = document.createElement('link');
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      link.rel = 'stylesheet';
+      document.head.appendChild(link);
+
+      // Load Calendly JS and initialize badge widget
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = () => {
+        if (window.Calendly) {
+          window.Calendly.initBadgeWidget({
+            url: 'https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort',
+            text: 'Zeitplan Zeitfenster',
+            color: '#ea580c',
+            textColor: '#ffffff',
+            branding: true
+          });
+        }
+      };
+      document.head.appendChild(script);
+
+      return () => {
+        document.head.removeChild(link);
+        document.head.removeChild(script);
+      };
+    }
+  }, [isAuthenticated]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -374,14 +422,11 @@ export default function Advita() {
                     <h3 className="text-lg font-semibold text-orange-800">Online Terminvereinbarung</h3>
                   </div>
                   <div className="bg-orange-50 p-4 rounded-lg">
-                    <iframe
-                      src="https://calendly.com/robert-behrend-lohnkonzepte/advita-rollout-termin"
-                      width="100%"
-                      height="400"
-                      frameBorder="0"
-                      className="rounded-lg"
-                      title="Terminvereinbarung mit Robert Behrend"
-                    ></iframe>
+                    <div 
+                      className="calendly-inline-widget" 
+                      data-url="https://calendly.com/lohnkonzepte_behrend/advita-card-dienstberatung-vor-ort" 
+                      style={{minWidth: '320px', height: '700px'}}
+                    ></div>
                   </div>
                 </div>
               </div>

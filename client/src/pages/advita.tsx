@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Download, Phone, Mail, Calendar, Play } from "lucide-react";
+import { Download, Phone, Mail, Calendar, Play, ExternalLink } from "lucide-react";
+import { Link } from "wouter";
 
 // Calendly widget types
 declare global {
@@ -254,6 +255,64 @@ export default function Advita() {
           </Card>
         </section>
 
+        {/* Additional Agreement */}
+        <section className="mb-12">
+          <Card className="border-orange-200 bg-white shadow-lg">
+            <CardHeader className="bg-orange-600 text-white">
+              <CardTitle className="text-2xl">Die Zusatzvereinbarung</CardTitle>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-orange-800 mb-3">Warum gibt es diese Zusatzvereinbarung?</h3>
+                  <p className="text-gray-700">
+                    Die Zusatzvereinbarung ergänzt den bestehenden Arbeitsvertrag und ermöglicht es advita, 
+                    steuerfreie oder pauschalversteuerte Zuwendungen <strong>rechtssicher</strong> an den Mitarbeiter auszuzahlen.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-orange-800 mb-3">Was steht in der Vereinbarung?</h3>
+                  <p className="text-gray-700 mb-4">Die Vereinbarung besteht im Wesentlichen aus drei Teilen:</p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                      <div>
+                        <p className="font-semibold text-orange-800">Neue Prämienstruktur für Einsätze</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                      <div>
+                        <p className="font-semibold text-orange-800 mb-2">Verwendete Lohnbausteine</p>
+                        <ul className="space-y-1 text-gray-700 ml-4">
+                          <li>• Sachbezug §8 EStG (bis zu 50 € netto mtl.)</li>
+                          <li>• Internetpauschale <Link href="/internetzuschuss" className="text-orange-600 hover:text-orange-800 underline inline-flex items-center gap-1">§ 40 Abs. 2 Nr. 5 EStG <ExternalLink className="h-3 w-3" /></Link> (bis zu 50 € netto mtl.)</li>
+                          <li>• Sachbezug §37b EStG (bis zu 9.500€ netto pro Jahr)</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                      <div>
+                        <p className="font-semibold text-orange-800 mb-2">Rechtliche Rahmenbedingungen</p>
+                        <ul className="space-y-1 text-gray-700 ml-4">
+                          <li>• Kein Wahlrecht auf Barauszahlung</li>
+                          <li>• Die Regelung endet automatisch mit dem Arbeitsverhältnis</li>
+                          <li>• Bestehende Arbeitsvertragsregelungen bleiben unberührt</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* How it works */}
         <section className="mb-12">
           <Card className="border-orange-200 bg-white shadow-lg">
@@ -353,7 +412,7 @@ export default function Advita() {
                       className="w-full justify-between border-orange-300 text-orange-700 hover:bg-orange-50"
                       onClick={() => downloadFile(handout, 'advita-Card_MA-Handout.pdf')}
                     >
-                      <span>advita-Card MA-Handout</span>
+                      <span>Mitarbeiter Handout advita Card</span>
                       <Download className="h-4 w-4" />
                     </Button>
                     <Button

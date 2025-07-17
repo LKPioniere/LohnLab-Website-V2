@@ -13,6 +13,7 @@ import FAQ from "@/pages/faq";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
 import Advita from "@/pages/advita";
+import Internetzuschuss from "@/pages/internetzuschuss";
 import NewHireCompensationAPI from "@/pages/api/new-hire-compensation";
 
 function Router() {
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route path="/advita" component={Advita} />
+      <Route path="/internetzuschuss" component={Internetzuschuss} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -73,6 +73,7 @@ export default function Footer() {
               </li>
               <li><Link href="/impressum" className="hover:text-white transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</Link></li>
+              <li><Link href="/advita" className="hover:text-white transition-colors">Advita Partner</Link></li>
             </ul>
           </div>
         </div>

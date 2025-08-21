@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown, Code, Calculator } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown, Code, Calculator, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@/assets/lohnlab-logo-blue.png";
@@ -156,6 +156,33 @@ export default function Navigation() {
           </div>
           
           <div className="hidden md:flex items-center space-x-1">
+            {/* Entwicklungsstand Link */}
+            <Link href="/roadmap">
+              <button
+                className={`group relative flex items-center space-x-1 px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
+                  location === '/roadmap' 
+                    ? (isHeroVisible && isDarkHero 
+                        ? 'text-white' 
+                        : 'text-[var(--lohn-primary)]') 
+                    : ''
+                }`}
+              >
+                <Activity className="w-4 h-4" />
+                <span className="relative">
+                  Entwicklungsstand
+                  <span className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
+                    location === '/roadmap'
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-100'
+                  } ${
+                    isHeroVisible && isDarkHero 
+                      ? 'bg-white' 
+                      : 'bg-[var(--lohn-primary)]'
+                  }`}></span>
+                </span>
+              </button>
+            </Link>
+            
             {/* Solutions Dropdown */}
             <div 
               className="relative group"
@@ -393,6 +420,16 @@ export default function Navigation() {
             style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : {}}
           >
             <div className="flex flex-col space-y-2">
+              {/* Mobile Entwicklungsstand Link */}
+              <Link 
+                href="/roadmap"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex items-center px-4 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors font-medium border-y border-gray-100`}
+              >
+                <Activity className="w-5 h-5 mr-3" />
+                <span>Entwicklungsstand</span>
+              </Link>
+              
               {/* Mobile Solutions Dropdown */}
               <div className="border-y border-gray-100">
                 <button

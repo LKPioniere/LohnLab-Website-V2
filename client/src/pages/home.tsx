@@ -29,7 +29,6 @@ export default function Home() {
       <DatevIntegration />
       <TargetAudiencesSection />
       <TeamSection />
-      <ContactSection />
       <Footer />
     </div>
   );

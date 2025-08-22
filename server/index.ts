@@ -68,11 +68,7 @@ if (process.env.VERCEL !== '1') {
     const server = await initializeApp();
     
     const port = process.env.PORT || 5000;
-    server.listen({
-      port: Number(port),
-      host: "0.0.0.0",
-      reusePort: true,
-    }, () => {
+    server.listen(Number(port), "0.0.0.0", () => {
       log(`serving on port ${port}`);
     });
   })();

@@ -1,6 +1,19 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization to prevent crashes when API key is missing
+let resend: Resend | null = null;
+
+function getResendClient(): Resend | null {
+  if (!process.env.RESEND_API_KEY) {
+    return null;
+  }
+  
+  if (!resend) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  
+  return resend;
+}
 
 export interface ContactFormData {
   name: string;
@@ -97,16 +110,18 @@ ${data.message || 'Keine Nachricht übermittelt'}
 
 export async function sendContactEmail(data: ContactFormData) {
   try {
-    // Validierung der Resend-Konfiguration
-    if (!process.env.RESEND_API_KEY) {
-      console.error("Resend is not configured");
-      return { success: false, error: "Resend is not configured" };
+    // Get Resend client with lazy initialization
+    const resendClient = getResendClient();
+    
+    if (!resendClient) {
+      console.error("Resend is not configured - missing RESEND_API_KEY");
+      return { success: false, error: "Email service is not configured. Please contact the administrator." };
     }
 
     const emailHtml = createEmailHtml(data);
 
     // E-Mail mit Resend versenden
-    const { data: result, error } = await resend.emails.send({
+    const { data: result, error } = await resendClient.emails.send({
       from: "LohnLab Website <cockpit@lohnlab.de>",
       to: ["development@lohnlab.de"],
       subject: `Neue Kontaktanfrage von ${data.name}`,

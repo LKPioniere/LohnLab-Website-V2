@@ -6,7 +6,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   userType: string;
-  message: string;
+  message?: string | null;
 }
 
 function createEmailHtml(data: ContactFormData): string {
@@ -70,7 +70,7 @@ function createEmailHtml(data: ContactFormData): string {
               </h2>
               <div style="background-color: #f9fafb; padding: 20px; border-radius: 6px; border-left: 4px solid #2037B9;">
                 <p style="margin: 0; line-height: 1.6; color: #374151; white-space: pre-wrap;">
-${data.message}
+${data.message || 'Keine Nachricht übermittelt'}
                 </p>
               </div>
             </td>

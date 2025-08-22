@@ -45,20 +45,6 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Produkt</h4>
             <ul className="space-y-2 text-blue-100">
-              <li>
-                <button 
-                  onClick={() => scrollToSection('features')}
-                  className="hover:text-white transition-colors text-left"
-                >
-                  Features
-                </button>
-              </li>
-              <li>
-                <span className="text-gray-400 cursor-not-allowed">
-                  Roadmap
-                </span>
-              </li>
-              <li><span className="text-gray-400 cursor-not-allowed">Preise</span></li>
               <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>

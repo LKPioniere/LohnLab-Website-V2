@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown, Code, Calculator, Activity } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown, Code, Calculator, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@/assets/lohnlab-logo-blue.png";
@@ -38,8 +38,8 @@ export default function Navigation() {
         // Determine page-specific colors based on current path
         const currentPath = window.location.pathname;
         
-        if (currentPath === '/' || currentPath === '/faq' || currentPath === '/loesungen/lohnerhoehung') {
-          // Homepage, FAQ, Lohnerhöhung: RGB 15,34,137
+        if (currentPath === '/' || currentPath === '/faq' || currentPath === '/loesungen/lohnerhoehung' || currentPath === '/entwicklungsfortschritt' || currentPath === '/roadmap') {
+          // Homepage, FAQ, Lohnerhöhung, Roadmap: RGB 15,34,137
           setHeroBgColor('rgb(15, 34, 137)');
         } else if (currentPath === '/loesungen/lohnoptimierung') {
           // Optimierung: RGB 126,73,202
@@ -156,32 +156,34 @@ export default function Navigation() {
           </div>
           
           <div className="hidden md:flex items-center space-x-1">
-            {/* Entwicklungsstand Link */}
-            <Link href="/roadmap">
-              <button
-                className={`group relative flex items-center space-x-1 px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
-                  location === '/roadmap' 
-                    ? (isHeroVisible && isDarkHero 
-                        ? 'text-white' 
-                        : 'text-[var(--lohn-primary)]') 
-                    : ''
-                }`}
-              >
-                <Activity className="w-4 h-4" />
-                <span className="relative">
-                  Entwicklungsstand
-                  <span className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
-                    location === '/roadmap'
-                      ? 'scale-x-100'
-                      : 'scale-x-0 group-hover:scale-x-100'
-                  } ${
-                    isHeroVisible && isDarkHero 
-                      ? 'bg-white' 
-                      : 'bg-[var(--lohn-primary)]'
-                  }`}></span>
-                </span>
-              </button>
+            {/* Entwicklungsfortschritt Link */}
+            <Link 
+              href="/entwicklungsfortschritt"
+              className={`group relative flex items-center space-x-2 px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
+                location === '/entwicklungsfortschritt' || location === '/roadmap'
+                  ? (isHeroVisible && isDarkHero 
+                      ? 'text-white' 
+                      : 'text-[var(--lohn-primary)]') 
+                  : ''
+              }`}
+            >
+              <BarChart3 className="w-4 h-4" />
+              <span className="relative">
+                Entwicklungsfortschritt
+                <span className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
+                  location === '/entwicklungsfortschritt' || location === '/roadmap'
+                    ? 'scale-x-100'
+                    : 'scale-x-0 group-hover:scale-x-100'
+                } ${
+                  isHeroVisible && isDarkHero 
+                    ? 'bg-white' 
+                    : 'bg-[var(--lohn-primary)]'
+                }`}></span>
+              </span>
             </Link>
+            
+            {/* Separator */}
+            <div className={`h-6 w-px ${isHeroVisible && isDarkHero ? 'bg-white/30' : 'bg-gray-300'} mx-2`}></div>
             
             {/* Solutions Dropdown */}
             <div 
@@ -420,14 +422,14 @@ export default function Navigation() {
             style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : {}}
           >
             <div className="flex flex-col space-y-2">
-              {/* Mobile Entwicklungsstand Link */}
+              {/* Mobile Entwicklungsfortschritt Link */}
               <Link 
-                href="/roadmap"
+                href="/entwicklungsfortschritt"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`flex items-center px-4 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors font-medium border-y border-gray-100`}
               >
-                <Activity className="w-5 h-5 mr-3" />
-                <span>Entwicklungsstand</span>
+                <BarChart3 className="w-5 h-5 mr-3" />
+                Entwicklungsfortschritt
               </Link>
               
               {/* Mobile Solutions Dropdown */}

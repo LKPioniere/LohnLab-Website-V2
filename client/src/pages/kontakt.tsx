@@ -120,7 +120,7 @@ export default function Kontakt() {
                 <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="text-white" size={24} />
                 </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Interessenten</CardTitle>
+                <CardTitle className="text-[var(--lohn-primary)]">Interessent</CardTitle>
                 <CardDescription>Sie möchten das LohnLab Cockpit kennenlernen?</CardDescription>
               </CardHeader>
               <CardContent>
@@ -134,7 +134,7 @@ export default function Kontakt() {
                 <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Building className="text-white" size={24} />
                 </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Kunden</CardTitle>
+                <CardTitle className="text-[var(--lohn-primary)]">Kunde</CardTitle>
                 <CardDescription>Sie sind bereits LohnLab Kunde?</CardDescription>
               </CardHeader>
               <CardContent>
@@ -145,7 +145,7 @@ export default function Kontakt() {
 
             <Card className="text-center">
               <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-[var(--lohn-purple)] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Handshake className="text-white" size={24} />
                 </div>
                 <CardTitle className="text-[var(--lohn-primary)]">Partner</CardTitle>
@@ -185,108 +185,7 @@ export default function Kontakt() {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-6">
-                <MessageSquare className="inline-block mr-3" size={32} />
-                Nachricht senden
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Alternativ können Sie uns auch direkt eine Nachricht senden. Wir melden uns zeitnah bei Ihnen.
-              </p>
 
-              <Card>
-                <CardContent className="p-6">
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Name</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Ihr vollständiger Name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>E-Mail</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="ihre.email@beispiel.de" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="userType"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Ich bin...</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Bitte wählen Sie" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="interessent">Interessent</SelectItem>
-                                <SelectItem value="steuerberater">Steuerberater/in</SelectItem>
-                                <SelectItem value="unternehmen">Unternehmen</SelectItem>
-                                <SelectItem value="kunde">Bestehender Kunde</SelectItem>
-                                <SelectItem value="partner">Partner</SelectItem>
-                                <SelectItem value="sonstiges">Sonstiges</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Nachricht</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Beschreiben Sie Ihr Anliegen..." 
-                                className="min-h-[120px]"
-                                value={field.value || ""}
-                                onChange={field.onChange}
-                                onBlur={field.onBlur}
-                                name={field.name}
-                                ref={field.ref}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <Button 
-                        type="submit" 
-                        disabled={mutation.isPending}
-                        className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors"
-                      >
-                        {mutation.isPending ? "Wird gesendet..." : "Nachricht senden"}
-                      </Button>
-                    </form>
-                  </Form>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
@@ -322,14 +221,14 @@ export default function Kontakt() {
                 <CardTitle className="text-[var(--lohn-primary)]">E-Mail</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg font-semibold text-gray-800">kontakt@lohnlab.de</p>
+                <p className="text-lg font-semibold text-gray-800">service@lohnlab.de</p>
                 <p className="text-sm text-gray-600 mt-2">Antwort innerhalb von 24h</p>
               </CardContent>
             </Card>
 
             <Card className="text-center">
               <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-[var(--lohn-secondary)] rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="text-white" size={24} />
                 </div>
                 <CardTitle className="text-[var(--lohn-primary)]">Adresse</CardTitle>

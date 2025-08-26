@@ -1,94 +1,62 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, Mail, MapPin, Calendar, MessageSquare, Users, Building, Handshake } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { insertContactSchema, type InsertContact } from "@shared/schema";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
-
-declare global {
-  interface Window {
-    HubSpotConversations: any;
-  }
-}
+import { Phone, Mail, MapPin, Calendar, Users, Monitor, Building, Handshake, Loader2, ChevronRight } from "lucide-react";
 
 export default function Kontakt() {
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
+  const [selectedCalendar, setSelectedCalendar] = useState<'optimization' | 'cockpit'>('optimization');
+  const [hubspotLoaded, setHubspotLoaded] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
-  const form = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      userType: "",
-      message: "",
-    },
-  });
 
-  const mutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      const response = await fetch(`/api/contacts`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to send message");
-      }
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Nachricht gesendet!",
-        description: "Vielen Dank für Ihre Anfrage. Wir melden uns in Kürze bei Ihnen.",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contacts"] });
-    },
-    onError: (error: any) => {
-      toast({
-        variant: "destructive",
-        title: "Fehler beim Senden",
-        description: "Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
-      });
-    },
-  });
-
-  const onSubmit = (values: InsertContact) => {
-    mutation.mutate(values);
+  const handleCalendarSwitch = (type: 'optimization' | 'cockpit') => {
+    setSelectedCalendar(type);
   };
 
   useEffect(() => {
-    // Load HubSpot Meetings Embed Script
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
-    script.async = true;
-    document.head.appendChild(script);
+    // Preload HubSpot Meetings Embed Script for faster loading
+    const hubspotScript = document.createElement('script');
+    hubspotScript.type = 'text/javascript';
+    hubspotScript.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+    hubspotScript.async = true;
+    
+    // Add onload event to track when script is ready
+    hubspotScript.onload = () => {
+      setHubspotLoaded(true);
+    };
+    
+    // Preload script immediately when component mounts
+    document.head.appendChild(hubspotScript);
+
+    // Also try to preconnect to HubSpot domains for faster loading
+    const preconnect1 = document.createElement('link');
+    preconnect1.rel = 'preconnect';
+    preconnect1.href = 'https://static.hsappstatic.net';
+    document.head.appendChild(preconnect1);
+
+    const preconnect2 = document.createElement('link');
+    preconnect2.rel = 'preconnect';
+    preconnect2.href = 'https://meetings-eu1.hubspot.com';
+    document.head.appendChild(preconnect2);
 
     return () => {
       // Cleanup
-      const existingScript = document.querySelector('script[src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"]');
-      if (existingScript) {
-        existingScript.remove();
+      const existingHubspotScript = document.querySelector('script[src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"]');
+      if (existingHubspotScript) {
+        existingHubspotScript.remove();
       }
+      const preconnectLinks = document.querySelectorAll('link[rel="preconnect"]');
+      preconnectLinks.forEach(link => {
+        if (link.getAttribute('href')?.includes('hsappstatic.net') || 
+            link.getAttribute('href')?.includes('hubspot.com')) {
+          link.remove();
+        }
+      });
     };
   }, []);
 
@@ -111,81 +79,68 @@ export default function Kontakt() {
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Interessent</CardTitle>
-                <CardDescription>Sie möchten das LohnLab Cockpit kennenlernen?</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Badge variant="secondary" className="mb-2">Kostenlose Demo</Badge>
-                <p className="text-sm text-gray-600">Lernen Sie alle Funktionen in einer persönlichen Demonstration kennen.</p>
-              </CardContent>
-            </Card>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Building className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Kunde</CardTitle>
-                <CardDescription>Sie sind bereits LohnLab Kunde?</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Badge variant="secondary" className="mb-2">Support & Beratung</Badge>
-                <p className="text-sm text-gray-600">Wir helfen Ihnen bei Fragen zur Anwendung und Optimierung.</p>
-              </CardContent>
-            </Card>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-purple)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Handshake className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Partner</CardTitle>
-                <CardDescription>Sie sind Steuerberater oder Wirtschaftsprüfer?</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Badge variant="secondary" className="mb-2">Partnerberatung</Badge>
-                <p className="text-sm text-gray-600">Erfahren Sie mehr über unser Partnerprogramm und Schulungen.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Contact Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      {/* Kalender-Einbettung - Direkt geladen */}
+      <section id="calendar-section" className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4">
+              <Calendar className="inline-block mr-3" size={32} />
+              Termin vereinbaren
+            </h2>
+            <p className="text-lg text-gray-600 mb-6">
+              Wählen Sie Ihren gewünschten Berater und buchen Sie direkt einen Termin
+            </p>
             
-            {/* HubSpot Meetings Integration */}
-            <div>
-              <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-6">
-                <Calendar className="inline-block mr-3" size={32} />
-                Termin vereinbaren
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Buchen Sie direkt einen passenden Termin für Ihre persönliche Beratung oder Demo.
-              </p>
-              
-              {/* HubSpot Meetings Embed */}
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <div 
-                  className="meetings-iframe-container" 
-                  data-src="https://meetings-eu1.hubspot.com/michael-schmitt?embed=true"
-                  style={{ minHeight: '600px' }}
-                ></div>
+            {/* Kalender-Switcher */}
+            <div className="flex justify-center mb-8">
+              <div className="bg-gray-100 rounded-lg p-1 inline-flex">
+                <button
+                  onClick={() => handleCalendarSwitch('optimization')}
+                  className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
+                    selectedCalendar === 'optimization'
+                      ? 'bg-[var(--lohn-primary)] text-white shadow-md'
+                      : 'text-[var(--lohn-primary)] hover:bg-gray-200'
+                  }`}
+                >
+                  <Users size={20} />
+                  <div className="flex flex-col items-start">
+                    <span>Michael Schmitt</span>
+                    <span className="text-xs opacity-75">Lohnoptimierung-Beratung</span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => handleCalendarSwitch('cockpit')}
+                  className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 flex items-center gap-2 ${
+                    selectedCalendar === 'cockpit'
+                      ? 'bg-[var(--lohn-teal)] text-white shadow-md'
+                      : 'text-[var(--lohn-teal)] hover:bg-gray-200'
+                  }`}
+                >
+                  <Monitor size={20} />
+                  <div className="flex flex-col items-start">
+                    <span>Robert Behrend</span>
+                    <span className="text-xs opacity-75">Cockpit kennenlernen</span>
+                  </div>
+                </button>
               </div>
             </div>
-
-
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden relative">
+            {/* Beide Kalender laden, aber nur den ausgewählten anzeigen */}
+            <div 
+              className={`meetings-iframe-container ${selectedCalendar === 'optimization' ? 'block' : 'hidden'}`}
+              data-src="https://meetings-eu1.hubspot.com/michael-schmitt?embed=true"
+              style={{ minHeight: '700px' }}
+            ></div>
+            
+            <div 
+              className={`meetings-iframe-container ${selectedCalendar === 'cockpit' ? 'block' : 'hidden'}`}
+              data-src="https://meetings-eu1.hubspot.com/rbehrend?embed=true"
+              style={{ minHeight: '700px' }}
+            ></div>
           </div>
         </div>
       </section>
@@ -199,20 +154,7 @@ export default function Kontakt() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-[var(--lohn-primary)]">Telefon</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg font-semibold text-gray-800">+49 6023 9170 100</p>
-                <p className="text-sm text-gray-600 mt-2">Mo-Fr: 9:00 - 17:00 Uhr</p>
-              </CardContent>
-            </Card>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="text-center">
               <CardHeader>
                 <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -222,7 +164,6 @@ export default function Kontakt() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg font-semibold text-gray-800">service@lohnlab.de</p>
-                <p className="text-sm text-gray-600 mt-2">Antwort innerhalb von 24h</p>
               </CardContent>
             </Card>
 

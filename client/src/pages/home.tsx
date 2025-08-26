@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/sections/HeroSection";
-import DevelopmentStatusSidebar from "@/components/DevelopmentStatusSidebar";
 import FeatureCardsSection from "@/components/sections/FeatureCardsSection";
 import CombinedBenefitsSection from "@/components/sections/CombinedBenefitsSection";
 import HiringHighlightSection from "@/components/sections/HiringHighlightSection";
@@ -20,7 +19,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <DevelopmentStatusSidebar />
       <HeroSection />
       <FeatureCardsSection />
       <CombinedBenefitsSection />

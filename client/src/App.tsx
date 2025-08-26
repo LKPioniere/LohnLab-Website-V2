@@ -13,6 +13,7 @@ import FAQ from "@/pages/faq";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
 import Roadmap from "@/pages/roadmap";
+import Steuerberater from "@/pages/steuerberater";
 import NewHireCompensationAPI from "@/pages/api/new-hire-compensation";
 
 function Router() {
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} />
       <Route path="/loesungen/neueinstellungen" component={Neueinstellungen} />
       <Route path="/lohnoptimierung" component={Lohnoptimierung} />
+      <Route path="/steuerberater" component={Steuerberater} />
       <Route path="/kontakt" component={Kontakt} />
       <Route path="/faq" component={FAQ} />
       <Route path="/entwicklungsfortschritt" component={Roadmap} />

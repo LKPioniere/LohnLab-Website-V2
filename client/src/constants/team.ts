@@ -1,5 +1,5 @@
 import martinImage from "@/assets/martin-grau.jpg";
-import michiNewImage from "@/assets/michi-new.webp";
+import michiNewImage from "@assets/MS 3_1756382153319.png";
 import holgerNewImage from "@/assets/holger-new.jpg";
 
 /**

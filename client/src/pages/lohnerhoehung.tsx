@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Users, Calculator, Heart, Shield, Target, Crown, DollarSign, Gift, PiggyBank, Timer, AlertTriangle, TrendingDown, Briefcase, Award, Lightbulb, Eye, Banknote, CheckCircle, ArrowRight, Sparkles, Rocket, Building2, HandHeart } from "lucide-react";
+import { TrendingUp, Users, Calculator, Heart, Shield, Target, Crown, DollarSign, Gift, PiggyBank, Timer, AlertTriangle, TrendingDown, Briefcase, Award, Lightbulb, Eye, Banknote, CheckCircle, ArrowRight, Sparkles, Rocket, Building2, HandHeart, Zap } from "lucide-react";
 import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 import employeeSelection from "@/assets/employee-selection.png";
 import payrollComparison from "@/assets/payroll-comparison.png";
@@ -44,16 +44,15 @@ export default function Lohnerhoehung() {
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Button 
                 onClick={() => scrollToSection('mitarbeiter-first')}
-                className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+                className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
-                <Heart className="mr-2" size={20} />
                 Employee First Ansatz
               </Button>
               <Button 
                 onClick={() => scrollToSection('kontakt')}
-                className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+                variant="outline"
+                className="border-white text-[var(--lohn-primary)] bg-white hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
-                <Rocket className="mr-2" size={20} />
                 Kostenlose Demo
               </Button>
             </div>
@@ -199,85 +198,111 @@ export default function Lohnerhoehung() {
             </div>
           </div>
 
-          {/* givve® Card - Branded Employee Benefits */}
+          {/* LohnLab Card - Branded Employee Benefits */}
           <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-purple-200 mb-20">
             <div className="text-center mb-12">
               <Crown className="w-16 h-16 mx-auto text-purple-600 mb-6" />
               <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                givve® Card - Lohnerhöhungen sichtbar machen
+                LohnLab Card - Lohnerhöhungen sichtbar machen
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Die wiederaufladbare Mastercard mit Ihrem Firmenlogo macht jeden Cent Ihrer Wertschätzung sichtbar
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <img 
-                  src={ciCardImage} 
-                  alt="givve® Card mit LohnLab Branding" 
-                  className="w-full rounded-2xl shadow-2xl border border-gray-200"
-                />
-                <div className="absolute -top-4 -left-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 py-3 rounded-2xl shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <Crown className="w-5 h-5" />
-                    <span className="font-semibold">Ihr Logo auf jeder Karte</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Gift className="w-6 h-6 text-purple-600" />
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                
+                {/* Left Column - Card Image & Logo Highlight */}
+                <div className="lg:col-span-1">
+                  <div className="relative">
+                    <img 
+                      src={ciCardImage} 
+                      alt="LohnLab Card mit Firmen-Branding" 
+                      className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                    />
+                    <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-xl shadow-lg">
+                      <div className="flex items-center space-x-2">
+                        <Crown className="w-4 h-4" />
+                        <span className="font-semibold text-sm">Ihr Logo</span>
+                      </div>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Universell einsetzbar</h4>
                   </div>
-                  <p className="text-gray-600">
-                    Ihre Mitarbeiter können die Mastercard bei <strong>allen Akzeptanzstellen</strong> nutzen - 
-                    für Tanken, Einkaufen, Shoppen oder jeden anderen Bedarf in ihrer Region.
-                  </p>
-                </div>
-
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Award className="w-6 h-6 text-blue-600" />
+                  
+                  {/* Stats Box */}
+                  <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 mt-6 border border-purple-200">
+                    <h4 className="font-bold text-gray-800 mb-3">Bewährte Lösung:</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <span className="font-semibold text-gray-800">550.000+ Kartennutzer</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <span className="font-semibold text-gray-800">23.000+ Firmenkunden</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <span className="font-semibold text-gray-800">Steuerkonform</span>
+                      </div>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Ihr Firmenlogo im Portemonnaie</h4>
                   </div>
-                  <p className="text-gray-600">
-                    Die Karte kann mit <strong>Ihrem Firmendesign und Logo</strong> gebrandelt werden. 
-                    Bei jeder Zahlung sehen Ihre Mitarbeiter Ihr Unternehmen als Arbeitgeber, der an sie denkt.
-                  </p>
                 </div>
-
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-100">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <HandHeart className="w-6 h-6 text-green-600" />
+                
+                {/* Right Column - Features */}
+                <div className="lg:col-span-2 space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                          <Gift className="w-5 h-5 text-purple-600" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-800">Universell einsetzbar</h4>
+                      </div>
+                      <p className="text-gray-600">
+                        Bei <strong>allen Mastercard-Akzeptanzstellen</strong> nutzbar - 
+                        für Tanken, Einkaufen oder jeden anderen Bedarf.
+                      </p>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Lohnerhöhung wird täglich sichtbar</h4>
-                  </div>
-                  <p className="text-gray-600">
-                    Anders als reguläre Gehaltsüberweisungen <strong>werden Zahlungen auf die Karte bewusst wahrgenommen</strong>. 
-                    Ihre Wertschätzung geht nicht in der monatlichen Abrechnung unter.
-                  </p>
-                </div>
 
-                <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 border border-purple-200">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <CheckCircle className="w-6 h-6 text-purple-600" />
-                    <span className="font-semibold text-gray-800">550.000+ zufriedene Kartennutzer</span>
-                  </div>
-                  <div className="flex items-center space-x-3 mb-3">
-                    <CheckCircle className="w-6 h-6 text-purple-600" />
-                    <span className="font-semibold text-gray-800">23.000+ Firmenkunden seit 2015</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-6 h-6 text-purple-600" />
-                    <span className="font-semibold text-gray-800">Vollständig steuerkonform für Sachbezüge</span>
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                          <Award className="w-5 h-5 text-blue-600" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-800">Firmen-Branding</h4>
+                      </div>
+                      <p className="text-gray-600">
+                        Karte mit <strong>Ihrem Logo und Design</strong> - 
+                        bei jeder Zahlung sichtbare Wertschätzung.
+                      </p>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-100">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                          <HandHeart className="w-5 h-5 text-green-600" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-800">Bewusste Wahrnehmung</h4>
+                      </div>
+                      <p className="text-gray-600">
+                        <strong>Anders als Gehaltsüberweisung</strong> - 
+                        jede Zahlung wird bewusst als Ihr Benefit wahrgenommen.
+                      </p>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-indigo-100">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
+                          <Zap className="w-5 h-5 text-indigo-600" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-800">Sofortige Verfügbarkeit</h4>
+                      </div>
+                      <p className="text-gray-600">
+                        <strong>Wiederaufladbar in Echtzeit</strong> - 
+                        Ihre Mitarbeiter können Benefits sofort nutzen.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -485,6 +510,28 @@ export default function Lohnerhoehung() {
             </Card>
           </div>
 
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-24 bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="text-white">
+            <h3 className="text-3xl font-bold mb-6">
+              Bereit, Ihren Mitarbeitern zu zeigen, dass Sie zuerst an sie denken?
+            </h3>
+            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              Lassen Sie uns gemeinsam Lohnerhöhungen entwickeln, die wirklich bei Ihren Mitarbeitern ankommen 
+              und gleichzeitig Ihre Kosten optimieren.
+            </p>
+            <Button 
+              onClick={() => scrollToSection('kontakt')}
+              className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+            >
+              <ArrowRight className="mr-2" size={20} />
+              Jetzt kostenlose Demo vereinbaren
+            </Button>
+          </div>
         </div>
       </section>
 

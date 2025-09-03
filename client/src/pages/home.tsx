@@ -20,12 +20,13 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <HeroSection />
-      <FeatureCardsSection />
+      {/* Psychologically optimized flow: Problem → Proof → Solution → Social Proof → Trust → Action */}
       <CombinedBenefitsSection />
       <ReferencesSection />
-      <HiringHighlightSection />
+      <FeatureCardsSection />
       <DatevIntegration />
       <TargetAudiencesSection />
+      <HiringHighlightSection />
       <TeamSection />
       <Footer />
     </div>

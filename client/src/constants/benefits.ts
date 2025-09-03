@@ -3,12 +3,12 @@
  */
 export const GENERAL_BENEFITS = [
   {
-    title: 'Für Steuerberater: Neue Erlösquelle',
-    description: 'Zusätzliche Beratungsleistung ohne Mehraufwand - digitale Lohnoptimierung als Premium-Service.'
-  },
-  {
     title: 'Für Unternehmen: Sofortige Kostensenkung',
     description: 'Messbare Lohnkosteneinsparung bei gesteigerter Mitarbeiterzufriedenheit und -bindung.'
+  },
+  {
+    title: 'Für Steuerberater: Steigerung der Beratungskompetenz',
+    description: 'Erweitern Sie Ihr Know-how in der modernen Lohngestaltung zu einem bezahlbaren Preis - digitale Expertise als Wettbewerbsvorteil.'
   },
   {
     title: 'Wettbewerbsvorteil sichern',
@@ -25,16 +25,16 @@ export const GENERAL_BENEFITS = [
  */
 export const HIRING_BENEFITS = [
   {
-    title: 'Flexibler Startpunkt',
+    title: 'Flexible Vorgaben',
     description: 'Ob Brutto, Netto oder Arbeitgeberbudget – Sie entscheiden, wie gerechnet wird.'
   },
   {
-    title: 'Intelligente Vorlagen',
+    title: 'Intelligente Templates',
     description: 'Abteilungs- und positionsspezifische Benefit-Pakete einmal definieren, immer wieder nutzen.'
   },
   {
     title: 'Schnelle Datenweitergabe',
-    description: 'Alle relevanten Mitarbeiterdaten erfassen und per Klick an den Steuerberater übermitteln.'
+    description: 'Alle relevanten Mitarbeiterdaten erfassen und per Klick an den Lohnabrechner übermitteln.'
   },
   {
     title: 'Zahlt sich doppelt aus',

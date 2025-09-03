@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, Users, FileCheck, Zap, Euro, TrendingUp, Settings, Download } from "lucide-react";
+import { ArrowRight, Calculator, Users, FileCheck, Zap, Euro, TrendingUp, Settings, Download, Eye, FileX, Heart } from "lucide-react";
 import { Link } from "wouter";
 import salaryCalculationImage from "@/assets/salary-calculation.png";
 import employeeDataImage from "@/assets/employee-data-entry.png";
@@ -135,6 +135,52 @@ export default function Neueinstellungen() {
                   ⚡ Keine manuellen Übertragungsfehler mehr - alles automatisch und sicher
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Candidate Benefits Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
+              Auch Ihre Bewerber profitieren
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Ein transparenter und unkomplizierter Bewerbungsprozess macht Sie als Arbeitgeber noch attraktiver
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center bg-gray-50 rounded-2xl p-8">
+              <div className="w-16 h-16 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Volle Transparenz</h3>
+              <p className="text-gray-600">
+                Klare Aufschlüsselung aller Gehaltsbestandteile bei der Verhandlung - keine versteckten Details
+              </p>
+            </div>
+            
+            <div className="text-center bg-gray-50 rounded-2xl p-8">
+              <div className="w-16 h-16 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <FileX className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Kein PDF-Chaos</h3>
+              <p className="text-gray-600">
+                Digitale Stammdatenerfassung statt nerviges Ausfüllen und Scannen von Personalfragebögen
+              </p>
+            </div>
+            
+            <div className="text-center bg-gray-50 rounded-2xl p-8">
+              <div className="w-16 h-16 bg-[var(--lohn-purple)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Mehr Netto möglich</h3>
+              <p className="text-gray-600">
+                Chance auf 100-200€ mehr Nettogehalt durch intelligente Lohnoptimierung - ohne Mehrkosten für den Arbeitgeber
+              </p>
             </div>
           </div>
         </div>

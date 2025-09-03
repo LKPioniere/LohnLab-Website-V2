@@ -91,11 +91,66 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-              Das Problem mit herkömmlichen Lohnberechnungen
+              Die Herausforderungen bei Lohnerhöhungen
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Viele Unternehmen und Steuerberater kämpfen mit ungenauen Berechnungen und zeitaufwändigen Prozessen
+              Diese typischen Probleme kennen wir von Geschäftsführern und HR-Verantwortlichen
             </p>
+          </div>
+
+          {/* Business Problems Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                  <Calculator className="text-red-600" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">Budgetplanung ohne Klarheit</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                "Wir wissen nie genau, was eine 5% Lohnerhöhung tatsächlich kostet. Excel-Schätzungen sind ungenau 
+                und Online-Rechner berücksichtigen nicht alle unsere individuellen Stammdaten."
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                  <Timer className="text-red-600" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">Zeitaufwändige Einzelberechnungen</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                "Jeden Mitarbeiter einzeln durchzurechnen dauert ewig. Bei 50+ Mitarbeitern wird das zur 
+                Mammutaufgabe, besonders wenn verschiedene Abteilungen unterschiedliche Erhöhungen bekommen."
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                  <Users className="text-red-600" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">Schwierige Mitarbeiterkommunikation</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                "Lohnerhöhungen transparent zu erklären ist kompliziert. Mitarbeiter fragen nach Details, 
+                aber wir haben keine professionellen Vergleichsdarstellungen der Gehaltsänderungen."
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                  <AlertCircle className="text-red-600" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">Rechtsunsicherheit bei Komplexität</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                "Midijobs, Übergangsbereiche, verschiedene Steuerklassen - wir sind uns nie sicher, 
+                ob unsere Berechnungen alle gesetzlichen Änderungen korrekt berücksichtigen."
+              </p>
+            </div>
           </div>
 
           {/* Excel Problem - Detailed Section */}

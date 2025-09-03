@@ -10,6 +10,7 @@ import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 import employeeSelection from "@/assets/employee-selection.png";
 import payrollComparison from "@/assets/payroll-comparison.png";
 import fruitBasketImage from "@/assets/fruit-basket.jpg";
+import ciCardImage from "@/assets/ci-card-lohnlab.png";
 
 export default function Lohnerhoehung() {
   useEffect(() => {
@@ -31,9 +32,6 @@ export default function Lohnerhoehung() {
       <section className="bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] text-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Badge className="bg-white/20 text-white border-white/30 mb-6 px-4 py-2 text-base font-semibold">
-              Wir verstehen Ihre Herausforderungen
-            </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
               Lohnerhöhungen, die <span className="text-yellow-300">zuerst</span><br/>
               <span className="text-green-300">bei Ihren Mitarbeitern ankommen</span>
@@ -41,20 +39,19 @@ export default function Lohnerhoehung() {
             <p className="text-xl mb-12 max-w-4xl mx-auto text-blue-100 leading-relaxed">
               In der aktuellen Wirtschaftslage stehen Sie vor explodierenden Kosten und dem Kampf um Fachkräfte. 
               Wir haben verstanden: <strong className="text-white">Der Fokus liegt auf der Bindung bestehender Mitarbeiter.</strong> 
-              Unsere Lösung bringt Lohnerhöhungen dort an, wo sie ankommen sollen – im Netto Ihrer Arbeitnehmer.
+              Unsere Lösung bringt Lohnerhöhungen dort an, wo sie ankommen sollen – im Netto Ihrer Mitarbeiter.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Button 
                 onClick={() => scrollToSection('mitarbeiter-first')}
-                className="bg-green-500 text-white hover:bg-green-400 transition-all duration-300 rounded-full px-10 py-4 font-semibold text-lg shadow-xl transform hover:scale-105"
+                className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
                 <Heart className="mr-2" size={20} />
-                Mitarbeiter-First Ansatz
+                Employee First Ansatz
               </Button>
               <Button 
-                variant="outline"
                 onClick={() => scrollToSection('kontakt')}
-                className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[var(--lohn-primary)] transition-all duration-300 rounded-full px-10 py-4 font-semibold text-lg"
+                className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
                 <Rocket className="mr-2" size={20} />
                 Kostenlose Demo
@@ -102,7 +99,7 @@ export default function Lohnerhoehung() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed">
-                  Der Fachkräftemangel verschärft sich. Neue Talente zu finden wird immer schwieriger 
+                  Der Fachkräftemangel verschärft sich. <a href="/loesungen/neueinstellungen" className="text-[var(--lohn-primary)] hover:underline">Neue Talente zu finden</a> wird immer schwieriger 
                   und teurer.
                 </p>
               </CardContent>
@@ -145,14 +142,14 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="bg-green-100 text-green-800 border-green-200 mb-6 px-4 py-2 text-base font-semibold">
-              Mitarbeiter-First Ansatz
+              Employee First Ansatz
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
               Lohnerhöhungen, die <span className="text-green-600">im Netto ankommen</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              "Fassen Sie Lohnerhöhung da an, wo sie ankommen soll, im Netto ihrer Arbeitnehmer 
-              und zeigen Sie so, dass Sie zuerst an Ihre AN denken!"
+              "Fassen Sie Lohnerhöhung da an, wo sie ankommen soll, im Netto ihrer Mitarbeiter 
+              und zeigen Sie so, dass Sie zuerst an Ihre Mitarbeiter denken!"
             </p>
           </div>
 
@@ -202,82 +199,103 @@ export default function Lohnerhoehung() {
             </div>
           </div>
 
-          {/* Employer Branding Solutions */}
+          {/* givve® Card - Branded Employee Benefits */}
           <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-purple-200 mb-20">
             <div className="text-center mb-12">
               <Crown className="w-16 h-16 mx-auto text-purple-600 mb-6" />
               <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                Employer Branding Lösungen wie die CI Card
+                givve® Card - Lohnerhöhungen sichtbar machen
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Moderne Benefits, die Ihre Arbeitgebermarke stärken und Mitarbeiter begeistern
+                Die wiederaufladbare Mastercard mit Ihrem Firmenlogo macht jeden Cent Ihrer Wertschätzung sichtbar
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="relative">
                 <img 
-                  src={fruitBasketImage} 
-                  alt="Moderne Employer Benefits" 
-                  className="w-full rounded-2xl shadow-lg"
+                  src={ciCardImage} 
+                  alt="givve® Card mit LohnLab Branding" 
+                  className="w-full rounded-2xl shadow-2xl border border-gray-200"
                 />
+                <div className="absolute -top-4 -left-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 py-3 rounded-2xl shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <Crown className="w-5 h-5" />
+                    <span className="font-semibold">Ihr Logo auf jeder Karte</span>
+                  </div>
+                </div>
               </div>
               
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                       <Gift className="w-6 h-6 text-purple-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">CI Card & Benefits</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Universell einsetzbar</h4>
                   </div>
                   <p className="text-gray-600">
-                    Steuerfreie Sachbezüge und Corporate Benefits, die das verfügbare Einkommen 
-                    Ihrer Mitarbeiter real erhöhen – ohne zusätzliche Lohnkosten.
+                    Ihre Mitarbeiter können die Mastercard bei <strong>allen Akzeptanzstellen</strong> nutzen - 
+                    für Tanken, Einkaufen, Shoppen oder jeden anderen Bedarf in ihrer Region.
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                       <Award className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Attraktive Arbeitgebermarke</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Ihr Firmenlogo im Portemonnaie</h4>
                   </div>
                   <p className="text-gray-600">
-                    Positionieren Sie sich als moderner Arbeitgeber, der innovative Wege geht 
-                    und das Wohlbefinden seiner Mitarbeiter in den Mittelpunkt stellt.
+                    Die Karte kann mit <strong>Ihrem Firmendesign und Logo</strong> gebrandelt werden. 
+                    Bei jeder Zahlung sehen Ihre Mitarbeiter Ihr Unternehmen als Arbeitgeber, der an sie denkt.
                   </p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-100">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <HandHeart className="w-6 h-6 text-green-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Mitarbeiterbindung stärken</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Lohnerhöhung wird täglich sichtbar</h4>
                   </div>
                   <p className="text-gray-600">
-                    Durch echte Wertschätzung und spürbare Vorteile schaffen Sie eine 
-                    emotionale Bindung, die über das reine Gehalt hinausgeht.
+                    Anders als reguläre Gehaltsüberweisungen <strong>werden Zahlungen auf die Karte bewusst wahrgenommen</strong>. 
+                    Ihre Wertschätzung geht nicht in der monatlichen Abrechnung unter.
                   </p>
+                </div>
+
+                <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 border border-purple-200">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <CheckCircle className="w-6 h-6 text-purple-600" />
+                    <span className="font-semibold text-gray-800">550.000+ zufriedene Kartennutzer</span>
+                  </div>
+                  <div className="flex items-center space-x-3 mb-3">
+                    <CheckCircle className="w-6 h-6 text-purple-600" />
+                    <span className="font-semibold text-gray-800">23.000+ Firmenkunden seit 2015</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-purple-600" />
+                    <span className="font-semibold text-gray-800">Vollständig steuerkonform für Sachbezüge</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Intelligent Tools Overview */}
+          {/* Lohnerhöhungsmodul im LohnLab Cockpit */}
           <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 lg:p-12 border border-blue-200">
             <div className="text-center mb-12">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Eye className="w-8 h-8 text-blue-600" />
+                <Calculator className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                Intelligente Tools für Überblick und Effizienz
+                Lohnerhöhungsmodul im LohnLab Cockpit
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Unsere intelligenten Tools ermöglichen es Ihnen, den Überblick zu behalten, 
-                effizient zu arbeiten und dabei interne und echte Kosten zu sparen.
+                Das spezialisierte Modul für präzise Lohnerhöhungsberechnungen - 
+                entwickelt für maximale Effizienz und echte Kosteneinsparungen.
               </p>
             </div>
 
@@ -288,11 +306,11 @@ export default function Lohnerhoehung() {
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                       <Calculator className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Präzise Massenkalkulation</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Präzise Lohnberechnung</h4>
                   </div>
                   <p className="text-gray-600">
-                    Berechnen Sie alle Mitarbeiter gleichzeitig mit höchster Genauigkeit. 
-                    Keine manuellen Fehler, keine Excel-Schätzungen.
+                    Das Lohnerhöhungsmodul berechnet alle Mitarbeiter gleichzeitig mit höchster Genauigkeit. 
+                    Keine manuellen Fehler, keine Excel-Schätzungen mehr.
                   </p>
                 </div>
 
@@ -301,11 +319,11 @@ export default function Lohnerhoehung() {
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <PiggyBank className="w-6 h-6 text-green-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Echte Kosteneinsparungen</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Automatische Optimierung</h4>
                   </div>
                   <p className="text-gray-600">
-                    Durch intelligente Optimierung sparen Sie bis zu 50% der Lohnkosten, 
-                    während Ihre Mitarbeiter mehr Netto erhalten.
+                    Das Modul optimiert automatisch jeden Lohnerhöhungsfall für maximales Netto bei 
+                    bis zu 50% reduzierten Arbeitgeberkosten.
                   </p>
                 </div>
 
@@ -314,11 +332,11 @@ export default function Lohnerhoehung() {
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                       <Sparkles className="w-6 h-6 text-purple-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Transparente Kommunikation</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Professionelle Dokumentation</h4>
                   </div>
                   <p className="text-gray-600">
-                    Professionelle Gehaltsvergleiche und Probeabrechnungen für eine 
-                    glasklare Mitarbeiterkommunikation.
+                    Automatische Erstellung von Gehaltsvergleichen und Probeabrechnungen für 
+                    transparente Mitarbeiterkommunikation direkt aus dem Modul.
                   </p>
                 </div>
               </div>
@@ -326,13 +344,13 @@ export default function Lohnerhoehung() {
               <div className="relative">
                 <img 
                   src={employeeSelection} 
-                  alt="LohnLab Cockpit - Intelligente Mitarbeiterauswahl" 
+                  alt="LohnLab Cockpit - Lohnerhöhungsmodul Mitarbeiterauswahl" 
                   className="w-full rounded-2xl shadow-2xl border border-gray-200"
                 />
                 <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-6 py-3 rounded-2xl shadow-lg">
                   <div className="flex items-center space-x-2">
                     <Building2 className="w-5 h-5" />
-                    <span className="font-semibold">Effizient & Übersichtlich</span>
+                    <span className="font-semibold">Speziell für Lohnerhöhungen</span>
                   </div>
                 </div>
               </div>
@@ -431,7 +449,7 @@ export default function Lohnerhoehung() {
               Das Ergebnis: Glückliche Mitarbeiter, geringere Kosten
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Unser Mitarbeiter-First Ansatz schafft eine Win-Win-Situation für alle Beteiligten
+              Unser Employee First Ansatz schafft eine Win-Win-Situation für alle Beteiligten
             </p>
           </div>
 
@@ -467,23 +485,6 @@ export default function Lohnerhoehung() {
             </Card>
           </div>
 
-          {/* Call to Action */}
-          <div className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-3xl p-12 text-center text-white">
-            <h3 className="text-3xl font-bold mb-6">
-              Bereit, Ihren Mitarbeitern zu zeigen, dass Sie zuerst an sie denken?
-            </h3>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Lassen Sie uns gemeinsam Lohnerhöhungen entwickeln, die wirklich bei Ihren Mitarbeitern ankommen 
-              und gleichzeitig Ihre Kosten optimieren.
-            </p>
-            <Button 
-              onClick={() => scrollToSection('kontakt')}
-              className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
-            >
-              <ArrowRight className="mr-2" size={20} />
-              Jetzt kostenlose Demo vereinbaren
-            </Button>
-          </div>
         </div>
       </section>
 

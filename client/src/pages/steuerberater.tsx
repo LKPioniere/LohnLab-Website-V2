@@ -344,12 +344,12 @@ export default function Steuerberater() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                          <div>
                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                 Unsere Lernplattform: Ihr Single Source of Truth
+                 Unsere Lernplattform: Alles zentral an einem Ort
                </h2>
               
               <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                Wir wissen, wie schwer es ist, den Status Quo zu verändern und mit einem neuen Projekt zu starten. 
-                Deshalb unterstützen wir Sie vom ersten Tag an.
+                Wir wissen, wie schwer es ist, den Status Quo zu verändern. Deshalb führen wir Sie und Ihre Mandanten 
+                Schritt für Schritt durch alle Prozesse - damit das Cockpit zur Erleichterung wird, nicht zur Belastung.
               </p>
 
               <div className="space-y-6">
@@ -358,8 +358,8 @@ export default function Steuerberater() {
                     <CheckCircle className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Mandanten-Aktivierung</h4>
-                    <p className="text-blue-100">Schritt-für-Schritt Anleitungen für die erste Einrichtung und Onboarding</p>
+                    <h4 className="font-semibold text-lg mb-2">Cockpit-Training für Mandanten</h4>
+                    <p className="text-blue-100">Ihre Mandanten lernen das Tool selbständig zu nutzen - weniger Rückfragen, mehr Effizienz</p>
                   </div>
                 </div>
 
@@ -368,8 +368,8 @@ export default function Steuerberater() {
                     <CheckCircle className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Sachbearbeiter-Schulungen</h4>
-                    <p className="text-blue-100">Umfassende Trainings für Ihr Kanzlei-Team mit praxisnahen Beispielen</p>
+                    <h4 className="font-semibold text-lg mb-2">DATEV-Integration meistern</h4>
+                    <p className="text-blue-100">Ihr Team lernt die nahtlose Verknüpfung mit DATEV - keine manuellen Übertragungen mehr</p>
                   </div>
                 </div>
 
@@ -378,8 +378,8 @@ export default function Steuerberater() {
                     <CheckCircle className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Klare Prozessanleitungen</h4>
-                    <p className="text-blue-100">Gemeinsam entwickelte Workflows, die perfekt zu Ihrem Kanzleialltag passen</p>
+                    <h4 className="font-semibold text-lg mb-2">Aus Belastung wird Bereicherung</h4>
+                    <p className="text-blue-100">Strukturierte Prozesse, die das Cockpit zum hilfreichen Werkzeug machen, nicht zum Zeitfresser</p>
                   </div>
                 </div>
               </div>

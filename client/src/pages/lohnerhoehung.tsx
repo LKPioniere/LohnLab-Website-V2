@@ -1,49 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe, Search, FileText } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import berechnungsparameter from "@/assets/berechnungsparameter.png";
-import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
-import excelIcon from "@/assets/excel-icon.png";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { TrendingUp, Users, Calculator, Heart, Shield, Target, Crown, DollarSign, Gift, PiggyBank, Timer, AlertTriangle, TrendingDown, Briefcase, Award, Lightbulb, Eye, Banknote, CheckCircle, ArrowRight, Sparkles, Rocket, Building2, HandHeart } from "lucide-react";
 import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 import employeeSelection from "@/assets/employee-selection.png";
 import payrollComparison from "@/assets/payroll-comparison.png";
-import probeabrechnungPDF from "@/assets/Probeabrechnung.pdf";
-import pdfIcon from "@/assets/pdf-icon.png";
+import fruitBasketImage from "@/assets/fruit-basket.jpg";
 
 export default function Lohnerhoehung() {
-  const [isImageExpanded, setIsImageExpanded] = useState(false);
-  const [isMinijobActive, setIsMinijobActive] = useState(false);
-  const [isMidijobActive, setIsMidijobActive] = useState(false);
-  const [isPDFExpanded, setIsPDFExpanded] = useState(false);
-  const [expandedImage, setExpandedImage] = useState<string | null>(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const handleMinijobToggle = () => {
-    setIsMinijobActive(!isMinijobActive);
-    if (!isMinijobActive) {
-      setIsMidijobActive(false); // Deactivate Midijob when activating Minijob
-    }
-  };
-
-  const handleMidijobToggle = () => {
-    setIsMidijobActive(!isMidijobActive);
-    if (!isMidijobActive) {
-      setIsMinijobActive(false); // Deactivate Minijob when activating Midijob
-    }
-  };
-
-  const calculateNettoAmount = () => {
-    if (isMinijobActive) return "524€";
-    if (isMidijobActive) return "1.450€";
-    return "2.200€";
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -56,647 +27,468 @@ export default function Lohnerhoehung() {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] text-white py-20">
+      {/* Hero Section - Understanding Decision Makers */}
+      <section className="bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] text-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Lohnerhöhung leicht gemacht
+            <Badge className="bg-white/20 text-white border-white/30 mb-6 px-4 py-2 text-base font-semibold">
+              Wir verstehen Ihre Herausforderungen
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+              Lohnerhöhungen, die <span className="text-yellow-300">zuerst</span><br/>
+              <span className="text-green-300">bei Ihren Mitarbeitern ankommen</span>
             </h1>
-            <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-              Präzise Lohnberechnungen für Steuerberater und Unternehmen. 
-              Schluss mit Excel-Schätzungen und ungenauen Online-Rechnern.
+            <p className="text-xl mb-12 max-w-4xl mx-auto text-blue-100 leading-relaxed">
+              In der aktuellen Wirtschaftslage stehen Sie vor explodierenden Kosten und dem Kampf um Fachkräfte. 
+              Wir haben verstanden: <strong className="text-white">Der Fokus liegt auf der Bindung bestehender Mitarbeiter.</strong> 
+              Unsere Lösung bringt Lohnerhöhungen dort an, wo sie ankommen sollen – im Netto Ihrer Arbeitnehmer.
             </p>
-            <div className="flex justify-center space-x-4">
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Button 
-                onClick={() => scrollToSection('kontakt')}
-                className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 transition-colors rounded-full px-8 py-4 font-semibold"
+                onClick={() => scrollToSection('mitarbeiter-first')}
+                className="bg-green-500 text-white hover:bg-green-400 transition-all duration-300 rounded-full px-10 py-4 font-semibold text-lg shadow-xl transform hover:scale-105"
               >
-                Kostenlose Demo
+                <Heart className="mr-2" size={20} />
+                Mitarbeiter-First Ansatz
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => scrollToSection('vorteile')}
-                className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[var(--lohn-primary)] transition-colors rounded-full px-8 py-4 font-semibold"
+                onClick={() => scrollToSection('kontakt')}
+                className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[var(--lohn-primary)] transition-all duration-300 rounded-full px-10 py-4 font-semibold text-lg"
               >
-                Vorteile entdecken
+                <Rocket className="mr-2" size={20} />
+                Kostenlose Demo
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem Statement */}
-      <section id="problem" className="py-20 bg-red-25">
+      {/* Current Economic Challenges */}
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-              Die Herausforderungen bei Lohnerhöhungen
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
+              Die aktuelle Wirtschaftslage verstehen
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Diese typischen Probleme kennen wir von Geschäftsführern und HR-Verantwortlichen
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Als Entscheider in deutschen Unternehmen kennen Sie diese Herausforderungen nur zu gut
             </p>
           </div>
 
-          {/* Business Problems Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <Calculator className="text-red-600" size={24} />
+          {/* Three Key Challenges */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <Card className="border-orange-200 bg-gradient-to-br from-orange-50 to-red-50">
+              <CardHeader>
+                <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
+                  <TrendingDown className="text-orange-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">Budgetplanung ohne Klarheit</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Wir wissen nie genau, was eine 5% Lohnerhöhung tatsächlich kostet. Excel-Schätzungen sind ungenau 
-                und Online-Rechner berücksichtigen nicht alle unsere individuellen Stammdaten."
-              </p>
-            </div>
+                <CardTitle className="text-xl text-gray-800">Explodierende Kosten</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 leading-relaxed">
+                  Steigende Energiekosten, Inflation und gestiegene Rohstoffpreise belasten das Budget. 
+                  Jede Ausgabe muss sorgfältig abgewogen werden.
+                </p>
+              </CardContent>
+            </Card>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <Timer className="text-red-600" size={24} />
+            <Card className="border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50">
+              <CardHeader>
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+                  <Users className="text-blue-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">Zeitaufwändige Einzelberechnungen</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Jeden Mitarbeiter einzeln durchzurechnen dauert ewig. Bei 50+ Mitarbeitern wird das zur 
-                Mammutaufgabe, besonders wenn verschiedene Abteilungen unterschiedliche Erhöhungen bekommen."
-              </p>
-            </div>
+                <CardTitle className="text-xl text-gray-800">Kampf um Fachkräfte</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 leading-relaxed">
+                  Der Fachkräftemangel verschärft sich. Neue Talente zu finden wird immer schwieriger 
+                  und teurer.
+                </p>
+              </CardContent>
+            </Card>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <Users className="text-red-600" size={24} />
+            <Card className="border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
+              <CardHeader>
+                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
+                  <Shield className="text-green-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">Schwierige Mitarbeiterkommunikation</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Lohnerhöhungen transparent zu erklären ist kompliziert. Mitarbeiter fragen nach Details, 
-                aber wir haben keine professionellen Vergleichsdarstellungen der Gehaltsänderungen."
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <AlertCircle className="text-red-600" size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">Rechtsunsicherheit bei Komplexität</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Midijobs, Übergangsbereiche, verschiedene Steuerklassen - wir sind uns nie sicher, 
-                ob unsere Berechnungen alle gesetzlichen Änderungen korrekt berücksichtigen."
-              </p>
-            </div>
+                <CardTitle className="text-xl text-gray-800">Mitarbeiterbindung im Fokus</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 leading-relaxed">
+                  Bestehende Mitarbeiter zu halten ist kostengünstiger als neue zu rekrutieren. 
+                  Die Bindung wird zur strategischen Priorität.
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
-        </div>
-      </section>
-
-
-
-      {/* Solution */}
-      <section id="vorteile" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-              Unsere Lösung: Exakte Lohnberechnungen
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Mit dem LohnLab Cockpit optimieren Sie Löhne intelligent und präzise
-            </p>
-          </div>
-
-          {/* Exakte Ergebnisse - Detailed Section */}
-          <div className="bg-green-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-green-200 mb-12 relative">
-            {/* Search Icon positioned over left edge */}
-            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-              <Search className="text-green-600 text-4xl" />
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="ml-8 lg:ml-0">
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Exakte Ergebnisse</h3>
-                <div className="space-y-4 text-gray-600">
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Vollwertiger Lohnrechner:</strong> Das LohnLab Cockpit rechnet mit einem stets aktuellen Lohnrechner, der alle gesetzlichen Änderungen automatisch berücksichtigt.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Flexible Eingabe:</strong> Wählen Sie zwischen Netto-, Brutto- oder Lohnkosten-Eingabe - das System berechnet automatisch alle anderen Werte.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Vollständige Datenberücksichtigung:</strong> Alle Stammdaten der Mitarbeiter und relevante Unternehmensdaten wie BG-Beitragshöhen werden automatisch einbezogen.
-                  </p>
-                </div>
-              </div>
-              <div className="order-first lg:order-last">
-                <div className="relative">
-                  <img 
-                    src={lohnlabCalculatorPrecise} 
-                    alt="LohnLab Cockpit - Präzise Lohnberechnung" 
-                    className="w-full rounded-xl shadow-lg border border-gray-200"
-                  />
-                  <div className="absolute bottom-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Genau
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mehrere Mitarbeiter - Detailed Section */}
-          <div className="bg-blue-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-blue-200 mb-12 relative">
-            {/* Users Icon positioned over left edge */}
-            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-              <Users className="text-blue-600 text-4xl" />
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Screenshot first on left side */}
-              <div className="order-first">
-                <div className="relative">
-                  <img 
-                    src={employeeSelection} 
-                    alt="LohnLab Cockpit - Mitarbeiter auswählen" 
-                    className="w-full rounded-xl shadow-lg border border-gray-200"
-                  />
-                  <div className="absolute bottom-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Effizient
-                  </div>
-                </div>
-              </div>
-              
-              {/* Text on right side */}
-              <div className="order-last ml-8 lg:ml-0">
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Mehrere Mitarbeiter</h3>
-                <div className="space-y-4 text-gray-600">
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Massenberechnung:</strong> Mit unserem Tool können auf einen Schlag alle Mitarbeiter oder bestimmte Abteilungen berechnet werden.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Flexible Anpassung:</strong> Für jeden Mitarbeiter kann ein individueller Wert oder ein gemeinsamer Faktor angegeben werden.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Intelligente Suchmaske:</strong> Die Suchfunktion hilft dabei, die gewünschten Mitarbeiter zu finden und gibt Aufschluss über die letzte Lohnerhöhung und deren Höhe.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Probeabrechnung - Detailed Section */}
-          <div className="bg-teal-50 rounded-2xl p-8 lg:p-12 shadow-lg border border-teal-200 mb-12 relative">
-            {/* PDF Icon positioned over left edge */}
-            <div className="absolute -left-8 top-8 w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-              <img src={pdfIcon} alt="PDF Icon" className="w-8 h-8" />
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Text Content - Left Side */}
-              <div className="order-first">
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">Probeabrechnung</h3>
-                <div className="space-y-4 text-gray-600">
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Sekundenschnelle Erstellung:</strong> Mit unserem Tool können in Sekunden für jeden Mitarbeiter Probeabrechnungen im DATEV-Look erstellt und heruntergeladen werden.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Einzigartige Darstellung:</strong> Diese besitzen als Besonderheit 2 statt einer Spalte - links das IST-Gehalt und rechts das neue inklusive Lohnerhöhung.
-                  </p>
-                  <p className="text-lg">
-                    <strong className="text-gray-800">Perfekte Kommunikation:</strong> Damit gelingt die Mitarbeiterkommunikation perfekt mit transparenten Vor-/Nach-Vergleichen.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Image - Right Side */}
-              <div className="order-last relative">
-                <div className="relative">
-                  <img 
-                    src={payrollComparison} 
-                    alt="LohnLab Cockpit - Probeabrechnung Vergleich" 
-                    className="w-3/4 mx-auto rounded-xl shadow-lg border border-gray-200 cursor-pointer"
-                    onClick={() => setIsPDFExpanded(true)}
-                  />
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Professionell
-                  </div>
-                  <div className="absolute top-4 right-1/4 bg-white/90 p-2 rounded-lg">
-                    <Expand className="text-gray-600 text-lg" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Comparison Table */}
-          <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-2xl border border-gray-100">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4">
-                LohnLab vs. Herkömmliche Methoden
+          {/* Key Insight */}
+          <div className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-3xl p-8 lg:p-12 text-white text-center">
+            <div className="max-w-4xl mx-auto">
+              <Lightbulb className="w-16 h-16 mx-auto mb-6 text-yellow-300" />
+              <h3 className="text-2xl lg:text-3xl font-bold mb-6">
+                Unsere Erkenntnis: Es geht um smarte Lösungen, nicht um höhere Ausgaben
               </h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Sehen Sie auf einen Blick, warum LohnLab Cockpit die professionellste Lösung für Ihre Lohnberechnungen ist
+              <p className="text-xl text-blue-100 leading-relaxed">
+                Statt einfach nur Gehälter zu erhöhen, brauchen Sie intelligente Employer Branding Lösungen, 
+                die Ihre Mitarbeiter wertschätzen und gleichzeitig Ihre Kosten optimieren.
               </p>
             </div>
-            <TooltipProvider>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left rounded-2xl overflow-hidden shadow-lg">
-                  <thead>
-                    <tr className="bg-gradient-to-r from-gray-50 to-gray-100">
-                      <th className="py-6 px-6 text-gray-700 font-semibold text-lg">Kriterium</th>
-                      <th className="py-6 px-4 text-center text-gray-700 font-semibold">
-                        <img src={excelIcon} alt="Excel" className="w-8 h-8 mx-auto" />
-                      </th>
-                      <th className="py-6 px-4 text-center text-gray-700 font-semibold">Online-Rechner</th>
-                      <th className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white font-semibold relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
-                        <span className="relative z-10">LohnLab Cockpit</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-100">
-                    <tr className="hover:bg-gray-50/50 transition-colors">
-                      <td className="py-6 px-6 font-semibold text-gray-800">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-2 h-8 bg-[var(--lohn-primary)] rounded-full"></div>
-                          <span>Exakter Lohn</span>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <HelpCircle className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p>Präzise Berechnung aller steuerlichen und sozialversicherungsrechtlichen Aspekte einer Lohnerhöhung, einschließlich progressiver Steuereffekte und individueller Freibeträge.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">~</span>
-                      </td>
-                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
-                        <span className="relative z-10 inline-flex items-center justify-center w-8 h-8 bg-white/20 text-white rounded-full font-mono font-bold text-lg">✓</span>
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50/50 transition-colors">
-                      <td className="py-6 px-6 font-semibold text-gray-800">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-2 h-8 bg-[var(--lohn-primary)] rounded-full"></div>
-                          <span>Massenbearbeitung</span>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <HelpCircle className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p>Gleichzeitige Berechnung für alle Mitarbeiter eines Unternehmens mit unterschiedlichen Gehaltsstufen, Steuerklassen und Arbeitszeitmodellen.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✓</span>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
-                      </td>
-                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
-                        <span className="relative z-10 inline-flex items-center justify-center w-8 h-8 bg-white/20 text-white rounded-full font-mono font-bold text-lg">✓</span>
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50/50 transition-colors">
-                      <td className="py-6 px-6 font-semibold text-gray-800">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-2 h-8 bg-[var(--lohn-primary)] rounded-full"></div>
-                          <span>Drafts</span>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <HelpCircle className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p>Alle Berechnungen werden automatisch gespeichert und können jederzeit reproduziert werden. Ideal für Vergleichsrechnungen und Dokumentationszwecke.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✓</span>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
-                      </td>
-                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
-                        <span className="relative z-10 inline-flex items-center justify-center w-8 h-8 bg-white/20 text-white rounded-full font-mono font-bold text-lg">✓</span>
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50/50 transition-colors">
-                      <td className="py-6 px-6 font-semibold text-gray-800">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-2 h-8 bg-[var(--lohn-primary)] rounded-full"></div>
-                          <span>Midi-/Minijobs</span>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <HelpCircle className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p>Vollständige Unterstützung für geringfügige Beschäftigungen und Midijobs mit korrekter Berechnung der reduzierten Sozialversicherungsbeiträge.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">~</span>
-                      </td>
-                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
-                        <span className="relative z-10 inline-flex items-center justify-center w-8 h-8 bg-white/20 text-white rounded-full font-mono font-bold text-lg">✓</span>
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50/50 transition-colors">
-                      <td className="py-6 px-6 font-semibold text-gray-800">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-2 h-8 bg-[var(--lohn-primary)] rounded-full"></div>
-                          <span>Probeabrechnungen</span>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <HelpCircle className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors" />
-                            </TooltipTrigger>
-                            <TooltipContent className="max-w-xs">
-                              <p>Erstellung von detaillierten Probeabrechnungen zur Mandantenkommunikation mit allen relevanten Berechnungsdetails und Hinweisen.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
-                      </td>
-                      <td className="py-6 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-100 text-gray-700 rounded-full font-mono font-bold text-lg">✕</span>
-                      </td>
-                      <td className="py-6 px-4 text-center bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] opacity-90"></div>
-                        <span className="relative z-10 inline-flex items-center justify-center w-8 h-8 bg-white/20 text-white rounded-full font-mono font-bold text-lg">✓</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </TooltipProvider>
           </div>
         </div>
       </section>
 
-      {/* Benefits for Different Audiences */}
-      <section className="py-20 bg-gray-50">
+      {/* Employee-First Approach */}
+      <section id="mitarbeiter-first" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-              Vorteile für Steuerberater und Unternehmen
+            <Badge className="bg-green-100 text-green-800 border-green-200 mb-6 px-4 py-2 text-base font-semibold">
+              Mitarbeiter-First Ansatz
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
+              Lohnerhöhungen, die <span className="text-green-600">im Netto ankommen</span>
             </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              "Fassen Sie Lohnerhöhung da an, wo sie ankommen soll, im Netto ihrer Arbeitnehmer 
+              und zeigen Sie so, dass Sie zuerst an Ihre AN denken!"
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Für Steuerberater */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-xl flex items-center justify-center mr-4">
-                  <BarChart3 className="text-white text-lg" />
+          {/* Core Message with Visual */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+            <div>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-200">
+                <Heart className="w-12 h-12 text-green-600 mb-6" />
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  Ihre Mitarbeiter spüren den Unterschied
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                    <p className="text-gray-700">
+                      <strong>Maximales Netto:</strong> Durch intelligente Lohnbausteine kommt mehr bei Ihren Mitarbeitern an
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                    <p className="text-gray-700">
+                      <strong>Transparente Kommunikation:</strong> Zeigen Sie Ihren Mitarbeitern, dass Sie an sie denken
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                    <p className="text-gray-700">
+                      <strong>Langfristige Bindung:</strong> Wertschätzung führt zu höherer Mitarbeiterzufriedenheit
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">Für Steuerberater</h3>
               </div>
-              <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <Target className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Gewaltiger Mandantenvorteil</h4>
-                    <p className="text-gray-600">Geben Sie Ihren Mandanten einen entscheidenden Wettbewerbsvorteil in die Hand.</p>
-                  </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <Timer className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Zeit sparen für Ihre Sachbearbeiter</h4>
-                    <p className="text-gray-600">Kein E-Mail-Ping-Pong mehr bei Lohnfragen - alle Antworten sofort verfügbar.</p>
-                  </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <FileCheck className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Vollständige Datentransparenz</h4>
-                    <p className="text-gray-600">Alle relevanten Berechnungsdetails und Hintergründe auf einen Blick.</p>
-                  </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Nahtlose Integration</h4>
-                    <p className="text-gray-600">Direkter Export in Ihr gewohntes System.</p>
-                  </div>
-                </li>
-              </ul>
+            </div>
+            
+            <div className="relative">
+              <img 
+                src={lohnlabCalculatorPrecise} 
+                alt="LohnLab Cockpit - Präzise Netto-Berechnung" 
+                className="w-full rounded-2xl shadow-2xl border border-gray-200"
+              />
+              <div className="absolute -bottom-4 -right-4 bg-green-500 text-white px-6 py-3 rounded-2xl shadow-lg">
+                <div className="flex items-center space-x-2">
+                  <Banknote className="w-5 h-5" />
+                  <span className="font-semibold">Mehr Netto = Glücklichere Mitarbeiter</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Employer Branding Solutions */}
+          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-purple-200 mb-20">
+            <div className="text-center mb-12">
+              <Crown className="w-16 h-16 mx-auto text-purple-600 mb-6" />
+              <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                Employer Branding Lösungen wie die CI Card
+              </h3>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Moderne Benefits, die Ihre Arbeitgebermarke stärken und Mitarbeiter begeistern
+              </p>
             </div>
 
-            {/* Für Unternehmen */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-xl flex items-center justify-center mr-4">
-                  <TrendingUp className="text-[var(--lohn-primary)] text-lg" />
-                </div>
-                <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">Für Unternehmen</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <img 
+                  src={fruitBasketImage} 
+                  alt="Moderne Employer Benefits" 
+                  className="w-full rounded-2xl shadow-lg"
+                />
               </div>
-              <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Exakte Kostenplanung</h4>
-                    <p className="text-gray-600">Wissen Sie genau, was Lohnerhöhungen kosten werden.</p>
+              
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <Gift className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">CI Card & Benefits</h4>
                   </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Mitarbeiterzufriedenheit</h4>
-                    <p className="text-gray-600">Klare Kommunikation über reale Netto-Erhöhungen.</p>
+                  <p className="text-gray-600">
+                    Steuerfreie Sachbezüge und Corporate Benefits, die das verfügbare Einkommen 
+                    Ihrer Mitarbeiter real erhöhen – ohne zusätzliche Lohnkosten.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Award className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Attraktive Arbeitgebermarke</h4>
                   </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Verschiedene Szenarien</h4>
-                    <p className="text-gray-600">Vergleichen Sie unterschiedliche Erhöhungsmodelle.</p>
+                  <p className="text-gray-600">
+                    Positionieren Sie sich als moderner Arbeitgeber, der innovative Wege geht 
+                    und das Wohlbefinden seiner Mitarbeiter in den Mittelpunkt stellt.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <HandHeart className="w-6 h-6 text-green-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Mitarbeiterbindung stärken</h4>
                   </div>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <CheckCircle className="text-green-600 mt-1 w-5 h-5" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Rechtssicherheit</h4>
-                    <p className="text-gray-600">DATEV-konforme Berechnungen für alle Mitarbeitertypen.</p>
+                  <p className="text-gray-600">
+                    Durch echte Wertschätzung und spürbare Vorteile schaffen Sie eine 
+                    emotionale Bindung, die über das reine Gehalt hinausgeht.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Intelligent Tools Overview */}
+          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 lg:p-12 border border-blue-200">
+            <div className="text-center mb-12">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Eye className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                Intelligente Tools für Überblick und Effizienz
+              </h3>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Unsere intelligenten Tools ermöglichen es Ihnen, den Überblick zu behalten, 
+                effizient zu arbeiten und dabei interne und echte Kosten zu sparen.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Calculator className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Präzise Massenkalkulation</h4>
                   </div>
-                </li>
-              </ul>
+                  <p className="text-gray-600">
+                    Berechnen Sie alle Mitarbeiter gleichzeitig mit höchster Genauigkeit. 
+                    Keine manuellen Fehler, keine Excel-Schätzungen.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <PiggyBank className="w-6 h-6 text-green-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Echte Kosteneinsparungen</h4>
+                  </div>
+                  <p className="text-gray-600">
+                    Durch intelligente Optimierung sparen Sie bis zu 50% der Lohnkosten, 
+                    während Ihre Mitarbeiter mehr Netto erhalten.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Transparente Kommunikation</h4>
+                  </div>
+                  <p className="text-gray-600">
+                    Professionelle Gehaltsvergleiche und Probeabrechnungen für eine 
+                    glasklare Mitarbeiterkommunikation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative">
+                <img 
+                  src={employeeSelection} 
+                  alt="LohnLab Cockpit - Intelligente Mitarbeiterauswahl" 
+                  className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                />
+                <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-6 py-3 rounded-2xl shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <Building2 className="w-5 h-5" />
+                    <span className="font-semibold">Effizient & Übersichtlich</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Lohnoptimierung - Kirsche auf der Sahnetorte */}
-      <section className="py-20 bg-gradient-to-br from-[var(--lohn-purple)] via-purple-600 to-[var(--lohn-primary)] text-white">
+      {/* Professional Payroll Communication */}
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <Crown className="w-16 h-16 text-yellow-400" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Die Kirsche auf der Sahnetorte
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
+              Professionelle Mitarbeiterkommunikation
             </h2>
-            <p className="text-xl text-purple-100 max-w-3xl mx-auto">
-              Zusätzlich zur exakten Lohnberechnung bietet das Cockpit <strong>Lohnoptimierung</strong> an - 
-              realistische und rechtskonforme Vorschläge für bis zu <strong>50% Kosteneinsparung</strong>.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Zeigen Sie Ihren Mitarbeitern transparent und verständlich, 
+              wie ihre Lohnerhöhung ihr Netto-Einkommen verbessert
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Was ist Lohnoptimierung?</h3>
-              <p className="text-purple-100 mb-6 leading-relaxed">
-                Die Nutzung von steuer- und sozialversicherungsoptimierten Lohnbausteinen wie 
-                Sachbezügen, Fahrtkosten oder Kindergartenkostenzuschüssen. Mit dem gleichen Budget 
-                erhalten Sie die angedachte Lohnerhöhung plus echte Mitarbeiterbindung.
-              </p>
-              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <h4 className="font-semibold mb-4 flex items-center">
-                  <Gift className="w-5 h-5 mr-2" />
-                  Was können Sie mit der Ersparnis tun?
-                </h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center space-x-3">
-                    <DollarSign className="w-4 h-4 text-green-300" />
-                    <span>Reinvestition ins eigene Unternehmen</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <TrendingUp className="w-4 h-4 text-green-300" />
-                    <span>Nettoplus on top zur Lohnerhöhung</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <Gift className="w-4 h-4 text-green-300" />
-                    <span>Benefits wie Jobtickets oder Krankenversicherung</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <PiggyBank className="w-4 h-4 text-green-300" />
-                    <span>Betriebliche Rentenversicherung</span>
-                  </li>
-                </ul>
+              <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-3xl p-8 border border-teal-200">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  Einzigartige Vorher-Nachher-Darstellung
+                </h3>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Target className="w-6 h-6 text-teal-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">Zwei-Spalten-Abrechnung</h4>
+                      <p className="text-gray-600">
+                        Links das aktuelle Gehalt, rechts die neue Struktur mit Lohnerhöhung - 
+                        so verstehen Mitarbeiter sofort den Unterschied.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <DollarSign className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">Klare Netto-Verbesserung</h4>
+                      <p className="text-gray-600">
+                        Mitarbeiter sehen auf einen Blick, wie viel mehr Netto-Gehalt 
+                        sie durch die intelligente Optimierung erhalten.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Heart className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">Wertschätzung kommunizieren</h4>
+                      <p className="text-gray-600">
+                        Zeigen Sie Ihren Mitarbeitern, dass Sie innovative Wege gehen, 
+                        um ihr Einkommen zu optimieren.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            
+            <div className="relative">
+              <img 
+                src={payrollComparison} 
+                alt="Professionelle Gehaltsabrechnung mit Vorher-Nachher-Vergleich" 
+                className="w-full rounded-2xl shadow-2xl border border-gray-200"
+              />
+              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-2xl shadow-lg">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-5 h-5" />
+                  <span className="font-semibold">Mehr Netto für alle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-6">Maximale Ersparnis-Analyse</h3>
-              <div className="space-y-6">
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium">Mögliche Kosteneinsparung:</span>
-                    <span className="text-2xl font-bold text-green-300">bis zu 50%</span>
-                  </div>
-                  <div className="w-full bg-white/20 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-green-400 to-green-300 h-3 rounded-full" style={{width: '50%'}}></div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-3">Das Tool zeigt Ihnen:</h4>
-                  <ul className="space-y-2 text-purple-100">
-                    <li>• Maximale Ersparnis für den Arbeitgeber</li>
-                    <li>• Optimale Verwendung der gesparten Mittel</li>
-                    <li>• Rechtskonforme Umsetzungsvorschläge</li>
-                    <li>• Langzeit-Rentenpotential für Mitarbeiter</li>
-                  </ul>
-                </div>
-                
-                <div className="mt-6">
-                  <a href="/lohnoptimierung" className="inline-flex items-center text-white hover:text-yellow-300 transition-colors">
-                    <span className="border-b border-white hover:border-yellow-300">Detaillierte Informationen zur Lohnoptimierung</span>
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </a>
-                </div>
+      {/* Results and ROI Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border-green-200 mb-6 px-4 py-2 text-base font-semibold">
+              Messbare Ergebnisse
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
+              Das Ergebnis: Glückliche Mitarbeiter, geringere Kosten
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Unser Mitarbeiter-First Ansatz schafft eine Win-Win-Situation für alle Beteiligten
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center p-8 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
+              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <TrendingUp className="w-8 h-8 text-white" />
               </div>
-            </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Bis zu 50% Kosteneinsparung</h3>
+              <p className="text-gray-600">
+                Durch intelligente Lohnbausteine reduzieren Sie Ihre echten Lohnkosten erheblich
+              </p>
+            </Card>
+
+            <Card className="text-center p-8 border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50">
+              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Heart className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Höhere Mitarbeiterzufriedenheit</h3>
+              <p className="text-gray-600">
+                Mitarbeiter erhalten mehr Netto und fühlen sich wertgeschätzt durch den transparenten Ansatz
+              </p>
+            </Card>
+
+            <Card className="text-center p-8 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50">
+              <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Stärkere Mitarbeiterbindung</h3>
+              <p className="text-gray-600">
+                Innovatives Employer Branding positioniert Sie als attraktiven, zukunftsorientierten Arbeitgeber
+              </p>
+            </Card>
+          </div>
+
+          {/* Call to Action */}
+          <div className="bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-3xl p-12 text-center text-white">
+            <h3 className="text-3xl font-bold mb-6">
+              Bereit, Ihren Mitarbeitern zu zeigen, dass Sie zuerst an sie denken?
+            </h3>
+            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              Lassen Sie uns gemeinsam Lohnerhöhungen entwickeln, die wirklich bei Ihren Mitarbeitern ankommen 
+              und gleichzeitig Ihre Kosten optimieren.
+            </p>
+            <Button 
+              onClick={() => scrollToSection('kontakt')}
+              className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
+            >
+              <ArrowRight className="mr-2" size={20} />
+              Jetzt kostenlose Demo vereinbaren
+            </Button>
           </div>
         </div>
       </section>
 
       <ContactSection />
       <Footer />
-
-      {/* Image Expansion Modal */}
-      {isImageExpanded && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
-          onClick={() => setIsImageExpanded(false)}
-        >
-          <div className="relative max-w-6xl max-h-full">
-            <img 
-              src={excelSalaryCalculation} 
-              alt="Excel-Tabelle mit Lohnberechnungen - Vergrößerte Ansicht" 
-              className="max-w-full max-h-full rounded-lg shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              onClick={() => setIsImageExpanded(false)}
-              className="absolute top-4 right-4 bg-white text-gray-800 rounded-full p-2 hover:bg-gray-100 transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Expanded Image Modal */}
-      {expandedImage && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="relative max-w-6xl max-h-[90vh]">
-            <img 
-              src={expandedImage} 
-              alt="Vergrößerte Ansicht" 
-              className="max-w-full max-h-full object-contain rounded-lg"
-            />
-            <button 
-              onClick={() => setExpandedImage(null)}
-              className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full transition-colors"
-            >
-              <X className="text-gray-800 text-xl" />
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* PDF Modal */}
-      {isPDFExpanded && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="relative w-full max-w-6xl h-[90vh] bg-white rounded-lg">
-            <button 
-              onClick={() => setIsPDFExpanded(false)}
-              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition-colors z-10"
-            >
-              <X className="text-xl" />
-            </button>
-            <iframe 
-              src={probeabrechnungPDF}
-              className="w-full h-full rounded-lg"
-              title="Probeabrechnung PDF"
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

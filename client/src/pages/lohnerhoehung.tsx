@@ -46,13 +46,14 @@ export default function Lohnerhoehung() {
                 onClick={() => scrollToSection('mitarbeiter-first')}
                 className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
+                <Heart className="mr-2" size={20} />
                 Employee First Ansatz
               </Button>
               <Button 
                 onClick={() => scrollToSection('kontakt')}
-                variant="outline"
-                className="border-white text-white bg-transparent hover:bg-white hover:text-[var(--lohn-primary)] font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300"
+                className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
+                <Rocket className="mr-2" size={20} />
                 Kostenlose Demo
               </Button>
             </div>
@@ -61,7 +62,7 @@ export default function Lohnerhoehung() {
       </section>
 
       {/* Current Economic Challenges */}
-      <section className="py-24 bg-gradient-to-br from-red-50 to-orange-50">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
@@ -137,7 +138,7 @@ export default function Lohnerhoehung() {
       </section>
 
       {/* Employee-First Approach */}
-      <section id="mitarbeiter-first" className="py-24 bg-gradient-to-br from-green-50 to-teal-50">
+      <section id="mitarbeiter-first" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="bg-green-100 text-green-800 border-green-200 mb-6 px-4 py-2 text-base font-semibold">
@@ -198,89 +199,85 @@ export default function Lohnerhoehung() {
             </div>
           </div>
 
-          {/* LohnLab Card - Kompakte Darstellung */}
+          {/* givve® Card - Branded Employee Benefits */}
           <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 lg:p-12 border border-purple-200 mb-20">
-            <div className="text-center mb-10">
-              <Crown className="w-12 h-12 mx-auto text-purple-600 mb-4" />
-              <h3 className="text-3xl font-bold text-gray-800 mb-3">
-                LohnLab Card - Lohnerhöhungen sichtbar machen
+            <div className="text-center mb-12">
+              <Crown className="w-16 h-16 mx-auto text-purple-600 mb-6" />
+              <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                givve® Card - Lohnerhöhungen sichtbar machen
               </h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Die wiederaufladbare Mastercard mit Ihrem Firmenlogo macht jeden Cent Ihrer Wertschätzung sichtbar
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-              {/* Card Image - kompakter */}
-              <div className="relative lg:col-span-1">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="relative">
                 <img 
                   src={ciCardImage} 
-                  alt="LohnLab Card mit Firmen-Branding" 
-                  className="w-full max-w-sm mx-auto rounded-2xl shadow-2xl border border-gray-200"
+                  alt="givve® Card mit LohnLab Branding" 
+                  className="w-full rounded-2xl shadow-2xl border border-gray-200"
                 />
-                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-xl shadow-lg text-sm font-semibold">
-                  Ihr Logo
+                <div className="absolute -top-4 -left-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-6 py-3 rounded-2xl shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <Crown className="w-5 h-5" />
+                    <span className="font-semibold">Ihr Logo auf jeder Karte</span>
+                  </div>
                 </div>
               </div>
               
-              {/* Features - 2 Spalten */}
-              <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-5 shadow-md border border-purple-100">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Gift className="w-5 h-5 text-purple-600" />
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <Gift className="w-6 h-6 text-purple-600" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800 mb-2">Universell einsetzbar</h4>
-                      <p className="text-gray-600 text-sm">
-                        Bei allen Mastercard-Akzeptanzstellen: Tanken, Einkaufen, Shopping - überall nutzbar.
-                      </p>
-                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Universell einsetzbar</h4>
                   </div>
+                  <p className="text-gray-600">
+                    Ihre Mitarbeiter können die Mastercard bei <strong>allen Akzeptanzstellen</strong> nutzen - 
+                    für Tanken, Einkaufen, Shoppen oder jeden anderen Bedarf in ihrer Region.
+                  </p>
                 </div>
 
-                <div className="bg-white rounded-xl p-5 shadow-md border border-blue-100">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Award className="w-5 h-5 text-blue-600" />
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Award className="w-6 h-6 text-blue-600" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800 mb-2">Ihr Logo im Portemonnaie</h4>
-                      <p className="text-gray-600 text-sm">
-                        Mit Ihrem Firmendesign gebrandelt - bei jeder Zahlung denken Mitarbeiter an Sie.
-                      </p>
-                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Ihr Firmenlogo im Portemonnaie</h4>
                   </div>
+                  <p className="text-gray-600">
+                    Die Karte kann mit <strong>Ihrem Firmendesign und Logo</strong> gebrandelt werden. 
+                    Bei jeder Zahlung sehen Ihre Mitarbeiter Ihr Unternehmen als Arbeitgeber, der an sie denkt.
+                  </p>
                 </div>
 
-                <div className="bg-white rounded-xl p-5 shadow-md border border-green-100">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <HandHeart className="w-5 h-5 text-green-600" />
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-100">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <HandHeart className="w-6 h-6 text-green-600" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800 mb-2">Täglich sichtbare Wertschätzung</h4>
-                      <p className="text-gray-600 text-sm">
-                        Im Gegensatz zu Überweisungen werden Kartenzahlungen bewusst wahrgenommen.
-                      </p>
-                    </div>
+                    <h4 className="text-xl font-bold text-gray-800">Lohnerhöhung wird täglich sichtbar</h4>
                   </div>
+                  <p className="text-gray-600">
+                    Anders als reguläre Gehaltsüberweisungen <strong>werden Zahlungen auf die Karte bewusst wahrgenommen</strong>. 
+                    Ihre Wertschätzung geht nicht in der monatlichen Abrechnung unter.
+                  </p>
                 </div>
 
-                <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-xl p-5 border border-purple-200">
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-purple-600 flex-shrink-0" />
-                      <span className="text-sm font-semibold text-gray-800">550.000+ Kartennutzer</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-purple-600 flex-shrink-0" />
-                      <span className="text-sm font-semibold text-gray-800">23.000+ Firmenkunden</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-purple-600 flex-shrink-0" />
-                      <span className="text-sm font-semibold text-gray-800">Steuerkonform für Sachbezüge</span>
-                    </div>
+                <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 border border-purple-200">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <CheckCircle className="w-6 h-6 text-purple-600" />
+                    <span className="font-semibold text-gray-800">550.000+ zufriedene Kartennutzer</span>
+                  </div>
+                  <div className="flex items-center space-x-3 mb-3">
+                    <CheckCircle className="w-6 h-6 text-purple-600" />
+                    <span className="font-semibold text-gray-800">23.000+ Firmenkunden seit 2015</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-purple-600" />
+                    <span className="font-semibold text-gray-800">Vollständig steuerkonform für Sachbezüge</span>
                   </div>
                 </div>
               </div>
@@ -294,11 +291,11 @@ export default function Lohnerhoehung() {
                 <Calculator className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                Wie kriegen wir das alles hin? Ganz einfach!
+                Lohnerhöhungsmodul im LohnLab Cockpit
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Unser Lohnerhöhungsmodul macht die komplizierte Arbeit für Sie - 
-                Sie drücken ein paar Knöpfe, wir rechnen alles aus. Fertig!
+                Das spezialisierte Modul für präzise Lohnerhöhungsberechnungen - 
+                entwickelt für maximale Effizienz und echte Kosteneinsparungen.
               </p>
             </div>
 
@@ -309,11 +306,11 @@ export default function Lohnerhoehung() {
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                       <Calculator className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Alle auf einmal berechnen</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Präzise Lohnberechnung</h4>
                   </div>
                   <p className="text-gray-600">
-                    Sie laden Ihre Mitarbeiterliste hoch, klicken auf "Berechnen" - 
-                    und schwups sind alle Lohnerhöhungen optimiert. Kein Excel-Gefummel mehr!
+                    Das Lohnerhöhungsmodul berechnet alle Mitarbeiter gleichzeitig mit höchster Genauigkeit. 
+                    Keine manuellen Fehler, keine Excel-Schätzungen mehr.
                   </p>
                 </div>
 
@@ -322,11 +319,11 @@ export default function Lohnerhoehung() {
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <PiggyBank className="w-6 h-6 text-green-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Automatisch das Beste rausholen</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Automatische Optimierung</h4>
                   </div>
                   <p className="text-gray-600">
-                    Das System sucht für jeden Mitarbeiter die beste Kombination - 
-                    mehr Netto für ihn, weniger Kosten für Sie. Win-Win!
+                    Das Modul optimiert automatisch jeden Lohnerhöhungsfall für maximales Netto bei 
+                    bis zu 50% reduzierten Arbeitgeberkosten.
                   </p>
                 </div>
 
@@ -335,11 +332,11 @@ export default function Lohnerhoehung() {
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                       <Sparkles className="w-6 h-6 text-purple-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Schöne Abrechnungen für Ihre Leute</h4>
+                    <h4 className="text-xl font-bold text-gray-800">Professionelle Dokumentation</h4>
                   </div>
                   <p className="text-gray-600">
-                    Das Tool erstellt automatisch hübsche Vorher-Nachher-Vergleiche, 
-                    die Ihre Mitarbeiter sofort verstehen. Transparenz ohne Aufwand!
+                    Automatische Erstellung von Gehaltsvergleichen und Probeabrechnungen für 
+                    transparente Mitarbeiterkommunikation direkt aus dem Modul.
                   </p>
                 </div>
               </div>
@@ -363,7 +360,7 @@ export default function Lohnerhoehung() {
       </section>
 
       {/* Professional Payroll Communication */}
-      <section className="py-24 bg-gradient-to-br from-teal-50 to-blue-100">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
@@ -442,7 +439,7 @@ export default function Lohnerhoehung() {
       </section>
 
       {/* Results and ROI Section */}
-      <section className="py-24 bg-gradient-to-br from-yellow-50 to-green-100">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border-green-200 mb-6 px-4 py-2 text-base font-semibold">
@@ -488,26 +485,6 @@ export default function Lohnerhoehung() {
             </Card>
           </div>
 
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Bereit, Ihren Mitarbeitern zu zeigen, dass Sie zuerst an sie denken?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Lassen Sie uns gemeinsam Lohnerhöhungen entwickeln, die wirklich bei Ihren Mitarbeitern ankommen 
-            und gleichzeitig Ihre Kosten optimieren.
-          </p>
-          <Button 
-            onClick={() => scrollToSection('kontakt')}
-            className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
-          >
-            <ArrowRight className="mr-2" size={20} />
-            Jetzt kostenlose Demo vereinbaren
-          </Button>
         </div>
       </section>
 

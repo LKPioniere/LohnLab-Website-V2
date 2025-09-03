@@ -3,7 +3,7 @@ import Navigation from "@/components/navigation";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe, Search, FileText } from "lucide-react";
+import { TrendingUp, Users, Calculator, FileDown, CheckCircle, AlertCircle, Zap, BarChart3, FileCheck, Target, Crown, DollarSign, Gift, PiggyBank, Timer, HelpCircle, ExternalLink, Expand, X, Globe, Search, FileText, ChevronLeft, ChevronRight, Heart, Shield, TrendingDown } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import berechnungsparameter from "@/assets/berechnungsparameter.png";
 import excelSalaryCalculation from "@/assets/excel-salary-calculation.png";
@@ -20,6 +20,7 @@ export default function Lohnerhoehung() {
   const [isMidijobActive, setIsMidijobActive] = useState(false);
   const [isPDFExpanded, setIsPDFExpanded] = useState(false);
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
+  const [currentProblemIndex, setCurrentProblemIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -61,25 +62,25 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Lohnerhöhung leicht gemacht
+              Lohnerhöhungen, die <span className="text-[var(--lohn-teal)]">ankommen</span>
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-              Präzise Lohnberechnungen für Steuerberater und Unternehmen. 
-              Schluss mit Excel-Schätzungen und ungenauen Online-Rechnern.
+              Fassen Sie Lohnerhöhungen dort an, wo sie ankommen sollen: im Netto Ihrer Mitarbeiter. 
+              Zeigen Sie, dass Sie zuerst an Ihre Arbeitnehmer denken - und behalten dabei Kosten und Effizienz im Griff.
             </p>
             <div className="flex justify-center space-x-4">
               <Button 
                 onClick={() => scrollToSection('kontakt')}
-                className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 transition-colors rounded-full px-8 py-4 font-semibold"
+                className="bg-[var(--lohn-teal)] text-white hover:bg-white hover:text-[var(--lohn-primary)] transition-colors rounded-full px-8 py-4 font-semibold"
               >
-                Kostenlose Demo
+                Mitarbeiter glücklicher machen
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => scrollToSection('vorteile')}
                 className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[var(--lohn-primary)] transition-colors rounded-full px-8 py-4 font-semibold"
               >
-                Vorteile entdecken
+                Kosten sparen
               </Button>
             </div>
           </div>
@@ -91,65 +92,112 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-              Die Herausforderungen bei Lohnerhöhungen
+              Ihre Herausforderungen als Unternehmen
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Diese typischen Probleme kennen wir von Geschäftsführern und HR-Verantwortlichen
+              In schwierigen Zeiten kämpfen Sie um jeden guten Mitarbeiter - wir unterstützen Sie dabei
             </p>
           </div>
 
-          {/* Business Problems Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <Calculator className="text-red-600" size={24} />
+          {/* Business Challenges Slideshow */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-2xl border border-red-100 relative overflow-hidden">
+              <div className="flex items-center justify-between mb-8">
+                <button 
+                  onClick={() => setCurrentProblemIndex((prev) => prev === 0 ? 3 : prev - 1)}
+                  className="w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+                >
+                  <ChevronLeft className="text-gray-600" size={20} />
+                </button>
+                
+                <div className="text-center flex-1 mx-6">
+                  <div className="flex justify-center gap-2 mb-4">
+                    {[0, 1, 2, 3].map((index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentProblemIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-colors ${
+                          currentProblemIndex === index ? 'bg-[var(--lohn-primary)]' : 'bg-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">Budgetplanung ohne Klarheit</h3>
+                
+                <button 
+                  onClick={() => setCurrentProblemIndex((prev) => prev === 3 ? 0 : prev + 1)}
+                  className="w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+                >
+                  <ChevronRight className="text-gray-600" size={20} />
+                </button>
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Wir wissen nie genau, was eine 5% Lohnerhöhung tatsächlich kostet. Excel-Schätzungen sind ungenau 
-                und Online-Rechner berücksichtigen nicht alle unsere individuellen Stammdaten."
-              </p>
-            </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <Timer className="text-red-600" size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">Zeitaufwändige Einzelberechnungen</h3>
+              {/* Slide Content */}
+              <div className="text-center min-h-[300px] flex flex-col justify-center">
+                {currentProblemIndex === 0 && (
+                  <div className="space-y-6">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+                      <Heart className="text-red-600" size={32} />
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-800 mb-4">Mitarbeiter halten und binden</h3>
+                    <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                      "In Zeiten des Fachkräftemangels können wir es uns nicht leisten, gute Mitarbeiter zu verlieren. 
+                      Aber wie zeigen wir Wertschätzung durch Lohnerhöhungen, die auch wirklich beim Mitarbeiter ankommen?"
+                    </p>
+                    <div className="bg-red-50 p-4 rounded-lg max-w-lg mx-auto">
+                      <p className="text-red-700 font-semibold">Problem: Lohnerhöhungen verpuffen durch hohe Abzüge</p>
+                    </div>
+                  </div>
+                )}
+                
+                {currentProblemIndex === 1 && (
+                  <div className="space-y-6">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+                      <Shield className="text-red-600" size={32} />
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-800 mb-4">Fachkräfte langfristig sichern</h3>
+                    <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                      "Qualifizierte Mitarbeiter werden täglich abgeworben. Wir brauchen attraktive Vergütungspakete, 
+                      die konkurrenzfähig sind, ohne unser Budget zu sprengen."
+                    </p>
+                    <div className="bg-red-50 p-4 rounded-lg max-w-lg mx-auto">
+                      <p className="text-red-700 font-semibold">Problem: Konkurrenz bietet scheinbar mehr</p>
+                    </div>
+                  </div>
+                )}
+                
+                {currentProblemIndex === 2 && (
+                  <div className="space-y-6">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+                      <TrendingDown className="text-red-600" size={32} />
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-800 mb-4">Steigende Lohnkosten einschränken</h3>
+                    <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                      "Inflation, steigende Sozialversicherungsbeiträge, höhere Steuersätze - die Lohnnebenkosten 
+                      explodieren. Wie können wir Mitarbeiter belohnen ohne die Kostenexplosion?"
+                    </p>
+                    <div className="bg-red-50 p-4 rounded-lg max-w-lg mx-auto">
+                      <p className="text-red-700 font-semibold">Problem: Jede Erhöhung wird teurer als geplant</p>
+                    </div>
+                  </div>
+                )}
+                
+                {currentProblemIndex === 3 && (
+                  <div className="space-y-6">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+                      <BarChart3 className="text-red-600" size={32} />
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-800 mb-4">Planungssicherheit erreichen</h3>
+                    <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                      "Budgetplanung für das nächste Jahr ist ein Glücksspiel. Wie viel kosten 5% Lohnerhöhung wirklich? 
+                      Welche Auswirkungen haben neue Gesetze auf unsere Lohnkosten?"
+                    </p>
+                    <div className="bg-red-50 p-4 rounded-lg max-w-lg mx-auto">
+                      <p className="text-red-700 font-semibold">Problem: Unkalkulierbare Überraschungen im Budget</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Jeden Mitarbeiter einzeln durchzurechnen dauert ewig. Bei 50+ Mitarbeitern wird das zur 
-                Mammutaufgabe, besonders wenn verschiedene Abteilungen unterschiedliche Erhöhungen bekommen."
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <Users className="text-red-600" size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">Schwierige Mitarbeiterkommunikation</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Lohnerhöhungen transparent zu erklären ist kompliziert. Mitarbeiter fragen nach Details, 
-                aber wir haben keine professionellen Vergleichsdarstellungen der Gehaltsänderungen."
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <AlertCircle className="text-red-600" size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">Rechtsunsicherheit bei Komplexität</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                "Midijobs, Übergangsbereiche, verschiedene Steuerklassen - wir sind uns nie sicher, 
-                ob unsere Berechnungen alle gesetzlichen Änderungen korrekt berücksichtigen."
-              </p>
             </div>
           </div>
 

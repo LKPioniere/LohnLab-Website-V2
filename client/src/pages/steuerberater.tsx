@@ -47,8 +47,8 @@ export default function Steuerberater() {
       name: 'Martin Grau',
       title: 'Steuerberater & Inhaber',
       companies: [
-        { name: 'megra Steuerberatungsgesellschaft PartG mbB', url: 'https://megra-beratung.de' },
-        { name: 'zuno.tax GmbH', url: 'https://zunotax.de' }
+        { name: 'megra', url: 'https://megra-beratung.de' },
+        { name: 'Neuplaner', url: 'https://www.neuplaner.de' }
       ],
       quote: 'Wir als Verantwortlicher für die Lohnbuchhaltung von vielen Unternehmen standen Lohnoptimierern auf Grund der Zusatzaufwände immer skeptisch gegenüber. Die LohnLab hat es geschafft uns für das Thema zu begeistern, da der Kostenersparnis beim Mandanten bei gleichzeitig höherem Nutzen für den Mitarbeiter durch die hohe Automatisierung fast kein Zusatzaufwand gegenübersteht.',
       image: martinGrauImage,
@@ -176,7 +176,7 @@ export default function Steuerberater() {
   const partnerBenefits = [
     "Wettbewerbsvorteil durch innovativen Mehrwert",
     "Höhere Mandantenbindung durch erweiterte Dienstleistung", 
-    "Full-Service inklusive - vom Schnittstellen-Management bis zur Betreuung",
+    "Begleitung durch alle Phasen - von Mandantenaktivierung bis Umsatzsteigerung mit durchdachtem Pricing",
     "Transparente Preisgestaltung ohne versteckte Gebühren",
     "100% rechtssicher durch 'Made in Germany' Qualität"
   ];

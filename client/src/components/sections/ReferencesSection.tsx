@@ -20,14 +20,17 @@ export default function ReferencesSection() {
   const currentRef = REFERENCES[currentIndex];
 
   return (
-    <section className="py-32 bg-gray-50">
+    <section className="py-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-y-4 border-[var(--lohn-teal)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <div className="inline-block bg-[var(--lohn-teal)]/10 rounded-full px-8 py-3 mb-6">
+            <span className="text-[var(--lohn-teal)] font-semibold text-lg">✓ Vertrauen durch Erfahrung</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-            Vertrauen Sie auf Erfahrung
+            Über 500 Unternehmen vertrauen bereits auf uns
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Unternehmen verschiedenster Branchen nutzen bereits erfolgreich unsere Lohnoptimierung
+            Von Start-ups bis Konzerne - Firmen verschiedenster Branchen nutzen bereits erfolgreich unsere Lohnoptimierung
           </p>
         </div>
 

@@ -117,36 +117,36 @@ export default function Lohnoptimierung() {
               
               <div className="space-y-6">
                 <div className="bg-red-50 rounded-lg p-4 border-l-4 border-red-400">
-                  <h4 className="font-semibold text-red-800 mb-2">Herkömmliche Lohnerhöhung</h4>
+                  <h4 className="font-semibold text-red-800 mb-2">Ohne LohnLab</h4>
                   <div className="space-y-1 text-sm text-red-700">
-                    <div className="flex justify-between">
-                      <span>Bruttoerhöhung:</span>
-                      <span>500€</span>
-                    </div>
                     <div className="flex justify-between">
                       <span>Arbeitgeberkosten total:</span>
                       <span className="font-bold">≈ 620€</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Nettoerhöhung Mitarbeiter:</span>
+                      <span>Brutto:</span>
+                      <span>500€</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Nettoplus:</span>
                       <span>≈ 280€</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-green-50 rounded-lg p-4 border-l-4 border-green-400">
-                  <h4 className="font-semibold text-green-800 mb-2">Mit Lohnoptimierung</h4>
+                  <h4 className="font-semibold text-green-800 mb-2">Mit LohnLab</h4>
                   <div className="space-y-1 text-sm text-green-700">
-                    <div className="flex justify-between">
-                      <span>Optimierte Bausteine:</span>
-                      <span>350€</span>
-                    </div>
                     <div className="flex justify-between">
                       <span>Arbeitgeberkosten total:</span>
                       <span className="font-bold">≈ 400€</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Nettoplus Mitarbeiter:</span>
+                      <span>Brutto:</span>
+                      <span>0€</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Nettoplus:</span>
                       <span className="font-bold">≈ 320€</span>
                     </div>
                   </div>
@@ -269,7 +269,7 @@ export default function Lohnoptimierung() {
               <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-xl flex items-center justify-center mb-6">
                 <Calculator className="text-white text-lg" />
               </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Cockpit-Analyse</h3>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Analyse</h3>
               <ul className="space-y-3">
                 <li className="flex items-start space-x-3">
                   <CheckCircle className="text-green-600 mt-1 w-5 h-5" />

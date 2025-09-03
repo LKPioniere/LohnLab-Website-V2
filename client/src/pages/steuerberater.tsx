@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import martinGrauImage from "@/assets/martin-grau.jpg";
-import hartmutSchubertImage from "@/assets/HartmutSchubert.png";
+import haackSchubertLogo from "@/assets/haack-schubert-logo.png";
 import memberspotImage from "@/assets/Memberspot.png";
 import { useState } from "react";
 
@@ -67,7 +67,7 @@ export default function Steuerberater() {
         { name: 'HaackSchubert Partnerschaftsgesellschaft mbB', url: 'https://www.haackschubert.de' }
       ],
       quote: 'LohnLab hat sich im Markt der Lohnoptimierer als Premium-Dienstleister herauskristallisiert, der besonderen Wert auf das Thema Rechtssicherheit legt. Dieser Aspekt war uns für unsere Mandanten das wichtigste.',
-      image: hartmutSchubertImage,
+      image: haackSchubertLogo,
       tags: ['Rechtssicherheit', 'Premium-Service', 'Interdisziplinär', 'Mandantenbetreuung'],
       themeColor: 'green',
       companyInfo: [

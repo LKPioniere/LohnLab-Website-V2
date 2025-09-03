@@ -3,8 +3,15 @@ import datevWorkflowImage from "@/assets/datev-lohnlab-workflow.png";
 
 export default function DatevIntegration() {
   return (
-    <section className="py-32 bg-white">
+    <section className="py-32 bg-gradient-to-br from-slate-50 to-gray-100 relative">
+      {/* Visuelle Abtrennung oben */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--lohn-teal)] to-[var(--lohn-primary)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-block bg-[var(--lohn-teal)]/10 rounded-full px-8 py-3 mb-6">
+            <span className="text-[var(--lohn-teal)] font-semibold text-lg">🔄 Integration</span>
+          </div>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">Die perfekte Symbiose: DATEV meets LohnLab</h2>

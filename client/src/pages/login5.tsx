@@ -25,7 +25,7 @@ export default function Login5() {
 
       {/* Login Card - Center */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <Card className="w-full max-w-lg bg-white/95 backdrop-blur-lg border-white/20 shadow-2xl rounded-3xl p-8">
+        <Card className="w-full max-w-lg bg-white backdrop-blur-lg border border-white/40 shadow-2xl rounded-3xl p-8 ring-1 ring-black/5">
           
           {/* Logo */}
           <div className="text-center mb-8">

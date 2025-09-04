@@ -73,7 +73,7 @@ export default function Login2() {
             </Button>
 
             {/* Microsoft & Apple Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-3 mt-3">
               <Button 
                 variant="outline"
                 className="h-12 text-gray-700 border-gray-200 hover:bg-gray-50 transition-all flex items-center justify-center space-x-2"

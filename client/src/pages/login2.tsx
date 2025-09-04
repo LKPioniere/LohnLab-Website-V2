@@ -190,7 +190,7 @@ export default function Login2() {
                         <IconComponent className="w-6 h-6 text-[var(--lohn-teal)]" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-lg mb-2 group-hover:text-[var(--lohn-teal)] transition-colors">
+                        <h3 className="font-semibold text-lg mb-2 text-[var(--lohn-teal)] group-hover:text-white transition-colors">
                           {feature.title}
                         </h3>
                         <p className="text-blue-100 text-sm leading-relaxed">

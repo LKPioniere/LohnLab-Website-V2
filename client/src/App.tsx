@@ -5,11 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
-import Login from "@/pages/login";
-import Login1 from "@/pages/login1";
 import Login2 from "@/pages/login2";
-import Login3 from "@/pages/login3";
-import Login4 from "@/pages/login4";
 import Login5 from "@/pages/login5";
 import Lohnerhoehung from "@/pages/lohnerhoehung";
 import Lohnoptimierung from "@/pages/lohnoptimierung";
@@ -26,11 +22,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/login1" component={Login1} />
       <Route path="/login2" component={Login2} />
-      <Route path="/login3" component={Login3} />
-      <Route path="/login4" component={Login4} />
       <Route path="/login5" component={Login5} />
       <Route path="/loesungen/lohnerhoehung" component={Lohnerhoehung} />
       <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} />

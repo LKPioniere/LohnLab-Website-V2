@@ -15,16 +15,12 @@ export default function Login5() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] relative overflow-hidden">
       
-      {/* Gradient Background like Login2 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] relative overflow-hidden">
-        
-        {/* Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-20 left-20 w-60 h-60 bg-[var(--lohn-teal)]/20 rounded-full blur-3xl"></div>
-        </div>
+      {/* Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 left-20 w-60 h-60 bg-[var(--lohn-teal)]/20 rounded-full blur-3xl"></div>
       </div>
 
       {/* Login Card - Center */}

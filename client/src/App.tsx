@@ -26,6 +26,7 @@ function Router() {
       <Route path="/login2" component={Login2} />
       <Route path="/login5" component={Login5} />
       <Route path="/mitarbeiter" component={Mitarbeiter} />
+      <Route path="/lohnerhoehung" component={Lohnerhoehung} />
       <Route path="/loesungen/lohnerhoehung" component={Lohnerhoehung} />
       <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} />
       <Route path="/loesungen/neueinstellungen" component={Neueinstellungen} />

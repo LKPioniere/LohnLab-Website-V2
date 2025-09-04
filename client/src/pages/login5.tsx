@@ -29,20 +29,20 @@ export default function Login5() {
 
       {/* Login Card - Center */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <Card className="w-full max-w-lg bg-white/95 backdrop-blur-lg border-white/20 shadow-2xl rounded-3xl p-8">
+        <Card className="w-full max-w-lg bg-white/10 backdrop-blur-lg border-white/20 shadow-2xl rounded-3xl p-8">
           
           {/* Logo */}
           <div className="text-center mb-8">
             <img 
               src={lohnlabLogo} 
               alt="LohnLab Logo" 
-              className="h-12 w-auto mx-auto mb-6"
+              className="h-12 w-auto mx-auto mb-6 brightness-0 invert"
             />
             <h1 className="text-2xl font-bold text-white mb-2">
               Anmelden
             </h1>
-            <p className="text-blue-100">
-              Neuer Benutzer? <button className="text-[var(--lohn-teal)] hover:text-white font-semibold transition-colors">Konto anlegen</button>
+            <p className="text-white/80">
+              Neuer Benutzer? <button className="text-white hover:text-[var(--lohn-teal)] font-semibold transition-colors underline">Konto anlegen</button>
             </p>
           </div>
 

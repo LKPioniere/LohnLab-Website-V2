@@ -29,27 +29,27 @@ export default function Login5() {
 
       {/* Login Card - Center */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <Card className="w-full max-w-lg bg-white/10 backdrop-blur-lg border-white/20 shadow-2xl rounded-3xl p-8">
+        <Card className="w-full max-w-lg bg-white/95 backdrop-blur-lg border-white/20 shadow-2xl rounded-3xl p-8">
           
           {/* Logo */}
           <div className="text-center mb-8">
             <img 
               src={lohnlabLogo} 
               alt="LohnLab Logo" 
-              className="h-12 w-auto mx-auto mb-6 brightness-0 invert"
+              className="h-12 w-auto mx-auto mb-6"
             />
-            <h1 className="text-2xl font-bold text-white mb-2">
+            <h1 className="text-2xl font-bold text-[var(--lohn-primary)] mb-2">
               Anmelden
             </h1>
-            <p className="text-white/80">
-              Neuer Benutzer? <button className="text-white hover:text-[var(--lohn-teal)] font-semibold transition-colors underline">Konto anlegen</button>
+            <p className="text-gray-600">
+              Neuer Benutzer? <button className="text-[var(--lohn-primary)] hover:text-[var(--lohn-teal)] font-semibold transition-colors underline">Konto anlegen</button>
             </p>
           </div>
 
           <form className="space-y-6">
             {/* Email Input */}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-white">
+              <label className="text-sm font-semibold text-gray-700">
                 E-Mail-Adresse
               </label>
               <Input
@@ -63,7 +63,7 @@ export default function Login5() {
 
             {/* Password Input */}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-white">
+              <label className="text-sm font-semibold text-gray-700">
                 Passwort
               </label>
               <div className="relative">
@@ -98,7 +98,7 @@ export default function Login5() {
                 <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 text-gray-500 bg-white font-medium">
+                <span className="px-4 text-gray-500 bg-white/95 font-medium">
                   Oder
                 </span>
               </div>

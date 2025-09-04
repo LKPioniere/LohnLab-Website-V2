@@ -136,17 +136,6 @@ export default function Login5() {
             </div>
           </form>
 
-          {/* Additional Links */}
-          <div className="mt-8 space-y-3 text-center">
-            <button className="text-[var(--lohn-primary)] hover:text-[var(--lohn-secondary)] text-sm transition-colors">
-              Weitere Anmeldeoptionen
-            </button>
-            <div className="border-t border-gray-100 pt-4">
-              <button className="text-[var(--lohn-primary)] hover:text-[var(--lohn-secondary)] text-sm font-medium transition-colors">
-                Hilfe bei der Anmeldung
-              </button>
-            </div>
-          </div>
         </Card>
       </div>
 

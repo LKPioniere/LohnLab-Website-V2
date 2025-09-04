@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
+import Login from "@/pages/login";
 import Lohnerhoehung from "@/pages/lohnerhoehung";
 import Lohnoptimierung from "@/pages/lohnoptimierung";
 import Neueinstellungen from "@/pages/neueinstellungen";
@@ -20,6 +21,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/login" component={Login} />
       <Route path="/loesungen/lohnerhoehung" component={Lohnerhoehung} />
       <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} />
       <Route path="/loesungen/neueinstellungen" component={Neueinstellungen} />

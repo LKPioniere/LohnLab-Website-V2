@@ -17,67 +17,19 @@ export default function Login5() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       
-      {/* Artistic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-gray-50 to-blue-50">
+      {/* Gradient Background like Login2 */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] relative overflow-hidden">
         
-        {/* Geometric Shapes */}
-        <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-[var(--lohn-primary)]/20 to-[var(--lohn-teal)]/30 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-60 h-60 bg-gradient-to-br from-[var(--lohn-purple)]/20 to-[var(--lohn-secondary)]/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-gradient-to-br from-[var(--lohn-teal)]/30 to-[var(--lohn-primary)]/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        
-        {/* Abstract Lines */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <svg className="w-full h-full opacity-10" viewBox="0 0 1200 800">
-            <path 
-              d="M0,200 Q300,50 600,200 T1200,200" 
-              stroke="url(#gradient1)" 
-              strokeWidth="2" 
-              fill="none"
-              className="animate-pulse"
-            />
-            <path 
-              d="M0,400 Q400,250 800,400 T1200,400" 
-              stroke="url(#gradient2)" 
-              strokeWidth="3" 
-              fill="none"
-              className="animate-pulse"
-              style={{animationDelay: '0.5s'}}
-            />
-            <path 
-              d="M0,600 Q200,450 400,600 T800,600 Q1000,450 1200,600" 
-              stroke="url(#gradient3)" 
-              strokeWidth="2" 
-              fill="none"
-              className="animate-pulse"
-              style={{animationDelay: '1.5s'}}
-            />
-            <defs>
-              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(237, 97%, 20%)" />
-                <stop offset="100%" stopColor="hsl(175, 51%, 64%)" />
-              </linearGradient>
-              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(256, 39%, 53%)" />
-                <stop offset="100%" stopColor="hsl(225, 69%, 44%)" />
-              </linearGradient>
-              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(175, 51%, 64%)" />
-                <stop offset="100%" stopColor="hsl(237, 97%, 20%)" />
-              </linearGradient>
-            </defs>
-          </svg>
+        {/* Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-20 w-60 h-60 bg-[var(--lohn-teal)]/20 rounded-full blur-3xl"></div>
         </div>
-        
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(237, 97%, 20%) 1px, transparent 0)`,
-          backgroundSize: '20px 20px'
-        }}></div>
       </div>
 
       {/* Login Card - Center */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <Card className="w-full max-w-lg bg-white/90 backdrop-blur-lg border-0 shadow-2xl rounded-3xl p-8">
+        <Card className="w-full max-w-lg bg-white/95 backdrop-blur-lg border-white/20 shadow-2xl rounded-3xl p-8">
           
           {/* Logo */}
           <div className="text-center mb-8">
@@ -86,18 +38,18 @@ export default function Login5() {
               alt="LohnLab Logo" 
               className="h-12 w-auto mx-auto mb-6"
             />
-            <h1 className="text-2xl font-bold text-[var(--lohn-primary)] mb-2">
+            <h1 className="text-2xl font-bold text-white mb-2">
               Anmelden
             </h1>
-            <p className="text-gray-600">
-              Neuer Benutzer? <button className="text-[var(--lohn-primary)] hover:text-[var(--lohn-secondary)] font-semibold transition-colors">Konto anlegen</button>
+            <p className="text-blue-100">
+              Neuer Benutzer? <button className="text-[var(--lohn-teal)] hover:text-white font-semibold transition-colors">Konto anlegen</button>
             </p>
           </div>
 
           <form className="space-y-6">
             {/* Email Input */}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700">
+              <label className="text-sm font-semibold text-white">
                 E-Mail-Adresse
               </label>
               <Input
@@ -111,7 +63,7 @@ export default function Login5() {
 
             {/* Password Input */}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700">
+              <label className="text-sm font-semibold text-white">
                 Passwort
               </label>
               <div className="relative">
@@ -166,9 +118,9 @@ export default function Login5() {
                 variant="outline"
                 className="w-full h-12 border-gray-200 hover:bg-gray-50 rounded-xl transition-all"
               >
-                <div className="w-5 h-5 mr-3 bg-blue-600 rounded-sm flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">f</span>
-                </div>
+                <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="#1877f2">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
                 Weiter mit Facebook
               </Button>
               
@@ -176,9 +128,9 @@ export default function Login5() {
                 variant="outline"
                 className="w-full h-12 border-gray-200 hover:bg-gray-50 rounded-xl transition-all"
               >
-                <div className="w-5 h-5 mr-3 bg-black rounded-sm flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">🍎</span>
-                </div>
+                <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="#000000">
+                  <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                </svg>
                 Weiter mit Apple
               </Button>
             </div>

@@ -4,23 +4,23 @@ import { storage } from "./storage";
 import { insertContactSchema, insertChatbotSessionSchema, employeeDataFields, employeeDataFieldLabels } from "@shared/schema";
 import { z } from "zod";
 
-interface MistralMessage {
-  role: "user" | "assistant" | "system";
+interface AnthropicMessage {
+  role: "user" | "assistant";
   content: string;
 }
 
-interface MistralChatRequest {
+interface AnthropicChatRequest {
   model: string;
-  messages: MistralMessage[];
+  max_tokens: number;
+  messages: AnthropicMessage[];
+  system?: string;
   temperature?: number;
-  max_tokens?: number;
 }
 
-interface MistralChatResponse {
-  choices: Array<{
-    message: {
-      content: string;
-    };
+interface AnthropicChatResponse {
+  content: Array<{
+    type: string;
+    text: string;
   }>;
 }
 
@@ -82,10 +82,10 @@ function getSmartFallbackResponse(message: string, session: any): string {
   return `Information erhalten! Können Sie mir bitte die nächste benötigte Angabe mitteilen? Wir haben bereits ${completedCount} von 14 Stammdaten erfasst.`;
 }
 
-async function callMistralAPI(messages: MistralMessage[], maxRetries: number = 3): Promise<string> {
-  const apiKey = process.env.MISTRAL_API_KEY;
+async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: string, maxRetries: number = 3): Promise<string> {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    throw new Error("MISTRAL_API_KEY not found in environment");
+    throw new Error("ANTHROPIC_API_KEY not found in environment");
   }
 
   // Check if we should skip API due to consecutive failures
@@ -106,29 +106,27 @@ async function callMistralAPI(messages: MistralMessage[], maxRetries: number = 3
         await new Promise(resolve => setTimeout(resolve, waitTime));
       }
 
-      const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
         },
         body: JSON.stringify({
-          model: 'mistral-small-latest',
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 150,
+          system: systemPrompt,
           messages,
           temperature: 0.7,
-          max_tokens: 120,
-          top_p: 1,
-          stream: false,
-          presence_penalty: 0,
-          frequency_penalty: 0.1,
-        } as MistralChatRequest),
+        } as AnthropicChatRequest),
       });
 
       lastAPICall = Date.now();
 
       if (response.ok) {
-        const data: MistralChatResponse = await response.json();
-        const content = data.choices[0]?.message?.content;
+        const data: AnthropicChatResponse = await response.json();
+        const content = data.content?.[0]?.text;
         if (content) {
           consecutiveFailures = 0; // Reset failure counter on success
           return content;
@@ -163,7 +161,7 @@ async function callMistralAPI(messages: MistralMessage[], maxRetries: number = 3
 
       // Other errors
       consecutiveFailures++;
-      throw new Error(`Mistral API error: ${response.status} ${response.statusText}`);
+      throw new Error(`Anthropic API error: ${response.status} ${response.statusText}`);
 
     } catch (error: any) {
       if (attempt === maxRetries - 1) {
@@ -280,7 +278,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // Build context for Mistral
+      // Build context for Anthropic
       const completedFieldsText = session.completedFields.length > 0 
         ? `Bereits erfasste Daten: ${session.completedFields.map(field => `${employeeDataFieldLabels[field as keyof typeof employeeDataFieldLabels]}: ${session.employeeData[field]}`).join(', ')}.`
         : "Noch keine Daten erfasst.";
@@ -296,13 +294,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let response: string;
       
       try {
-        const messages: MistralMessage[] = [
-          { role: "system", content: getSystemPrompt() },
-          { role: "system", content: contextMessage },
-          { role: "user", content: message }
+        const messages: AnthropicMessage[] = [
+          { role: "user", content: `${contextMessage}\n\nBenutzer-Nachricht: ${message}` }
         ];
 
-        response = await callMistralAPI(messages);
+        response = await callAnthropicAPI(messages, getSystemPrompt());
       } catch (error: any) {
         // Use smart fallback when API is rate limited or unavailable
         console.log("Using fallback response due to API error:", error?.message || error);

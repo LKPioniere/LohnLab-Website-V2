@@ -26,7 +26,9 @@ interface MistralChatResponse {
 
 // Rate limiting state
 let lastAPICall = 0;
-const MIN_API_INTERVAL = 3000; // 3 seconds between API calls
+const MIN_API_INTERVAL = 2000; // 2 seconds between API calls
+let consecutiveFailures = 0;
+const MAX_FAILURES_BEFORE_FALLBACK = 2;
 
 function getSmartFallbackResponse(message: string, session: any): string {
   const messageLower = message.toLowerCase();
@@ -80,57 +82,103 @@ function getSmartFallbackResponse(message: string, session: any): string {
   return `Information erhalten! Können Sie mir bitte die nächste benötigte Angabe mitteilen? Wir haben bereits ${completedCount} von 14 Stammdaten erfasst.`;
 }
 
-async function callMistralAPI(messages: MistralMessage[]): Promise<string> {
+async function callMistralAPI(messages: MistralMessage[], maxRetries: number = 3): Promise<string> {
   const apiKey = process.env.MISTRAL_API_KEY;
   if (!apiKey) {
     throw new Error("MISTRAL_API_KEY not found in environment");
   }
 
-  // Rate limiting check
-  const now = Date.now();
-  if (now - lastAPICall < MIN_API_INTERVAL) {
-    throw new Error("Rate limited - too many requests");
+  // Check if we should skip API due to consecutive failures
+  if (consecutiveFailures >= MAX_FAILURES_BEFORE_FALLBACK) {
+    throw new Error("Too many consecutive API failures, using fallback");
   }
 
-  try {
-    const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'mistral-small-latest',
-        messages,
-        temperature: 0.7,
-        max_tokens: 150,
-        top_p: 1,
-        stream: false,
-        presence_penalty: 0,
-        frequency_penalty: 0.1, // Slightly reduce repetition
-      } as MistralChatRequest),
-    });
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      // Rate limiting check with exponential backoff
+      const now = Date.now();
+      const timeSinceLastCall = now - lastAPICall;
+      const requiredInterval = MIN_API_INTERVAL * Math.pow(2, attempt); // Exponential backoff
 
-    lastAPICall = now;
+      if (timeSinceLastCall < requiredInterval) {
+        const waitTime = requiredInterval - timeSinceLastCall;
+        console.log(`Rate limiting: waiting ${waitTime}ms before attempt ${attempt + 1}`);
+        await new Promise(resolve => setTimeout(resolve, waitTime));
+      }
 
-    if (!response.ok) {
+      const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: 'mistral-small-latest',
+          messages,
+          temperature: 0.7,
+          max_tokens: 120,
+          top_p: 1,
+          stream: false,
+          presence_penalty: 0,
+          frequency_penalty: 0.1,
+        } as MistralChatRequest),
+      });
+
+      lastAPICall = Date.now();
+
+      if (response.ok) {
+        const data: MistralChatResponse = await response.json();
+        const content = data.choices[0]?.message?.content;
+        if (content) {
+          consecutiveFailures = 0; // Reset failure counter on success
+          return content;
+        }
+      }
+
       if (response.status === 429) {
-        throw new Error("Rate limited by API");
+        console.log(`Rate limit hit on attempt ${attempt + 1}, retrying...`);
+        if (attempt === maxRetries - 1) {
+          consecutiveFailures++;
+          throw new Error("Rate limited by API after all retries");
+        }
+        // Wait exponentially longer for rate limits
+        const backoffTime = Math.min(1000 * Math.pow(2, attempt + 1), 8000); // Cap at 8 seconds
+        await new Promise(resolve => setTimeout(resolve, backoffTime));
+        continue;
       }
-      if (response.status === 401) {
-        return "Es gibt ein Problem mit der API-Konfiguration. Bitte kontaktieren Sie den Support.";
-      }
-      if (response.status >= 500) {
-        throw new Error("API server error");
-      }
-      throw new Error(`Mistral API error: ${response.status} ${response.statusText}`);
-    }
 
-    const data: MistralChatResponse = await response.json();
-    return data.choices[0]?.message?.content || "Entschuldigung, ich konnte keine Antwort generieren.";
-  } catch (error) {
-    throw error;
+      if (response.status === 401) {
+        throw new Error("API key authentication failed");
+      }
+
+      if (response.status >= 500) {
+        console.log(`Server error ${response.status} on attempt ${attempt + 1}`);
+        if (attempt === maxRetries - 1) {
+          consecutiveFailures++;
+          throw new Error("API server error after all retries");
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+        continue;
+      }
+
+      // Other errors
+      consecutiveFailures++;
+      throw new Error(`Mistral API error: ${response.status} ${response.statusText}`);
+
+    } catch (error: any) {
+      if (attempt === maxRetries - 1) {
+        consecutiveFailures++;
+        throw error;
+      }
+      
+      console.log(`API call failed on attempt ${attempt + 1}:`, error.message);
+      // Wait before retry
+      await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+    }
   }
+
+  consecutiveFailures++;
+  throw new Error("Max retries exceeded");
 }
 
 function getSystemPrompt(): string {

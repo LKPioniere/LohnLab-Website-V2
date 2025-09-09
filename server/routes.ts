@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema, insertChatbotSessionSchema, employeeDataFields, employeeDataFieldLabels } from "@shared/schema";
 import { z } from "zod";
+import { embeddingService } from "./rag";
 
 interface AnthropicMessage {
   role: "user" | "assistant";
@@ -223,7 +224,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // Build context for Anthropic
+      // Store user message in RAG system
+      await embeddingService.storeConversationEmbedding(
+        sessionId,
+        message,
+        'user',
+        { step: session.currentStep + 1 }
+      );
+
+      // Get RAG context for better responses
+      const ragContext = await embeddingService.getSessionSummary(sessionId);
+      
+      // Build enhanced context with RAG
       const completedFieldsText = session.completedFields.length > 0 
         ? `Bereits erfasste Daten: ${session.completedFields.map(field => `${employeeDataFieldLabels[field as keyof typeof employeeDataFieldLabels]}: ${session.employeeData[field]}`).join(', ')}.`
         : "Noch keine Daten erfasst.";
@@ -234,15 +246,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
         .slice(0, 3)
         .join(', ');
 
-      const contextMessage = `${completedFieldsText} Als nächstes zu erfassen: ${nextFieldsText}. Fortschritt: ${session.completedFields.length} von ${employeeDataFields.length} Angaben erfasst.`;
-
-      let response: string;
+      const basicContext = `${completedFieldsText} Als nächstes zu erfassen: ${nextFieldsText}. Fortschritt: ${session.completedFields.length} von ${employeeDataFields.length} Angaben erfasst.`;
       
+      const fullContext = ragContext ? 
+        `${basicContext}\n\n--- GESPRÄCHSKONTEXT AUS RAG-SYSTEM ---\n${ragContext}\n--- ENDE KONTEXT ---` : 
+        basicContext;
+
       const messages: AnthropicMessage[] = [
-        { role: "user", content: `${contextMessage}\n\nBenutzer-Nachricht: ${message}` }
+        { role: "user", content: `${fullContext}\n\nAktuelle Benutzer-Nachricht: ${message}` }
       ];
 
-      response = await callAnthropicAPI(messages, getSystemPrompt());
+      const response = await callAnthropicAPI(messages, getSystemPrompt());
+
+      // Store assistant response in RAG system
+      await embeddingService.storeConversationEmbedding(
+        sessionId,
+        response,
+        'assistant',
+        { step: session.currentStep + 1, relatedQuery: message }
+      );
 
       // Update session with the interaction
       const updatedSession = await storage.updateChatbotSession(sessionId, {

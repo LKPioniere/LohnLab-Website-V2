@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import FloatingChatbot from "@/components/common/FloatingChatbot";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator, Users, FileCheck, Zap, Euro, TrendingUp, Settings, Download, Eye, FileX, Heart } from "lucide-react";
 import { Link } from "wouter";
@@ -333,6 +334,9 @@ export default function Neueinstellungen() {
       </section>
 
       <Footer />
+      
+      {/* Floating Chatbot for Testing Employee Data Entry */}
+      <FloatingChatbot />
     </div>
   );
 }

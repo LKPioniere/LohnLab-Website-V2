@@ -111,7 +111,7 @@ export default function FloatingChatbot() {
       console.error('Error sending message:', error);
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        text: "Entschuldigung, es gab einen Fehler bei der Verarbeitung Ihrer Nachricht. Bitte versuchen Sie es erneut.",
+        text: "Entschuldigung, es gab einen Fehler bei der Verarbeitung Ihrer Nachricht. Das kann passieren, wenn der Service überlastet ist. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
         sender: "bot",
         timestamp: new Date()
       };

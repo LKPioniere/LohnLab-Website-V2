@@ -37,14 +37,23 @@ async function callMistralAPI(messages: MistralMessage[]): Promise<string> {
       'Authorization': `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'mistral-large-latest',
+      model: 'mistral-small-latest', // Use smaller model to avoid rate limits
       messages,
       temperature: 0.7,
-      max_tokens: 500,
+      max_tokens: 300,
     } as MistralChatRequest),
   });
 
   if (!response.ok) {
+    if (response.status === 429) {
+      return "Entschuldigung, der Service ist momentan überlastet. Bitte warten Sie einen Moment und versuchen Sie es erneut.";
+    }
+    if (response.status === 401) {
+      return "Es gibt ein Problem mit der API-Konfiguration. Bitte kontaktieren Sie den Support.";
+    }
+    if (response.status >= 500) {
+      return "Der KI-Service ist momentan nicht verfügbar. Bitte versuchen Sie es später erneut.";
+    }
     throw new Error(`Mistral API error: ${response.status} ${response.statusText}`);
   }
 

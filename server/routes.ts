@@ -57,10 +57,10 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
-          max_tokens: 100,
+          max_tokens: 50,
           system: systemPrompt,
           messages,
-          temperature: 0.3,
+          temperature: 0.1,
         } as AnthropicChatRequest),
       });
 
@@ -116,22 +116,24 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
 }
 
 function getSystemPrompt(): string {
-  return `Du bist HR-Assistent für LohnLab Cockpit. Du erfasst 14 Stammdaten für Neueinstellungen:
-1. Vorname 2. Nachname 3. Geburtsdatum 4. Straße 5. PLZ 6. Ort 
-7. Sozialversicherungsnummer 8. Steuer-ID 9. Familienstand 10. Anzahl Kinder 
-11. Konfession 12. Krankenversicherung 13. KV-Nummer 14. Bruttogehalt
+  return `HR-Assistent für Stammdatenerfassung. Der USER ist Sachbearbeiter, erfasst Daten für NEUEN MITARBEITER.
 
-VERHALTEN:
-- Frage NUR EINE Information pro Nachricht
-- Antworte KURZ (max 1-2 Sätze)
-- KEINE Fortschrittsanzeigen oder lange Erklärungen
-- Bestätige kurz, dann nächste Frage
-- Bei Start verwende EXAKT diese Nachricht: "Hallo! Ich bin Ihr digitaler HR-Assistent von LohnLab Cockpit. Ich helfe Ihnen dabei, alle wichtigen Stammdaten für Ihre Neueinstellung systematisch zu erfassen. Lassen Sie uns beginnen - wie ist der Vorname des neuen Mitarbeiters?"
+DATEN: Vorname, Nachname, Geburtsdatum, Straße, PLZ, Ort, SV-Nr, Steuer-ID, Familienstand, Kinder, Konfession, Krankenversicherung, KV-Nr, Bruttogehalt
 
-Beispiele guter Antworten:
-- "Danke! Wie lautet der Nachname?"
-- "Perfekt! Geburtsdatum bitte (TT.MM.JJJJ)?"
-- "Notiert! Straße und Hausnummer?"`;
+REGELN:
+- Antworte EXTREM kurz (max 8 Wörter)
+- KEINE Listen, Aufzählungen, Fortschrittsanzeigen
+- NUR eine Frage pro Nachricht
+- Merke bereits erfasste Daten
+- Rede vom "neuen Mitarbeiter", nicht "Sie"
+
+START-NACHRICHT (nur beim allerersten Mal):
+"Hallo! Ich bin Ihr digitaler HR-Assistent von LohnLab Cockpit. Ich helfe Ihnen dabei, alle wichtigen Stammdaten für Ihre Neueinstellung systematisch zu erfassen. Lassen Sie uns beginnen - wie ist der Vorname des neuen Mitarbeiters?"
+
+GUTE BEISPIELE:
+"Danke! Nachname?"
+"Verstanden. Geburtsdatum (TT.MM.JJJJ)?"
+"Notiert. Straße?"`;
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -214,21 +216,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get RAG context for better responses
       const ragContext = await embeddingService.getSessionSummary(sessionId);
       
-      // Build enhanced context with RAG
+      // Build minimal context without progress indicators
       const completedFieldsText = session.completedFields.length > 0 
-        ? `Bereits erfasste Daten: ${session.completedFields.map(field => `${employeeDataFieldLabels[field as keyof typeof employeeDataFieldLabels]}: ${session.employeeData[field]}`).join(', ')}.`
-        : "Noch keine Daten erfasst.";
+        ? `Erfasst: ${session.completedFields.map(field => `${employeeDataFieldLabels[field as keyof typeof employeeDataFieldLabels]}=${session.employeeData[field]}`).join(', ')}`
+        : "Erste Eingabe";
 
-      const nextFieldsText = employeeDataFields
-        .filter(field => !session.completedFields.includes(field))
-        .map(field => employeeDataFieldLabels[field])
-        .slice(0, 3)
-        .join(', ');
+      const nextField = employeeDataFields.find(field => !session.completedFields.includes(field));
+      const nextFieldLabel = nextField ? employeeDataFieldLabels[nextField] : "Alle Daten erfasst";
 
-      const basicContext = `${completedFieldsText} Als nächstes zu erfassen: ${nextFieldsText}. Fortschritt: ${session.completedFields.length} von ${employeeDataFields.length} Angaben erfasst.`;
+      const basicContext = `Status: ${completedFieldsText}. Nächstes Feld: ${nextFieldLabel}`;
       
       const fullContext = ragContext ? 
-        `${basicContext}\n\n--- GESPRÄCHSKONTEXT AUS RAG-SYSTEM ---\n${ragContext}\n--- ENDE KONTEXT ---` : 
+        `${basicContext}\nKontext: ${ragContext}` : 
         basicContext;
 
       const messages: AnthropicMessage[] = [

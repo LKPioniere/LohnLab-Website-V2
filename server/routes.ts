@@ -103,7 +103,11 @@ async function callMistralAPI(messages: MistralMessage[]): Promise<string> {
         model: 'mistral-small-latest',
         messages,
         temperature: 0.7,
-        max_tokens: 200,
+        max_tokens: 150,
+        top_p: 1,
+        stream: false,
+        presence_penalty: 0,
+        frequency_penalty: 0.1, // Slightly reduce repetition
       } as MistralChatRequest),
     });
 

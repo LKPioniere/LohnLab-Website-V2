@@ -1,0 +1,49 @@
+Hallo! Ich bin Ihr digitaler HR-Assistent von LohnLab Cockpit. Ich helfe Ihnen dabei, alle wichtigen Stammdaten für Ihre Neueinstellung systematisch zu erfassen. Lassen Sie uns beginnen - wie ist der Vorname des neuen Mitarbeiters?
+
+18:41
+rainer
+
+18:41
+Hallo! Ich bin Ihr HR-Assistent für LohnLab Cockpit und erfasse systematisch alle wichtigen Stammdaten für Ihre Neueinstellung. Wir gehen gemeinsam 14 wichtige Punkte durch - von Ihren persönlichen Daten bis hin zu Ihrem gewünschten Gehalt. **Fortschritt: 1 von 14 Angaben erfasst** Vielen Dank! Ich habe "Rainer" als Ihren Vornamen notiert. Wie ist Ihr **Nachname**?
+
+18:41
+Winkler
+
+18:41
+Perfekt! Ich habe "Winkler" als Ihren Nachnamen erfasst. **Fortschritt: 2 von 14 Angaben erfasst** Als nächstes benötige ich Ihr **Geburtsdatum**. Bitte geben Sie es im Format TT.MM.JJJJ an (zum Beispiel: 15.03.1985).
+
+18:41
+01.01.2000
+
+18:41
+Vielen Dank! Ich habe Ihr Geburtsdatum "01.01.2000" erfasst. **Fortschritt: 3 von 14 Angaben erfasst** Jetzt benötige ich Ihre Adresse. Bitte geben Sie mir Ihre **Straße und Hausnummer** an (zum Beispiel: Musterstraße 123).
+
+18:41
+Butjadinger Straße 76a, 26180 Rastede
+
+18:41
+Vielen Dank! Ich sehe, Sie haben bereits Ihre komplette Adresse angegeben. Das ist sehr hilfreich! Ich erfasse das folgendermaßen: - **Straße und Hausnummer**: Butjadinger Straße 76a - **Postleitzahl**: 26180 - **Ort**: Rastede **Fortschritt: 6 von 14 Angaben erfasst** Als nächstes benötige ich Ihre **Sozialversicherungsnummer**. Diese hat das Format DDMMJJSSBBVV (12
+
+18:42
+SVJ123424322
+
+18:42
+Vielen Dank! Ich habe Ihre **Sozialversicherungsnummer "SVJ123424322"** erfasst. **Fortschritt: 7 von 14 Angaben erfasst** Als nächstes benötige ich Ihre **steuerliche Identifikationsnummer**. Diese ist 11-stellig und beginnt meist mit einer Ziffer (zum Beispiel: 12345678901).
+
+18:42
+11111111111
+
+18:42
+Vielen Dank! Ich habe Ihre **Steuerliche Identifikationsnummer** "11111111111" erfasst. **Fortschritt: 8 von 14 Angaben erfasst** Als nächstes benötige ich Ihren **Familienstand**. Bitte wählen Sie aus: - ledig - verheiratet - geschieden - verwitwet Wie ist Ihr aktueller Familienstand?
+
+18:42
+Ledig
+
+18:42
+Perfekt! Ich habe "ledig" als Ihren Familienstand erfasst. **Fortschritt: 9 von 14 Angaben erfasst** Als nächstes benötige ich die **Anzahl Ihrer Kinder** für die Lohnsteuerberechnung. Bitte geben Sie die Zahl an (zum Beispiel: 0, 1, 2, etc.).
+
+18:42
+3
+
+18:42
+Vielen Dank! Ich sehe, Sie haben bereits Ihre komplette Adresse angegeben. Das ist sehr hilfreich! Ich erfasse das folgendermaßen: - **Straße und Hausnummer**: Butjadinger Straße 76a - **Postleitzahl**: 26180 - **Ort**: Rastede **Fortschritt: 6 von 14 Angaben erfasst** Als nächstes benötige ich Ihre **Sozialversicherungsnummer**. Diese hat das Format DDMMJJSSBBVV (12

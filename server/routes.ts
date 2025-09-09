@@ -57,10 +57,10 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
-          max_tokens: 50,
+          max_tokens: 25,
           system: systemPrompt,
           messages,
-          temperature: 0.1,
+          temperature: 0.0,
         } as AnthropicChatRequest),
       });
 
@@ -116,24 +116,24 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
 }
 
 function getSystemPrompt(): string {
-  return `HR-Assistent für Stammdatenerfassung. Der USER ist Sachbearbeiter, erfasst Daten für NEUEN MITARBEITER.
+  return `WICHTIG: Du bist ein HR-Assistent. Der User ist Sachbearbeiter, du erfasst Daten für einen NEUEN MITARBEITER.
 
-DATEN: Vorname, Nachname, Geburtsdatum, Straße, PLZ, Ort, SV-Nr, Steuer-ID, Familienstand, Kinder, Konfession, Krankenversicherung, KV-Nr, Bruttogehalt
+ABSOLUTE REGELN:
+- Antworte MAXIMAL 5 Wörter
+- NIEMALS "Fortschritt" oder "Angaben erfasst" schreiben
+- NIEMALS Listen oder Aufzählungen
+- Frage nur nach EINEM Datum
+- Sprich vom "neuen Mitarbeiter", NICHT "Sie/Ihr"
 
-REGELN:
-- Antworte EXTREM kurz (max 8 Wörter)
-- KEINE Listen, Aufzählungen, Fortschrittsanzeigen
-- NUR eine Frage pro Nachricht
-- Merke bereits erfasste Daten
-- Rede vom "neuen Mitarbeiter", nicht "Sie"
-
-START-NACHRICHT (nur beim allerersten Mal):
-"Hallo! Ich bin Ihr digitaler HR-Assistent von LohnLab Cockpit. Ich helfe Ihnen dabei, alle wichtigen Stammdaten für Ihre Neueinstellung systematisch zu erfassen. Lassen Sie uns beginnen - wie ist der Vorname des neuen Mitarbeiters?"
-
-GUTE BEISPIELE:
+BEISPIELE GUTER ANTWORTEN:
 "Danke! Nachname?"
-"Verstanden. Geburtsdatum (TT.MM.JJJJ)?"
-"Notiert. Straße?"`;
+"Verstanden. Geburtsdatum?"
+"Notiert. Straße?"
+
+NIEMALS SO ANTWORTEN:
+❌ "Fortschritt: X von 14"
+❌ "Ich habe erfasst..."  
+❌ Listen mit Punkten`;
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -216,19 +216,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get RAG context for better responses
       const ragContext = await embeddingService.getSessionSummary(sessionId);
       
-      // Build minimal context without progress indicators
-      const completedFieldsText = session.completedFields.length > 0 
-        ? `Erfasst: ${session.completedFields.map(field => `${employeeDataFieldLabels[field as keyof typeof employeeDataFieldLabels]}=${session.employeeData[field]}`).join(', ')}`
-        : "Erste Eingabe";
-
+      // Ultra-minimal context
       const nextField = employeeDataFields.find(field => !session.completedFields.includes(field));
       const nextFieldLabel = nextField ? employeeDataFieldLabels[nextField] : "Alle Daten erfasst";
 
-      const basicContext = `Status: ${completedFieldsText}. Nächstes Feld: ${nextFieldLabel}`;
+      const basicContext = `Nächstes Feld: ${nextFieldLabel}`;
       
-      const fullContext = ragContext ? 
-        `${basicContext}\nKontext: ${ragContext}` : 
-        basicContext;
+      const fullContext = `${basicContext}. ANTWORTE KURZ (max 5 Wörter), KEINE Fortschrittsanzeigen!`;
 
       const messages: AnthropicMessage[] = [
         { role: "user", content: `${fullContext}\n\nAktuelle Benutzer-Nachricht: ${message}` }

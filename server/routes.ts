@@ -24,41 +24,109 @@ interface MistralChatResponse {
   }>;
 }
 
+// Rate limiting state
+let lastAPICall = 0;
+const MIN_API_INTERVAL = 3000; // 3 seconds between API calls
+
+function getSmartFallbackResponse(message: string, session: any): string {
+  const messageLower = message.toLowerCase();
+  const completedCount = session.completedFields?.length || 0;
+  
+  // Welcome/Start responses
+  if (completedCount === 0) {
+    return "Willkommen! Ich helfe Ihnen dabei, alle wichtigen Stammdaten systematisch zu erfassen. Lassen Sie uns mit dem Vornamen des neuen Mitarbeiters beginnen. Wie lautet der Vorname?";
+  }
+  
+  // Check for name patterns
+  if (completedCount === 0 && messageLower.match(/^[a-zA-ZäöüßÄÖÜ\s-]{2,30}$/)) {
+    return `Vielen Dank! Vorname "${message}" ist notiert. Wie lautet der Nachname des Mitarbeiters?`;
+  }
+  
+  if (completedCount === 1 && messageLower.match(/^[a-zA-ZäöüßÄÖÜ\s-]{2,50}$/)) {
+    return `Perfekt! Name ist vollständig erfasst. Als nächstes benötige ich das Geburtsdatum. Bitte geben Sie es im Format TT.MM.JJJJ ein (z.B. 15.03.1990).`;
+  }
+  
+  // Check for date patterns
+  if (messageLower.match(/^\d{1,2}\.\d{1,2}\.\d{4}$/)) {
+    return `Geburtsdatum erfasst! Nun zur Adresse: Bitte geben Sie Straße und Hausnummer ein (z.B. Musterstraße 123).`;
+  }
+  
+  // Check for address patterns
+  if (messageLower.match(/^[a-zA-ZäöüßÄÖÜ\s\.-]+\s+\d+[a-z]?$/i)) {
+    return `Straße notiert! Wie lautet die 5-stellige Postleitzahl?`;
+  }
+  
+  // Check for PLZ patterns
+  if (messageLower.match(/^\d{5}$/)) {
+    return `Postleitzahl erfasst! In welchem Ort wohnt der Mitarbeiter?`;
+  }
+  
+  // Generic progress responses based on completion count
+  const nextFields = [
+    "Sozialversicherungsnummer (11-stellig, Format: DDMMJJSSBBVV)",
+    "Steuerliche Identifikationsnummer (11-stellig)",
+    "Familienstand (ledig, verheiratet, geschieden, verwitwet)",
+    "Anzahl Kinder (für die Lohnsteuerberechnung)",
+    "Konfession (ev, rk, keine, sonstige)",
+    "Name der Krankenversicherung",
+    "Krankenversicherungsnummer",
+    "Gewünschtes Bruttogehalt in Euro"
+  ];
+  
+  if (completedCount < nextFields.length) {
+    return `Danke! Information erfasst. Als nächstes benötige ich: ${nextFields[completedCount - 5] || nextFields[0]}. (${completedCount + 1} von 14 Angaben erfasst)`;
+  }
+  
+  return `Information erhalten! Können Sie mir bitte die nächste benötigte Angabe mitteilen? Wir haben bereits ${completedCount} von 14 Stammdaten erfasst.`;
+}
+
 async function callMistralAPI(messages: MistralMessage[]): Promise<string> {
   const apiKey = process.env.MISTRAL_API_KEY;
   if (!apiKey) {
     throw new Error("MISTRAL_API_KEY not found in environment");
   }
 
-  const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: 'mistral-small-latest', // Use smaller model to avoid rate limits
-      messages,
-      temperature: 0.7,
-      max_tokens: 300,
-    } as MistralChatRequest),
-  });
-
-  if (!response.ok) {
-    if (response.status === 429) {
-      return "Entschuldigung, der Service ist momentan überlastet. Bitte warten Sie einen Moment und versuchen Sie es erneut.";
-    }
-    if (response.status === 401) {
-      return "Es gibt ein Problem mit der API-Konfiguration. Bitte kontaktieren Sie den Support.";
-    }
-    if (response.status >= 500) {
-      return "Der KI-Service ist momentan nicht verfügbar. Bitte versuchen Sie es später erneut.";
-    }
-    throw new Error(`Mistral API error: ${response.status} ${response.statusText}`);
+  // Rate limiting check
+  const now = Date.now();
+  if (now - lastAPICall < MIN_API_INTERVAL) {
+    throw new Error("Rate limited - too many requests");
   }
 
-  const data: MistralChatResponse = await response.json();
-  return data.choices[0]?.message?.content || "Entschuldigung, ich konnte keine Antwort generieren.";
+  try {
+    const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'mistral-small-latest',
+        messages,
+        temperature: 0.7,
+        max_tokens: 200,
+      } as MistralChatRequest),
+    });
+
+    lastAPICall = now;
+
+    if (!response.ok) {
+      if (response.status === 429) {
+        throw new Error("Rate limited by API");
+      }
+      if (response.status === 401) {
+        return "Es gibt ein Problem mit der API-Konfiguration. Bitte kontaktieren Sie den Support.";
+      }
+      if (response.status >= 500) {
+        throw new Error("API server error");
+      }
+      throw new Error(`Mistral API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data: MistralChatResponse = await response.json();
+    return data.choices[0]?.message?.content || "Entschuldigung, ich konnte keine Antwort generieren.";
+  } catch (error) {
+    throw error;
+  }
 }
 
 function getSystemPrompt(): string {
@@ -173,13 +241,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const contextMessage = `${completedFieldsText} Als nächstes zu erfassen: ${nextFieldsText}. Fortschritt: ${session.completedFields.length} von ${employeeDataFields.length} Angaben erfasst.`;
 
-      const messages: MistralMessage[] = [
-        { role: "system", content: getSystemPrompt() },
-        { role: "system", content: contextMessage },
-        { role: "user", content: message }
-      ];
+      let response: string;
+      
+      try {
+        const messages: MistralMessage[] = [
+          { role: "system", content: getSystemPrompt() },
+          { role: "system", content: contextMessage },
+          { role: "user", content: message }
+        ];
 
-      const response = await callMistralAPI(messages);
+        response = await callMistralAPI(messages);
+      } catch (error: any) {
+        // Use smart fallback when API is rate limited or unavailable
+        console.log("Using fallback response due to API error:", error?.message || error);
+        response = getSmartFallbackResponse(message, session);
+      }
 
       // Update session with the interaction
       const updatedSession = await storage.updateChatbotSession(sessionId, {

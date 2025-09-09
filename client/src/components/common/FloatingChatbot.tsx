@@ -151,9 +151,10 @@ export default function FloatingChatbot() {
 
       {/* Chat Widget */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px] flex flex-col">
+        <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px]">
           <Card className="h-full flex flex-col shadow-2xl">
-            <CardHeader className="bg-[var(--lohn-primary)] text-white p-4 rounded-t-lg">
+            {/* Header */}
+            <CardHeader className="bg-[var(--lohn-primary)] text-white p-4 rounded-t-lg flex-shrink-0">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg font-semibold">
                   HR-Assistent
@@ -178,25 +179,25 @@ export default function FloatingChatbot() {
               </div>
             </CardHeader>
 
-            <CardContent className="flex-1 flex flex-col p-0">
-              {/* Progress Overview */}
-              {progress.completedFields.length > 0 && (
-                <div className="p-4 bg-gray-50 border-b">
-                  <h4 className="text-sm font-medium mb-2">Erfasste Daten:</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {progress.completedFields.map((field) => (
-                      <Badge key={field} variant="secondary" className="text-xs">
-                        <CheckCircle className="h-3 w-3 mr-1" />
-                        {getFieldDisplayName(field)}
-                      </Badge>
-                    ))}
-                  </div>
+            {/* Progress Overview */}
+            {progress.completedFields.length > 0 && (
+              <div className="p-4 bg-gray-50 border-b flex-shrink-0">
+                <h4 className="text-sm font-medium mb-2">Erfasste Daten:</h4>
+                <div className="flex flex-wrap gap-1">
+                  {progress.completedFields.map((field) => (
+                    <Badge key={field} variant="secondary" className="text-xs">
+                      <CheckCircle className="h-3 w-3 mr-1" />
+                      {getFieldDisplayName(field)}
+                    </Badge>
+                  ))}
                 </div>
-              )}
+              </div>
+            )}
 
-              {/* Chat Messages */}
-              <ScrollArea className="flex-1 p-4">
-                <div className="space-y-4">
+            {/* Chat Messages - Scrollable Area */}
+            <div className="flex-1 overflow-hidden">
+              <ScrollArea className="h-full">
+                <div className="p-4 space-y-4">
                   {messages.map((message) => (
                     <div
                       key={message.id}
@@ -245,41 +246,42 @@ export default function FloatingChatbot() {
                   <div ref={messagesEndRef} />
                 </div>
               </ScrollArea>
+            </div>
 
-              <Separator />
-
-              {/* Input Area */}
-              <div className="p-4">
-                {progress.isCompleted && (
-                  <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-                    <div className="flex items-center gap-2 text-green-800">
-                      <CheckCircle className="h-4 w-4" />
-                      <span className="text-sm font-medium">
-                        Alle Stammdaten erfolgreich erfasst!
-                      </span>
-                    </div>
-                  </div>
-                )}
-                
-                <div className="flex gap-2">
-                  <Input
-                    value={currentMessage}
-                    onChange={(e) => setCurrentMessage(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Nachricht eingeben..."
-                    disabled={isLoading}
-                    className="flex-1"
-                  />
-                  <Button
-                    onClick={sendMessage}
-                    disabled={isLoading || !currentMessage.trim()}
-                    size="sm"
-                  >
-                    <Send className="h-4 w-4" />
-                  </Button>
+            {/* Completion Status */}
+            {progress.isCompleted && (
+              <div className="p-4 bg-green-50 border-t border-green-200 flex-shrink-0">
+                <div className="flex items-center gap-2 text-green-800">
+                  <CheckCircle className="h-4 w-4" />
+                  <span className="text-sm font-medium">
+                    Alle Stammdaten erfolgreich erfasst!
+                  </span>
                 </div>
               </div>
-            </CardContent>
+            )}
+
+            <Separator className="flex-shrink-0" />
+
+            {/* Input Area - Fixed at bottom */}
+            <div className="p-4 flex-shrink-0 bg-white rounded-b-lg">
+              <div className="flex gap-2">
+                <Input
+                  value={currentMessage}
+                  onChange={(e) => setCurrentMessage(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="Nachricht eingeben..."
+                  disabled={isLoading}
+                  className="flex-1"
+                />
+                <Button
+                  onClick={sendMessage}
+                  disabled={isLoading || !currentMessage.trim()}
+                  size="sm"
+                >
+                  <Send className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
           </Card>
         </div>
       )}

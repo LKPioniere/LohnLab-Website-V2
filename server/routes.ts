@@ -26,71 +26,12 @@ interface AnthropicChatResponse {
 
 // Rate limiting state
 let lastAPICall = 0;
-const MIN_API_INTERVAL = 2000; // 2 seconds between API calls
-let consecutiveFailures = 0;
-const MAX_FAILURES_BEFORE_FALLBACK = 2;
-
-function getSmartFallbackResponse(message: string, session: any): string {
-  const messageLower = message.toLowerCase();
-  const completedCount = session.completedFields?.length || 0;
-  
-  // Welcome/Start responses
-  if (completedCount === 0) {
-    return "Willkommen! Ich helfe Ihnen dabei, alle wichtigen Stammdaten systematisch zu erfassen. Lassen Sie uns mit dem Vornamen des neuen Mitarbeiters beginnen. Wie lautet der Vorname?";
-  }
-  
-  // Check for name patterns
-  if (completedCount === 0 && messageLower.match(/^[a-zA-ZäöüßÄÖÜ\s-]{2,30}$/)) {
-    return `Vielen Dank! Vorname "${message}" ist notiert. Wie lautet der Nachname des Mitarbeiters?`;
-  }
-  
-  if (completedCount === 1 && messageLower.match(/^[a-zA-ZäöüßÄÖÜ\s-]{2,50}$/)) {
-    return `Perfekt! Name ist vollständig erfasst. Als nächstes benötige ich das Geburtsdatum. Bitte geben Sie es im Format TT.MM.JJJJ ein (z.B. 15.03.1990).`;
-  }
-  
-  // Check for date patterns
-  if (messageLower.match(/^\d{1,2}\.\d{1,2}\.\d{4}$/)) {
-    return `Geburtsdatum erfasst! Nun zur Adresse: Bitte geben Sie Straße und Hausnummer ein (z.B. Musterstraße 123).`;
-  }
-  
-  // Check for address patterns
-  if (messageLower.match(/^[a-zA-ZäöüßÄÖÜ\s\.-]+\s+\d+[a-z]?$/i)) {
-    return `Straße notiert! Wie lautet die 5-stellige Postleitzahl?`;
-  }
-  
-  // Check for PLZ patterns
-  if (messageLower.match(/^\d{5}$/)) {
-    return `Postleitzahl erfasst! In welchem Ort wohnt der Mitarbeiter?`;
-  }
-  
-  // Generic progress responses based on completion count
-  const nextFields = [
-    "Sozialversicherungsnummer (11-stellig, Format: DDMMJJSSBBVV)",
-    "Steuerliche Identifikationsnummer (11-stellig)",
-    "Familienstand (ledig, verheiratet, geschieden, verwitwet)",
-    "Anzahl Kinder (für die Lohnsteuerberechnung)",
-    "Konfession (ev, rk, keine, sonstige)",
-    "Name der Krankenversicherung",
-    "Krankenversicherungsnummer",
-    "Gewünschtes Bruttogehalt in Euro"
-  ];
-  
-  if (completedCount < nextFields.length) {
-    return `Danke! Information erfasst. Als nächstes benötige ich: ${nextFields[completedCount - 5] || nextFields[0]}. (${completedCount + 1} von 14 Angaben erfasst)`;
-  }
-  
-  return `Information erhalten! Können Sie mir bitte die nächste benötigte Angabe mitteilen? Wir haben bereits ${completedCount} von 14 Stammdaten erfasst.`;
-}
+const MIN_API_INTERVAL = 1000; // 1 second between API calls
 
 async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: string, maxRetries: number = 3): Promise<string> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     throw new Error("ANTHROPIC_API_KEY not found in environment");
-  }
-
-  // Check if we should skip API due to consecutive failures
-  if (consecutiveFailures >= MAX_FAILURES_BEFORE_FALLBACK) {
-    throw new Error("Too many consecutive API failures, using fallback");
   }
 
   for (let attempt = 0; attempt < maxRetries; attempt++) {
@@ -128,7 +69,6 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
         const data: AnthropicChatResponse = await response.json();
         const content = data.content?.[0]?.text;
         if (content) {
-          consecutiveFailures = 0; // Reset failure counter on success
           return content;
         }
       }
@@ -136,7 +76,6 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
       if (response.status === 429) {
         console.log(`Rate limit hit on attempt ${attempt + 1}, retrying...`);
         if (attempt === maxRetries - 1) {
-          consecutiveFailures++;
           throw new Error("Rate limited by API after all retries");
         }
         // Wait exponentially longer for rate limits
@@ -152,7 +91,6 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
       if (response.status >= 500) {
         console.log(`Server error ${response.status} on attempt ${attempt + 1}`);
         if (attempt === maxRetries - 1) {
-          consecutiveFailures++;
           throw new Error("API server error after all retries");
         }
         await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
@@ -160,12 +98,10 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
       }
 
       // Other errors
-      consecutiveFailures++;
       throw new Error(`Anthropic API error: ${response.status} ${response.statusText}`);
 
     } catch (error: any) {
       if (attempt === maxRetries - 1) {
-        consecutiveFailures++;
         throw error;
       }
       
@@ -175,7 +111,6 @@ async function callAnthropicAPI(messages: AnthropicMessage[], systemPrompt: stri
     }
   }
 
-  consecutiveFailures++;
   throw new Error("Max retries exceeded");
 }
 
@@ -293,17 +228,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       let response: string;
       
-      try {
-        const messages: AnthropicMessage[] = [
-          { role: "user", content: `${contextMessage}\n\nBenutzer-Nachricht: ${message}` }
-        ];
+      const messages: AnthropicMessage[] = [
+        { role: "user", content: `${contextMessage}\n\nBenutzer-Nachricht: ${message}` }
+      ];
 
-        response = await callAnthropicAPI(messages, getSystemPrompt());
-      } catch (error: any) {
-        // Use smart fallback when API is rate limited or unavailable
-        console.log("Using fallback response due to API error:", error?.message || error);
-        response = getSmartFallbackResponse(message, session);
-      }
+      response = await callAnthropicAPI(messages, getSystemPrompt());
 
       // Update session with the interaction
       const updatedSession = await storage.updateChatbotSession(sessionId, {

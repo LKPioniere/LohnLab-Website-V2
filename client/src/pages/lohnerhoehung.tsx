@@ -46,7 +46,7 @@ export default function Lohnerhoehung() {
                 onClick={() => scrollToSection('mitarbeiter-first')}
                 className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
-                Employee First Ansatz
+                Systematische Kostenersparnis
               </Button>
               <Button 
                 onClick={() => scrollToSection('kontakt')}
@@ -77,7 +77,7 @@ export default function Lohnerhoehung() {
             <Card className="border-orange-200 bg-gradient-to-br from-orange-50 to-red-50">
               <CardHeader>
                 <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
-                  <TrendingDown className="text-orange-600" size={32} />
+                  <AlertTriangle className="text-orange-600" size={32} />
                 </div>
                 <CardTitle className="text-xl text-gray-800">Explodierende Kosten</CardTitle>
               </CardHeader>
@@ -92,7 +92,7 @@ export default function Lohnerhoehung() {
             <Card className="border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50">
               <CardHeader>
                 <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
-                  <Users className="text-blue-600" size={32} />
+                  <Briefcase className="text-blue-600" size={32} />
                 </div>
                 <CardTitle className="text-xl text-gray-800">Kampf um Fachkräfte</CardTitle>
               </CardHeader>
@@ -107,7 +107,7 @@ export default function Lohnerhoehung() {
             <Card className="border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
               <CardHeader>
                 <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
-                  <Shield className="text-green-600" size={32} />
+                  <Heart className="text-green-600" size={32} />
                 </div>
                 <CardTitle className="text-xl text-gray-800">Mitarbeiterbindung im Fokus</CardTitle>
               </CardHeader>
@@ -141,7 +141,7 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="bg-green-100 text-green-800 border-green-200 mb-6 px-4 py-2 text-base font-semibold">
-              Employee First Ansatz
+              Systematische Kostenersparnis
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
               Lohnerhöhungen, die <span className="text-green-600">Kosten sparen</span>
@@ -474,7 +474,7 @@ export default function Lohnerhoehung() {
               Das Ergebnis: Glückliche Mitarbeiter, geringere Kosten
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Unser Employee First Ansatz schafft eine Win-Win-Situation für alle Beteiligten
+              Unsere systematische Kostenersparnis schafft eine Win-Win-Situation für alle Beteiligten
             </p>
           </div>
 
@@ -510,28 +510,6 @@ export default function Lohnerhoehung() {
             </Card>
           </div>
 
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-white">
-            <h3 className="text-3xl font-bold mb-6">
-              Bereit, bei Lohnerhöhungen systematisch Kosten zu sparen?
-            </h3>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Lassen Sie uns gemeinsam Lohnerhöhungen entwickeln, die Ihre Mitarbeiter zufriedenstellen 
-              und gleichzeitig Ihre Kosten um bis zu 50% reduzieren.
-            </p>
-            <Button 
-              onClick={() => scrollToSection('kontakt')}
-              className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
-            >
-              <ArrowRight className="mr-2" size={20} />
-              Jetzt kostenlose Demo vereinbaren
-            </Button>
-          </div>
         </div>
       </section>
 

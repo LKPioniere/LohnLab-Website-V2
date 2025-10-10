@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Lohnerhoehung from "@/pages/lohnerhoehung";
-import Lohnoptimierung from "@/pages/lohnoptimierung";
+// import Lohnoptimierung from "@/pages/lohnoptimierung";
 import Neueinstellungen from "@/pages/neueinstellungen";
 import Kontakt from "@/pages/kontakt";
 import FAQ from "@/pages/faq";
@@ -21,9 +21,9 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/loesungen/lohnerhoehung" component={Lohnerhoehung} />
-      <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} />
+      {/* <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} /> */}
       <Route path="/loesungen/neueinstellungen" component={Neueinstellungen} />
-      <Route path="/lohnoptimierung" component={Lohnoptimierung} />
+      {/* <Route path="/lohnoptimierung" component={Lohnoptimierung} /> */}
       <Route path="/steuerberater" component={Steuerberater} />
       <Route path="/kontakt" component={Kontakt} />
       <Route path="/faq" component={FAQ} />

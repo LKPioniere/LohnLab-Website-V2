@@ -27,8 +27,8 @@ function Router() {
       <Route path="/steuerberater" component={Steuerberater} />
       <Route path="/kontakt" component={Kontakt} />
       <Route path="/faq" component={FAQ} />
-      <Route path="/entwicklungsfortschritt" component={Roadmap} />
-      <Route path="/roadmap" component={Roadmap} />
+      {/* <Route path="/entwicklungsfortschritt" component={Roadmap} /> */}
+      {/* <Route path="/roadmap" component={Roadmap} /> */}
       <Route path="/api/new-hire-compensation" component={NewHireCompensationAPI} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />

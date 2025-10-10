@@ -36,8 +36,8 @@ export default function Navigation() {
         // Determine page-specific colors based on current path
         const currentPath = window.location.pathname;
         
-        if (currentPath === '/' || currentPath === '/faq' || currentPath === '/loesungen/lohnerhoehung' || currentPath === '/entwicklungsfortschritt' || currentPath === '/roadmap') {
-          // Homepage, FAQ, Lohnerhöhung, Roadmap: RGB 15,34,137
+        if (currentPath === '/' || currentPath === '/faq' || currentPath === '/loesungen/lohnerhoehung') {
+          // Homepage, FAQ, Lohnerhöhung: RGB 15,34,137
           setHeroBgColor('rgb(15, 34, 137)');
         } else if (currentPath === '/loesungen/neueinstellungen') {
           // Neueinstellungen: RGB 39,72,133

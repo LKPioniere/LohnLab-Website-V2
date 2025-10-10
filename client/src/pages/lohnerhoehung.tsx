@@ -33,13 +33,13 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-              Lohnerhöhungen, die <span className="text-yellow-300">zuerst</span><br/>
-              <span className="text-green-300">bei Ihren Mitarbeitern ankommen</span>
+              Lohnerhöhungen, die Ihnen <span className="text-yellow-300">echte</span><br/>
+              <span className="text-green-300">Kosten sparen</span>
             </h1>
             <p className="text-xl mb-12 max-w-4xl mx-auto text-blue-100 leading-relaxed">
               In der aktuellen Wirtschaftslage stehen Sie vor explodierenden Kosten und dem Kampf um Fachkräfte. 
-              Wir haben verstanden: <strong className="text-white">Der Fokus liegt auf der Bindung bestehender Mitarbeiter.</strong> 
-              Unsere Lösung bringt Lohnerhöhungen dort an, wo sie ankommen sollen – im Netto Ihrer Mitarbeiter.
+              Wir haben verstanden: <strong className="text-white">Der Fokus liegt auf der Bindung bestehender Mitarbeiter bei minimierten Kosten.</strong> 
+              Unsere Lösung ermöglicht Ihnen Lohnerhöhungen mit bis zu 50% Kostenersparnis.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Button 
@@ -144,11 +144,11 @@ export default function Lohnerhoehung() {
               Employee First Ansatz
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
-              Lohnerhöhungen, die <span className="text-green-600">im Netto ankommen</span>
+              Lohnerhöhungen, die <span className="text-green-600">Kosten sparen</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              "Fassen Sie Lohnerhöhung da an, wo sie ankommen soll, im Netto ihrer Mitarbeiter 
-              und zeigen Sie so, dass Sie zuerst an Ihre Mitarbeiter denken!"
+              Nutzen Sie intelligente Lohnbausteine, um bei Lohnerhöhungen systematisch Kosten zu sparen 
+              und zeigen Sie so, dass Sie wirtschaftlich smart handeln!
             </p>
           </div>
 
@@ -164,7 +164,7 @@ export default function Lohnerhoehung() {
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <p className="text-gray-700">
-                      <strong>Maximales Netto:</strong> Durch intelligente Lohnbausteine kommt mehr bei Ihren Mitarbeitern an
+                      <strong>Maximale Kostenersparnis:</strong> Durch intelligente Lohnbausteine sparen Sie bis zu 50% Lohnkosten
                     </p>
                   </div>
                   <div className="flex items-start space-x-3">
@@ -192,7 +192,7 @@ export default function Lohnerhoehung() {
               <div className="absolute -bottom-4 -right-4 bg-green-500 text-white px-6 py-3 rounded-2xl shadow-lg">
                 <div className="flex items-center space-x-2">
                   <Banknote className="w-5 h-5" />
-                  <span className="font-semibold">Mehr Netto = Glücklichere Mitarbeiter</span>
+                  <span className="font-semibold">Kosten sparen bei jeder Erhöhung</span>
                 </div>
               </div>
             </div>
@@ -347,8 +347,8 @@ export default function Lohnerhoehung() {
                     <h4 className="text-xl font-bold text-gray-800">Automatische Optimierung</h4>
                   </div>
                   <p className="text-gray-600">
-                    Das Modul optimiert automatisch jeden Lohnerhöhungsfall für maximales Netto bei 
-                    bis zu 50% reduzierten Arbeitgeberkosten.
+                    Das Modul optimiert automatisch jeden Lohnerhöhungsfall für 
+                    bis zu 50% reduzierte Arbeitgeberkosten bei gleichbleibender Attraktivität.
                   </p>
                 </div>
 
@@ -392,8 +392,8 @@ export default function Lohnerhoehung() {
               Professionelle Mitarbeiterkommunikation
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Zeigen Sie Ihren Mitarbeitern transparent und verständlich, 
-              wie ihre Lohnerhöhung ihr Netto-Einkommen verbessert
+              Dokumentieren Sie transparent und verständlich, 
+              wie Sie durch smarte Lohngestaltung Kosten sparen
             </p>
           </div>
 
@@ -422,10 +422,10 @@ export default function Lohnerhoehung() {
                       <DollarSign className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Klare Netto-Verbesserung</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2">Klare Kostenersparnis</h4>
                       <p className="text-gray-600">
-                        Mitarbeiter sehen auf einen Blick, wie viel mehr Netto-Gehalt 
-                        sie durch die intelligente Optimierung erhalten.
+                        Sie sehen auf einen Blick, wie viel Lohnkosten Sie 
+                        durch die intelligente Optimierung einsparen.
                       </p>
                     </div>
                   </div>
@@ -455,7 +455,7 @@ export default function Lohnerhoehung() {
               <div className="absolute -top-4 -right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-2xl shadow-lg">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5" />
-                  <span className="font-semibold">Mehr Netto für alle</span>
+                  <span className="font-semibold">Kosten sparen bei allen</span>
                 </div>
               </div>
             </div>
@@ -495,7 +495,7 @@ export default function Lohnerhoehung() {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Höhere Mitarbeiterzufriedenheit</h3>
               <p className="text-gray-600">
-                Mitarbeiter erhalten mehr Netto und fühlen sich wertgeschätzt durch den transparenten Ansatz
+                Mitarbeiter fühlen sich wertgeschätzt durch den transparenten Ansatz bei gleichzeitiger Kostenersparnis
               </p>
             </Card>
 
@@ -518,11 +518,11 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-white">
             <h3 className="text-3xl font-bold mb-6">
-              Bereit, Ihren Mitarbeitern zu zeigen, dass Sie zuerst an sie denken?
+              Bereit, bei Lohnerhöhungen systematisch Kosten zu sparen?
             </h3>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Lassen Sie uns gemeinsam Lohnerhöhungen entwickeln, die wirklich bei Ihren Mitarbeitern ankommen 
-              und gleichzeitig Ihre Kosten optimieren.
+              Lassen Sie uns gemeinsam Lohnerhöhungen entwickeln, die Ihre Mitarbeiter zufriedenstellen 
+              und gleichzeitig Ihre Kosten um bis zu 50% reduzieren.
             </p>
             <Button 
               onClick={() => scrollToSection('kontakt')}

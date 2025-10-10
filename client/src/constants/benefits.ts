@@ -38,6 +38,6 @@ export const HIRING_BENEFITS = [
   },
   {
     title: 'Zahlt sich doppelt aus',
-    description: 'Bieten Sie Ihren Favoriten mehr Netto als der Wettbewerb – und sparen dabei selbst bares Geld.'
+    description: 'Gewinnen Sie Ihre Favoriten mit attraktiven Gehaltspaketen – und sparen dabei selbst bares Geld.'
   }
 ];

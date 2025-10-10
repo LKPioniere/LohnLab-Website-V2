@@ -11,7 +11,7 @@ export const PRODUCT_FEATURES = [
   {
     id: 'lohnerhoehung',
     title: 'Lohnerhöhung',
-    description: 'Präzise Ermittlung der echten Kosten und des tatsächlichen Netto-Zugewinns bei Lohnerhöhungen.',
+    description: 'Präzise Ermittlung der echten Kosten und des maximalen Einsparpotentials bei Lohnerhöhungen.',
     link: '/loesungen/lohnerhoehung'
   },
   {

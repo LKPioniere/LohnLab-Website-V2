@@ -86,7 +86,7 @@ export default function Neueinstellungen() {
                   <TrendingUp className="text-[var(--lohn-teal)] mt-1" size={20} />
                   <div>
                     <h4 className="font-semibold text-[var(--lohn-primary)]">Optimierungsvorschläge</h4>
-                    <p className="text-gray-600">100-200€ mehr Netto durch intelligente Gehaltsoptimierung</p>
+                    <p className="text-gray-600">100-200€ Kostenersparnis durch intelligente Gehaltsoptimierung</p>
                   </div>
                 </div>
               </div>
@@ -178,9 +178,9 @@ export default function Neueinstellungen() {
               <div className="w-16 h-16 bg-[var(--lohn-purple)] rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="text-white" size={28} />
               </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Mehr Netto möglich</h3>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Kosten sparen</h3>
               <p className="text-gray-600">
-                Chance auf 100-200€ mehr Nettogehalt durch intelligente Lohnoptimierung - ohne Mehrkosten für den Arbeitgeber
+                100-200€ Kostenersparnis pro Mitarbeiter durch intelligente Lohnoptimierung bei gleichbleibender Attraktivität
               </p>
             </div>
           </div>
@@ -302,8 +302,8 @@ export default function Neueinstellungen() {
               <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Euro className="text-white" size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">100-200€ mehr Netto</h3>
-              <p className="text-white text-opacity-90">Durch intelligente Gehaltsoptimierung aus dem gleichen Budget</p>
+              <h3 className="text-xl font-bold mb-2">100-200€ Kostenersparnis</h3>
+              <p className="text-white text-opacity-90">Pro Mitarbeiter durch intelligente Gehaltsoptimierung</p>
             </div>
             
             <div className="text-center">

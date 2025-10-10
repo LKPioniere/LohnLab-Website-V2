@@ -19,7 +19,7 @@ export default function ProductFeaturesSection() {
             Intelligente Gehaltsgestaltung durch die Nutzung von Lohnbausteinen. 
             <br />
             <span className="text-[var(--lohn-secondary)] font-semibold">Bis zu 50% Lohnkosteneinsparung </span> 
-            oder mehr Netto für die Mitarbeiter.
+            bei gleichbleibender Attraktivität für Ihre Mitarbeiter.
           </p>
         </div>
 

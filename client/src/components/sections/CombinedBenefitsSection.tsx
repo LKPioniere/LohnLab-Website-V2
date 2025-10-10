@@ -22,8 +22,8 @@ export default function CombinedBenefitsSection() {
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
             Erleben Sie, wie Sie mit intelligenter Gehaltsgestaltung 
-            <span className="text-[var(--lohn-secondary)] font-semibold"> bis zu 50% Kosten sparen</span> und 
-            gleichzeitig das Netto Ihrer Mitarbeiter erhöhen.
+            <span className="text-[var(--lohn-secondary)] font-semibold"> bis zu 50% Kosten sparen</span> bei 
+            gleichbleibender Attraktivität für Ihre Mitarbeiter.
           </p>
         </div>
 

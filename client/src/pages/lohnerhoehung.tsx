@@ -490,7 +490,7 @@ export default function Lohnerhoehung() {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Bis zu 50% Kosteneinsparung</h3>
               <p className="text-gray-600">
-                Durch intelligente Lohnbausteine reduzieren Sie Ihre echten Lohnkosten erheblich
+                Durch smartes Gehaltsmanagement reduzieren Sie Ihre echten Lohnkosten erheblich
               </p>
             </Card>
 
@@ -500,7 +500,7 @@ export default function Lohnerhoehung() {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Höhere Mitarbeiterzufriedenheit</h3>
               <p className="text-gray-600">
-                Mitarbeiter fühlen sich wertgeschätzt durch den transparenten Ansatz bei gleichzeitiger Kostenersparnis
+                Mitarbeiter verstehen auf einen Blick, was sie bekommen – klar, greifbar und wertvoll im Alltag.
               </p>
             </Card>
 
@@ -512,6 +512,53 @@ export default function Lohnerhoehung() {
               <p className="text-gray-600">
                 Innovatives Employer Branding positioniert Sie als attraktiven, zukunftsorientierten Arbeitgeber
               </p>
+            </Card>
+          </div>
+
+          {/* Zusätzliche Benefits Card */}
+          <div className="max-w-5xl mx-auto">
+            <Card className="border-2 border-[var(--lohn-teal)] bg-gradient-to-br from-teal-50/50 to-blue-50/50 p-8 lg:p-10">
+              <div className="flex flex-col lg:flex-row items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-[var(--lohn-teal)] to-[var(--lohn-primary)] rounded-2xl flex items-center justify-center">
+                    <Gift className="w-10 h-10 text-white" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                    Smarte Benefits für Ihr Team – Die zusätzliche Option mit LohnLab
+                  </h3>
+                  <p className="text-lg text-gray-700 mb-4">
+                    Lohnoptimierung ist der erste Schritt. Doch erst wenn Sie einen Teil Ihrer Ersparnis 
+                    gezielt in echte Benefits reinvestieren, entsteht wirkliche Mitarbeiterbindung.
+                  </p>
+                  <div className="bg-white/70 rounded-xl p-6 mb-4">
+                    <p className="text-gray-700 leading-relaxed">
+                      <strong className="text-[var(--lohn-primary)]">Sie entscheiden:</strong> Welcher Anteil Ihrer Einsparung fließt in Benefits? Welche Leistungen passen zu Ihrem Team? 
+                      <strong className="text-[var(--lohn-primary)]"> Wir setzen um:</strong> Von der steuerlich geprüften Berechnung bis zur professionellen Umsetzung – 
+                      gemeinsam mit spezialisierten Partnern unserer Gruppe.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-[var(--lohn-teal)]" />
+                      <span>Steuerlich geprüft</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-[var(--lohn-teal)]" />
+                      <span>Wertschätzende Kommunikation</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-[var(--lohn-teal)]" />
+                      <span>Im Alltag spürbar</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-[var(--lohn-teal)]" />
+                      <span>Ohne Zusatzaufwand für Sie</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Card>
           </div>
 

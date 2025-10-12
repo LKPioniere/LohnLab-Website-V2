@@ -321,10 +321,10 @@ export default function Lohnerhoehung() {
                 <Calculator className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                Lohnerhöhungsmodul im LohnLab Cockpit
+                Lohnerhöhungen im LohnLab Cockpit
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Das spezialisierte Modul für präzise Lohnerhöhungsberechnungen - 
+                Die spezialisierte Funktion für präzise Lohnerhöhungsberechnungen - 
                 entwickelt für maximale Effizienz und echte Kosteneinsparungen.
               </p>
             </div>
@@ -339,7 +339,7 @@ export default function Lohnerhoehung() {
                     <h4 className="text-xl font-bold text-gray-800">Präzise Lohnberechnung</h4>
                   </div>
                   <p className="text-gray-600">
-                    Das Lohnerhöhungsmodul berechnet alle Mitarbeiter gleichzeitig mit höchster Genauigkeit. 
+                    Alle Mitarbeiter werden gleichzeitig mit höchster Genauigkeit berechnet. 
                     Keine manuellen Fehler, keine Excel-Schätzungen mehr.
                   </p>
                 </div>
@@ -352,7 +352,7 @@ export default function Lohnerhoehung() {
                     <h4 className="text-xl font-bold text-gray-800">Automatische Optimierung</h4>
                   </div>
                   <p className="text-gray-600">
-                    Das Modul optimiert automatisch jeden Lohnerhöhungsfall für 
+                    Jeder Lohnerhöhungsfall wird automatisch optimiert für 
                     bis zu 50% reduzierte Arbeitgeberkosten bei gleichbleibender Attraktivität.
                   </p>
                 </div>
@@ -366,7 +366,7 @@ export default function Lohnerhoehung() {
                   </div>
                   <p className="text-gray-600">
                     Automatische Erstellung von Gehaltsvergleichen und Probeabrechnungen für 
-                    transparente Mitarbeiterkommunikation direkt aus dem Modul.
+                    transparente Mitarbeiterkommunikation auf Knopfdruck.
                   </p>
                 </div>
               </div>
@@ -414,10 +414,10 @@ export default function Lohnerhoehung() {
                       <Target className="w-6 h-6 text-teal-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Zwei-Spalten-Abrechnung</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2">Zwei-Spalten-Abrechnung für Mitarbeiter</h4>
                       <p className="text-gray-600">
-                        Links das aktuelle Gehalt, rechts die neue Struktur mit Lohnerhöhung - 
-                        so verstehen Mitarbeiter sofort den Unterschied.
+                        In der Probelohnabrechnung (siehe Bild) sehen Ihre Mitarbeiter links das aktuelle Gehalt, rechts die neue Struktur mit Lohnerhöhung - 
+                        so verstehen sie sofort den Unterschied.
                       </p>
                     </div>
                   </div>
@@ -427,9 +427,9 @@ export default function Lohnerhoehung() {
                       <DollarSign className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Klare Kostenersparnis</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2">Arbeitgeber-Ansicht im Cockpit</h4>
                       <p className="text-gray-600">
-                        Sie sehen auf einen Blick, wie viel Lohnkosten Sie 
+                        In Ihrer Cockpit-Ansicht sehen Sie auf einen Blick, wie viel Lohnkosten Sie 
                         durch die intelligente Optimierung einsparen.
                       </p>
                     </div>

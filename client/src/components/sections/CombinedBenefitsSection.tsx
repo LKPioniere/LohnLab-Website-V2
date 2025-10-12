@@ -1,7 +1,7 @@
 import { TrendingUp, Euro, Calculator, Crown, Check, ArrowDown, ChevronRight } from "lucide-react";
 import { DEMO_EMPLOYEES } from "@/constants/demo-data";
 import { GENERAL_BENEFITS } from "@/constants/benefits";
-import fruitBasketImage from "@/assets/fruit-basket.jpg";
+import benefitsImage from "@assets/generated_images/Business_benefits_and_savings_7ce3e3e1.png";
 
 /**
  * Kombinierte Vorteile und Praxis-Demo Sektion
@@ -21,8 +21,8 @@ export default function CombinedBenefitsSection() {
             Lohnoptimierung in der Praxis
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Erleben Sie, wie Sie mit intelligenter Gehaltsgestaltung 
-            <span className="text-[var(--lohn-secondary)] font-semibold"> bis zu 50% Kosten sparen</span> bei 
+            Erleben Sie, wie Sie mit uns bei Gehaltserhöhungen ganz leicht 
+            <span className="text-[var(--lohn-secondary)] font-semibold"> bis zu 50% der Kosten sparen</span> – bei 
             gleichbleibender Attraktivität für Ihre Mitarbeiter.
           </p>
         </div>
@@ -35,8 +35,8 @@ export default function CombinedBenefitsSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <img 
-                  src={fruitBasketImage} 
-                  alt="Obstkorb als Symbol für Sachbezüge" 
+                  src={benefitsImage} 
+                  alt="Unternehmensvorteile und Kosteneinsparungen" 
                   className="rounded-2xl shadow-lg w-full h-auto"
                 />
               </div>

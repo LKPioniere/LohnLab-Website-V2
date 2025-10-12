@@ -3,20 +3,20 @@
  */
 export const GENERAL_BENEFITS = [
   {
-    title: 'Für Unternehmen: Sofortige Kostensenkung',
-    description: 'Messbare Lohnkosteneinsparung bei gesteigerter Mitarbeiterzufriedenheit und -bindung.'
+    title: 'Sofort sparen bei Neueinstellungen',
+    description: 'Sparen Sie im Schnitt 2.000 € pro Mitarbeiter und investieren Sie gezielt in Ihre Arbeitgeberattraktivität.'
   },
   {
-    title: 'Für Steuerberater: Steigerung der Beratungskompetenz',
-    description: 'Erweitern Sie Ihr Know-how in der modernen Lohngestaltung zu einem bezahlbaren Preis - digitale Expertise als Wettbewerbsvorteil.'
+    title: 'Lohnerhöhungen kosteneffizient gestalten',
+    description: 'Reduzieren Sie anfallende Lohnkosten um bis zu 50 % und erhöhen Sie gezielt die Bindung im Team.'
   },
   {
-    title: 'Wettbewerbsvorteil sichern',
-    description: 'Positionieren Sie sich als Experte für moderne Lohngestaltung und digitale HR-Lösungen.'
+    title: 'Mitarbeiterzufriedenheit steigern',
+    description: 'Bieten Sie attraktive Benefits und steuerfreie Zusatzleistungen, die Ihre Mitarbeiter wirklich schätzen.'
   },
   {
-    title: 'DATEV-Integration inklusive',
-    description: 'Nahtlose Anbindung an bestehende Systeme - keine Umstellung, keine Zusatzarbeit.'
+    title: 'Einfache Integration in bestehende Prozesse',
+    description: 'Nahtlose DATEV-Anbindung – keine Umstellung, keine Zusatzarbeit, sofort einsatzbereit.'
   }
 ];
 

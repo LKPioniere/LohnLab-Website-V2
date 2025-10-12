@@ -42,6 +42,9 @@ export default function Navigation() {
         } else if (currentPath === '/loesungen/neueinstellungen') {
           // Neueinstellungen: RGB 39,72,133
           setHeroBgColor('rgb(39, 72, 133)');
+        } else if (currentPath === '/steuerberater') {
+          // Steuerberater: RGB 5,150,105 (emerald-600)
+          setHeroBgColor('rgb(5, 150, 105)');
         } else {
           // Default fallback to homepage color
           setHeroBgColor('rgb(15, 34, 137)');

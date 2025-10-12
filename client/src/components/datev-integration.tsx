@@ -85,14 +85,17 @@ export default function DatevIntegration() {
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h4 className="text-lg font-semibold mb-4">Vorteile für Steuerberater und Unternehmen</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-blue-100">
-              <div>
-                <p>✓ Kein E-Mail-Ping-Pong</p>
-                <p>✓ Keine Übertragungsfehler</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-blue-100">
+              <div className="space-y-2">
+                <p>✓ Jeder Mitarbeiter wird individuell betrachtet und berechnet</p>
+                <p>✓ Einfachste Darstellung und Bedienung</p>
+                <p>✓ Kein E-Mail-Ping-Pong mehr</p>
+                <p>✓ Keine Übertragungsfehler dank direkter Integration</p>
               </div>
-              <div>
-                <p>✓ DSGVO-konform</p>
-                <p>✓ Zeitersparnis durch Automatisierung</p>
+              <div className="space-y-2">
+                <p>✓ DSGVO-konforme, strukturierte Datenübertragung</p>
+                <p>✓ Zeitersparnis durch automatisierte Abläufe</p>
+                <p>✓ Direkter Export in DATEV-System per Klick</p>
               </div>
             </div>
           </div>

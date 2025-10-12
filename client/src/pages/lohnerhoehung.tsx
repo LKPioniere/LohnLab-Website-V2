@@ -147,8 +147,7 @@ export default function Lohnerhoehung() {
               Lohnerhöhungen, die <span className="text-green-600">Kosten sparen</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Nutzen Sie intelligente Lohnbausteine, um bei Lohnerhöhungen systematisch Kosten zu sparen 
-              und zeigen Sie so, dass Sie wirtschaftlich smart handeln!
+              Nutzen Sie LohnLab, um bei Lohnerhöhungen systematisch Kosten zu sparen – weil Wirtschaftlichkeit heute kein Luxus, sondern Voraussetzung ist.
             </p>
           </div>
 

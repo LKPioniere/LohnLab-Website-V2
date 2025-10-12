@@ -23,7 +23,7 @@ export default function FeatureCardsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {PRODUCT_FEATURES.map((feature) => (
             <FeatureCard key={feature.id} {...feature} />
           ))}

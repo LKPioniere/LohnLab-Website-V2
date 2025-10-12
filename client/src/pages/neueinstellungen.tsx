@@ -180,7 +180,7 @@ export default function Neueinstellungen() {
               </div>
               <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Kosten sparen</h3>
               <p className="text-gray-600">
-                100-200€ Kostenersparnis pro Mitarbeiter durch intelligente Lohnoptimierung bei gleichbleibender Attraktivität
+                100-200€ Kostenersparnis pro Mitarbeiter durch intelligente Lohnoptimierung.
               </p>
             </div>
           </div>
@@ -263,21 +263,14 @@ export default function Neueinstellungen() {
                     <Users className="text-[var(--lohn-teal)] mt-1" size={20} />
                     <div>
                       <h4 className="font-semibold text-[var(--lohn-primary)]">Perfektes Timing</h4>
-                      <p className="text-gray-600">Zwischen Zusage und Stammdatenerfassung - genau da wo Sie uns brauchen</p>
+                      <p className="text-gray-600">Zwischen Zusage und Stammdatenerfassung - genau da, wo Sie uns brauchen</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <FileCheck className="text-[var(--lohn-teal)] mt-1" size={20} />
                     <div>
                       <h4 className="font-semibold text-[var(--lohn-primary)]">Optimierte Übergabe</h4>
-                      <p className="text-gray-600">Gehalt optimiert, bereit für Ihre Lohnsysteme</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Heart className="text-[var(--lohn-teal)] mt-1" size={20} />
-                    <div>
-                      <h4 className="font-semibold text-[var(--lohn-primary)]">Keine Doppelarbeit</h4>
-                      <p className="text-gray-600">Ergänzt Ihren Prozess, ersetzt keine bestehenden Systeme</p>
+                      <p className="text-gray-600">Sobald das Gehalt optimiert ist, wird es im Hintergrund schon für Ihr Lohnsystem importierbar gemacht – keine Doppelarbeit, denn das LohnLab Cockpit ersetzt keine Systeme, es ergänzt und vereinfacht Ihren Prozess.</p>
                     </div>
                   </div>
                 </div>

@@ -155,28 +155,34 @@ export default function Lohnerhoehung() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-200">
-                <Heart className="w-12 h-12 text-green-600 mb-6" />
+                <PiggyBank className="w-12 h-12 text-green-600 mb-6" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                  Ihre Mitarbeiter spüren den Unterschied
+                  Sparen. Investieren. Binden.
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
-                    <p className="text-gray-700">
-                      <strong>Maximale Kostenersparnis:</strong> Durch intelligente Lohnbausteine sparen Sie bis zu 50% Lohnkosten
-                    </p>
+                    <div className="text-gray-700">
+                      <strong>Kosten senken:</strong> Optimierte Vergütungsmodelle sparen bis zur Hälfte der üblichen Lohnkosten – auch bei Lohnerhöhungen.
+                    </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
-                    <p className="text-gray-700">
-                      <strong>Transparente Kommunikation:</strong> Zeigen Sie Ihren Mitarbeitern, dass Sie an sie denken
-                    </p>
+                    <div className="text-gray-700">
+                      <strong>Gezielt investieren:</strong> Nutzen Sie die frei werdenden Mittel, um Benefits zu schaffen, die über das Übliche hinausgehen.
+                    </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
-                    <p className="text-gray-700">
-                      <strong>Langfristige Bindung:</strong> Wertschätzung führt zu höherer Mitarbeiterzufriedenheit
-                    </p>
+                    <div className="text-gray-700">
+                      <strong>Realer Nutzen:</strong> Ihre Mitarbeiter profitieren direkt – nicht in Form von Versprechen, sondern als echtes Plus im Alltag.
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div className="text-gray-700">
+                      <strong>Mitarbeiter binden:</strong> Aus Wertschätzung wird Verlässlichkeit – weil gute Bedingungen verbinden.
+                    </div>
                   </div>
                 </div>
               </div>

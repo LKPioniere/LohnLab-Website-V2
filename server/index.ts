@@ -41,7 +41,7 @@ let serverInstance: any;
 
 export async function initializeApp() {
   if (serverInstance) return serverInstance;
-  
+
   serverInstance = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -63,11 +63,11 @@ export async function initializeApp() {
 }
 
 // Start server only if not running in Vercel
-if (process.env.VERCEL !== '1') {
+if (process.env.VERCEL !== "1") {
   (async () => {
     const server = await initializeApp();
-    
-    const port = process.env.PORT || 5000;
+
+    const port = process.env.PORT || 3000;
     server.listen(Number(port), "0.0.0.0", () => {
       log(`serving on port ${port}`);
     });

@@ -171,9 +171,3 @@ Changelog:
   - Made database configuration optional (works with in-memory storage)
   - Added .env.example for environment variables
   - Updated .gitignore for Vercel deployment files
-- October 10, 2025: Complete messaging overhaul - Changed all website content from "mehr Netto" (employee net income focus) to "Kosten sparen" (cost savings focus):
-  - Rewrote hero section on homepage to target entrepreneurs with cost savings promise
-  - Updated all solution pages (Lohnerhöhung, Lohnoptimierung, Neueinstellungen) to emphasize cost reduction
-  - Changed constants and reusable components (benefits, features, target audiences) to align with cost savings messaging
-  - Maintained all existing structure, layout and components - only text content was modified
-  - New central business goal: Up to 50% cost savings for employers

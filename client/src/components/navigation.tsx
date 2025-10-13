@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown, Code, Calculator, BarChart3 } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink, BookOpen, TrendingUp, DollarSign, UserPlus, Crown, Code, Calculator, BarChart3, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@/assets/lohnlab-logo-blue.png";
@@ -214,40 +214,67 @@ export default function Navigation() {
               
               {isSolutionsOpen && (
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
-                  <div className="w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
-                    <div className="px-6 py-3 border-b border-gray-100">
-                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Unsere Lösungen</h3>
+                  <div className="w-[600px] bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
+                    <div className="grid grid-cols-2 gap-4 p-4">
+                      {/* Linke Spalte - Highlights */}
+                      <div className="border-r border-gray-100 pr-4">
+                        <div className="px-2 py-2 mb-2">
+                          <h3 className="text-xs font-bold text-gray-800 uppercase tracking-wider">Highlights</h3>
+                        </div>
+                        <Link 
+                          href="/loesungen/lohnerhoehung"
+                          className="group block px-3 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300 rounded-lg"
+                          onClick={() => setIsSolutionsOpen(false)}
+                        >
+                          <div className="flex items-center">
+                            <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-primary)] to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                              <TrendingUp className="w-6 h-6 text-white" />
+                            </div>
+                            <div>
+                              <div className="font-bold text-gray-900 group-hover:text-[var(--lohn-primary)] transition-colors">Lohnerhöhung</div>
+                              <div className="text-sm text-gray-500">Exakte Berechnungen</div>
+                            </div>
+                          </div>
+                        </Link>
+                        <Link 
+                          href="/loesungen/neueinstellungen"
+                          className="group block px-3 py-4 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent transition-all duration-300 rounded-lg"
+                          onClick={() => setIsSolutionsOpen(false)}
+                        >
+                          <div className="flex items-center">
+                            <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                              <UserPlus className="w-6 h-6 text-white" />
+                            </div>
+                            <div>
+                              <div className="font-bold text-gray-900 group-hover:text-[var(--lohn-teal)] transition-colors">Neueinstellungen</div>
+                              <div className="text-sm text-gray-500">Optimale Gehaltspakete</div>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                      
+                      {/* Rechte Spalte - Weitere Lösungen */}
+                      <div className="pl-2">
+                        <div className="px-2 py-2 mb-2">
+                          <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Weitere Lösungen</h3>
+                        </div>
+                        <Link 
+                          href="/loesungen/minijobber"
+                          className="group block px-3 py-3 hover:bg-gray-50 transition-all duration-200 rounded-lg"
+                          onClick={() => setIsSolutionsOpen(false)}
+                        >
+                          <div className="flex items-center">
+                            <div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-gray-200 transition-colors">
+                              <Users className="w-5 h-5 text-gray-600" />
+                            </div>
+                            <div>
+                              <div className="font-medium text-gray-700 group-hover:text-gray-900 transition-colors text-sm">Minijob</div>
+                              <div className="text-xs text-gray-400">Optimierung für Minijobber</div>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
                     </div>
-                    <Link 
-                      href="/loesungen/lohnerhoehung"
-                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
-                      onClick={() => setIsSolutionsOpen(false)}
-                    >
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-primary)] to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                          <TrendingUp className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-primary)] transition-colors">Lohnerhöhung</div>
-                          <div className="text-sm text-gray-500">Exakte Berechnungen für alle Mitarbeiter</div>
-                        </div>
-                      </div>
-                    </Link>
-                    <Link 
-                      href="/loesungen/neueinstellungen"
-                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent transition-all duration-300"
-                      onClick={() => setIsSolutionsOpen(false)}
-                    >
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                          <UserPlus className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">Neueinstellungen</div>
-                          <div className="text-sm text-gray-500">Optimale Gehaltspakete und DATEV-Integration</div>
-                        </div>
-                      </div>
-                    </Link>
                   </div>
                 </div>
               )}
@@ -378,6 +405,9 @@ export default function Navigation() {
                     className="py-2"
                     style={isHeroVisible && isDarkHero && heroBgColor ? { background: heroBgColor } : { background: '#f9fafb' }}
                   >
+                    <div className={`px-6 py-2 text-xs font-bold ${isHeroVisible && isDarkHero ? 'text-gray-300' : 'text-gray-800'} uppercase tracking-wider`}>
+                      Highlights
+                    </div>
                     <Link 
                       href="/loesungen/lohnerhoehung"
                       onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
@@ -387,7 +417,7 @@ export default function Navigation() {
                         <TrendingUp className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <div className="font-medium">Lohnerhöhung</div>
+                        <div className="font-bold">Lohnerhöhung</div>
                         <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Exakte Berechnungen</div>
                       </div>
                     </Link>
@@ -400,8 +430,25 @@ export default function Navigation() {
                         <UserPlus className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <div className="font-medium">Neueinstellungen</div>
+                        <div className="font-bold">Neueinstellungen</div>
                         <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Optimale Gehaltspakete</div>
+                      </div>
+                    </Link>
+                    
+                    <div className={`px-6 py-2 mt-2 text-xs font-semibold ${isHeroVisible && isDarkHero ? 'text-gray-400' : 'text-gray-400'} uppercase tracking-wider`}>
+                      Weitere Lösungen
+                    </div>
+                    <Link 
+                      href="/loesungen/minijobber"
+                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
+                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-gray-300 hover:text-gray-200' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
+                    >
+                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center mr-3 ${isHeroVisible && isDarkHero ? 'bg-white/10' : 'bg-gray-100'}`}>
+                        <Users className="w-5 h-5 text-gray-600" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Minijob</div>
+                        <div className={`text-xs ${isHeroVisible && isDarkHero ? 'text-gray-400' : 'text-gray-400'}`}>Optimierung für Minijobber</div>
                       </div>
                     </Link>
                   </div>

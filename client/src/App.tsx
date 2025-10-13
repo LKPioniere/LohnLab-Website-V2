@@ -8,6 +8,7 @@ import Home from "@/pages/home";
 import Lohnerhoehung from "@/pages/lohnerhoehung";
 // import Lohnoptimierung from "@/pages/lohnoptimierung";
 import Neueinstellungen from "@/pages/neueinstellungen";
+import Minijobber from "@/pages/minijobber";
 import Kontakt from "@/pages/kontakt";
 import FAQ from "@/pages/faq";
 import Impressum from "@/pages/impressum";
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/loesungen/lohnerhoehung" component={Lohnerhoehung} />
       {/* <Route path="/loesungen/lohnoptimierung" component={Lohnoptimierung} /> */}
       <Route path="/loesungen/neueinstellungen" component={Neueinstellungen} />
+      <Route path="/loesungen/minijobber" component={Minijobber} />
       {/* <Route path="/lohnoptimierung" component={Lohnoptimierung} /> */}
       <Route path="/steuerberater" component={Steuerberater} />
       <Route path="/kontakt" component={Kontakt} />

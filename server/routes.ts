@@ -1,5 +1,6 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
+import { Resend } from "resend";
 import { z } from "zod";
 
 // Simple contact form schema
@@ -10,10 +11,16 @@ const contactSchema = z.object({
   message: z.string().optional(),
 });
 
+// User type labels for better email formatting
+const userTypeLabels: Record<string, string> = {
+  steuerberater: "Steuerberater",
+  unternehmen: "Unternehmen",
+  interessent: "Interessent",
+  sonstiges: "Sonstiges",
+};
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
-  // Note: This currently just logs the submission
-  // TODO: Add email service integration (e.g., SendGrid, Mailgun) to actually send emails
   app.post("/api/contacts", async (req, res) => {
     try {
       const validatedData = contactSchema.parse(req.body);
@@ -24,8 +31,62 @@ export async function registerRoutes(app: Express): Promise<Server> {
         timestamp: new Date().toISOString(),
       });
 
-      // In production, you would send this via email service
-      // Example: await sendEmail({ to: 'info@lohnlab.de', subject: 'New Contact', data: validatedData });
+      // Send email via Resend if API key is configured
+      if (process.env.RESEND_API_KEY) {
+        try {
+          const resend = new Resend(process.env.RESEND_API_KEY);
+
+          const userTypeLabel =
+            userTypeLabels[validatedData.userType] || validatedData.userType;
+
+          await resend.emails.send({
+            from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+            to: process.env.RESEND_TO_EMAIL || "info@lohnlab.de",
+            replyTo: validatedData.email,
+            subject: `Neue Kontaktanfrage von ${validatedData.name} (${userTypeLabel})`,
+            html: `
+              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
+                  Neue Kontaktanfrage über LohnLab Website
+                </h2>
+                
+                <div style="margin: 20px 0; padding: 20px; background-color: #f3f4f6; border-radius: 8px;">
+                  <p style="margin: 10px 0;"><strong>Name:</strong> ${
+                    validatedData.name
+                  }</p>
+                  <p style="margin: 10px 0;"><strong>E-Mail:</strong> <a href="mailto:${
+                    validatedData.email
+                  }">${validatedData.email}</a></p>
+                  <p style="margin: 10px 0;"><strong>Typ:</strong> ${userTypeLabel}</p>
+                  ${
+                    validatedData.message
+                      ? `
+                    <div style="margin-top: 20px; padding: 15px; background-color: white; border-left: 4px solid #3b82f6; border-radius: 4px;">
+                      <strong>Nachricht:</strong><br/>
+                      <p style="margin: 10px 0; white-space: pre-wrap;">${validatedData.message}</p>
+                    </div>
+                  `
+                      : '<p style="margin: 10px 0;"><em>Keine Nachricht angegeben</em></p>'
+                  }
+                </div>
+                
+                <p style="color: #6b7280; font-size: 12px; margin-top: 30px;">
+                  Gesendet am: ${new Date().toLocaleString("de-DE", {
+                    timeZone: "Europe/Berlin",
+                  })}
+                </p>
+              </div>
+            `,
+          });
+
+          console.log("Email sent successfully via Resend");
+        } catch (emailError) {
+          console.error("Failed to send email via Resend:", emailError);
+          // Don't fail the request if email fails, just log it
+        }
+      } else {
+        console.warn("RESEND_API_KEY not configured - email not sent");
+      }
 
       res.json({
         success: true,

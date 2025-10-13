@@ -13,13 +13,13 @@ export default function ProductFeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-            Lohnoptimierung neu gedacht
+            Intelligente Lohngestaltung
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Intelligente Gehaltsgestaltung durch die Nutzung von Lohnbausteinen. 
+            Systematische Kostenersparnis durch die Nutzung von Lohnbausteinen. 
             <br />
             <span className="text-[var(--lohn-secondary)] font-semibold">Bis zu 50% Lohnkosteneinsparung </span> 
-            oder mehr Netto für die Mitarbeiter.
+            bei Lohnerhöhungen und Neueinstellungen.
           </p>
         </div>
 

@@ -186,7 +186,7 @@ export default function Steuerberater() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] text-white">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-emerald-600 via-teal-600 to-green-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -466,7 +466,7 @@ export default function Steuerberater() {
                  </CardHeader>
                  <CardContent>
                    <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
-                   {feature.link && (
+                   {feature.link && feature.title !== "Monatliche Importdatei" && (
                      <Link href={feature.link}>
                        <Button 
                          variant="ghost" 

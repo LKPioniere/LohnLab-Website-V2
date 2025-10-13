@@ -7,11 +7,6 @@ export default function DatevIntegration() {
       {/* Visuelle Abtrennung oben */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--lohn-teal)] to-[var(--lohn-primary)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-block bg-[var(--lohn-teal)]/10 rounded-full px-8 py-3 mb-6">
-            <span className="text-[var(--lohn-teal)] font-semibold text-lg">🔄 Integration</span>
-          </div>
-        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">Die perfekte Symbiose: DATEV meets LohnLab</h2>
@@ -90,14 +85,17 @@ export default function DatevIntegration() {
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h4 className="text-lg font-semibold mb-4">Vorteile für Steuerberater und Unternehmen</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-blue-100">
-              <div>
-                <p>✓ Kein E-Mail-Ping-Pong</p>
-                <p>✓ Keine Übertragungsfehler</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-blue-100">
+              <div className="space-y-2">
+                <p>✓ Jeder Mitarbeiter wird individuell betrachtet und berechnet</p>
+                <p>✓ Einfachste Darstellung und Bedienung</p>
+                <p>✓ Kein E-Mail-Ping-Pong mehr</p>
+                <p>✓ Keine Übertragungsfehler dank direkter Integration</p>
               </div>
-              <div>
-                <p>✓ DSGVO-konform</p>
-                <p>✓ Zeitersparnis durch Automatisierung</p>
+              <div className="space-y-2">
+                <p>✓ DSGVO-konforme, strukturierte Datenübertragung</p>
+                <p>✓ Zeitersparnis durch automatisierte Abläufe</p>
+                <p>✓ Direkter Export in DATEV-System per Klick</p>
               </div>
             </div>
           </div>

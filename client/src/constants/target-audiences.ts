@@ -16,11 +16,11 @@ export const TARGET_AUDIENCES = {
   unternehmen: {
     id: 'unternehmen',
     title: 'Für Unternehmen',
-    description: 'Optimieren Sie Ihre Lohnkosten und bieten Sie Ihren Mitarbeitern mehr Netto ohne höhere Bruttokosten für das Unternehmen.',
+    description: 'Optimieren Sie Ihre Lohnkosten und sparen Sie bei jeder Lohnerhöhung und Neueinstellung bis zu 50% der Kosten.',
     benefits: [
       'Exakte Lohnerhöhungen berechnen',
       'Verlässliches Kostencontrolling',
-      'Mehr Netto für Mitarbeiter',
+      'Bis zu 50% Kosten sparen',
       'Präzise Budgetplanung'
     ]
   }

@@ -19,11 +19,11 @@ export default function FeatureCardsSection() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Hier bekommen Sie den kompletten Überblick - von A bis Z, alles was Sie brauchen, 
-            um Ihren Mitarbeitern mehr Netto zu geben und dabei selbst Kosten zu sparen.
+            um bei Lohnerhöhungen und Neueinstellungen systematisch Kosten zu sparen.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {PRODUCT_FEATURES.map((feature) => (
             <FeatureCard key={feature.id} {...feature} />
           ))}

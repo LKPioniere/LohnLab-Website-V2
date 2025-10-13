@@ -50,10 +50,10 @@ export default function Neueinstellungen() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
-              Neueinstellungen in zwei einfachen Schritten
+              Nahtlose Integration in Ihren Einstellungsprozess
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Vom flexiblen Einstellungsgehalt bis zur vollständigen DATEV-Integration
+              Zwischen Stellenausschreibung und Stammdatenerfassung - genau da, wo Sie optimale Gehaltspakete brauchen
             </p>
           </div>
 
@@ -86,14 +86,14 @@ export default function Neueinstellungen() {
                   <TrendingUp className="text-[var(--lohn-teal)] mt-1" size={20} />
                   <div>
                     <h4 className="font-semibold text-[var(--lohn-primary)]">Optimierungsvorschläge</h4>
-                    <p className="text-gray-600">100-200€ mehr Netto durch intelligente Gehaltsoptimierung</p>
+                    <p className="text-gray-600">100-200€ Kostenersparnis durch intelligente Gehaltsoptimierung</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-[var(--lohn-accent)] bg-opacity-10 p-4 rounded-lg">
                 <p className="text-sm text-[var(--lohn-primary)] font-medium">
-                  💡 Beispiel: Außendienst = Dienstwagen, Homeoffice = Jobticket + Home-Office-Pauschale
+                  💡 Beispiel: Außendienst = Garagenzuschuss, E Ladezuschuss, Spesen
                 </p>
               </div>
             </div>
@@ -104,36 +104,36 @@ export default function Neueinstellungen() {
                 <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
                   2
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">Automatisierte Stammdatenerfassung</h3>
+                <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">Perfekt im Prozess positioniert</h3>
               </div>
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-start space-x-3">
                   <Users className="text-[var(--lohn-teal)] mt-1" size={20} />
                   <div>
-                    <h4 className="font-semibold text-[var(--lohn-primary)]">Einfache Dateneingabe</h4>
-                    <p className="text-gray-600">Intuitive Masken für alle Mitarbeiterstammdaten</p>
+                    <h4 className="font-semibold text-[var(--lohn-primary)]">Nach der Stellenausschreibung</h4>
+                    <p className="text-gray-600">Optimales Gehaltspaket erstellen, sobald der richtige Kandidat gefunden ist</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <FileCheck className="text-[var(--lohn-teal)] mt-1" size={20} />
                   <div>
-                    <h4 className="font-semibold text-[var(--lohn-primary)]">DATEV-Integration</h4>
-                    <p className="text-gray-600">Direkter Transfer an Ihren Steuerberater</p>
+                    <h4 className="font-semibold text-[var(--lohn-primary)]">Vor der Stammdatenerfassung</h4>
+                    <p className="text-gray-600">Gehalt optimieren, bevor es in Ihre Lohnsysteme übernommen wird</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Zap className="text-[var(--lohn-teal)] mt-1" size={20} />
                   <div>
-                    <h4 className="font-semibold text-[var(--lohn-primary)]">Sofortige Übertragung</h4>
-                    <p className="text-gray-600">Alle Daten gebündelt und fehlerlos übermittelt</p>
+                    <h4 className="font-semibold text-[var(--lohn-primary)]">Nahtlose Integration</h4>
+                    <p className="text-gray-600">Fügt sich perfekt in Ihren bestehenden HR-Prozess ein</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-[var(--lohn-teal)] bg-opacity-10 p-4 rounded-lg">
                 <p className="text-sm text-[var(--lohn-primary)] font-medium">
-                  ⚡ Keine manuellen Übertragungsfehler mehr - alles automatisch und sicher
+                  ⚡ Genau die Lücke geschlossen, die Sie bisher manuell ausfüllen mussten
                 </p>
               </div>
             </div>
@@ -166,11 +166,11 @@ export default function Neueinstellungen() {
             
             <div className="text-center bg-gray-50 rounded-2xl p-8">
               <div className="w-16 h-16 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
-                <FileX className="text-white" size={28} />
+                <FileCheck className="text-white" size={28} />
               </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Kein PDF-Chaos</h3>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Nahtloser Prozess</h3>
               <p className="text-gray-600">
-                Digitale Stammdatenerfassung statt nerviges Ausfüllen und Scannen von Personalfragebögen
+                Optimales Gehaltspaket direkt nach der Zusage - perfekt integriert in Ihren Einstellungsprozess
               </p>
             </div>
             
@@ -178,9 +178,9 @@ export default function Neueinstellungen() {
               <div className="w-16 h-16 bg-[var(--lohn-purple)] rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="text-white" size={28} />
               </div>
-              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Mehr Netto möglich</h3>
+              <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4">Kosten sparen</h3>
               <p className="text-gray-600">
-                Chance auf 100-200€ mehr Nettogehalt durch intelligente Lohnoptimierung - ohne Mehrkosten für den Arbeitgeber
+                100-200€ Kostenersparnis pro Mitarbeiter durch intelligente Lohnoptimierung.
               </p>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function Neueinstellungen() {
               <div className="order-2 lg:order-1">
                 <img 
                   src={employeeDataImage} 
-                  alt="LohnLab Personalfragebogen für Festanstellung" 
+                  alt="LohnLab Einstellungsprozess Integration" 
                   className="rounded-2xl shadow-2xl w-full h-auto"
                 />
               </div>
@@ -256,28 +256,21 @@ export default function Neueinstellungen() {
                   <div className="w-10 h-10 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center text-white font-bold mr-4">
                     2
                   </div>
-                  <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">Stammdaten erfassen</h3>
+                  <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">Prozess-Integration</h3>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <Users className="text-[var(--lohn-teal)] mt-1" size={20} />
                     <div>
-                      <h4 className="font-semibold text-[var(--lohn-primary)]">Strukturierte Eingabe</h4>
-                      <p className="text-gray-600">Personalfragebogen mit allen relevanten Daten</p>
+                      <h4 className="font-semibold text-[var(--lohn-primary)]">Perfektes Timing</h4>
+                      <p className="text-gray-600">Zwischen Zusage und Stammdatenerfassung - genau da, wo Sie uns brauchen</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <FileCheck className="text-[var(--lohn-teal)] mt-1" size={20} />
                     <div>
-                      <h4 className="font-semibold text-[var(--lohn-primary)]">Vollständige Erfassung</h4>
-                      <p className="text-gray-600">Von persönlichen Daten bis Vertragsdetails</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Download className="text-[var(--lohn-teal)] mt-1" size={20} />
-                    <div>
-                      <h4 className="font-semibold text-[var(--lohn-primary)]">DATEV-Export</h4>
-                      <p className="text-gray-600">Automatische Übertragung an den Steuerberater</p>
+                      <h4 className="font-semibold text-[var(--lohn-primary)]">Optimierte Übergabe</h4>
+                      <p className="text-gray-600">Sobald das Gehalt optimiert ist, wird es im Hintergrund schon für Ihr Lohnsystem importierbar gemacht – keine Doppelarbeit, denn das LohnLab Cockpit ersetzt keine Systeme, es ergänzt und vereinfacht Ihren Prozess.</p>
                     </div>
                   </div>
                 </div>
@@ -302,8 +295,8 @@ export default function Neueinstellungen() {
               <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Euro className="text-white" size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">100-200€ mehr Netto</h3>
-              <p className="text-white text-opacity-90">Durch intelligente Gehaltsoptimierung aus dem gleichen Budget</p>
+              <h3 className="text-xl font-bold mb-2">100-200€ Kostenersparnis</h3>
+              <p className="text-white text-opacity-90">Pro Mitarbeiter durch intelligente Gehaltsoptimierung</p>
             </div>
             
             <div className="text-center">

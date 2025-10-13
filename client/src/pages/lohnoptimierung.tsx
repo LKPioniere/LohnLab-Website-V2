@@ -74,8 +74,8 @@ export default function Lohnoptimierung() {
               </h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Lohnoptimierung nutzt legale steuerliche und sozialversicherungsrechtliche Möglichkeiten, 
-                um Lohnkosten zu reduzieren, ohne dass der Mitarbeiter Nachteile hat - im Gegenteil: 
-                Er profitiert oft sogar mehr als bei einer herkömmlichen Lohnerhöhung.
+                um Lohnkosten erheblich zu reduzieren, ohne dass der Mitarbeiter Nachteile hat - 
+                Sie sparen Kosten bei gleichbleibender Attraktivität.
               </p>
               
               <div className="space-y-4">
@@ -154,12 +154,12 @@ export default function Lohnoptimierung() {
 
                 <div className="bg-[var(--lohn-purple)]/10 rounded-lg p-4">
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-[var(--lohn-purple)]">Ersparnis für Arbeitgeber:</span>
+                    <span className="font-semibold text-[var(--lohn-purple)]">Ihre Kostenersparnis:</span>
                     <span className="text-2xl font-bold text-[var(--lohn-purple)]">220€</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-[var(--lohn-purple)]">Mehrwert für Mitarbeiter:</span>
-                    <span className="text-2xl font-bold text-[var(--lohn-purple)]">+40€</span>
+                    <span className="font-semibold text-[var(--lohn-purple)]">Einsparung in %:</span>
+                    <span className="text-2xl font-bold text-[var(--lohn-purple)]">35%</span>
                   </div>
                 </div>
               </div>
@@ -195,9 +195,9 @@ export default function Lohnoptimierung() {
               <div className="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="text-white text-2xl" />
               </div>
-              <h3 className="text-xl font-bold text-green-800 mb-3">Nettoplus</h3>
+              <h3 className="text-xl font-bold text-green-800 mb-3">Kostenreduzierung</h3>
               <p className="text-green-700">
-                Zusätzlicher Nettobonus on top zur geplanten Lohnerhöhung für den Mitarbeiter.
+                Erhebliche Senkung der Lohnnebenkosten bei jeder Gehaltsanpassung.
               </p>
             </div>
 

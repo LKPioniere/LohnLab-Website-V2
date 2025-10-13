@@ -12,14 +12,15 @@ export default function HeroSection() {
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               <span className="text-[var(--lohn-teal)]">LohnLab Cockpit</span>  
-              <br />Moderne Lohnoptimierung.
+              <br />Jetzt Kosten sparen.
             </h1>
             <p className="text-xl mb-6 text-blue-100">
-              Ob Lohnerhöhung, Neueinstellung oder Mitarbeiterbindung – das Cockpit vereinfacht die Umsetzung, 
-              spart Lohnkosten und schafft Klarheit für Unternehmen und Steuerberater.
+              Als Unternehmer stehen Sie unter Kostendruck. Unser Cockpit hilft Ihnen, 
+              bei Lohnerhöhungen, Neueinstellungen und Mitarbeiterbindung systematisch Kosten zu sparen – 
+              rechtssicher und transparent.
             </p>
             <p className="text-lg mb-8 text-[var(--lohn-teal)] font-semibold">
-              Effizient. Verständlich. Rechtssicher.
+              Bis zu 50% Lohnkosten sparen. Effizient. Rechtssicher.
             </p>
             <HeroButtons />
           </div>

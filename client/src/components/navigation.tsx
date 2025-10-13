@@ -36,15 +36,15 @@ export default function Navigation() {
         // Determine page-specific colors based on current path
         const currentPath = window.location.pathname;
         
-        if (currentPath === '/' || currentPath === '/faq' || currentPath === '/loesungen/lohnerhoehung' || currentPath === '/entwicklungsfortschritt' || currentPath === '/roadmap') {
-          // Homepage, FAQ, Lohnerhöhung, Roadmap: RGB 15,34,137
+        if (currentPath === '/' || currentPath === '/faq' || currentPath === '/loesungen/lohnerhoehung') {
+          // Homepage, FAQ, Lohnerhöhung: RGB 15,34,137
           setHeroBgColor('rgb(15, 34, 137)');
-        } else if (currentPath === '/loesungen/lohnoptimierung') {
-          // Optimierung: RGB 126,73,202
-          setHeroBgColor('rgb(126, 73, 202)');
         } else if (currentPath === '/loesungen/neueinstellungen') {
           // Neueinstellungen: RGB 39,72,133
           setHeroBgColor('rgb(39, 72, 133)');
+        } else if (currentPath === '/steuerberater') {
+          // Steuerberater: RGB 5,150,105 (emerald-600)
+          setHeroBgColor('rgb(5, 150, 105)');
         } else {
           // Default fallback to homepage color
           setHeroBgColor('rgb(15, 34, 137)');
@@ -234,21 +234,6 @@ export default function Navigation() {
                       </div>
                     </Link>
                     <Link 
-                      href="/loesungen/lohnoptimierung"
-                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-all duration-300"
-                      onClick={() => setIsSolutionsOpen(false)}
-                    >
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[var(--lohn-purple)] to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                          <Crown className="w-6 h-6 text-yellow-400" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-purple)] transition-colors">Lohnoptimierung</div>
-                          <div className="text-sm text-gray-500">Bis zu 50% Kosteneinsparung bei Lohnerhöhungen</div>
-                        </div>
-                      </div>
-                    </Link>
-                    <Link 
                       href="/loesungen/neueinstellungen"
                       className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent transition-all duration-300"
                       onClick={() => setIsSolutionsOpen(false)}
@@ -404,19 +389,6 @@ export default function Navigation() {
                       <div>
                         <div className="font-medium">Lohnerhöhung</div>
                         <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Exakte Berechnungen</div>
-                      </div>
-                    </Link>
-                    <Link 
-                      href="/loesungen/lohnoptimierung"
-                      onClick={() => {setIsMobileMenuOpen(false); setIsMobileSolutionsOpen(false);}}
-                      className={`flex items-center px-6 py-3 ${isHeroVisible && isDarkHero ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-[var(--lohn-primary)]'} transition-colors`}
-                    >
-                      <div className="w-10 h-10 bg-[var(--lohn-purple)] rounded-lg flex items-center justify-center mr-3">
-                        <Crown className="w-5 h-5 text-yellow-400" />
-                      </div>
-                      <div>
-                        <div className="font-medium">Lohnoptimierung</div>
-                        <div className={`text-sm ${isHeroVisible && isDarkHero ? 'text-gray-200' : 'text-gray-500'}`}>Bis zu 50% Einsparung</div>
                       </div>
                     </Link>
                     <Link 

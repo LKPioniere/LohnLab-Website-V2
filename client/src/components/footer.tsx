@@ -1,5 +1,4 @@
 import { Linkedin } from "lucide-react";
-import { SiXing } from "react-icons/si";
 import { Link } from "wouter";
 import lohnlabLogo from "@/assets/lohnlab-logo-white.png";
 
@@ -7,7 +6,7 @@ export default function Footer() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -16,49 +15,68 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <img 
-              src={lohnlabLogo} 
-              alt="LohnLab Logo" 
+            <img
+              src={lohnlabLogo}
+              alt="LohnLab Logo"
               className="h-8 w-auto mb-4"
             />
             <p className="text-blue-100 mb-4">
-              Ihr digitales Werkzeug für moderne Lohnoptimierung - entwickelt für Steuerberater und Unternehmen, 
-              die auf Präzision und Effizienz setzen.
+              Ihr digitales Werkzeug für moderne Lohnoptimierung - entwickelt
+              für Steuerberater und Unternehmen, die auf Präzision und Effizienz
+              setzen.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="#" 
+              <a
+                href="https://www.linkedin.com/company/lohnlab-gmbh/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="text-white w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors"
-                aria-label="Xing"
-              >
-                <SiXing className="text-white w-5 h-5" />
               </a>
             </div>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Produkt</h4>
             <ul className="space-y-2 text-blue-100">
-              <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="hover:text-white transition-colors"
+                >
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Unternehmen</h4>
             <ul className="space-y-2 text-blue-100">
-              <li><a href="#" className="hover:text-white transition-colors">Über uns</a></li>
               <li>
-                <Link href="/kontakt" className="hover:text-white transition-colors">
+                <Link
+                  href="/kontakt"
+                  className="hover:text-white transition-colors"
+                >
                   Kontakt
                 </Link>
               </li>
-              <li><Link href="/impressum" className="hover:text-white transition-colors">Impressum</Link></li>
-              <li><Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</Link></li>
+              <li>
+                <Link
+                  href="/impressum"
+                  className="hover:text-white transition-colors"
+                >
+                  Impressum
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/datenschutz"
+                  className="hover:text-white transition-colors"
+                >
+                  Datenschutz
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

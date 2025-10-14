@@ -1,5 +1,6 @@
 import { MapPin, Mail, Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/constants/company";
+import ObfuscatedEmail from "@/components/common/ObfuscatedEmail";
 
 /**
  * Komponente für Firmeninformationen
@@ -16,7 +17,8 @@ export default function CompanyInfo() {
           <div>
             <p className="font-medium">Adresse</p>
             <p className="text-blue-100">
-              {COMPANY_INFO.address.street}<br />
+              {COMPANY_INFO.address.street}
+              <br />
               {COMPANY_INFO.address.zip} {COMPANY_INFO.address.city}
             </p>
           </div>
@@ -27,7 +29,11 @@ export default function CompanyInfo() {
           </div>
           <div>
             <p className="font-medium">E-Mail</p>
-            <p className="text-blue-100">{COMPANY_INFO.contact.email}</p>
+            <ObfuscatedEmail
+              user={COMPANY_INFO.contact.emailUser}
+              domain={COMPANY_INFO.contact.emailDomain}
+              className="text-blue-100 hover:text-white transition-colors"
+            />
           </div>
         </div>
         <div className="flex items-start space-x-4">

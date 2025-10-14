@@ -70,9 +70,29 @@ npm start
 - React 18 mit TypeScript
 - Tailwind CSS für Styling
 - Express.js Backend
-- In-Memory Storage (optional: PostgreSQL)
 - Responsive Design
 - SEO-optimiert
+- **Security Features:**
+  - Rate Limiting auf API-Endpunkten
+  - Security Headers (Helmet)
+  - HTML-Escaping für User-Input
+  - DSGVO-konformes Logging
+  - Honeypot Spam-Protection
+  - Email-Obfuscation
+
+### Security
+
+Siehe [SECURITY.md](./SECURITY.md) für Details zu den implementierten Sicherheitsmaßnahmen.
+
+### Environment Setup
+
+1. Kopiere `env.example` zu `.env`
+2. Fülle die erforderlichen Umgebungsvariablen aus:
+   ```
+   RESEND_API_KEY=your_api_key
+   RESEND_FROM_EMAIL=noreply@yourdomain.com
+   RESEND_TO_EMAIL=info@lohnlab.de
+   ```
 
 ### Support
 

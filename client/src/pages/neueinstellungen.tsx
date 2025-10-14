@@ -19,8 +19,21 @@ import {
 import { Link } from "wouter";
 import salaryCalculationImage from "@/assets/salary-calculation.png";
 import employeeDataImage from "@/assets/employee-data-entry.png";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Neueinstellungen() {
+  useSEO({
+    title: "Neueinstellungen kostenoptimiert berechnen | LohnLab Cockpit",
+    description:
+      "Optimieren Sie Gehälter bei Neueinstellungen und sparen Sie Lohnkosten. Mit DATEV-Integration und präziser Gehaltsberechnung. Jetzt Demo anfragen!",
+    keywords:
+      "Neueinstellung, Gehaltsberechnung, Lohnkosten sparen, Recruiting, Mitarbeiter einstellen, DATEV Integration",
+    canonical: "https://www.lohnlab.de/loesungen/neueinstellungen",
+    ogTitle: "Neueinstellungen: Gehälter intelligent berechnen",
+    ogDescription:
+      "Optimierte Gehaltsberechnung für Neueinstellungen mit DATEV-Integration. Sparen Sie Lohnkosten von Anfang an.",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -84,7 +97,7 @@ export default function Neueinstellungen() {
             {/* Step 1 */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
                   1
                 </div>
                 <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">
@@ -151,7 +164,7 @@ export default function Neueinstellungen() {
             {/* Step 2 */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
                   2
                 </div>
                 <h3 className="text-2xl font-bold text-[var(--lohn-primary)]">
@@ -336,8 +349,11 @@ export default function Neueinstellungen() {
               <div>
                 <img
                   src={salaryCalculationImage}
-                  alt="LohnLab Einstellungsgehalt Berechnung"
+                  alt="LohnLab Cockpit: Präzise Gehaltsberechnung für Neueinstellungen mit Kostenoptimierung und DATEV-Integration"
                   className="rounded-2xl shadow-2xl w-full h-auto"
+                  loading="lazy"
+                  width="800"
+                  height="600"
                 />
               </div>
             </div>
@@ -347,8 +363,11 @@ export default function Neueinstellungen() {
               <div className="order-2 lg:order-1">
                 <img
                   src={employeeDataImage}
-                  alt="LohnLab Einstellungsprozess Integration"
+                  alt="LohnLab Cockpit: Mitarbeiterdaten-Eingabe und Verwaltung im Einstellungsprozess mit automatischer Optimierung"
                   className="rounded-2xl shadow-2xl w-full h-auto"
+                  loading="lazy"
+                  width="800"
+                  height="600"
                 />
               </div>
               <div className="order-1 lg:order-2">

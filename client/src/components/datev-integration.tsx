@@ -16,7 +16,7 @@ export default function DatevIntegration() {
             </p>
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--lohn-teal)] rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-teal)] rounded-xl flex items-center justify-center">
                   <ArrowRight className="text-white text-lg" />
                 </div>
                 <div>
@@ -25,7 +25,7 @@ export default function DatevIntegration() {
                 </div>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--lohn-secondary)] rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-secondary)] rounded-xl flex items-center justify-center">
                   <Calculator className="text-white text-lg" />
                 </div>
                 <div>
@@ -34,7 +34,7 @@ export default function DatevIntegration() {
                 </div>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--lohn-purple)] rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-purple)] rounded-xl flex items-center justify-center">
                   <ArrowLeft className="text-white text-lg" />
                 </div>
                 <div>
@@ -59,7 +59,7 @@ export default function DatevIntegration() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 flex-shrink-0 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calculator className="text-white text-xl" />
               </div>
               <h4 className="font-semibold mb-3">Exakte Berechnung</h4>
@@ -67,7 +67,7 @@ export default function DatevIntegration() {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 flex-shrink-0 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FileDown className="text-white text-xl" />
               </div>
               <h4 className="font-semibold mb-3">Entwürfe speichern</h4>
@@ -75,7 +75,7 @@ export default function DatevIntegration() {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 flex-shrink-0 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Send className="text-white text-xl" />
               </div>
               <h4 className="font-semibold mb-3">Umsetzung per Klick</h4>

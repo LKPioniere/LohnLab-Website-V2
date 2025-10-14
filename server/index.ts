@@ -1,9 +1,34 @@
 import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
+import helmet from "helmet";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 export const app = express();
+
+// Security headers
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://static.hsappstatic.net",
+          "https://replit.com",
+        ],
+        imgSrc: ["'self'", "data:", "https:"],
+        connectSrc: ["'self'", "https://meetings-eu1.hubspot.com"],
+        frameSrc: ["'self'", "https://meetings-eu1.hubspot.com"],
+      },
+    },
+    crossOriginEmbedderPolicy: false, // Allow HubSpot meeting embeds
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

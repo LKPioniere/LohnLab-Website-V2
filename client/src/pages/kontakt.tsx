@@ -43,31 +43,26 @@ export default function Kontakt() {
   };
 
   useEffect(() => {
-    // Preload HubSpot Meetings Embed Script for faster loading
+    // Load HubSpot Meetings Embed Script immediately with high priority
     const hubspotScript = document.createElement("script");
     hubspotScript.type = "text/javascript";
     hubspotScript.src =
       "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-    hubspotScript.async = true;
+    // Use defer instead of async for better performance in this case
+    hubspotScript.defer = true;
 
     // Add onload event to track when script is ready
     hubspotScript.onload = () => {
       setHubspotLoaded(true);
     };
 
-    // Preload script immediately when component mounts
-    document.head.appendChild(hubspotScript);
-
-    // Also try to preconnect to HubSpot domains for faster loading
-    const preconnect1 = document.createElement("link");
-    preconnect1.rel = "preconnect";
-    preconnect1.href = "https://static.hsappstatic.net";
-    document.head.appendChild(preconnect1);
-
-    const preconnect2 = document.createElement("link");
-    preconnect2.rel = "preconnect";
-    preconnect2.href = "https://meetings-eu1.hubspot.com";
-    document.head.appendChild(preconnect2);
+    // Add to head with high priority
+    const firstScript = document.getElementsByTagName("script")[0];
+    if (firstScript && firstScript.parentNode) {
+      firstScript.parentNode.insertBefore(hubspotScript, firstScript);
+    } else {
+      document.head.appendChild(hubspotScript);
+    }
 
     return () => {
       // Cleanup
@@ -77,17 +72,6 @@ export default function Kontakt() {
       if (existingHubspotScript) {
         existingHubspotScript.remove();
       }
-      const preconnectLinks = document.querySelectorAll(
-        'link[rel="preconnect"]'
-      );
-      preconnectLinks.forEach((link) => {
-        if (
-          link.getAttribute("href")?.includes("hsappstatic.net") ||
-          link.getAttribute("href")?.includes("hubspot.com")
-        ) {
-          link.remove();
-        }
-      });
     };
   }, []);
 
@@ -163,6 +147,21 @@ export default function Kontakt() {
           </div>
 
           <div className="bg-white rounded-lg shadow-lg overflow-hidden relative">
+            {/* Loading Indicator */}
+            {!hubspotLoaded && (
+              <div
+                className="absolute inset-0 flex items-center justify-center bg-white z-10"
+                style={{ minHeight: "700px" }}
+              >
+                <div className="text-center">
+                  <Loader2 className="w-12 h-12 text-[var(--lohn-primary)] animate-spin mx-auto mb-4" />
+                  <p className="text-gray-600 font-medium">
+                    Kalender wird geladen...
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Beide Kalender laden, aber nur den ausgewählten anzeigen */}
             <div
               className={`meetings-iframe-container ${
@@ -207,7 +206,7 @@ export default function Kontakt() {
             {/* Address Card */}
             <Card className="text-center">
               <CardHeader>
-                <div className="w-12 h-12 bg-[var(--lohn-secondary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-secondary)] rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="text-white" size={24} />
                 </div>
                 <CardTitle className="text-[var(--lohn-primary)]">

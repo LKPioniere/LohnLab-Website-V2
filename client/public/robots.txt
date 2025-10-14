@@ -1,0 +1,10 @@
+# robots.txt für LohnLab Website
+# https://www.lohnlab.de/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap Location
+Sitemap: https://www.lohnlab.de/sitemap.xml
+

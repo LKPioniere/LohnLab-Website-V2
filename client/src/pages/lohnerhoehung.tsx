@@ -5,14 +5,53 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Users, Calculator, Heart, Shield, Target, Crown, DollarSign, Gift, PiggyBank, Timer, AlertTriangle, TrendingDown, Briefcase, Award, Lightbulb, Eye, Banknote, CheckCircle, ArrowRight, Sparkles, Rocket, Building2, HandHeart, Zap } from "lucide-react";
+import {
+  TrendingUp,
+  Users,
+  Calculator,
+  Heart,
+  Shield,
+  Target,
+  Crown,
+  DollarSign,
+  Gift,
+  PiggyBank,
+  Timer,
+  AlertTriangle,
+  TrendingDown,
+  Briefcase,
+  Award,
+  Lightbulb,
+  Eye,
+  Banknote,
+  CheckCircle,
+  ArrowRight,
+  Sparkles,
+  Rocket,
+  Building2,
+  HandHeart,
+  Zap,
+} from "lucide-react";
 import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 import employeeSelection from "@/assets/employee-selection.png";
 import payrollComparison from "@/assets/payroll-comparison.png";
 import fruitBasketImage from "@/assets/fruit-basket.jpg";
 import ciCardImage from "@/assets/ci-card-lohnlab.png";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Lohnerhoehung() {
+  useSEO({
+    title: "Lohnerhöhungen mit 50% Kostenersparnis | LohnLab Cockpit",
+    description:
+      "Sparen Sie bei Lohnerhöhungen bis zu 50% Lohnkosten durch intelligente Lohnoptimierung. Rechtssicher, transparent und DATEV-integriert. Jetzt Demo buchen!",
+    keywords:
+      "Lohnerhöhung, Lohnkosten sparen, Gehaltserhöhung Kostenersparnis, Mitarbeiterbindung, Lohnoptimierung, DATEV",
+    canonical: "https://www.lohnlab.de/loesungen/lohnerhoehung",
+    ogTitle: "Lohnerhöhungen: Bis zu 50% Kosten sparen",
+    ogDescription:
+      "Intelligente Lohnoptimierung bei Gehaltserhöhungen. Rechtssicher und transparent mit DATEV-Integration.",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,36 +59,43 @@ export default function Lohnerhoehung() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section - Understanding Decision Makers */}
       <section className="bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)] text-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-              Lohnerhöhungen, die Ihnen <span className="text-yellow-300">echte</span><br/>
+              Lohnerhöhungen, die Ihnen{" "}
+              <span className="text-yellow-300">echte</span>
+              <br />
               <span className="text-green-300">Kosten sparen</span>
             </h1>
             <p className="text-xl mb-12 max-w-4xl mx-auto text-blue-100 leading-relaxed">
-              In der aktuellen Wirtschaftslage stehen Sie vor explodierenden Kosten und dem Kampf um Fachkräfte. 
-              Wir haben verstanden: <strong className="text-white">Der Fokus liegt auf der Bindung bestehender Mitarbeiter bei minimierten Kosten.</strong> 
-              Unsere Lösung ermöglicht Ihnen Lohnerhöhungen mit bis zu 50% Kostenersparnis.
+              In der aktuellen Wirtschaftslage stehen Sie vor explodierenden
+              Kosten und dem Kampf um Fachkräfte. Wir haben verstanden:{" "}
+              <strong className="text-white">
+                Der Fokus liegt auf der Bindung bestehender Mitarbeiter bei
+                minimierten Kosten.
+              </strong>
+              Unsere Lösung ermöglicht Ihnen Lohnerhöhungen mit bis zu 50%
+              Kostenersparnis.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <Button 
-                onClick={() => scrollToSection('mitarbeiter-first')}
+              <Button
+                onClick={() => scrollToSection("mitarbeiter-first")}
                 className="bg-[var(--lohn-teal)] text-white hover:bg-[var(--lohn-teal)]/90 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
                 Systematische Kostenersparnis
               </Button>
-              <Button 
-                onClick={() => scrollToSection('kontakt')}
+              <Button
+                onClick={() => scrollToSection("kontakt")}
                 variant="outline"
                 className="border-white text-[var(--lohn-primary)] bg-white hover:bg-gray-100 font-semibold px-12 py-4 rounded-full text-lg transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
@@ -68,7 +114,8 @@ export default function Lohnerhoehung() {
               Die aktuelle Wirtschaftslage verstehen
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Als Entscheider in deutschen Unternehmen kennen Sie diese Herausforderungen nur zu gut
+              Als Entscheider in deutschen Unternehmen kennen Sie diese
+              Herausforderungen nur zu gut
             </p>
           </div>
 
@@ -79,12 +126,15 @@ export default function Lohnerhoehung() {
                 <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
                   <AlertTriangle className="text-orange-600" size={32} />
                 </div>
-                <CardTitle className="text-xl text-gray-800">Explodierende Kosten</CardTitle>
+                <CardTitle className="text-xl text-gray-800">
+                  Explodierende Kosten
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed">
-                  Steigende Energiekosten, Inflation und gestiegene Rohstoffpreise belasten das Budget. 
-                  Jede Ausgabe muss sorgfältig abgewogen werden.
+                  Steigende Energiekosten, Inflation und gestiegene
+                  Rohstoffpreise belasten das Budget. Jede Ausgabe muss
+                  sorgfältig abgewogen werden.
                 </p>
               </CardContent>
             </Card>
@@ -94,12 +144,20 @@ export default function Lohnerhoehung() {
                 <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
                   <Briefcase className="text-blue-600" size={32} />
                 </div>
-                <CardTitle className="text-xl text-gray-800">Kampf um Fachkräfte</CardTitle>
+                <CardTitle className="text-xl text-gray-800">
+                  Kampf um Fachkräfte
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed">
-                  Der Fachkräftemangel verschärft sich. <a href="/loesungen/neueinstellungen" className="text-[var(--lohn-primary)] hover:underline">Neue Talente zu finden</a> wird immer schwieriger 
-                  und teurer.
+                  Der Fachkräftemangel verschärft sich.{" "}
+                  <a
+                    href="/loesungen/neueinstellungen"
+                    className="text-[var(--lohn-primary)] hover:underline"
+                  >
+                    Neue Talente zu finden
+                  </a>{" "}
+                  wird immer schwieriger und teurer.
                 </p>
               </CardContent>
             </Card>
@@ -109,12 +167,14 @@ export default function Lohnerhoehung() {
                 <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
                   <Heart className="text-green-600" size={32} />
                 </div>
-                <CardTitle className="text-xl text-gray-800">Mitarbeiterbindung im Fokus</CardTitle>
+                <CardTitle className="text-xl text-gray-800">
+                  Mitarbeiterbindung im Fokus
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed">
-                  Bestehende Mitarbeiter zu halten ist kostengünstiger als neue zu rekrutieren. 
-                  Die Bindung wird zur strategischen Priorität.
+                  Bestehende Mitarbeiter zu halten ist kostengünstiger als neue
+                  zu rekrutieren. Die Bindung wird zur strategischen Priorität.
                 </p>
               </CardContent>
             </Card>
@@ -125,11 +185,13 @@ export default function Lohnerhoehung() {
             <div className="max-w-4xl mx-auto">
               <Lightbulb className="w-16 h-16 mx-auto mb-6 text-yellow-300" />
               <h3 className="text-2xl lg:text-3xl font-bold mb-6">
-                Unsere Erkenntnis: Es geht um smarte Lösungen, nicht um höhere Ausgaben
+                Unsere Erkenntnis: Es geht um smarte Lösungen, nicht um höhere
+                Ausgaben
               </h3>
               <p className="text-xl text-blue-100 leading-relaxed">
-                Statt einfach nur Gehälter zu erhöhen, brauchen Sie intelligente Employer Branding Lösungen, 
-                die Ihre Mitarbeiter wertschätzen und gleichzeitig Ihre Kosten optimieren.
+                Statt einfach nur Gehälter zu erhöhen, brauchen Sie intelligente
+                Employer Branding Lösungen, die Ihre Mitarbeiter wertschätzen
+                und gleichzeitig Ihre Kosten optimieren.
               </p>
             </div>
           </div>
@@ -144,10 +206,13 @@ export default function Lohnerhoehung() {
               Systematische Kostenersparnis
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-[var(--lohn-primary)] mb-6">
-              Lohnerhöhungen, die <span className="text-green-600">Kosten sparen</span>
+              Lohnerhöhungen, die{" "}
+              <span className="text-green-600">Kosten sparen</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Nutzen Sie LohnLab, um bei Lohnerhöhungen systematisch Kosten zu sparen – weil Wirtschaftlichkeit heute kein Luxus, sondern Voraussetzung ist.
+              Nutzen Sie LohnLab, um bei Lohnerhöhungen systematisch Kosten zu
+              sparen – weil Wirtschaftlichkeit heute kein Luxus, sondern
+              Voraussetzung ist.
             </p>
           </div>
 
@@ -163,41 +228,53 @@ export default function Lohnerhoehung() {
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <div className="text-gray-700">
-                      <strong>Kosten senken:</strong> Optimierte Vergütungsmodelle sparen bis zur Hälfte der üblichen Lohnkosten – auch bei Lohnerhöhungen.
+                      <strong>Kosten senken:</strong> Optimierte
+                      Vergütungsmodelle sparen bis zur Hälfte der üblichen
+                      Lohnkosten – auch bei Lohnerhöhungen.
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <div className="text-gray-700">
-                      <strong>Gezielt investieren:</strong> Nutzen Sie die frei werdenden Mittel, um Benefits zu schaffen, die über das Übliche hinausgehen.
+                      <strong>Gezielt investieren:</strong> Nutzen Sie die frei
+                      werdenden Mittel, um Benefits zu schaffen, die über das
+                      Übliche hinausgehen.
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <div className="text-gray-700">
-                      <strong>Realer Nutzen:</strong> Ihre Mitarbeiter profitieren direkt – nicht in Form von Versprechen, sondern als echtes Plus im Alltag.
+                      <strong>Realer Nutzen:</strong> Ihre Mitarbeiter
+                      profitieren direkt – nicht in Form von Versprechen,
+                      sondern als echtes Plus im Alltag.
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <div className="text-gray-700">
-                      <strong>Mitarbeiter binden:</strong> Aus Wertschätzung wird Verlässlichkeit – weil gute Bedingungen verbinden.
+                      <strong>Mitarbeiter binden:</strong> Aus Wertschätzung
+                      wird Verlässlichkeit – weil gute Bedingungen verbinden.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="relative">
-              <img 
-                src={lohnlabCalculatorPrecise} 
-                alt="LohnLab Cockpit - Präzise Netto-Berechnung" 
+              <img
+                src={lohnlabCalculatorPrecise}
+                alt="LohnLab Cockpit Screenshot: Automatische Lohnberechnung mit DATEV-Integration für Lohnerhöhungen"
                 className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                loading="lazy"
+                width="800"
+                height="600"
               />
               <div className="absolute -bottom-4 -right-4 bg-green-500 text-white px-6 py-3 rounded-2xl shadow-lg">
                 <div className="flex items-center space-x-2">
                   <Banknote className="w-5 h-5" />
-                  <span className="font-semibold">Kosten sparen bei jeder Erhöhung</span>
+                  <span className="font-semibold">
+                    Kosten sparen bei jeder Erhöhung
+                  </span>
                 </div>
               </div>
             </div>
@@ -211,20 +288,23 @@ export default function Lohnerhoehung() {
                 LohnLab Card - Lohnerhöhungen sichtbar machen
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Die wiederaufladbare Mastercard mit Ihrem Firmenlogo macht jeden Cent Ihrer Wertschätzung sichtbar
+                Die wiederaufladbare Mastercard mit Ihrem Firmenlogo macht jeden
+                Cent Ihrer Wertschätzung sichtbar
               </p>
             </div>
 
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                
                 {/* Left Column - Card Image & Logo Highlight */}
                 <div className="lg:col-span-1">
                   <div className="relative">
-                    <img 
-                      src={ciCardImage} 
-                      alt="LohnLab Card mit Firmen-Branding" 
+                    <img
+                      src={ciCardImage}
+                      alt="LohnLab Card mit individuellem Firmen-Branding und Logo - Wiederaufladbare Mastercard für Mitarbeiterbenefits"
                       className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                      loading="lazy"
+                      width="600"
+                      height="400"
                     />
                     <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-xl shadow-lg">
                       <div className="flex items-center space-x-2">
@@ -233,27 +313,35 @@ export default function Lohnerhoehung() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Stats Box */}
                   <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-6 mt-6 border border-purple-200">
-                    <h4 className="font-bold text-gray-800 mb-3">Bewährte Lösung:</h4>
+                    <h4 className="font-bold text-gray-800 mb-3">
+                      Bewährte Lösung:
+                    </h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                        <span className="font-semibold text-gray-800">550.000+ Kartennutzer</span>
+                        <span className="font-semibold text-gray-800">
+                          550.000+ Kartennutzer
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                        <span className="font-semibold text-gray-800">23.000+ Firmenkunden</span>
+                        <span className="font-semibold text-gray-800">
+                          23.000+ Firmenkunden
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                        <span className="font-semibold text-gray-800">Steuerkonform</span>
+                        <span className="font-semibold text-gray-800">
+                          Steuerkonform
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Right Column - Features */}
                 <div className="lg:col-span-2 space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -262,11 +350,14 @@ export default function Lohnerhoehung() {
                         <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
                           <Gift className="w-5 h-5 text-purple-600" />
                         </div>
-                        <h4 className="text-lg font-bold text-gray-800">Universell einsetzbar</h4>
+                        <h4 className="text-lg font-bold text-gray-800">
+                          Universell einsetzbar
+                        </h4>
                       </div>
                       <p className="text-gray-600">
-                        Bei <strong>allen Mastercard-Akzeptanzstellen</strong> nutzbar - 
-                        für Tanken, Einkaufen oder jeden anderen Bedarf.
+                        Bei <strong>allen Mastercard-Akzeptanzstellen</strong>{" "}
+                        nutzbar - für Tanken, Einkaufen oder jeden anderen
+                        Bedarf.
                       </p>
                     </div>
 
@@ -275,11 +366,13 @@ export default function Lohnerhoehung() {
                         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                           <Award className="w-5 h-5 text-blue-600" />
                         </div>
-                        <h4 className="text-lg font-bold text-gray-800">Firmen-Branding</h4>
+                        <h4 className="text-lg font-bold text-gray-800">
+                          Firmen-Branding
+                        </h4>
                       </div>
                       <p className="text-gray-600">
-                        Karte mit <strong>Ihrem Logo und Design</strong> - 
-                        bei jeder Zahlung sichtbare Wertschätzung.
+                        Karte mit <strong>Ihrem Logo und Design</strong> - bei
+                        jeder Zahlung sichtbare Wertschätzung.
                       </p>
                     </div>
 
@@ -288,11 +381,13 @@ export default function Lohnerhoehung() {
                         <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                           <HandHeart className="w-5 h-5 text-green-600" />
                         </div>
-                        <h4 className="text-lg font-bold text-gray-800">Bewusste Wahrnehmung</h4>
+                        <h4 className="text-lg font-bold text-gray-800">
+                          Bewusste Wahrnehmung
+                        </h4>
                       </div>
                       <p className="text-gray-600">
-                        <strong>Anders als Gehaltsüberweisung</strong> - 
-                        jede Zahlung wird bewusst als Ihr Benefit wahrgenommen.
+                        <strong>Anders als Gehaltsüberweisung</strong> - jede
+                        Zahlung wird bewusst als Ihr Benefit wahrgenommen.
                       </p>
                     </div>
 
@@ -301,11 +396,13 @@ export default function Lohnerhoehung() {
                         <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
                           <Zap className="w-5 h-5 text-indigo-600" />
                         </div>
-                        <h4 className="text-lg font-bold text-gray-800">Sofortige Verfügbarkeit</h4>
+                        <h4 className="text-lg font-bold text-gray-800">
+                          Sofortige Verfügbarkeit
+                        </h4>
                       </div>
                       <p className="text-gray-600">
-                        <strong>Wiederaufladbar in Echtzeit</strong> - 
-                        Ihre Mitarbeiter können Benefits sofort nutzen.
+                        <strong>Wiederaufladbar in Echtzeit</strong> - Ihre
+                        Mitarbeiter können Benefits sofort nutzen.
                       </p>
                     </div>
                   </div>
@@ -324,8 +421,9 @@ export default function Lohnerhoehung() {
                 Lohnerhöhungen im LohnLab Cockpit
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Die spezialisierte Funktion für präzise Lohnerhöhungsberechnungen - 
-                entwickelt für maximale Effizienz und echte Kosteneinsparungen.
+                Die spezialisierte Funktion für präzise
+                Lohnerhöhungsberechnungen - entwickelt für maximale Effizienz
+                und echte Kosteneinsparungen.
               </p>
             </div>
 
@@ -333,54 +431,68 @@ export default function Lohnerhoehung() {
               <div className="space-y-8">
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 flex-shrink-0 bg-blue-100 rounded-full flex items-center justify-center">
                       <Calculator className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Präzise Lohnberechnung</h4>
+                    <h4 className="text-xl font-bold text-gray-800">
+                      Präzise Lohnberechnung
+                    </h4>
                   </div>
                   <p className="text-gray-600">
-                    Alle Mitarbeiter werden gleichzeitig mit höchster Genauigkeit berechnet. 
-                    Keine manuellen Fehler, keine Excel-Schätzungen mehr.
+                    Alle Mitarbeiter werden gleichzeitig mit höchster
+                    Genauigkeit berechnet. Keine manuellen Fehler, keine
+                    Excel-Schätzungen mehr.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 flex-shrink-0 bg-green-100 rounded-full flex items-center justify-center">
                       <PiggyBank className="w-6 h-6 text-green-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Automatische Optimierung</h4>
+                    <h4 className="text-xl font-bold text-gray-800">
+                      Automatische Optimierung
+                    </h4>
                   </div>
                   <p className="text-gray-600">
-                    Jeder Lohnerhöhungsfall wird automatisch optimiert für 
-                    bis zu 50% reduzierte Arbeitgeberkosten bei gleichbleibender Attraktivität.
+                    Jeder Lohnerhöhungsfall wird automatisch optimiert für bis
+                    zu 50% reduzierte Arbeitgeberkosten bei gleichbleibender
+                    Attraktivität.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 flex-shrink-0 bg-purple-100 rounded-full flex items-center justify-center">
                       <Sparkles className="w-6 h-6 text-purple-600" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800">Professionelle Dokumentation</h4>
+                    <h4 className="text-xl font-bold text-gray-800">
+                      Professionelle Dokumentation
+                    </h4>
                   </div>
                   <p className="text-gray-600">
-                    Automatische Erstellung von Gehaltsvergleichen und Probeabrechnungen für 
-                    transparente Mitarbeiterkommunikation auf Knopfdruck.
+                    Automatische Erstellung von Gehaltsvergleichen und
+                    Probeabrechnungen für transparente Mitarbeiterkommunikation
+                    auf Knopfdruck.
                   </p>
                 </div>
               </div>
 
               <div className="relative">
-                <img 
-                  src={employeeSelection} 
-                  alt="LohnLab Cockpit - Lohnerhöhungsmodul Mitarbeiterauswahl" 
+                <img
+                  src={employeeSelection}
+                  alt="LohnLab Cockpit Lohnerhöhungsmodul: Einfache Mitarbeiterauswahl für Gehaltsoptimierung und Kostenersparnis"
                   className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                  loading="lazy"
+                  width="800"
+                  height="600"
                 />
                 <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-6 py-3 rounded-2xl shadow-lg">
                   <div className="flex items-center space-x-2">
                     <Building2 className="w-5 h-5" />
-                    <span className="font-semibold">Speziell für Lohnerhöhungen</span>
+                    <span className="font-semibold">
+                      Speziell für Lohnerhöhungen
+                    </span>
                   </div>
                 </div>
               </div>
@@ -397,8 +509,8 @@ export default function Lohnerhoehung() {
               Professionelle Mitarbeiterkommunikation
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Dokumentieren Sie transparent und verständlich, 
-              wie Sie durch smarte Lohngestaltung Kosten sparen
+              Dokumentieren Sie transparent und verständlich, wie Sie durch
+              smarte Lohngestaltung Kosten sparen
             </p>
           </div>
 
@@ -414,48 +526,60 @@ export default function Lohnerhoehung() {
                       <Target className="w-6 h-6 text-teal-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Zwei-Spalten-Abrechnung für Mitarbeiter</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        Zwei-Spalten-Abrechnung für Mitarbeiter
+                      </h4>
                       <p className="text-gray-600">
-                        In der Probelohnabrechnung (siehe Bild) sehen Ihre Mitarbeiter links das aktuelle Gehalt, rechts die neue Struktur mit Lohnerhöhung - 
-                        so verstehen sie sofort den Unterschied.
+                        In der Probelohnabrechnung (siehe Bild) sehen Ihre
+                        Mitarbeiter links das aktuelle Gehalt, rechts die neue
+                        Struktur mit Lohnerhöhung - so verstehen sie sofort den
+                        Unterschied.
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <DollarSign className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Arbeitgeber-Ansicht im Cockpit</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        Arbeitgeber-Ansicht im Cockpit
+                      </h4>
                       <p className="text-gray-600">
-                        In Ihrer Cockpit-Ansicht sehen Sie auf einen Blick, wie viel Lohnkosten Sie 
-                        durch die intelligente Optimierung einsparen.
+                        In Ihrer Cockpit-Ansicht sehen Sie auf einen Blick, wie
+                        viel Lohnkosten Sie durch die intelligente Optimierung
+                        einsparen.
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Heart className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Wertschätzung kommunizieren</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        Wertschätzung kommunizieren
+                      </h4>
                       <p className="text-gray-600">
-                        Zeigen Sie Ihren Mitarbeitern, dass Sie innovative Wege gehen, 
-                        um ihr Einkommen zu optimieren.
+                        Zeigen Sie Ihren Mitarbeitern, dass Sie innovative Wege
+                        gehen, um ihr Einkommen zu optimieren.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="relative">
-              <img 
-                src={payrollComparison} 
-                alt="Professionelle Gehaltsabrechnung mit Vorher-Nachher-Vergleich" 
+              <img
+                src={payrollComparison}
+                alt="Professionelle Gehaltsabrechnung mit Vorher-Nachher-Vergleich für transparente Mitarbeiterkommunikation bei Lohnerhöhungen"
                 className="w-full rounded-2xl shadow-2xl border border-gray-200"
+                loading="lazy"
+                width="800"
+                height="600"
               />
               <div className="absolute -top-4 -right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-2xl shadow-lg">
                 <div className="flex items-center space-x-2">
@@ -479,7 +603,8 @@ export default function Lohnerhoehung() {
               Das Ergebnis: Glückliche Mitarbeiter, geringere Kosten
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Unsere systematische Kostenersparnis schafft eine Win-Win-Situation für alle Beteiligten
+              Unsere systematische Kostenersparnis schafft eine
+              Win-Win-Situation für alle Beteiligten
             </p>
           </div>
 
@@ -488,9 +613,12 @@ export default function Lohnerhoehung() {
               <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Bis zu 50% Kosteneinsparung</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                Bis zu 50% Kosteneinsparung
+              </h3>
               <p className="text-gray-600">
-                Durch smartes Gehaltsmanagement reduzieren Sie Ihre echten Lohnkosten erheblich
+                Durch smartes Gehaltsmanagement reduzieren Sie Ihre echten
+                Lohnkosten erheblich
               </p>
             </Card>
 
@@ -498,9 +626,12 @@ export default function Lohnerhoehung() {
               <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Höhere Mitarbeiterzufriedenheit</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                Höhere Mitarbeiterzufriedenheit
+              </h3>
               <p className="text-gray-600">
-                Mitarbeiter verstehen auf einen Blick, was sie bekommen – klar, greifbar und wertvoll im Alltag.
+                Mitarbeiter verstehen auf einen Blick, was sie bekommen – klar,
+                greifbar und wertvoll im Alltag.
               </p>
             </Card>
 
@@ -508,9 +639,12 @@ export default function Lohnerhoehung() {
               <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Stärkere Mitarbeiterbindung</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                Stärkere Mitarbeiterbindung
+              </h3>
               <p className="text-gray-600">
-                Innovatives Employer Branding positioniert Sie als attraktiven, zukunftsorientierten Arbeitgeber
+                Innovatives Employer Branding positioniert Sie als attraktiven,
+                zukunftsorientierten Arbeitgeber
               </p>
             </Card>
           </div>
@@ -526,17 +660,28 @@ export default function Lohnerhoehung() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                    Smarte Benefits für Ihr Team – Die zusätzliche Option mit LohnLab
+                    Smarte Benefits für Ihr Team – Die zusätzliche Option mit
+                    LohnLab
                   </h3>
                   <p className="text-lg text-gray-700 mb-4">
-                    Lohnoptimierung ist der erste Schritt. Doch erst wenn Sie einen Teil Ihrer Ersparnis 
-                    gezielt in echte Benefits reinvestieren, entsteht wirkliche Mitarbeiterbindung.
+                    Lohnoptimierung ist der erste Schritt. Doch erst wenn Sie
+                    einen Teil Ihrer Ersparnis gezielt in echte Benefits
+                    reinvestieren, entsteht wirkliche Mitarbeiterbindung.
                   </p>
                   <div className="bg-white/70 rounded-xl p-6 mb-4">
                     <p className="text-gray-700 leading-relaxed">
-                      <strong className="text-[var(--lohn-primary)]">Sie entscheiden:</strong> Welcher Anteil Ihrer Einsparung fließt in Benefits? Welche Leistungen passen zu Ihrem Team? 
-                      <strong className="text-[var(--lohn-primary)]"> Wir setzen um:</strong> Von der steuerlich geprüften Berechnung bis zur professionellen Umsetzung – 
-                      gemeinsam mit spezialisierten Partnern unserer Gruppe.
+                      <strong className="text-[var(--lohn-primary)]">
+                        Sie entscheiden:
+                      </strong>{" "}
+                      Welcher Anteil Ihrer Einsparung fließt in Benefits? Welche
+                      Leistungen passen zu Ihrem Team?
+                      <strong className="text-[var(--lohn-primary)]">
+                        {" "}
+                        Wir setzen um:
+                      </strong>{" "}
+                      Von der steuerlich geprüften Berechnung bis zur
+                      professionellen Umsetzung – gemeinsam mit spezialisierten
+                      Partnern unserer Gruppe.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-3 text-sm text-gray-600">
@@ -561,7 +706,6 @@ export default function Lohnerhoehung() {
               </div>
             </Card>
           </div>
-
         </div>
       </section>
 

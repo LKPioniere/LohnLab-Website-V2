@@ -19,9 +19,14 @@ app.use(
           "'unsafe-inline'",
           "https://static.hsappstatic.net",
           "https://replit.com",
+          "https://va.vercel-scripts.com", // Vercel Analytics
         ],
         imgSrc: ["'self'", "data:", "https:"],
-        connectSrc: ["'self'", "https://meetings-eu1.hubspot.com"],
+        connectSrc: [
+          "'self'",
+          "https://meetings-eu1.hubspot.com",
+          "https://vitals.vercel-insights.com", // Vercel Analytics endpoint
+        ],
         frameSrc: ["'self'", "https://meetings-eu1.hubspot.com"],
       },
     },

@@ -17,7 +17,7 @@ import {
   Heart,
 } from "lucide-react";
 import { Link } from "wouter";
-import salaryCalculationImage from "@/assets/salary-calculation.png";
+import salaryCalculationImage from "@/assets/salary-calculation.webp";
 import employeeDataImage from "@/assets/employee-data-entry.png";
 import { useSEO } from "@/hooks/useSEO";
 

@@ -15,6 +15,7 @@ import Datenschutz from "@/pages/datenschutz";
 import Roadmap from "@/pages/roadmap";
 import Steuerberater from "@/pages/steuerberater";
 import NewHireCompensationAPI from "@/pages/api/new-hire-compensation";
+import { Analytics } from "@vercel/analytics/react";
 
 function Router() {
   return (
@@ -29,7 +30,10 @@ function Router() {
       <Route path="/faq" component={FAQ} />
       {/* <Route path="/entwicklungsfortschritt" component={Roadmap} /> */}
       {/* <Route path="/roadmap" component={Roadmap} /> */}
-      <Route path="/api/new-hire-compensation" component={NewHireCompensationAPI} />
+      <Route
+        path="/api/new-hire-compensation"
+        component={NewHireCompensationAPI}
+      />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
       <Route component={NotFound} />
@@ -43,6 +47,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <Analytics />
       </TooltipProvider>
     </QueryClientProvider>
   );

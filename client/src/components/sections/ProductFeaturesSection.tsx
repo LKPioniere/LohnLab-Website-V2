@@ -2,7 +2,7 @@ import BenefitsList from "@/components/common/BenefitsList";
 import FeatureCard from "@/components/common/FeatureCard";
 import { PRODUCT_FEATURES } from "@/constants/features";
 import { GENERAL_BENEFITS, HIRING_BENEFITS } from "@/constants/benefits";
-import fruitBasketImage from "@/assets/fruit-basket.jpg";
+import fruitBasketImage from "@/assets/fruit-basket.webp";
 
 /**
  * Produkt-Features Sektion
@@ -16,9 +16,11 @@ export default function ProductFeaturesSection() {
             Intelligente Lohngestaltung
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Systematische Kostenersparnis durch die Nutzung von Lohnbausteinen. 
+            Systematische Kostenersparnis durch die Nutzung von Lohnbausteinen.
             <br />
-            <span className="text-[var(--lohn-secondary)] font-semibold">Bis zu 50% Lohnkosteneinsparung </span> 
+            <span className="text-[var(--lohn-secondary)] font-semibold">
+              Bis zu 50% Lohnkosteneinsparung{" "}
+            </span>
             bei Lohnerhöhungen und Neueinstellungen.
           </p>
         </div>
@@ -26,9 +28,9 @@ export default function ProductFeaturesSection() {
         {/* Allgemeine Vorteile */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <img 
-              src={fruitBasketImage} 
-              alt="Obstkorb als Symbol für Sachbezüge und steuerfreie Zusatzleistungen" 
+            <img
+              src={fruitBasketImage}
+              alt="Obstkorb als Symbol für Sachbezüge und steuerfreie Zusatzleistungen"
               className="rounded-2xl shadow-xl w-full h-auto"
             />
           </div>
@@ -56,9 +58,9 @@ export default function ProductFeaturesSection() {
             <BenefitsList benefits={HIRING_BENEFITS} isHiringBenefits={true} />
           </div>
           <div className="order-2 lg:order-2">
-            <img 
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Team bei der Planung von Neueinstellungen" 
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              alt="Team bei der Planung von Neueinstellungen"
               className="rounded-2xl shadow-xl w-full h-auto"
             />
           </div>

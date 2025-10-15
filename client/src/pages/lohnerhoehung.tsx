@@ -35,8 +35,8 @@ import {
 import lohnlabCalculatorPrecise from "@/assets/lohnlab-calculator-precise.png";
 import employeeSelection from "@/assets/employee-selection.png";
 import payrollComparison from "@/assets/payroll-comparison.png";
-import fruitBasketImage from "@/assets/fruit-basket.jpg";
-import ciCardImage from "@/assets/ci-card-lohnlab.png";
+import fruitBasketImage from "@/assets/fruit-basket.webp";
+import ciCardImage from "@/assets/ci-card-lohnlab.webp";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Lohnerhoehung() {

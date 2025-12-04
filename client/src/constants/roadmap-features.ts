@@ -67,14 +67,14 @@ export const ROADMAP_DATA: FunctionGroup[] = [
       {
         id: 'le-flexible-eingabe',
         title: 'Flexible Eingabemöglichkeiten',
-        description: 'Wählen Sie, wie Sie Lohnerhöhungen definieren möchten: als Netto-Betrag, Brutto-Betrag oder Arbeitgeberkosten. Verwenden Sie einen gemeinsamen Prozentsatz für alle oder individuelle Werte pro Mitarbeiter.',
+        description: 'Wähle, wie du Lohnerhöhungen definieren möchtest: als Netto-Betrag, Brutto-Betrag oder Arbeitgeberkosten. Verwende einen gemeinsamen Prozentsatz für alle oder individuelle Werte pro Mitarbeiter.',
         status: 'completed',
         releaseQuarter: 'Q2 2025'
       },
       {
         id: 'le-batch-verarbeitung',
         title: 'Massenverarbeitung von Mitarbeitern',
-        description: 'Bearbeiten Sie hunderte von Mitarbeitern gleichzeitig in einem einzigen Berechnungslauf - perfekt für unternehmensweite Lohnrunden oder größere Anpassungen.',
+        description: 'Bearbeite hunderte von Mitarbeitern gleichzeitig in einem einzigen Berechnungslauf - perfekt für unternehmensweite Lohnrunden oder größere Anpassungen.',
         status: 'completed',
         releaseQuarter: 'Q2 2025'
       },

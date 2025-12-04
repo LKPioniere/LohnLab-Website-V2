@@ -15,10 +15,10 @@ export default function FeatureCardsSection() {
             <span className="text-[var(--lohn-primary)] font-semibold text-lg">🚀 Funktionen</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-            Was kann unser LohnLab Cockpit alles für Sie tun?
+            Was kann unser LohnLab Cockpit alles für dich tun?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Hier bekommen Sie den kompletten Überblick - von A bis Z, alles was Sie brauchen, 
+            Hier bekommst du den kompletten Überblick - von A bis Z, alles was du brauchst, 
             um bei Lohnerhöhungen und Neueinstellungen systematisch Kosten zu sparen.
           </p>
         </div>

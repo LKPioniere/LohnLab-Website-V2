@@ -16,8 +16,8 @@ export default function HeroSection() {
               Jetzt Kosten sparen.
             </h1>
             <p className="text-xl mb-6 text-blue-100">
-              Als Unternehmer stehen Sie unter Kostendruck. Unser Cockpit hilft
-              Ihnen, bei Lohnerhöhungen, Neueinstellungen und Mitarbeiterbindung
+              Als Unternehmer stehst du unter Kostendruck. Unser Cockpit hilft
+              dir, bei Lohnerhöhungen, Neueinstellungen und Mitarbeiterbindung
               systematisch Kosten zu sparen – rechtssicher und transparent.
             </p>
             <p className="text-lg mb-8 text-[var(--lohn-teal)] font-semibold">

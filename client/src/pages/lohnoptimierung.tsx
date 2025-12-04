@@ -92,7 +92,7 @@ export default function Lohnoptimierung() {
                 Lohnoptimierung nutzt legale steuerliche und
                 sozialversicherungsrechtliche Möglichkeiten, um Lohnkosten
                 erheblich zu reduzieren, ohne dass der Mitarbeiter Nachteile hat
-                - Sie sparen Kosten bei gleichbleibender Attraktivität.
+                - Du sparst Kosten bei gleichbleibender Attraktivität.
               </p>
 
               <div className="space-y-4">
@@ -190,7 +190,7 @@ export default function Lohnoptimierung() {
                 <div className="bg-[var(--lohn-purple)]/10 rounded-lg p-4">
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-[var(--lohn-purple)]">
-                      Ihre Kostenersparnis:
+                      Deine Kostenersparnis:
                     </span>
                     <span className="text-2xl font-bold text-[var(--lohn-purple)]">
                       220€
@@ -211,12 +211,12 @@ export default function Lohnoptimierung() {
         </div>
       </section>
 
-      {/* Was können Sie mit der Ersparnis tun */}
+      {/* Was kannst du mit der Ersparnis tun */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
-              Was können Sie mit der Ersparnis tun?
+              Was kannst du mit der Ersparnis tun?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Die gesparten Lohnkosten bieten verschiedene strategische
@@ -288,7 +288,7 @@ export default function Lohnoptimierung() {
               Optimierungs-Insights in Echtzeit
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Das LohnLab Cockpit zeigt Ihnen sofort nach jeder Lohnberechnung
+              Das LohnLab Cockpit zeigt dir sofort nach jeder Lohnberechnung
               konkrete Optimierungspotentiale auf
             </p>
           </div>
@@ -435,7 +435,7 @@ export default function Lohnoptimierung() {
             Bereit für bis zu 50% Kosteneinsparung?
           </h2>
           <p className="text-xl text-purple-100 mb-8">
-            Lassen Sie uns gemeinsam das Optimierungspotential Ihrer Lohnkosten
+            Lass uns gemeinsam das Optimierungspotential deiner Lohnkosten
             analysieren.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

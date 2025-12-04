@@ -211,12 +211,12 @@ export default function DashboardPreview() {
                 <Award className="w-5 h-5 mr-2 text-blue-600" />
                 Branchenvergleich
               </h4>
-              <p className="text-sm text-gray-600 mb-4">Ihre Gehälter im Vergleich zu anderen Unternehmen</p>
+              <p className="text-sm text-gray-600 mb-4">Deine Gehälter im Vergleich zu anderen Unternehmen</p>
               
               <div className="space-y-4">
                 <div className="bg-white rounded-lg p-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium">Ihr Durchschnittsgehalt</span>
+                    <span className="text-sm font-medium">Dein Durchschnittsgehalt</span>
                     <span className="text-lg font-bold text-[var(--lohn-primary)]">3.761 €</span>
                   </div>
                   <div className="flex justify-between items-center mb-2">

@@ -12,10 +12,10 @@ export default function TypeformPlaceholder() {
           </div>
         </div>
         <CardTitle className="text-2xl text-blue-900">
-          Ihre Meinung ist gefragt!
+          Deine Meinung ist gefragt!
         </CardTitle>
         <CardDescription className="text-blue-700">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Helfen Sie uns dabei, 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hilf uns dabei, 
           die nächsten wichtigsten Features zu priorisieren.
         </CardDescription>
       </CardHeader>
@@ -57,7 +57,7 @@ export default function TypeformPlaceholder() {
 
         {/* Additional Info */}
         <div className="bg-blue-100 rounded-lg p-4">
-          <h4 className="font-semibold text-blue-900 mb-2">Warum ist Ihr Feedback wichtig?</h4>
+          <h4 className="font-semibold text-blue-900 mb-2">Warum ist dein Feedback wichtig?</h4>
           <ul className="text-sm text-blue-800 space-y-1">
             <li>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
             <li>• Sed do eiusmod tempor incididunt ut labore et dolore</li>

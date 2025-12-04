@@ -19,7 +19,7 @@ export default function DemoCalculatorSection() {
             Lohnoptimierung aus der Praxis
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Vier Mitarbeiter erhalten eine 5% Brutto-Lohnerhöhung - und Sie sparen trotzdem Kosten.
+            Vier Mitarbeiter erhalten eine 5% Brutto-Lohnerhöhung - und du sparst trotzdem Kosten.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export default function DemoCalculatorSection() {
             <div className="xl:col-span-1">
               <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-6 flex items-center">
                 <TrendingUp className="w-6 h-6 text-[var(--lohn-teal)] mr-2" />
-                Ihr Sparpotential
+                Dein Sparpotential
               </h3>
               
               <div className="space-y-6">
@@ -98,7 +98,7 @@ export default function DemoCalculatorSection() {
 
                 {/* Benefits Summary */}
                 <div className="bg-gray-50 rounded-xl p-6">
-                  <h4 className="font-semibold text-[var(--lohn-primary)] mb-4">Das erreichen Sie:</h4>
+                  <h4 className="font-semibold text-[var(--lohn-primary)] mb-4">Das erreichst du:</h4>
                   <ul className="space-y-3 text-sm">
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-[var(--lohn-teal)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
@@ -106,7 +106,7 @@ export default function DemoCalculatorSection() {
                     </li>
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-[var(--lohn-purple)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      Sie sparen dabei bis zu 50% der Kosten
+                      Du sparst dabei bis zu 50% der Kosten
                     </li>
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-[var(--lohn-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>

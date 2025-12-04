@@ -47,8 +47,8 @@ export default function Roadmap() {
               Entwicklungsfortschritt
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-              Hier finden Sie eine Übersicht über alle geplanten Features und Funktionen. 
-              Im Community-Bereich können Sie aktiv an der Mitgestaltung teilnehmen und Ihre Wünsche einbringen.
+              Hier findest du eine Übersicht über alle geplanten Features und Funktionen. 
+              Im Community-Bereich kannst du aktiv an der Mitgestaltung teilnehmen und deine Wünsche einbringen.
             </p>
             <div className="flex justify-center">
               <Button 
@@ -103,8 +103,8 @@ export default function Roadmap() {
               Community Feedback
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              Mit unserem Feedback-Formular können Sie aktiv Einfluss auf die nächsten Funktionen und deren Entwicklung nehmen. 
-              Wir aktualisieren diese Roadmap regelmäßig basierend auf Ihren Rückmeldungen.
+              Mit unserem Feedback-Formular kannst du aktiv Einfluss auf die nächsten Funktionen und deren Entwicklung nehmen. 
+              Wir aktualisieren diese Roadmap regelmäßig basierend auf deinen Rückmeldungen.
             </p>
             
             <div className="bg-white rounded-xl p-8 shadow-md">
@@ -112,10 +112,10 @@ export default function Roadmap() {
                 <MessageSquare className="w-12 h-12 text-[var(--lohn-primary)]" />
               </div>
               <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
-                Ihre Meinung ist gefragt!
+                Deine Meinung ist gefragt!
               </h3>
               <p className="text-gray-600 mb-6">
-                Teilen Sie uns mit, welche Features für Sie am wichtigsten sind und welche Funktionen 
+                Teile uns mit, welche Features für dich am wichtigsten sind und welche Funktionen 
                 wir als nächstes entwickeln sollten.
               </p>
               <Button 

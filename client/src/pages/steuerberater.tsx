@@ -53,7 +53,7 @@ export default function Steuerberater() {
     canonical: "https://www.lohnlab.de/steuerberater",
     ogTitle: "LohnLab für Steuerberater - DATEV-integriert",
     ogDescription:
-      "Bieten Sie Ihren Mandanten echten Mehrwert mit moderner Lohnoptimierung. DATEV-integriert und ohne Zusatzaufwand.",
+      "Biete deinen Mandanten echten Mehrwert mit moderner Lohnoptimierung. DATEV-integriert und ohne Zusatzaufwand.",
   });
 
   useEffect(() => {
@@ -182,7 +182,7 @@ export default function Steuerberater() {
       icon: Euro,
       title: "Mehrwert für Mandanten",
       description:
-        "Bis zu 2.000€ Ersparnis pro Mitarbeiter und Jahr - ein einzigartiges Angebot für Ihre Kanzlei",
+        "Bis zu 2.000€ Ersparnis pro Mitarbeiter und Jahr - ein einzigartiges Angebot für deine Kanzlei",
       color: "bg-orange-500",
     },
   ];
@@ -240,12 +240,12 @@ export default function Steuerberater() {
                 für Steuerberater
               </h1>
               <p className="text-xl mb-6 text-blue-100">
-                Bieten Sie Ihren Mandanten echten Mehrwert durch moderne
-                Lohnoptimierung. Sparen Sie Zeit, reduzieren Sie Komplexität und
-                positionieren Sie sich als innovativer Partner.
+                Biete deinen Mandanten echten Mehrwert durch moderne
+                Lohnoptimierung. Spare Zeit, reduziere Komplexität und
+                positioniere dich als innovativer Partner.
               </p>
               <p className="text-lg mb-8 text-[var(--lohn-teal)] font-semibold">
-                Bis zu 2.000€ Ersparnis pro Mitarbeiter und Jahr für Ihre
+                Bis zu 2.000€ Ersparnis pro Mitarbeiter und Jahr für deine
                 Mandanten.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -259,7 +259,7 @@ export default function Steuerberater() {
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="text-2xl font-bold mb-6 text-center">
-                  Ihre Vorteile auf einen Blick
+                  Deine Vorteile auf einen Blick
                 </h3>
                 <div className="space-y-4">
                   {partnerBenefits.slice(0, 3).map((benefit, index) => (
@@ -283,8 +283,8 @@ export default function Steuerberater() {
               Warum Steuerberater LohnLab lieben
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Moderne Lohnoptimierung, die Ihren Kanzleialltag revolutioniert
-              und Ihre Mandanten begeistert
+              Moderne Lohnoptimierung, die deinen Kanzleialltag revolutioniert
+              und deine Mandanten begeistert
             </p>
           </div>
 
@@ -356,7 +356,7 @@ export default function Steuerberater() {
                     Die Situation:
                   </h3>
                   <p className="text-gray-700 mb-6">
-                    Ihr Mandant nutzt bereits Fahrtkostenzuschüsse nach § 40
+                    Dein Mandant nutzt bereits Fahrtkostenzuschüsse nach § 40
                     Abs. 2 Satz 2 Nr. 1 b EStG und möchte nun zusätzlich
                     Jobtickets einführen. Beide zahlen auf die
                     Entfernungspauschale gem. § 9 Abs. 1 Satz 3 Nr. 4 EStG ein.
@@ -418,7 +418,7 @@ export default function Steuerberater() {
 
               <p className="text-xl text-blue-100 mb-8 leading-relaxed">
                 Wir wissen, wie schwer es ist, den Status Quo zu verändern.
-                Deshalb führen wir Sie und Ihre Mandanten Schritt für Schritt
+                Deshalb führen wir dich und deine Mandanten Schritt für Schritt
                 durch alle Prozesse - damit das Cockpit zur Erleichterung wird,
                 nicht zur Belastung.
               </p>
@@ -433,7 +433,7 @@ export default function Steuerberater() {
                       Cockpit-Training für Mandanten
                     </h4>
                     <p className="text-blue-100">
-                      Ihre Mandanten lernen das Tool selbständig zu nutzen -
+                      Deine Mandanten lernen das Tool selbständig zu nutzen -
                       weniger Rückfragen, mehr Effizienz
                     </p>
                   </div>
@@ -448,7 +448,7 @@ export default function Steuerberater() {
                       DATEV-Integration meistern
                     </h4>
                     <p className="text-blue-100">
-                      Ihr Team lernt die nahtlose Verknüpfung mit DATEV - keine
+                      Dein Team lernt die nahtlose Verknüpfung mit DATEV - keine
                       manuellen Übertragungen mehr
                     </p>
                   </div>
@@ -526,7 +526,7 @@ export default function Steuerberater() {
                     <div>
                       <h4 className="font-semibold">Individuelle Prozesse</h4>
                       <p className="text-sm text-blue-100">
-                        Maßgeschneidert für Ihre Kanzlei
+                        Maßgeschneidert für deine Kanzlei
                       </p>
                     </div>
                   </div>
@@ -594,10 +594,10 @@ export default function Steuerberater() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
-                Ihre Partnerschaft mit LohnLab
+                Deine Partnerschaft mit LohnLab
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Werden Sie Teil eines innovativen Netzwerks und bieten Sie Ihren
+                Werde Teil eines innovativen Netzwerks und biete deinen
                 Mandanten echten Mehrwert durch moderne Lohnoptimierung.
               </p>
 
@@ -648,7 +648,7 @@ export default function Steuerberater() {
                         Maßgeschneiderte Prozesse
                       </h4>
                       <p className="text-sm text-blue-100">
-                        Perfekt integriert in Ihre Workflows
+                        Perfekt integriert in deine Workflows
                       </p>
                     </div>
                   </div>
@@ -853,8 +853,8 @@ export default function Steuerberater() {
             Bereit für die Zukunft der Steuerberatung?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Starten Sie noch heute Ihre Partnerschaft mit LohnLab und bieten Sie
-            Ihren Mandanten innovativen Mehrwert.
+            Starte noch heute deine Partnerschaft mit LohnLab und biete
+            deinen Mandanten innovativen Mehrwert.
           </p>
           <div className="flex justify-center">
             <Link href="/kontakt">

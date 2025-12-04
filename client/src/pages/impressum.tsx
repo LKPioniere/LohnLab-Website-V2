@@ -118,7 +118,7 @@ export default function Impressum() {
             <p className="mb-8">
               Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt
               wurden, werden die Urheberrechte Dritter beachtet. Insbesondere
-              werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie
+              werden Inhalte Dritter als solche gekennzeichnet. Solltest du
               trotzdem auf eine Urheberrechtsverletzung aufmerksam werden,
               bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von
               Rechtsverletzungen werden wir derartige Inhalte umgehend

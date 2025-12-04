@@ -17,7 +17,7 @@ export default function ContactSection() {
             Bereit für die Zukunft der Lohnberatung?
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Sichern Sie sich frühzeitig Ihren Zugang zu LohnLab Cockpit und profitieren Sie 
+            Sichere dir frühzeitig deinen Zugang zu LohnLab Cockpit und profitiere 
             als Early Adopter von besonderen Konditionen.
           </p>
         </div>

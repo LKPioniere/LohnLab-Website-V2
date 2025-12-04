@@ -66,7 +66,7 @@ export default function ContactForm({
             value={formData.name}
             onChange={(e) => onInputChange("name", e.target.value)}
             className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/90 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-teal)]"
-            placeholder="Ihr Name"
+            placeholder="Dein Name"
           />
         </div>
         <div>
@@ -77,7 +77,7 @@ export default function ContactForm({
             value={formData.email}
             onChange={(e) => onInputChange("email", e.target.value)}
             className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/90 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-teal)]"
-            placeholder="ihre@email.de"
+            placeholder="deine@email.de"
           />
         </div>
         <div>
@@ -106,7 +106,7 @@ export default function ContactForm({
             value={formData.message}
             onChange={(e) => onInputChange("message", e.target.value)}
             className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/90 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-teal)] resize-none"
-            placeholder="Ihre Nachricht..."
+            placeholder="Deine Nachricht..."
           />
         </div>
         <Button

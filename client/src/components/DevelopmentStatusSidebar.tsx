@@ -48,7 +48,7 @@ export default function DevelopmentStatusSidebar() {
             </button>
           </div>
           <p className="text-gray-600 text-sm mb-6">
-            So entwickelt sich Ihr digitales Lohnoptimierungs-Werkzeug
+            So entwickelt sich dein digitales Lohnoptimierungs-Werkzeug
           </p>
 
           <div className="space-y-6">

@@ -21,9 +21,9 @@ export default function CombinedBenefitsSection() {
             Lohnoptimierung in der Praxis
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Erleben Sie, wie Sie mit uns bei Gehaltserhöhungen ganz leicht 
-            <span className="text-[var(--lohn-secondary)] font-semibold"> bis zu 50% der Kosten sparen</span> – bei 
-            gleichbleibender Attraktivität für Ihre Mitarbeiter.
+            Erlebe, wie du mit uns bei Gehaltserhöhungen ganz leicht 
+            <span className="text-[var(--lohn-secondary)] font-semibold"> bis zu 50% der Kosten sparst</span> – bei 
+            gleichbleibender Attraktivität für deine Mitarbeiter.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function CombinedBenefitsSection() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-6">
-                  Ihre Vorteile auf einen Blick
+                  Deine Vorteile auf einen Blick
                 </h3>
                 <div className="space-y-4">
                   {GENERAL_BENEFITS.map((benefit, index) => (
@@ -80,7 +80,7 @@ export default function CombinedBenefitsSection() {
                 Live-Berechnung: 5% Lohnerhöhung optimiert
               </h3>
               <p className="text-gray-600">
-                Sehen Sie das Einsparpotential bei einer typischen Gehaltsrunde
+                Sieh das Einsparpotential bei einer typischen Gehaltsrunde
               </p>
             </div>
 

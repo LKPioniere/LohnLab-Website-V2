@@ -87,7 +87,7 @@ export default function FAQ() {
       toast({
         title: "Frage gesendet",
         description:
-          "Vielen Dank! Wir werden Ihre Frage zeitnah beantworten und die FAQ entsprechend erweitern.",
+          "Vielen Dank! Wir werden deine Frage zeitnah beantworten und die FAQ entsprechend erweitern.",
       });
       form.reset();
     },
@@ -95,7 +95,7 @@ export default function FAQ() {
       toast({
         title: "Fehler",
         description:
-          "Beim Senden Ihrer Frage ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+          "Beim Senden deiner Frage ist ein Fehler aufgetreten. Bitte versuche es erneut.",
         variant: "destructive",
       });
     },
@@ -191,7 +191,7 @@ export default function FAQ() {
       id: "a1",
       question: "Ab wie vielen Mitarbeitern kann ich LohnLab nutzen?",
       answer:
-        "Wir beraten jeden Kunden individuell und richten das Konzept nach seinen Wünschen unabhängig von der Mitarbeiterzahl ein. Ab 10 Mitarbeitern fällt für Sie bei der Einrichtung des Konzepts keine Einrichtungsgebühr an.",
+        "Wir beraten jeden Kunden individuell und richten das Konzept nach seinen Wünschen unabhängig von der Mitarbeiterzahl ein. Ab 10 Mitarbeitern fällt für dich bei der Einrichtung des Konzepts keine Einrichtungsgebühr an.",
     },
     {
       id: "a2",
@@ -210,7 +210,7 @@ export default function FAQ() {
       question:
         "Entsteht durch LohnLab zusätzlicher Aufwand in meinem Unternehmen?",
       answer:
-        "Alle Daten, die wir benötigen, können ohne größeren Aufwand aus dem Lohnsystem übermittelt werden (Brutto-Gehälter, Steuerklassen, etc.). Bei der Umsetzung gibt es einen kurzen Termin, bei dem der Lohnimport und die Kommunikation zwischen Buchhaltung und LohnLab abgestimmt werden. Sie melden uns danach nur noch Updates zu Änderungen wie bspw. Ein- und Austritten.",
+        "Alle Daten, die wir benötigen, können ohne größeren Aufwand aus dem Lohnsystem übermittelt werden (Brutto-Gehälter, Steuerklassen, etc.). Bei der Umsetzung gibt es einen kurzen Termin, bei dem der Lohnimport und die Kommunikation zwischen Buchhaltung und LohnLab abgestimmt werden. Du meldest uns danach nur noch Updates zu Änderungen wie bspw. Ein- und Austritten.",
     },
     {
       id: "a5",
@@ -247,7 +247,7 @@ export default function FAQ() {
       question:
         "Funktioniert das auch reibungslos mit meinem Zeiterfassungs-/Lohnabrechnungssystem?",
       answer:
-        "Ja, wir haben Schnittstellen zu über 20 bestehenden Systemen und programmieren kostenlos bei neuen Programmen nach und passen uns an Sie an.",
+        "Ja, wir haben Schnittstellen zu über 20 bestehenden Systemen und programmieren kostenlos bei neuen Programmen nach und passen uns an dich an.",
     },
     {
       id: "a11",
@@ -265,7 +265,7 @@ export default function FAQ() {
       id: "a13",
       question: "Wie kann ich starten?",
       answer:
-        "Sie buchen sich über die Homepage ein Erstgespräch, in dem wir Ihnen die Möglichkeiten erklären und Sie bei Interesse gerne durch den weiteren Prozess führen.",
+        "Du buchst dir über die Homepage ein Erstgespräch, in dem wir dir die Möglichkeiten erklären und dich bei Interesse gerne durch den weiteren Prozess führen.",
     },
   ];
 
@@ -298,7 +298,7 @@ export default function FAQ() {
             Häufig gestellte Fragen
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-            Finden Sie schnell Antworten auf Ihre Fragen zu LohnLab Cockpit und
+            Finde schnell Antworten auf deine Fragen zu LohnLab Cockpit und
             unseren Services.
           </p>
         </div>
@@ -378,8 +378,8 @@ export default function FAQ() {
                 </Badge>
                 <p className="text-gray-600">
                   {activeView === "mitarbeiter"
-                    ? "Antworten zu Ihrem Lohnkonzept, der givve® Card und weiteren Mitarbeiter-Services."
-                    : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für Ihr Unternehmen."}
+                    ? "Antworten zu deinem Lohnkonzept, der givve® Card und weiteren Mitarbeiter-Services."
+                    : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für dein Unternehmen."}
                 </p>
               </div>
 
@@ -411,8 +411,8 @@ export default function FAQ() {
                     Keine passenden Fragen gefunden.
                   </p>
                   <p className="text-sm text-gray-500">
-                    Versuchen Sie einen anderen Suchbegriff oder stellen Sie
-                    Ihre Frage unten.
+                    Versuche einen anderen Suchbegriff oder stelle
+                    deine Frage unten.
                   </p>
                 </div>
               )}

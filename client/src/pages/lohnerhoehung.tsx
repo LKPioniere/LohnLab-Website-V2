@@ -43,7 +43,7 @@ export default function Lohnerhoehung() {
   useSEO({
     title: "Lohnerhöhungen mit 50% Kostenersparnis | LohnLab Cockpit",
     description:
-      "Sparen Sie bei Lohnerhöhungen bis zu 50% Lohnkosten durch intelligente Lohnoptimierung. Rechtssicher, transparent und DATEV-integriert. Jetzt Demo buchen!",
+      "Spare bei Lohnerhöhungen bis zu 50% Lohnkosten durch intelligente Lohnoptimierung. Rechtssicher, transparent und DATEV-integriert. Jetzt Demo buchen!",
     keywords:
       "Lohnerhöhung, Lohnkosten sparen, Gehaltserhöhung Kostenersparnis, Mitarbeiterbindung, Lohnoptimierung, DATEV",
     canonical: "https://www.lohnlab.de/loesungen/lohnerhoehung",
@@ -72,19 +72,19 @@ export default function Lohnerhoehung() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-              Lohnerhöhungen, die Ihnen{" "}
+              Lohnerhöhungen, die dir{" "}
               <span className="text-yellow-300">echte</span>
               <br />
               <span className="text-green-300">Kosten sparen</span>
             </h1>
             <p className="text-xl mb-12 max-w-4xl mx-auto text-blue-100 leading-relaxed">
-              In der aktuellen Wirtschaftslage stehen Sie vor explodierenden
+              In der aktuellen Wirtschaftslage stehst du vor explodierenden
               Kosten und dem Kampf um Fachkräfte. Wir haben verstanden:{" "}
               <strong className="text-white">
                 Der Fokus liegt auf der Bindung bestehender Mitarbeiter bei
                 minimierten Kosten.
               </strong>
-              Unsere Lösung ermöglicht Ihnen Lohnerhöhungen mit bis zu 50%
+              Unsere Lösung ermöglicht dir Lohnerhöhungen mit bis zu 50%
               Kostenersparnis.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -114,7 +114,7 @@ export default function Lohnerhoehung() {
               Die aktuelle Wirtschaftslage verstehen
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Als Entscheider in deutschen Unternehmen kennen Sie diese
+              Als Entscheider in deutschen Unternehmen kennst du diese
               Herausforderungen nur zu gut
             </p>
           </div>
@@ -189,9 +189,9 @@ export default function Lohnerhoehung() {
                 Ausgaben
               </h3>
               <p className="text-xl text-blue-100 leading-relaxed">
-                Statt einfach nur Gehälter zu erhöhen, brauchen Sie intelligente
-                Employer Branding Lösungen, die Ihre Mitarbeiter wertschätzen
-                und gleichzeitig Ihre Kosten optimieren.
+                Statt einfach nur Gehälter zu erhöhen, brauchst du intelligente
+                Employer Branding Lösungen, die deine Mitarbeiter wertschätzen
+                und gleichzeitig deine Kosten optimieren.
               </p>
             </div>
           </div>
@@ -210,7 +210,7 @@ export default function Lohnerhoehung() {
               <span className="text-green-600">Kosten sparen</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Nutzen Sie LohnLab, um bei Lohnerhöhungen systematisch Kosten zu
+              Nutze LohnLab, um bei Lohnerhöhungen systematisch Kosten zu
               sparen – weil Wirtschaftlichkeit heute kein Luxus, sondern
               Voraussetzung ist.
             </p>
@@ -236,7 +236,7 @@ export default function Lohnerhoehung() {
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <div className="text-gray-700">
-                      <strong>Gezielt investieren:</strong> Nutzen Sie die frei
+                      <strong>Gezielt investieren:</strong> Nutze die frei
                       werdenden Mittel, um Benefits zu schaffen, die über das
                       Übliche hinausgehen.
                     </div>
@@ -244,7 +244,7 @@ export default function Lohnerhoehung() {
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
                     <div className="text-gray-700">
-                      <strong>Realer Nutzen:</strong> Ihre Mitarbeiter
+                      <strong>Realer Nutzen:</strong> Deine Mitarbeiter
                       profitieren direkt – nicht in Form von Versprechen,
                       sondern als echtes Plus im Alltag.
                     </div>
@@ -288,8 +288,8 @@ export default function Lohnerhoehung() {
                 LohnLab Card - Lohnerhöhungen sichtbar machen
               </h3>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Die wiederaufladbare Mastercard mit Ihrem Firmenlogo macht jeden
-                Cent Ihrer Wertschätzung sichtbar
+                Die wiederaufladbare Mastercard mit deinem Firmenlogo macht jeden
+                Cent deiner Wertschätzung sichtbar
               </p>
             </div>
 
@@ -309,7 +309,7 @@ export default function Lohnerhoehung() {
                     <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-xl shadow-lg">
                       <div className="flex items-center space-x-2">
                         <Crown className="w-4 h-4" />
-                        <span className="font-semibold text-sm">Ihr Logo</span>
+                        <span className="font-semibold text-sm">Dein Logo</span>
                       </div>
                     </div>
                   </div>
@@ -371,7 +371,7 @@ export default function Lohnerhoehung() {
                         </h4>
                       </div>
                       <p className="text-gray-600">
-                        Karte mit <strong>Ihrem Logo und Design</strong> - bei
+                        Karte mit <strong>deinem Logo und Design</strong> - bei
                         jeder Zahlung sichtbare Wertschätzung.
                       </p>
                     </div>
@@ -387,7 +387,7 @@ export default function Lohnerhoehung() {
                       </div>
                       <p className="text-gray-600">
                         <strong>Anders als Gehaltsüberweisung</strong> - jede
-                        Zahlung wird bewusst als Ihr Benefit wahrgenommen.
+                        Zahlung wird bewusst als dein Benefit wahrgenommen.
                       </p>
                     </div>
 
@@ -401,7 +401,7 @@ export default function Lohnerhoehung() {
                         </h4>
                       </div>
                       <p className="text-gray-600">
-                        <strong>Wiederaufladbar in Echtzeit</strong> - Ihre
+                        <strong>Wiederaufladbar in Echtzeit</strong> - Deine
                         Mitarbeiter können Benefits sofort nutzen.
                       </p>
                     </div>
@@ -509,8 +509,8 @@ export default function Lohnerhoehung() {
               Professionelle Mitarbeiterkommunikation
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Dokumentieren Sie transparent und verständlich, wie Sie durch
-              smarte Lohngestaltung Kosten sparen
+              Dokumentiere transparent und verständlich, wie du durch
+              smarte Lohngestaltung Kosten sparst
             </p>
           </div>
 
@@ -530,7 +530,7 @@ export default function Lohnerhoehung() {
                         Zwei-Spalten-Abrechnung für Mitarbeiter
                       </h4>
                       <p className="text-gray-600">
-                        In der Probelohnabrechnung (siehe Bild) sehen Ihre
+                        In der Probelohnabrechnung (siehe Bild) sehen deine
                         Mitarbeiter links das aktuelle Gehalt, rechts die neue
                         Struktur mit Lohnerhöhung - so verstehen sie sofort den
                         Unterschied.
@@ -547,9 +547,9 @@ export default function Lohnerhoehung() {
                         Arbeitgeber-Ansicht im Cockpit
                       </h4>
                       <p className="text-gray-600">
-                        In Ihrer Cockpit-Ansicht sehen Sie auf einen Blick, wie
-                        viel Lohnkosten Sie durch die intelligente Optimierung
-                        einsparen.
+                        In deiner Cockpit-Ansicht siehst du auf einen Blick, wie
+                        viel Lohnkosten du durch die intelligente Optimierung
+                        einsparst.
                       </p>
                     </div>
                   </div>
@@ -563,7 +563,7 @@ export default function Lohnerhoehung() {
                         Wertschätzung kommunizieren
                       </h4>
                       <p className="text-gray-600">
-                        Zeigen Sie Ihren Mitarbeitern, dass Sie innovative Wege
+                        Zeige deinen Mitarbeitern, dass du innovative Wege
                         gehen, um ihr Einkommen zu optimieren.
                       </p>
                     </div>
@@ -617,7 +617,7 @@ export default function Lohnerhoehung() {
                 Bis zu 50% Kosteneinsparung
               </h3>
               <p className="text-gray-600">
-                Durch smartes Gehaltsmanagement reduzieren Sie Ihre echten
+                Durch smartes Gehaltsmanagement reduzierst du deine echten
                 Lohnkosten erheblich
               </p>
             </Card>
@@ -643,7 +643,7 @@ export default function Lohnerhoehung() {
                 Stärkere Mitarbeiterbindung
               </h3>
               <p className="text-gray-600">
-                Innovatives Employer Branding positioniert Sie als attraktiven,
+                Innovatives Employer Branding positioniert dich als attraktiven,
                 zukunftsorientierten Arbeitgeber
               </p>
             </Card>
@@ -660,21 +660,21 @@ export default function Lohnerhoehung() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                    Smarte Benefits für Ihr Team – Die zusätzliche Option mit
+                    Smarte Benefits für dein Team – Die zusätzliche Option mit
                     LohnLab
                   </h3>
                   <p className="text-lg text-gray-700 mb-4">
-                    Lohnoptimierung ist der erste Schritt. Doch erst wenn Sie
-                    einen Teil Ihrer Ersparnis gezielt in echte Benefits
-                    reinvestieren, entsteht wirkliche Mitarbeiterbindung.
+                    Lohnoptimierung ist der erste Schritt. Doch erst wenn du
+                    einen Teil deiner Ersparnis gezielt in echte Benefits
+                    reinvestierst, entsteht wirkliche Mitarbeiterbindung.
                   </p>
                   <div className="bg-white/70 rounded-xl p-6 mb-4">
                     <p className="text-gray-700 leading-relaxed">
                       <strong className="text-[var(--lohn-primary)]">
-                        Sie entscheiden:
+                        Du entscheidest:
                       </strong>{" "}
-                      Welcher Anteil Ihrer Einsparung fließt in Benefits? Welche
-                      Leistungen passen zu Ihrem Team?
+                      Welcher Anteil deiner Einsparung fließt in Benefits? Welche
+                      Leistungen passen zu deinem Team?
                       <strong className="text-[var(--lohn-primary)]">
                         {" "}
                         Wir setzen um:
@@ -699,7 +699,7 @@ export default function Lohnerhoehung() {
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-[var(--lohn-teal)]" />
-                      <span>Ohne Zusatzaufwand für Sie</span>
+                      <span>Ohne Zusatzaufwand für dich</span>
                     </div>
                   </div>
                 </div>

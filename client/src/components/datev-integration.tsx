@@ -1,5 +1,5 @@
 import { RefreshCw, Shield, Calculator, FileDown, Send, ArrowRight, ArrowLeft, Database, Users } from "lucide-react";
-import datevWorkflowImage from "@/assets/datev-lohnlab-workflow.png";
+import DatevLohnlabAnimation from "./DatevLohnlabAnimation";
 
 export default function DatevIntegration() {
   return (
@@ -11,8 +11,8 @@ export default function DatevIntegration() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">Die perfekte Symbiose: DATEV meets LohnLab</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Erleben Sie den intelligenten Datenkreislauf zwischen Ihrem DATEV-System und LohnLab Cockpit. 
-              Ihre Stammdaten bleiben immer aktuell, Ihre Berechnungen werden präziser denn je.
+              Erlebe den intelligenten Datenkreislauf zwischen deinem DATEV-System und LohnLab Cockpit. 
+              Deine Stammdaten bleiben immer aktuell, deine Berechnungen werden präziser denn je.
             </p>
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
@@ -45,11 +45,7 @@ export default function DatevIntegration() {
             </div>
           </div>
           <div className="flex justify-center">
-            <img 
-              src={datevWorkflowImage} 
-              alt="Bidirektionale DATEV-LohnLab Integration" 
-              className="rounded-2xl shadow-xl w-full max-w-md h-auto"
-            />
+            <DatevLohnlabAnimation />
           </div>
         </div>
 

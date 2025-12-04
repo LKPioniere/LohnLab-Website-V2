@@ -36,7 +36,7 @@ export default function ProductFeaturesSection() {
           </div>
           <div>
             <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-6">
-              Ihre Vorteile auf einen Blick
+              Deine Vorteile auf einen Blick
             </h3>
             <BenefitsList benefits={GENERAL_BENEFITS} />
           </div>

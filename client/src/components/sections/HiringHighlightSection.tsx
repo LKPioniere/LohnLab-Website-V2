@@ -23,7 +23,7 @@ export default function HiringHighlightSection() {
             </div>
             
             <p className="text-xl text-blue-100 mb-8">
-              Steigern Sie Ihre Attraktivität als Arbeitgeber und optimieren Sie 
+              Steigere deine Attraktivität als Arbeitgeber und optimiere 
               Neueinstellungen von Anfang an - mit intelligenter Gehaltsgestaltung.
             </p>
 

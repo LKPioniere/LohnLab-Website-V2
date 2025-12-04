@@ -25,13 +25,13 @@ export default function Neueinstellungen() {
   useSEO({
     title: "Neueinstellungen kostenoptimiert berechnen | LohnLab Cockpit",
     description:
-      "Optimieren Sie Gehälter bei Neueinstellungen und sparen Sie Lohnkosten. Mit DATEV-Integration und präziser Gehaltsberechnung. Jetzt Demo anfragen!",
+      "Optimiere Gehälter bei Neueinstellungen und spare Lohnkosten. Mit DATEV-Integration und präziser Gehaltsberechnung. Jetzt Demo anfragen!",
     keywords:
       "Neueinstellung, Gehaltsberechnung, Lohnkosten sparen, Recruiting, Mitarbeiter einstellen, DATEV Integration",
     canonical: "https://www.lohnlab.de/loesungen/neueinstellungen",
     ogTitle: "Neueinstellungen: Gehälter intelligent berechnen",
     ogDescription:
-      "Optimierte Gehaltsberechnung für Neueinstellungen mit DATEV-Integration. Sparen Sie Lohnkosten von Anfang an.",
+      "Optimierte Gehaltsberechnung für Neueinstellungen mit DATEV-Integration. Spare Lohnkosten von Anfang an.",
   });
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function Neueinstellungen() {
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
               Von der optimalen Gehaltsberechnung bis zur nahtlosen
-              DATEV-Integration - gestalten Sie Neueinstellungen effizienter und
+              DATEV-Integration - gestalte Neueinstellungen effizienter und
               kostensparender.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -89,7 +89,7 @@ export default function Neueinstellungen() {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Zwischen Stellenausschreibung und Stammdatenerfassung - genau da,
-              wo Sie optimale Gehaltspakete brauchen
+              wo du optimale Gehaltspakete brauchst
             </p>
           </div>
 
@@ -195,7 +195,7 @@ export default function Neueinstellungen() {
                       Vor der Stammdatenerfassung
                     </h4>
                     <p className="text-gray-600">
-                      Gehalt optimieren, bevor es in Ihre Lohnsysteme übernommen
+                      Gehalt optimieren, bevor es in deine Lohnsysteme übernommen
                       wird
                     </p>
                   </div>
@@ -215,8 +215,8 @@ export default function Neueinstellungen() {
 
               <div className="bg-[var(--lohn-teal)] bg-opacity-10 p-4 rounded-lg">
                 <p className="text-sm text-[var(--lohn-primary)] font-medium">
-                  ⚡ Genau die Lücke geschlossen, die Sie bisher manuell
-                  ausfüllen mussten
+                  ⚡ Genau die Lücke geschlossen, die du bisher manuell
+                  ausfüllen musstest
                 </p>
               </div>
             </div>
@@ -229,10 +229,10 @@ export default function Neueinstellungen() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
-              Auch Ihre Bewerber profitieren
+              Auch deine Bewerber profitieren
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ein transparenter und unkomplizierter Bewerbungsprozess macht Sie
+              Ein transparenter und unkomplizierter Bewerbungsprozess macht dich
               als Arbeitgeber noch attraktiver
             </p>
           </div>
@@ -388,7 +388,7 @@ export default function Neueinstellungen() {
                       </h4>
                       <p className="text-gray-600">
                         Zwischen Zusage und Stammdatenerfassung - genau da, wo
-                        Sie uns brauchen
+                        du uns brauchst
                       </p>
                     </div>
                   </div>
@@ -403,9 +403,9 @@ export default function Neueinstellungen() {
                       </h4>
                       <p className="text-gray-600">
                         Sobald das Gehalt optimiert ist, wird es im Hintergrund
-                        schon für Ihr Lohnsystem importierbar gemacht – keine
+                        schon für dein Lohnsystem importierbar gemacht – keine
                         Doppelarbeit, denn das LohnLab Cockpit ersetzt keine
-                        Systeme, es ergänzt und vereinfacht Ihren Prozess.
+                        Systeme, es ergänzt und vereinfacht deinen Prozess.
                       </p>
                     </div>
                   </div>
@@ -420,11 +420,11 @@ export default function Neueinstellungen() {
       <section className="py-20 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-teal)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ihr Vorteil bei Neueinstellungen
+            Dein Vorteil bei Neueinstellungen
           </h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto">
-            Gewinnen Sie begehrte Fachkräfte durch optimierte Gehaltspakete und
-            sparen dabei noch Kosten
+            Gewinne begehrte Fachkräfte durch optimierte Gehaltspakete und
+            spare dabei noch Kosten
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">

@@ -216,7 +216,7 @@ export default function Datenschutz() {
               <li>Sprache und Version der Browsersoftware</li>
             </ul>
             <p className="mb-8">
-              Diese Daten werden außerdem in Logfiles gespeichert. Sie werden
+              Diese Daten werden außerdem in Logfiles gespeichert. Diese werden
               gelöscht, wenn ihre Speicherung nicht mehr erforderlich ist,
               spätestens nach 14 Tagen.
             </p>

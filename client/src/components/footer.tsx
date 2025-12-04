@@ -21,7 +21,7 @@ export default function Footer() {
               className="h-8 w-auto mb-4"
             />
             <p className="text-blue-100 mb-4">
-              Ihr digitales Werkzeug für moderne Lohnoptimierung - entwickelt
+              Dein digitales Werkzeug für moderne Lohnoptimierung - entwickelt
               für Steuerberater und Unternehmen, die auf Präzision und Effizienz
               setzen.
             </p>

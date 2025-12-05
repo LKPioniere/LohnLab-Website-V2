@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/forms/ContactForm";
@@ -25,12 +25,81 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+type CalendarType = "company" | "service" | "partner";
+
+const HUBSPOT_MEETING_URLS: Record<CalendarType, string> = {
+  company:
+    "https://meetings-eu1.hubspot.com/lukas20/unternehmen-kennenlerngesprach-website?embed=true",
+  service: "https://meetings-eu1.hubspot.com/lreichert/service-termin?embed=true",
+  partner: "https://meetings-eu1.hubspot.com/lreichert/kooperationspartner?embed=true",
+};
+
+const HUBSPOT_MEETINGS_SCRIPT =
+  "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+
+type HubspotMeetingEmbedProps = {
+  meetingUrl: string;
+  reloadTrigger: number;
+  onLoaded?: () => void;
+};
+
+function HubspotMeetingEmbed({
+  meetingUrl,
+  reloadTrigger,
+  onLoaded,
+}: HubspotMeetingEmbedProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) {
+      return;
+    }
+
+    container.innerHTML = "";
+
+    const meetingsDiv = document.createElement("div");
+    meetingsDiv.className = "meetings-iframe-container";
+    meetingsDiv.setAttribute("data-src", meetingUrl);
+    container.appendChild(meetingsDiv);
+
+    let isActive = true;
+    let hasNotified = false;
+
+    const notifyLoaded = () => {
+      if (!isActive || hasNotified) {
+        return;
+      }
+      hasNotified = true;
+      onLoaded?.();
+    };
+
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = HUBSPOT_MEETINGS_SCRIPT;
+    script.async = true;
+    script.onload = notifyLoaded;
+    script.onerror = notifyLoaded;
+    container.appendChild(script);
+
+    const fallbackTimer = window.setTimeout(notifyLoaded, 5000);
+
+    return () => {
+      isActive = false;
+      window.clearTimeout(fallbackTimer);
+      container.innerHTML = "";
+    };
+  }, [meetingUrl, reloadTrigger, onLoaded]);
+
+  return <div ref={containerRef} className="h-full" />;
+}
+
 export default function Kontakt() {
-  const [selectedCalendar, setSelectedCalendar] = useState<
-    "company" | "service" | "partner" | null
-  >(null);
-  const [hubspotLoaded, setHubspotLoaded] = useState(false);
+  const [selectedCalendar, setSelectedCalendar] = useState<CalendarType | null>(
+    null
+  );
   const [calendarLoading, setCalendarLoading] = useState(false);
+  const [embedReloadTrigger, setEmbedReloadTrigger] = useState(0);
   const { formData, handleSubmit, handleInputChange, isSubmitting } =
     useContactForm();
 
@@ -38,15 +107,11 @@ export default function Kontakt() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleCalendarSelect = (type: "company" | "service" | "partner") => {
+  const handleCalendarSelect = (type: CalendarType) => {
     setSelectedCalendar(type);
+    setEmbedReloadTrigger((prev) => prev + 1);
     setCalendarLoading(true);
-    
-    // Show loading for at least 2 seconds for better UX
-    setTimeout(() => {
-      setCalendarLoading(false);
-    }, 2000);
-    
+
     // Scroll to calendar section after selection
     setTimeout(() => {
       const calendarSection = document.getElementById("calendar-section");
@@ -55,39 +120,6 @@ export default function Kontakt() {
       }
     }, 100);
   };
-
-  useEffect(() => {
-    // Load HubSpot Meetings Embed Script immediately with high priority
-    const hubspotScript = document.createElement("script");
-    hubspotScript.type = "text/javascript";
-    hubspotScript.src =
-      "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-    // Use defer instead of async for better performance in this case
-    hubspotScript.defer = true;
-
-    // Add onload event to track when script is ready
-    hubspotScript.onload = () => {
-      setHubspotLoaded(true);
-    };
-
-    // Add to head with high priority
-    const firstScript = document.getElementsByTagName("script")[0];
-    if (firstScript && firstScript.parentNode) {
-      firstScript.parentNode.insertBefore(hubspotScript, firstScript);
-    } else {
-      document.head.appendChild(hubspotScript);
-    }
-
-    return () => {
-      // Cleanup
-      const existingHubspotScript = document.querySelector(
-        'script[src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"]'
-      );
-      if (existingHubspotScript) {
-        existingHubspotScript.remove();
-      }
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -267,27 +299,13 @@ export default function Kontakt() {
                 </div>
               )}
 
-              {/* Drei Kalender laden, aber nur den ausgewählten anzeigen */}
-              <div
-                className={`meetings-iframe-container ${
-                  selectedCalendar === "company" ? "block" : "hidden"
-                }`}
-                data-src="https://meetings-eu1.hubspot.com/lukas20/unternehmen-kennenlerngesprach-website?embed=true"
-              ></div>
-
-              <div
-                className={`meetings-iframe-container ${
-                  selectedCalendar === "service" ? "block" : "hidden"
-                }`}
-                data-src="https://meetings-eu1.hubspot.com/lreichert/service-termin?embed=true"
-              ></div>
-
-              <div
-                className={`meetings-iframe-container ${
-                  selectedCalendar === "partner" ? "block" : "hidden"
-                }`}
-                data-src="https://meetings-eu1.hubspot.com/lreichert/kooperationspartner?embed=true"
-              ></div>
+              {selectedCalendar && (
+                <HubspotMeetingEmbed
+                  meetingUrl={HUBSPOT_MEETING_URLS[selectedCalendar]}
+                  reloadTrigger={embedReloadTrigger}
+                  onLoaded={() => setCalendarLoading(false)}
+                />
+              )}
             </div>
           </div>
         </section>

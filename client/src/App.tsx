@@ -14,6 +14,7 @@ import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
 import Roadmap from "@/pages/roadmap";
 import Steuerberater from "@/pages/steuerberater";
+import Unternehmen from "@/pages/unternehmen";
 import NewHireCompensationAPI from "@/pages/api/new-hire-compensation";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/loesungen/neueinstellungen" component={Neueinstellungen} />
       {/* <Route path="/lohnoptimierung" component={Lohnoptimierung} /> */}
       <Route path="/steuerberater" component={Steuerberater} />
+      <Route path="/unternehmen" component={Unternehmen} />
       <Route path="/kontakt" component={Kontakt} />
       <Route path="/faq" component={FAQ} />
       {/* <Route path="/entwicklungsfortschritt" component={Roadmap} /> */}

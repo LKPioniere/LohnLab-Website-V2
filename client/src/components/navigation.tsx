@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Menu,
   X,
@@ -16,7 +16,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import lohnlabLogo from "@/assets/lohnlab-logo-blue.png";
-import lohnlabLogoWhite from "@/assets/lohnlab-logo-white.png";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,116 +24,6 @@ export default function Navigation() {
   const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
   const [isMobileLoginOpen, setIsMobileLoginOpen] = useState(false);
   const [location] = useLocation();
-  const [isHeroVisible, setIsHeroVisible] = useState(true);
-  const [isDarkHero, setIsDarkHero] = useState(false);
-  const [heroBgColor, setHeroBgColor] = useState("");
-
-  // Function to detect hero section background and extract primary color
-  const detectHeroBackground = () => {
-    const heroSection = document.querySelector("section");
-    if (heroSection) {
-      const styles = window.getComputedStyle(heroSection);
-      const bgColor = styles.backgroundColor;
-      const bgImage = styles.backgroundImage;
-      const classNames = heroSection.className;
-
-      // Check for gradients or dark backgrounds
-      const hasGradient =
-        classNames.includes("bg-gradient") ||
-        classNames.includes("from-[var(--lohn-primary)]") ||
-        classNames.includes("to-[var(--lohn-secondary)]") ||
-        bgImage.includes("gradient");
-
-      // For gradients, use specific RGB colors based on the page
-      if (hasGradient || bgImage.includes("gradient")) {
-        // Determine page-specific colors based on current path
-        const currentPath = window.location.pathname;
-
-        if (
-          currentPath === "/" ||
-          currentPath === "/faq" ||
-          currentPath === "/loesungen/lohnerhoehung"
-        ) {
-          // Homepage, FAQ, Lohnerhöhung: RGB 15,34,137
-          setHeroBgColor("rgb(15, 34, 137)");
-        } else if (currentPath === "/loesungen/neueinstellungen") {
-          // Neueinstellungen: RGB 39,72,133
-          setHeroBgColor("rgb(39, 72, 133)");
-        } else if (currentPath === "/steuerberater") {
-          // Steuerberater: RGB 5,150,105 (emerald-600)
-          setHeroBgColor("rgb(5, 150, 105)");
-        } else {
-          // Default fallback to homepage color
-          setHeroBgColor("rgb(15, 34, 137)");
-        }
-        return true;
-      }
-
-      // For solid colors
-      if (
-        bgColor &&
-        bgColor !== "rgba(0, 0, 0, 0)" &&
-        bgColor !== "transparent"
-      ) {
-        setHeroBgColor(bgColor);
-
-        // Parse RGB values to determine darkness
-        if (bgColor.includes("rgb")) {
-          const rgbMatch = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-          if (rgbMatch) {
-            const [_, r, g, b] = rgbMatch.map(Number);
-            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-            return luminance < 0.5;
-          }
-        }
-      }
-
-      // Check for dark CSS classes
-      const hasDarkBg =
-        classNames.includes("bg-[var(--lohn-primary)]") ||
-        classNames.includes("bg-gray-900") ||
-        classNames.includes("bg-black") ||
-        classNames.includes("bg-slate-900");
-
-      if (hasDarkBg) {
-        setHeroBgColor("var(--lohn-primary)"); // fallback to primary color
-        return true;
-      }
-    }
-
-    setHeroBgColor("");
-    return false;
-  };
-
-  // Scroll detection effect
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.querySelector("section"); // First section is typically hero
-      if (heroSection) {
-        const rect = heroSection.getBoundingClientRect();
-        const isVisible = rect.bottom > 0;
-        setIsHeroVisible(isVisible);
-
-        // Detect if hero has dark background
-        if (isVisible) {
-          setIsDarkHero(detectHeroBackground());
-        }
-      }
-    };
-
-    // Initial check
-    setTimeout(() => {
-      handleScroll();
-    }, 100);
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [location]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -144,26 +33,15 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  // Dynamic styles based on hero visibility and background
-  const navBgClass =
-    isHeroVisible && isDarkHero
-      ? ""
-      : "bg-white shadow-sm border-b border-gray-100";
-
-  const navStyle =
-    isHeroVisible && isDarkHero && heroBgColor
-      ? { background: heroBgColor }
-      : {};
-
-  const textColorClass =
-    isHeroVisible && isDarkHero ? "text-white" : "text-gray-700";
-
-  const logoSrc = isHeroVisible && isDarkHero ? lohnlabLogoWhite : lohnlabLogo;
+  // Fixed background color for all pages
+  const navBgColor = "#ebedf3";
+  const textColorClass = "text-gray-700";
+  const logoSrc = lohnlabLogo; // Always use blue logo
 
   return (
     <nav
-      className={`${navBgClass} sticky top-0 z-50 transition-all duration-300`}
-      style={navStyle}
+      className="z-50 transition-all duration-300"
+      style={{ backgroundColor: navBgColor }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -178,37 +56,52 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-1">
-            {/* Solutions Dropdown */}
-            {/* Steuerberater Link */}
-            <Link href="/steuerberater">
+            {/* Für Unternehmen Link */}
+            <Link href="/unternehmer">
               <button
                 className={`group relative px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
-                  location === "/steuerberater"
-                    ? isHeroVisible && isDarkHero
-                      ? "text-white"
-                      : "text-[var(--lohn-primary)]"
+                  location === "/unternehmer"
+                    ? "text-[var(--lohn-primary)]"
                     : ""
                 }`}
               >
                 <span className="relative">
-                  Steuerberater
+                  Für Unternehmen
                   <span
                     className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
-                      location === "/steuerberater"
+                      location === "/unternehmer"
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
-                    } ${
-                      isHeroVisible && isDarkHero
-                        ? "bg-white"
-                        : "bg-[var(--lohn-primary)]"
-                    }`}
+                    } bg-[var(--lohn-primary)]`}
                   ></span>
                 </span>
               </button>
             </Link>
 
-            {/* Lösungen Dropdown */}
-            <div
+            {/* Für Steuerberater Link */}
+            <Link href="/steuerberater">
+              <button
+                className={`group relative px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
+                  location === "/steuerberater"
+                    ? "text-[var(--lohn-primary)]"
+                    : ""
+                }`}
+              >
+                <span className="relative">
+                  Für Steuerberater
+                  <span
+                    className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
+                      location === "/steuerberater"
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    } bg-[var(--lohn-primary)]`}
+                  ></span>
+                </span>
+              </button>
+            </Link>
+
+            {/* Lösungen Dropdown - AUSKOMMENTIERT */}
+            {/* <div
               className="relative group"
               onMouseEnter={() => setIsSolutionsOpen(true)}
               onMouseLeave={() => setIsSolutionsOpen(false)}
@@ -216,9 +109,7 @@ export default function Navigation() {
               <button
                 className={`group relative flex items-center space-x-1 px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
                   location.includes("/loesungen")
-                    ? isHeroVisible && isDarkHero
-                      ? "text-white"
-                      : "text-[var(--lohn-primary)]"
+                    ? "text-[var(--lohn-primary)]"
                     : ""
                 }`}
               >
@@ -229,11 +120,7 @@ export default function Navigation() {
                       location.includes("/loesungen")
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
-                    } ${
-                      isHeroVisible && isDarkHero
-                        ? "bg-white"
-                        : "bg-[var(--lohn-primary)]"
-                    }`}
+                    } bg-[var(--lohn-primary)]`}
                   ></span>
                 </span>
                 <ChevronDown
@@ -292,7 +179,7 @@ export default function Navigation() {
                   </div>
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* Login Dropdown */}
             <div
@@ -306,11 +193,7 @@ export default function Navigation() {
                 <span className="relative">
                   Login
                   <span
-                    className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 scale-x-0 group-hover:scale-x-100 ${
-                      isHeroVisible && isDarkHero
-                        ? "bg-white"
-                        : "bg-[var(--lohn-primary)]"
-                    }`}
+                    className="absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 scale-x-0 group-hover:scale-x-100 bg-[var(--lohn-primary)]"
                   ></span>
                 </span>
                 <ChevronDown
@@ -378,13 +261,9 @@ export default function Navigation() {
             <div className="ml-6">
               <Link href="/kontakt">
                 <Button
-                  className={`${
-                    isHeroVisible && isDarkHero
-                      ? "bg-white text-[var(--lohn-primary)] hover:bg-gray-100 shadow-lg"
-                      : "bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] shadow-md"
-                  } transition-all duration-300 rounded-full px-6 py-2.5 font-semibold`}
+                  className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] shadow-md transition-all duration-300 rounded-full px-6 py-2.5 font-semibold"
                 >
-                  Kontakt
+                  Beratungsgespräch vereinbaren
                 </Button>
               </Link>
             </div>
@@ -395,11 +274,7 @@ export default function Navigation() {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`${textColorClass} ${
-                isHeroVisible && isDarkHero
-                  ? "hover:text-gray-200 hover:bg-white/10"
-                  : "hover:text-[var(--lohn-primary)] hover:bg-gray-100"
-              }`}
+              className={`${textColorClass} hover:text-[var(--lohn-primary)] hover:bg-gray-100`}
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
             </Button>
@@ -408,45 +283,45 @@ export default function Navigation() {
 
         {isMobileMenuOpen && (
           <div
-            className="md:hidden py-4 border-t border-gray-100"
-            style={
-              isHeroVisible && isDarkHero && heroBgColor
-                ? { background: heroBgColor }
-                : {}
-            }
+            className="md:hidden py-4"
+            style={{ backgroundColor: navBgColor }}
           >
             <div className="flex flex-col space-y-2">
-              {/* Mobile Steuerberater Link */}
-              <Link href="/steuerberater">
+              {/* Mobile Für Unternehmen Link */}
+              <Link href="/unternehmer">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`w-full px-4 py-3 text-left ${
-                    isHeroVisible && isDarkHero
-                      ? "text-white hover:text-gray-200"
-                      : "text-gray-700 hover:text-[var(--lohn-primary)]"
-                  } transition-colors font-medium ${
-                    location === "/steuerberater"
-                      ? isHeroVisible && isDarkHero
-                        ? "text-white bg-white/10"
-                        : "text-[var(--lohn-primary)] bg-blue-50"
+                  className={`w-full px-4 py-3 text-left text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${
+                    location === "/unternehmer"
+                      ? "text-[var(--lohn-primary)] bg-blue-50"
                       : ""
                   }`}
                 >
-                  Steuerberater
+                  Für Unternehmen
                 </button>
               </Link>
 
-              {/* Mobile Solutions Dropdown */}
-              <div className="border-y border-gray-100">
+              {/* Mobile Für Steuerberater Link */}
+              <Link href="/steuerberater">
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`w-full px-4 py-3 text-left text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${
+                    location === "/steuerberater"
+                      ? "text-[var(--lohn-primary)] bg-blue-50"
+                      : ""
+                  }`}
+                >
+                  Für Steuerberater
+                </button>
+              </Link>
+
+              {/* Mobile Solutions Dropdown - AUSKOMMENTIERT */}
+              {/* <div className="border-y border-gray-100">
                 <button
                   onClick={() =>
                     setIsMobileSolutionsOpen(!isMobileSolutionsOpen)
                   }
-                  className={`w-full px-4 py-3 flex items-center justify-between ${
-                    isHeroVisible && isDarkHero
-                      ? "text-white hover:text-gray-200"
-                      : "text-gray-700 hover:text-[var(--lohn-primary)]"
-                  } transition-colors font-medium`}
+                  className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
                 >
                   <span>Lösungen</span>
                   <ChevronDown
@@ -459,11 +334,7 @@ export default function Navigation() {
                 {isMobileSolutionsOpen && (
                   <div
                     className="py-2"
-                    style={
-                      isHeroVisible && isDarkHero && heroBgColor
-                        ? { background: heroBgColor }
-                        : { background: "#f9fafb" }
-                    }
+                    style={{ backgroundColor: navBgColor }}
                   >
                     <Link
                       href="/loesungen/lohnerhoehung"
@@ -471,11 +342,7 @@ export default function Navigation() {
                         setIsMobileMenuOpen(false);
                         setIsMobileSolutionsOpen(false);
                       }}
-                      className={`flex items-center px-6 py-3 ${
-                        isHeroVisible && isDarkHero
-                          ? "text-white hover:text-gray-200"
-                          : "text-gray-700 hover:text-[var(--lohn-primary)]"
-                      } transition-colors`}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
                       <div className="w-10 h-10 flex-shrink-0 bg-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
                         <TrendingUp className="w-5 h-5 text-white" />
@@ -483,11 +350,7 @@ export default function Navigation() {
                       <div>
                         <div className="font-medium">Lohnerhöhung</div>
                         <div
-                          className={`text-sm ${
-                            isHeroVisible && isDarkHero
-                              ? "text-gray-200"
-                              : "text-gray-500"
-                          }`}
+                          className="text-sm text-gray-500"
                         >
                           Exakte Berechnungen
                         </div>
@@ -499,11 +362,7 @@ export default function Navigation() {
                         setIsMobileMenuOpen(false);
                         setIsMobileSolutionsOpen(false);
                       }}
-                      className={`flex items-center px-6 py-3 ${
-                        isHeroVisible && isDarkHero
-                          ? "text-white hover:text-gray-200"
-                          : "text-gray-700 hover:text-[var(--lohn-primary)]"
-                      } transition-colors`}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
                       <div className="w-10 h-10 flex-shrink-0 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
                         <UserPlus className="w-5 h-5 text-white" />
@@ -511,11 +370,7 @@ export default function Navigation() {
                       <div>
                         <div className="font-medium">Neueinstellungen</div>
                         <div
-                          className={`text-sm ${
-                            isHeroVisible && isDarkHero
-                              ? "text-gray-200"
-                              : "text-gray-500"
-                          }`}
+                          className="text-sm text-gray-500"
                         >
                           Optimale Gehaltspakete
                         </div>
@@ -523,17 +378,13 @@ export default function Navigation() {
                     </Link>
                   </div>
                 )}
-              </div>
+              </div> */}
 
               {/* Mobile Login Dropdown */}
               <div className="border-b border-gray-100">
                 <button
                   onClick={() => setIsMobileLoginOpen(!isMobileLoginOpen)}
-                  className={`w-full px-4 py-3 flex items-center justify-between ${
-                    isHeroVisible && isDarkHero
-                      ? "text-white hover:text-gray-200"
-                      : "text-gray-700 hover:text-[var(--lohn-primary)]"
-                  } transition-colors font-medium`}
+                  className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium"
                 >
                   <span>Login</span>
                   <ChevronDown
@@ -546,11 +397,7 @@ export default function Navigation() {
                 {isMobileLoginOpen && (
                   <div
                     className="py-2"
-                    style={
-                      isHeroVisible && isDarkHero && heroBgColor
-                        ? { background: heroBgColor }
-                        : { background: "#f9fafb" }
-                    }
+                    style={{ backgroundColor: navBgColor }}
                   >
                     <a
                       href="https://cockpit.lohnlab.de"
@@ -560,11 +407,7 @@ export default function Navigation() {
                         setIsMobileMenuOpen(false);
                         setIsMobileLoginOpen(false);
                       }}
-                      className={`flex items-center px-6 py-3 ${
-                        isHeroVisible && isDarkHero
-                          ? "text-white hover:text-gray-200"
-                          : "text-gray-700 hover:text-[var(--lohn-primary)]"
-                      } transition-colors`}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
                       <div className="w-10 h-10 flex-shrink-0 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
                         <ExternalLink className="w-5 h-5 text-white" />
@@ -572,11 +415,7 @@ export default function Navigation() {
                       <div>
                         <div className="font-medium">LohnLab Cockpit</div>
                         <div
-                          className={`text-sm ${
-                            isHeroVisible && isDarkHero
-                              ? "text-gray-200"
-                              : "text-gray-500"
-                          }`}
+                          className="text-sm text-gray-500"
                         >
                           Zur Anwendung
                         </div>
@@ -590,11 +429,7 @@ export default function Navigation() {
                         setIsMobileMenuOpen(false);
                         setIsMobileLoginOpen(false);
                       }}
-                      className={`flex items-center px-6 py-3 ${
-                        isHeroVisible && isDarkHero
-                          ? "text-white hover:text-gray-200"
-                          : "text-gray-700 hover:text-[var(--lohn-primary)]"
-                      } transition-colors`}
+                      className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
                       <div className="w-10 h-10 flex-shrink-0 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
                         <BookOpen className="w-5 h-5 text-white" />
@@ -604,11 +439,7 @@ export default function Navigation() {
                           Handbücher & Anleitungen
                         </div>
                         <div
-                          className={`text-sm ${
-                            isHeroVisible && isDarkHero
-                              ? "text-gray-200"
-                              : "text-gray-500"
-                          }`}
+                          className="text-sm text-gray-500"
                         >
                           Für Kunden und Partner
                         </div>
@@ -624,7 +455,7 @@ export default function Navigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full w-full">
-                    Kontakt
+                    Beratungsgespräch vereinbaren
                   </Button>
                 </Link>
               </div>

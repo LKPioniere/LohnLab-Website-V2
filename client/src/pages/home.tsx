@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/sections/HeroSection";
-import FeatureCardsSection from "@/components/sections/FeatureCardsSection";
-import CombinedBenefitsSection from "@/components/sections/CombinedBenefitsSection";
-import HiringHighlightSection from "@/components/sections/HiringHighlightSection";
-import DatevIntegration from "@/components/datev-integration";
-import TargetAudiencesSection from "@/components/sections/TargetAudiencesSection";
+import StatsSection from "@/components/sections/StatsSection";
+import CockpitSection from "@/components/sections/CockpitSection";
+import CustomerSuccessSection from "@/components/sections/CustomerSuccessSection";
 import ReferencesSection from "@/components/sections/ReferencesSection";
 import TeamSection from "@/components/sections/TeamSection";
-import ContactSection from "@/components/sections/ContactSection";
+import FAQSection from "@/components/sections/FAQSection";
+import FinalCTASection from "@/components/sections/FinalCTASection";
 import Footer from "@/components/footer";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -31,17 +30,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
       <HeroSection />
-      {/* Psychologically optimized flow: Problem → Proof → Solution → Social Proof → Trust → Action */}
-      <CombinedBenefitsSection />
+      <StatsSection />
+      <CockpitSection />
+      <CustomerSuccessSection />
       <ReferencesSection />
-      <FeatureCardsSection />
-      <DatevIntegration />
-      <TargetAudiencesSection />
-      <HiringHighlightSection />
       <TeamSection />
+      <FAQSection />
+      <FinalCTASection />
       <Footer />
     </div>
   );

@@ -122,19 +122,18 @@ export default function Kontakt() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-teal)]">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20" style={{ backgroundColor: "#ebedf3" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Dein direkter Weg zu <br />
-              <span className="text-[var(--lohn-accent)]">LohnLab</span>
+          <div className="text-center">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-black mb-6">
+              Beratungsgespräch vereinbaren
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
-              Wähle die passende Kategorie und vereinbare direkt einen Termin - 
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+              Wähle die passende Kategorie und vereinbare direkt einen Termin – 
               für Interessenten, Bestandskunden und Kooperationspartner.
             </p>
           </div>
@@ -142,13 +141,13 @@ export default function Kontakt() {
       </section>
 
       {/* Funnel Selection Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
               Wer bist du?
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Wähle die passende Kategorie, um direkt zum richtigen Ansprechpartner zu gelangen.
             </p>
           </div>
@@ -157,13 +156,13 @@ export default function Kontakt() {
             {/* Card 1 - Unternehmen & Interessenten */}
             <Card 
               onClick={() => handleCalendarSelect("company")}
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 overflow-hidden flex flex-col ${
+              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 border border-gray-200 overflow-hidden flex flex-col rounded-2xl ${
                 selectedCalendar === "company" 
-                  ? "ring-4 ring-[var(--lohn-primary)] shadow-2xl" 
-                  : ""
+                  ? "ring-2 ring-[var(--lohn-primary)] shadow-xl" 
+                  : "shadow-sm"
               }`}
             >
-              <div className="relative bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 pb-6">
+              <div className="relative bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 pb-6">
                 <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Building className="text-white" size={40} />
                 </div>
@@ -172,12 +171,12 @@ export default function Kontakt() {
                 </h3>
               </div>
               <CardContent className="pt-6 pb-8 px-6 bg-white flex-1 flex flex-col">
-                <p className="text-gray-600 mb-6 text-center min-h-[80px] flex items-center justify-center flex-1">
+                <p className="text-gray-700 mb-6 text-center min-h-[80px] flex items-center justify-center flex-1">
                   Interessiert an Lohnoptimierung und dem LohnLab Cockpit? 
                   Vereinbare jetzt ein Kennenlernengespräch.
                 </p>
                 <Button 
-                  className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-secondary)] text-white font-semibold py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
+                  className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-secondary)] text-white font-semibold py-5 text-base rounded-full shadow-md hover:shadow-lg transition-all"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCalendarSelect("company");
@@ -192,13 +191,13 @@ export default function Kontakt() {
             {/* Card 2 - Bestandskunden */}
             <Card 
               onClick={() => handleCalendarSelect("service")}
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 overflow-hidden flex flex-col ${
+              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 border border-gray-200 overflow-hidden flex flex-col rounded-2xl ${
                 selectedCalendar === "service" 
-                  ? "ring-4 ring-[var(--lohn-teal)] shadow-2xl" 
-                  : ""
+                  ? "ring-2 ring-[var(--lohn-primary)] shadow-xl" 
+                  : "shadow-sm"
               }`}
             >
-              <div className="relative bg-gradient-to-br from-[var(--lohn-teal)] to-[var(--lohn-secondary)] p-8 pb-6">
+              <div className="relative bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 pb-6">
                 <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Headset className="text-white" size={40} />
                 </div>
@@ -207,12 +206,12 @@ export default function Kontakt() {
                 </h3>
               </div>
               <CardContent className="pt-6 pb-8 px-6 bg-white flex-1 flex flex-col">
-                <p className="text-gray-600 mb-6 text-center min-h-[80px] flex items-center justify-center flex-1">
+                <p className="text-gray-700 mb-6 text-center min-h-[80px] flex items-center justify-center flex-1">
                   Du bist bereits Kunde? Buche hier einen Service-Termin 
                   für deine Anliegen.
                 </p>
                 <Button 
-                  className="w-full bg-[var(--lohn-teal)] hover:bg-[var(--lohn-secondary)] text-white font-semibold py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
+                  className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-secondary)] text-white font-semibold py-5 text-base rounded-full shadow-md hover:shadow-lg transition-all"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCalendarSelect("service");
@@ -227,13 +226,13 @@ export default function Kontakt() {
             {/* Card 3 - Kooperationspartner */}
             <Card 
               onClick={() => handleCalendarSelect("partner")}
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 border-0 overflow-hidden flex flex-col ${
+              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 border border-gray-200 overflow-hidden flex flex-col rounded-2xl ${
                 selectedCalendar === "partner" 
-                  ? "ring-4 ring-[#F59E0B] shadow-2xl" 
-                  : ""
+                  ? "ring-2 ring-[var(--lohn-primary)] shadow-xl" 
+                  : "shadow-sm"
               }`}
             >
-              <div className="relative bg-gradient-to-br from-[#F59E0B] to-[#D97706] p-8 pb-6">
+              <div className="relative bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 pb-6">
                 <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Handshake className="text-white" size={40} />
                 </div>
@@ -242,12 +241,12 @@ export default function Kontakt() {
                 </h3>
               </div>
               <CardContent className="pt-6 pb-8 px-6 bg-white flex-1 flex flex-col">
-                <p className="text-gray-600 mb-6 text-center min-h-[80px] flex items-center justify-center flex-1">
-                  Steuerberater und Versicherungsvermittler - werde Partner 
+                <p className="text-gray-700 mb-6 text-center min-h-[80px] flex items-center justify-center flex-1">
+                  Steuerberater und Versicherungsvermittler – werde Partner 
                   oder nutze bestehende Vorteile.
                 </p>
                 <Button 
-                  className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
+                  className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-secondary)] text-white font-semibold py-5 text-base rounded-full shadow-md hover:shadow-lg transition-all"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCalendarSelect("partner");
@@ -264,15 +263,15 @@ export default function Kontakt() {
 
       {/* Kalender-Einbettung */}
       {selectedCalendar && (
-        <section id="calendar-section" className="py-20 bg-white">
+        <section id="calendar-section" className="py-20" style={{ backgroundColor: "#ebedf3" }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4">
+              <h2 className="text-3xl font-bold text-black mb-4">
                 <Calendar className="inline-block mr-3" size={32} />
                 Wähle deinen Wunschtermin
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Suche dir einen passenden Termin aus - wir freuen uns auf das Gespräch mit dir!
+              <p className="text-lg text-gray-700 mb-6">
+                Suche dir einen passenden Termin aus – wir freuen uns auf das Gespräch mit dir!
               </p>
             </div>
 
@@ -312,17 +311,17 @@ export default function Kontakt() {
       )}
 
       {/* Contact Information */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
               Weitere Kontaktmöglichkeiten
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <div className="bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-2xl p-8 text-white shadow-xl">
+            <div className="bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-2xl p-8 text-white shadow-xl">
               <h3 className="text-2xl font-bold mb-6">Schreib uns</h3>
               <ContactForm
                 formData={formData}
@@ -333,12 +332,12 @@ export default function Kontakt() {
             </div>
 
             {/* Address Card */}
-            <Card className="text-center">
+            <Card className="text-center rounded-2xl shadow-sm border border-gray-200">
               <CardHeader>
-                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-secondary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="text-white" size={24} />
                 </div>
-                <CardTitle className="text-[var(--lohn-primary)]">
+                <CardTitle className="text-black">
                   Adresse
                 </CardTitle>
               </CardHeader>

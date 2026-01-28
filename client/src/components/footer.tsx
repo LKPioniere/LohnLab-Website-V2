@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[var(--lohn-primary)] text-white py-12">
+    <footer className="text-white pt-40 md:pt-60 pb-12" style={{ backgroundColor: "#2c2c2c" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">

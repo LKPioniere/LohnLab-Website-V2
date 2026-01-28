@@ -59,37 +59,37 @@ export default function ContactForm({
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Name *</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
           <Input
             type="text"
             required
             value={formData.name}
             onChange={(e) => onInputChange("name", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/90 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-teal)]"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)]"
             placeholder="Dein Name"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">E-Mail *</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">E-Mail *</label>
           <Input
             type="email"
             required
             value={formData.email}
             onChange={(e) => onInputChange("email", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/90 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-teal)]"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)]"
             placeholder="deine@email.de"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Ich bin...</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Ich bin...</label>
           <Select
             value={formData.userType}
             onValueChange={(value) => onInputChange("userType", value)}
           >
-            <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/90 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-teal)] [&>span]:text-white/90">
+            <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)] [&>span]:text-gray-900">
               <SelectValue
                 placeholder="Bitte auswählen"
-                className="text-white/90"
+                className="text-gray-900"
               />
             </SelectTrigger>
             <SelectContent>
@@ -100,19 +100,19 @@ export default function ContactForm({
           </Select>
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Nachricht</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Nachricht</label>
           <Textarea
-            rows={4}
+            rows={8}
             value={formData.message}
             onChange={(e) => onInputChange("message", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder:text-white/90 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-teal)] resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)] resize-none"
             placeholder="Deine Nachricht..."
           />
         </div>
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[var(--lohn-teal)] text-[var(--lohn-primary)] hover:bg-white transition-colors rounded-xl py-3 font-semibold"
+          className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full py-3 font-semibold shadow-md"
         >
           {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}
         </Button>

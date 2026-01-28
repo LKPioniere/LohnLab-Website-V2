@@ -42,6 +42,7 @@ import {
   ExternalLink,
   Send,
   Download,
+  ChevronDown,
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -287,17 +288,16 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white py-20">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20" style={{ backgroundColor: "#ebedf3" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <HelpCircle className="inline-block mr-4" size={48} />
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-black mb-6">
             Häufig gestellte Fragen
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
             Finde schnell Antworten auf deine Fragen zu LohnLab Cockpit und
             unseren Services.
           </p>
@@ -305,21 +305,21 @@ export default function FAQ() {
       </section>
 
       {/* View Toggle */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12" style={{ backgroundColor: "#ebedf3" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6 mb-8">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <h2 className="text-2xl font-bold text-[var(--lohn-primary)]">
+              <h2 className="text-xl md:text-2xl font-bold text-black">
                 FAQ-Bereich auswählen
               </h2>
               <div className="flex bg-gray-100 rounded-lg p-1">
                 <Button
                   onClick={() => setActiveView("mitarbeiter")}
                   variant={activeView === "mitarbeiter" ? "default" : "ghost"}
-                  className={`px-6 py-2 ${
+                  className={`px-6 py-2 rounded-lg ${
                     activeView === "mitarbeiter"
                       ? "bg-[var(--lohn-primary)] text-white"
-                      : "text-gray-600"
+                      : "text-gray-700 hover:bg-gray-200"
                   }`}
                 >
                   <Users className="mr-2" size={18} />
@@ -328,10 +328,10 @@ export default function FAQ() {
                 <Button
                   onClick={() => setActiveView("arbeitgeber")}
                   variant={activeView === "arbeitgeber" ? "default" : "ghost"}
-                  className={`px-6 py-2 ${
+                  className={`px-6 py-2 rounded-lg ${
                     activeView === "arbeitgeber"
                       ? "bg-[var(--lohn-primary)] text-white"
-                      : "text-gray-600"
+                      : "text-gray-700 hover:bg-gray-200"
                   }`}
                 >
                   <Building className="mr-2" size={18} />
@@ -342,7 +342,7 @@ export default function FAQ() {
           </div>
 
           {/* Search */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6 mb-8">
             <div className="relative">
               <Search
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -353,7 +353,7 @@ export default function FAQ() {
                 placeholder="Nach Fragen oder Stichworten suchen..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 text-lg py-3"
+                className="pl-10 text-lg py-3 border-gray-300 focus:border-[var(--lohn-primary)] focus:ring-[var(--lohn-primary)]"
                 required
               />
             </div>
@@ -369,14 +369,9 @@ export default function FAQ() {
           {/* FAQ Content with Sidebar */}
           <div className="relative">
             {/* Main FAQ Container - Full Width */}
-            <div className="bg-white rounded-lg shadow-sm border p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
               <div className="mb-6">
-                <Badge variant="secondary" className="mb-2">
-                  {activeView === "mitarbeiter"
-                    ? "Mitarbeiter-FAQ"
-                    : "Arbeitgeber-FAQ"}
-                </Badge>
-                <p className="text-gray-600">
+                <p className="text-gray-700 text-sm">
                   {activeView === "mitarbeiter"
                     ? "Antworten zu deinem Lohnkonzept, der givve® Card und weiteren Mitarbeiter-Services."
                     : "Informationen zur Einrichtung, Umsetzung und den Vorteilen von LohnLab für dein Unternehmen."}
@@ -384,23 +379,37 @@ export default function FAQ() {
               </div>
 
               {filteredFAQs.length > 0 ? (
-                <Accordion
-                  type="single"
-                  collapsible
-                  value={openAccordion}
-                  onValueChange={handleAccordionChange}
-                >
+                <div className="space-y-4">
                   {filteredFAQs.map((faq) => (
-                    <AccordionItem key={faq.id} value={faq.id}>
-                      <AccordionTrigger className="text-left hover:text-[var(--lohn-primary)]">
-                        {faq.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-gray-700 leading-relaxed">
-                        {faq.answer}
-                      </AccordionContent>
-                    </AccordionItem>
+                    <div
+                      key={faq.id}
+                      className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md"
+                    >
+                      <button
+                        onClick={() => handleAccordionChange(faq.id)}
+                        className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none"
+                      >
+                        <span className="text-lg font-semibold text-black pr-4">
+                          {faq.question}
+                        </span>
+                        <ChevronDown
+                          className={`flex-shrink-0 w-5 h-5 text-gray-500 transition-transform duration-300 ${
+                            openAccordion === faq.id ? "transform rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${
+                          openAccordion === faq.id ? "max-h-[1000px]" : "max-h-0"
+                        }`}
+                      >
+                        <div className="px-6 pb-5 text-gray-700 leading-relaxed">
+                          {faq.answer}
+                        </div>
+                      </div>
+                    </div>
                   ))}
-                </Accordion>
+                </div>
               ) : (
                 <div className="text-center py-8">
                   <HelpCircle
@@ -422,13 +431,13 @@ export default function FAQ() {
             <div className="hidden xl:block absolute top-0 -right-80 w-72 space-y-6">
               {/* PDF Preview for Arbeitgeber */}
               {activeView === "arbeitgeber" && (
-                <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6 backdrop-blur-sm">
+                <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
+                    <div className="w-10 h-10 bg-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
                       <Download size={20} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                      <h3 className="font-semibold text-black text-sm">
                         FAQ als PDF
                       </h3>
                       <p className="text-xs text-gray-500">
@@ -438,7 +447,7 @@ export default function FAQ() {
                   </div>
 
                   <div className="mb-4">
-                    <div className="w-full h-36 bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-all duration-300 hover:scale-105">
+                    <div className="w-full h-36 bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-all duration-300">
                       <img
                         src={faqPreviewImg}
                         alt="FAQ PDF Vorschau"
@@ -451,7 +460,7 @@ export default function FAQ() {
                   <Button
                     asChild
                     size="sm"
-                    className="w-full bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] hover:from-[var(--lohn-primary)]/90 hover:to-[var(--lohn-secondary)]/90 text-white shadow-md"
+                    className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-secondary)] text-white shadow-md"
                   >
                     <a
                       href={faqArbeitgeberPdf}
@@ -468,13 +477,13 @@ export default function FAQ() {
               )}
 
               {/* Useful Links */}
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6 backdrop-blur-sm">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-teal)] to-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
-                    <ExternalLink size={20} className="text-white" />
+                  <div className="w-10 h-10 bg-gray-400/40 rounded-lg flex items-center justify-center mr-3">
+                    <ExternalLink size={20} className="text-gray-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                    <h3 className="font-semibold text-black text-sm">
                       Nützliche Links
                     </h3>
                     <p className="text-xs text-gray-500">Direkte Zugänge</p>
@@ -489,7 +498,7 @@ export default function FAQ() {
                         asChild
                         variant="ghost"
                         size="sm"
-                        className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                        className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                       >
                         <a
                           href="https://card.givve.com/"
@@ -497,12 +506,7 @@ export default function FAQ() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2"
                         >
-                          <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                            <ExternalLink
-                              size={12}
-                              className="text-green-600"
-                            />
-                          </div>
+                          <ExternalLink size={14} className="text-gray-600" />
                           givve® Card Portal
                         </a>
                       </Button>
@@ -510,7 +514,7 @@ export default function FAQ() {
                         asChild
                         variant="ghost"
                         size="sm"
-                        className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                        className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                       >
                         <a
                           href="https://cleverlunch.de/"
@@ -518,12 +522,7 @@ export default function FAQ() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2"
                         >
-                          <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
-                            <ExternalLink
-                              size={12}
-                              className="text-orange-600"
-                            />
-                          </div>
+                          <ExternalLink size={14} className="text-gray-600" />
                           cleverlunch
                         </a>
                       </Button>
@@ -536,12 +535,10 @@ export default function FAQ() {
                       asChild
                       variant="ghost"
                       size="sm"
-                      className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                      className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                     >
                       <Link href="/" className="flex items-center gap-2">
-                        <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                          <ExternalLink size={12} className="text-blue-600" />
-                        </div>
+                        <ExternalLink size={14} className="text-gray-600" />
                         LohnLab Cockpit
                       </Link>
                     </Button>
@@ -552,12 +549,10 @@ export default function FAQ() {
                     asChild
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                    className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                   >
                     <Link href="/kontakt" className="flex items-center gap-2">
-                      <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
-                        <HelpCircle size={12} className="text-purple-600" />
-                      </div>
+                      <HelpCircle size={14} className="text-gray-600" />
                       Persönliche Beratung
                     </Link>
                   </Button>
@@ -570,13 +565,13 @@ export default function FAQ() {
           <div className="xl:hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* PDF Preview for Arbeitgeber - Mobile */}
             {activeView === "arbeitgeber" && (
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
+                  <div className="w-10 h-10 bg-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
                     <Download size={20} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                    <h3 className="font-semibold text-black text-sm">
                       FAQ als PDF
                     </h3>
                     <p className="text-xs text-gray-500">Kompakte Übersicht</p>
@@ -584,7 +579,7 @@ export default function FAQ() {
                 </div>
 
                 <div className="mb-4">
-                  <div className="w-full h-36 bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <div className="w-full h-36 bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-all duration-300">
                     <img
                       src={faqPreviewImg}
                       alt="FAQ PDF Vorschau"
@@ -597,7 +592,7 @@ export default function FAQ() {
                 <Button
                   asChild
                   size="sm"
-                  className="w-full bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-secondary)] hover:from-[var(--lohn-primary)]/90 hover:to-[var(--lohn-secondary)]/90 text-white shadow-md"
+                  className="w-full bg-[var(--lohn-primary)] hover:bg-[var(--lohn-secondary)] text-white shadow-md"
                 >
                   <a
                     href={faqArbeitgeberPdf}
@@ -614,13 +609,13 @@ export default function FAQ() {
             )}
 
             {/* Useful Links - Mobile */}
-            <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-300 p-6">
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-[var(--lohn-teal)] to-[var(--lohn-primary)] rounded-lg flex items-center justify-center mr-3">
-                  <ExternalLink size={20} className="text-white" />
+                <div className="w-10 h-10 bg-gray-400/40 rounded-lg flex items-center justify-center mr-3">
+                  <ExternalLink size={20} className="text-gray-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[var(--lohn-primary)] text-sm">
+                  <h3 className="font-semibold text-black text-sm">
                     Nützliche Links
                   </h3>
                   <p className="text-xs text-gray-500">Direkte Zugänge</p>
@@ -635,7 +630,7 @@ export default function FAQ() {
                       asChild
                       variant="ghost"
                       size="sm"
-                      className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                      className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                     >
                       <a
                         href="https://card.givve.com/"
@@ -643,9 +638,7 @@ export default function FAQ() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2"
                       >
-                        <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                          <ExternalLink size={12} className="text-green-600" />
-                        </div>
+                        <ExternalLink size={14} className="text-gray-600" />
                         givve® Card Portal
                       </a>
                     </Button>
@@ -653,7 +646,7 @@ export default function FAQ() {
                       asChild
                       variant="ghost"
                       size="sm"
-                      className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                      className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                     >
                       <a
                         href="https://cleverlunch.de/"
@@ -661,9 +654,7 @@ export default function FAQ() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2"
                       >
-                        <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
-                          <ExternalLink size={12} className="text-orange-600" />
-                        </div>
+                        <ExternalLink size={14} className="text-gray-600" />
                         cleverlunch
                       </a>
                     </Button>
@@ -676,12 +667,10 @@ export default function FAQ() {
                     asChild
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                    className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                   >
                     <Link href="/" className="flex items-center gap-2">
-                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                        <ExternalLink size={12} className="text-blue-600" />
-                      </div>
+                      <ExternalLink size={14} className="text-gray-600" />
                       LohnLab Cockpit
                     </Link>
                   </Button>
@@ -692,12 +681,10 @@ export default function FAQ() {
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="w-full justify-start hover:bg-[var(--lohn-primary)]/5 hover:text-[var(--lohn-primary)] border border-transparent hover:border-[var(--lohn-primary)]/20"
+                  className="w-full justify-start hover:bg-gray-100 text-gray-700 border border-transparent hover:border-gray-300"
                 >
                   <Link href="/kontakt" className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
-                      <HelpCircle size={12} className="text-purple-600" />
-                    </div>
+                    <HelpCircle size={14} className="text-gray-600" />
                     Persönliche Beratung
                   </Link>
                 </Button>

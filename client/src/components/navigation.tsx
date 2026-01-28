@@ -57,10 +57,10 @@ export default function Navigation() {
 
           <div className="hidden md:flex items-center space-x-1">
             {/* Für Unternehmen Link */}
-            <Link href="/unternehmer">
+            <Link href="/unternehmen">
               <button
                 className={`group relative px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
-                  location === "/unternehmer"
+                  location === "/unternehmen"
                     ? "text-[var(--lohn-primary)]"
                     : ""
                 }`}
@@ -69,7 +69,7 @@ export default function Navigation() {
                   Für Unternehmen
                   <span
                     className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
-                      location === "/unternehmer"
+                      location === "/unternehmen"
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
                     } bg-[var(--lohn-primary)]`}
@@ -205,8 +205,8 @@ export default function Navigation() {
 
               {isLoginOpen && (
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
-                  <div className="w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-fadeIn">
-                    <div className="px-6 py-3 border-b border-gray-100">
+                  <div className="w-80 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 animate-fadeIn">
+                    <div className="px-6 py-3 border-b border-gray-200">
                       <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                         Login & Ressourcen
                       </h3>
@@ -219,11 +219,11 @@ export default function Navigation() {
                       onClick={() => setIsLoginOpen(false)}
                     >
                       <div className="flex items-center">
-                        <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-[var(--lohn-teal)] to-teal-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
                           <ExternalLink className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-teal)] transition-colors">
+                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-primary)] transition-colors">
                             LohnLab Cockpit
                           </div>
                           <div className="text-sm text-gray-500">
@@ -236,15 +236,15 @@ export default function Navigation() {
                       href="https://memberspot.lohnlab.de"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-orange-50 hover:to-transparent transition-all duration-300"
+                      className="group block px-6 py-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
                       onClick={() => setIsLoginOpen(false)}
                     >
                       <div className="flex items-center">
-                        <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
                           <BookOpen className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <div className="font-semibold text-gray-800 group-hover:text-orange-500 transition-colors">
+                          <div className="font-semibold text-gray-800 group-hover:text-[var(--lohn-primary)] transition-colors">
                             Handbücher & Anleitungen
                           </div>
                           <div className="text-sm text-gray-500">
@@ -287,12 +287,12 @@ export default function Navigation() {
             style={{ backgroundColor: navBgColor }}
           >
             <div className="flex flex-col space-y-2">
-              {/* Mobile Für Unternehmen Link */}
-              <Link href="/unternehmer">
+              {/* Mobile Unternehmen Link */}
+              <Link href="/unternehmen">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`w-full px-4 py-3 text-left text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${
-                    location === "/unternehmer"
+                    location === "/unternehmen"
                       ? "text-[var(--lohn-primary)] bg-blue-50"
                       : ""
                   }`}
@@ -409,7 +409,7 @@ export default function Navigation() {
                       }}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
-                      <div className="w-10 h-10 flex-shrink-0 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
                         <ExternalLink className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -431,7 +431,7 @@ export default function Navigation() {
                       }}
                       className="flex items-center px-6 py-3 text-gray-700 hover:text-[var(--lohn-primary)] transition-colors"
                     >
-                      <div className="w-10 h-10 flex-shrink-0 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-10 h-10 flex-shrink-0 bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-lg flex items-center justify-center mr-3">
                         <BookOpen className="w-5 h-5 text-white" />
                       </div>
                       <div>

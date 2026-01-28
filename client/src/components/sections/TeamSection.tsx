@@ -37,7 +37,7 @@ export default function TeamSection() {
         {/* Erste Zeile: Überschrift und Text - oben/unten bündig */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black break-words">
-            Treffen Sie die Experten, die Ihren Lohn optimieren.
+            Triff die Experten, die deinen Lohn optimieren.
           </h2>
           <div className="text-gray-700 leading-relaxed flex flex-col justify-start">
             <p>
@@ -81,6 +81,8 @@ export default function TeamSection() {
                     href="mailto:ms@lohnlab.de"
                     className="text-white hover:text-blue-300 block mb-1 text-xs"
                     onClick={(e) => e.stopPropagation()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     ms@lohnlab.de
                   </a>
@@ -103,7 +105,7 @@ export default function TeamSection() {
                 ... und viele weitere Experten
               </p>
               <p className="text-gray-700 text-sm mb-4">
-                Engagierte Fachleute unterstützen Ihre Lohnoptimierung.
+                Engagierte Fachleute unterstützen deine Lohnoptimierung.
               </p>
               {/* 3 runde Mitarbeiterbilder als Stapel - rechts über links */}
               <div className="flex items-center -space-x-3 relative">
@@ -127,6 +129,8 @@ export default function TeamSection() {
                           href={`mailto:${expert.email}`}
                           className="text-white hover:text-blue-300 block mb-1 text-xs"
                           onClick={(e) => e.stopPropagation()}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
                           {expert.email}
                         </a>
@@ -167,6 +171,8 @@ export default function TeamSection() {
                   href="mailto:martin.grau@neuplaner.de"
                   className="text-white hover:text-blue-300 block text-xs"
                   onClick={(e) => e.stopPropagation()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   martin.grau@neuplaner.de
                 </a>
@@ -223,6 +229,8 @@ export default function TeamSection() {
                     href="mailto:hp@lohnlab.de"
                     className="text-white hover:text-blue-300 block text-xs"
                     onClick={(e) => e.stopPropagation()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     hp@lohnlab.de
                   </a>

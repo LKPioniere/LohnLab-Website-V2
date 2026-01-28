@@ -1,48 +1,41 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-  Users,
-  FileText,
-  Shield,
-  TrendingUp,
-  Database,
-  CheckCircle,
-  Clock,
-  Euro,
-  Handshake,
-  Target,
-  Award,
-  ArrowRight,
-  Calculator,
-  FileCheck,
-  Settings,
-  Quote,
-  Zap,
-  ChevronLeft,
-  ChevronRight,
-  Expand,
-  X,
-} from "lucide-react";
 import { Link } from "wouter";
+import { Check, ArrowRight, Clock, Database, Shield, Euro, FileText, Users, TrendingUp, Quote, Play, Construction, X } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 import martinGrauImage from "@/assets/martin-grau.jpg";
 import haackSchubertLogo from "@/assets/haack-schubert-logo.png";
-import memberspotImage from "@/assets/Memberspot.png";
-import { useState } from "react";
-import { useSEO } from "@/hooks/useSEO";
+import FinalCTASection from "@/components/sections/FinalCTASection";
+
+// Logo-Imports für Carousel
+import agendaLogo from "@/assets/logos/agenda_logo_ver-300x158-removebg.png";
+import csslohnLogo from "@/assets/logos/CSSLOHN-removebg-preview.png";
+import datevLogo from "@/assets/logos/Datev-Logo--removebg-preview.png";
+import lexwareLogo from "@/assets/logos/Lexware-removebg-preview.png";
+import piLogo from "@/assets/logos/PI-removebg-preview.png";
+import sageLogo from "@/assets/logos/Sage-Group-Logo-Vector-01-removebg-preview.png";
+import sapLogo from "@/assets/logos/SAP-Logo.svg.png";
+import vrgLogo from "@/assets/logos/VRG.png";
+import wolterskluverLogo from "@/assets/logos/Wolterskluver-removebg-preview.png";
+
+const logos = [
+  { name: "DATEV", src: datevLogo },
+  { name: "SAP", src: sapLogo },
+  { name: "Lexware", src: lexwareLogo },
+  { name: "Sage", src: sageLogo },
+  { name: "Wolters Kluwer", src: wolterskluverLogo },
+  { name: "CSS LOHN", src: csslohnLogo },
+  { name: "PI", src: piLogo },
+  { name: "VRG", src: vrgLogo },
+  { name: "Agenda", src: agendaLogo },
+];
 
 export default function Steuerberater() {
-  const [currentPartnerIndex, setCurrentPartnerIndex] = useState(0);
-  const [isScreenshotExpanded, setIsScreenshotExpanded] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [showConstructionNotice, setShowConstructionNotice] = useState(true);
+  const videoId = "FZ2tLYBSlrU";
 
   useSEO({
     title: "Lohnoptimierung für Steuerberater | LohnLab Cockpit",
@@ -60,836 +53,404 @@ export default function Steuerberater() {
     window.scrollTo(0, 0);
   }, []);
 
-  const partners = [
-    {
-      id: "martin-grau",
-      name: "Martin Grau",
-      title: "Steuerberater & Inhaber",
-      companies: [
-        { name: "megra", url: "https://megra-beratung.de" },
-        { name: "Neuplaner", url: "https://www.neuplaner.de" },
-      ],
-      quote:
-        "Wir als Verantwortlicher für die Lohnbuchhaltung von vielen Unternehmen standen Lohnoptimierern auf Grund der Zusatzaufwände immer skeptisch gegenüber. Die LohnLab hat es geschafft uns für das Thema zu begeistern, da der Kostenersparnis beim Mandanten bei gleichzeitig höherem Nutzen für den Mitarbeiter durch die hohe Automatisierung fast kein Zusatzaufwand gegenübersteht.",
-      image: martinGrauImage,
-      tags: [
-        "Automatisierung",
-        "Lohnbuchhaltung",
-        "Mandantenbetreuung",
-        "Digitale Steuerberatung",
-      ],
-      themeColor: "blue",
-      companyInfo: [
-        { label: "Mandanten", value: "500+" },
-        { label: "Spezialisierung", value: "Digital" },
-      ],
-    },
-    {
-      id: "hartmut-schubert",
-      name: "Hartmut Schubert",
-      title: "Geschäftsführer",
-      companies: [
-        {
-          name: "HaackSchubert Partnerschaftsgesellschaft mbB",
-          url: "https://www.haackschubert.de",
-        },
-      ],
-      quote:
-        "LohnLab hat sich im Markt der Lohnoptimierer als Premium-Dienstleister herauskristallisiert, der besonderen Wert auf das Thema Rechtssicherheit legt. Dieser Aspekt war uns für unsere Mandanten das wichtigste.",
-      image: haackSchubertLogo,
-      tags: [
-        "Rechtssicherheit",
-        "Premium-Service",
-        "Interdisziplinär",
-        "Mandantenbetreuung",
-      ],
-      themeColor: "green",
-      companyInfo: [
-        { label: "Mitarbeiter", value: "30+ Experten" },
-        { label: "Standorte", value: "Offenbach, Frankfurt" },
-        { label: "Bereiche", value: "Recht, Steuern, WP" },
-      ],
-    },
-  ];
-
-  const currentPartner = partners[currentPartnerIndex];
-
-  const nextPartner = () => {
-    setCurrentPartnerIndex((prev) => (prev + 1) % partners.length);
+  const handlePlayVideo = () => {
+    setIsVideoPlaying(true);
   };
 
-  const prevPartner = () => {
-    setCurrentPartnerIndex(
-      (prev) => (prev - 1 + partners.length) % partners.length
-    );
+  // Helper function to highlight keywords
+  const highlightKeywords = (text: string, keywords: string[]) => {
+    let result = text;
+    keywords.forEach((keyword) => {
+      const regex = new RegExp(`(${keyword})`, "gi");
+      result = result.replace(regex, "<strong>$1</strong>");
+    });
+    return result;
   };
-
-  const getThemeColors = (theme: string) => {
-    switch (theme) {
-      case "blue":
-        return {
-          gradient: "from-[var(--lohn-primary)] to-[var(--lohn-teal)]",
-          accent: "text-[var(--lohn-primary)]",
-          background: "bg-blue-50",
-          border: "border-[var(--lohn-primary)]",
-          tagBg: "bg-blue-100 text-blue-800",
-          ring: "border-[var(--lohn-primary)]",
-        };
-      case "green":
-        return {
-          gradient: "from-green-500 to-emerald-600",
-          accent: "text-green-600",
-          background: "bg-green-50",
-          border: "border-green-600",
-          tagBg: "bg-green-100 text-green-800",
-          ring: "border-green-500",
-        };
-      default:
-        return {
-          gradient: "from-gray-500 to-gray-600",
-          accent: "text-gray-600",
-          background: "bg-gray-50",
-          border: "border-gray-600",
-          tagBg: "bg-gray-100 text-gray-800",
-          ring: "border-gray-500",
-        };
-    }
-  };
-
-  const benefits = [
-    {
-      icon: Clock,
-      title: "Zeitersparnis durch Automatisierung",
-      description:
-        "Mandanten erstellen selbständig Berechnungen und Probeabrechnungen - kein E-Mail-Pingpong mehr",
-      color: "bg-blue-500",
-    },
-    {
-      icon: Database,
-      title: "DATEV-Integration",
-      description:
-        "DSGVO-konforme Datenübertragung in perfekt verarbeitbarer Struktur direkt aus dem Cockpit",
-      color: "bg-green-500",
-    },
-    {
-      icon: Shield,
-      title: "Rechtssicherheit als Filter",
-      description:
-        "Das Cockpit prüft automatisch die rechtliche Zulässigkeit aller Lohnoptimierungen",
-      color: "bg-purple-500",
-    },
-    {
-      icon: Euro,
-      title: "Mehrwert für Mandanten",
-      description:
-        "Bis zu 2.000€ Ersparnis pro Mitarbeiter und Jahr - ein einzigartiges Angebot für deine Kanzlei",
-      color: "bg-orange-500",
-    },
-  ];
-
-  const features = [
-    {
-      title: "Neueinstellungsrechner",
-      description:
-        "Mandanten kalkulieren optimal strukturierte Vergütungspakete für neue Mitarbeiter",
-      icon: Users,
-      link: "/loesungen/neueinstellungen",
-    },
-    {
-      title: "Lohnerhöhungsrechner",
-      description:
-        "Effiziente Berechnung von Gehaltsanpassungen mit sofortiger Probeabrechnung",
-      icon: TrendingUp,
-      link: "/loesungen/lohnerhoehung",
-    },
-    {
-      title: "Monatliche Importdatei",
-      description:
-        "Monatliche Bewegungslohn-Datei für saubere Trennung aller Lohnbausteine",
-      icon: FileText,
-      link: "/#datev-integration",
-    },
-    {
-      title: "Cloud-Dokumentation",
-      description:
-        "Alle Zusatzvereinbarungen und Listen zentral für Sachbearbeiter und Betriebsprüfer",
-      icon: Database,
-    },
-  ];
-
-  const partnerBenefits = [
-    "Wettbewerbsvorteil durch innovativen Mehrwert",
-    "Höhere Mandantenbindung durch erweiterte Dienstleistung",
-    "Begleitung durch alle Phasen - von Mandantenaktivierung bis Umsatzsteigerung mit durchdachtem Pricing",
-    "Transparente Preisgestaltung ohne versteckte Gebühren",
-    "100% rechtssicher durch 'Made in Germany' Qualität",
-  ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-emerald-600 via-teal-600 to-green-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-[var(--lohn-teal)]">Partnerprogramm</span>
-                <br />
-                für Steuerberater
-              </h1>
-              <p className="text-xl mb-6 text-blue-100">
-                Biete deinen Mandanten echten Mehrwert durch moderne
-                Lohnoptimierung. Spare Zeit, reduziere Komplexität und
-                positioniere dich als innovativer Partner.
+      {/* Construction Notice - schiebt sich von rechts rein */}
+      {showConstructionNotice && (
+        <div className="fixed top-20 right-0 z-50 animate-slide-in-right">
+          <div className="bg-white rounded-l-2xl shadow-2xl border-2 border-red-500 p-4 pr-6 flex items-center gap-4 max-w-md">
+            {/* Rote Leuchte */}
+            <div className="relative flex-shrink-0">
+              <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+                <Construction className="w-6 h-6 text-white" />
+              </div>
+              <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-75"></div>
+            </div>
+            {/* Text */}
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-black">
+                Diese Seite wird noch gebaut
               </p>
-              <p className="text-lg mb-8 text-[var(--lohn-teal)] font-semibold">
-                Bis zu 2.000€ Ersparnis pro Mitarbeiter und Jahr für deine
-                Mandanten.
+              <p className="text-xs text-gray-600">
+                Wir arbeiten kontinuierlich an Verbesserungen
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/kontakt">
-                  <Button className="bg-[var(--lohn-teal)] text-[var(--lohn-primary)] hover:bg-white transition-colors rounded-full px-8 py-4 font-semibold">
-                    Partnerschaft starten
-                  </Button>
-                </Link>
-              </div>
             </div>
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6 text-center">
-                  Deine Vorteile auf einen Blick
-                </h3>
-                <div className="space-y-4">
-                  {partnerBenefits.slice(0, 3).map((benefit, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-[var(--lohn-teal)] flex-shrink-0" />
-                      <span className="text-sm">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Hauptvorteile Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
-              Warum Steuerberater LohnLab lieben
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Moderne Lohnoptimierung, die deinen Kanzleialltag revolutioniert
-              und deine Mandanten begeistert
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 overflow-hidden"
-              >
-                {/* Gradient Background Overlay */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
-                  <div
-                    className={`w-full h-full ${benefit.color.replace(
-                      "bg-",
-                      "bg-gradient-to-br from-"
-                    )} to-transparent`}
-                  ></div>
-                </div>
-
-                {/* Floating Icon */}
-                <div className="relative z-10">
-                  <div
-                    className={`w-16 h-16 ${benefit.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <benefit.icon className="text-white" size={28} />
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4 group-hover:text-[var(--lohn-secondary)] transition-colors duration-300">
-                    {benefit.title}
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed">
-                    {benefit.description}
-                  </p>
-
-                  {/* Accent Line */}
-                  <div
-                    className={`w-0 group-hover:w-20 h-1 ${benefit.color} rounded-full mt-6 transition-all duration-500`}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Praktisches Beispiel */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 lg:p-12">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <Badge className="bg-[var(--lohn-primary)] text-white px-4 py-2 text-sm font-semibold mb-4">
-                  Praxis-Beispiel
-                </Badge>
-                <h2 className="text-3xl font-bold text-[var(--lohn-primary)] mb-4 flex items-center justify-center gap-3">
-                  <Zap className="w-8 h-8 text-[var(--lohn-teal)]" />
-                  Der "Staubsauger-Effekt" in Aktion
-                </h2>
-                <p className="text-lg text-gray-600">
-                  Wie das LohnLab Cockpit komplexe Lohnoptimierung automatisch
-                  rechtssicher macht
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Die Situation:
-                  </h3>
-                  <p className="text-gray-700 mb-6">
-                    Dein Mandant nutzt bereits Fahrtkostenzuschüsse nach § 40
-                    Abs. 2 Satz 2 Nr. 1 b EStG und möchte nun zusätzlich
-                    Jobtickets einführen. Beide zahlen auf die
-                    Entfernungspauschale gem. § 9 Abs. 1 Satz 3 Nr. 4 EStG ein.
-                  </p>
-
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Das Problem:
-                  </h3>
-                  <p className="text-gray-700 mb-6">
-                    Das steuerfreie Jobticket nach § 3 Nr. 15 EStG und
-                    Fahrtkostenzuschuss dürfen zusammen die individuelle
-                    Höchstgrenze nicht überschreiten. Ohne Cockpit passieren
-                    hier oft Fehler.
-                  </p>
-                </div>
-
-                <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-4 flex items-center gap-2">
-                    <Shield className="w-5 h-5" />
-                    LohnLab Lösung:
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
-                      <p className="text-sm text-gray-700">
-                        Automatische Prüfung der rechtlichen Grenzen
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
-                      <p className="text-sm text-gray-700">
-                        Sofortige Aufklärung über Alternativen (z.B.
-                        Pauschalversteuerung nach § 40 Abs. 2 Satz 2 EStG)
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
-                      <p className="text-sm text-gray-700">
-                        Zentrale Importdatei mit sauberer Trennung aller
-                        Lohnarten
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lernplattform Section */}
-      <section className="py-20 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-secondary)] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Unsere Lernplattform: Alles zentral an einem Ort
-              </h2>
-
-              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                Wir wissen, wie schwer es ist, den Status Quo zu verändern.
-                Deshalb führen wir dich und deine Mandanten Schritt für Schritt
-                durch alle Prozesse - damit das Cockpit zur Erleichterung wird,
-                nicht zur Belastung.
-              </p>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">
-                      Cockpit-Training für Mandanten
-                    </h4>
-                    <p className="text-blue-100">
-                      Deine Mandanten lernen das Tool selbständig zu nutzen -
-                      weniger Rückfragen, mehr Effizienz
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">
-                      DATEV-Integration meistern
-                    </h4>
-                    <p className="text-blue-100">
-                      Dein Team lernt die nahtlose Verknüpfung mit DATEV - keine
-                      manuellen Übertragungen mehr
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">
-                      Aus Belastung wird Bereicherung
-                    </h4>
-                    <p className="text-blue-100">
-                      Strukturierte Prozesse, die das Cockpit zum hilfreichen
-                      Werkzeug machen, nicht zum Zeitfresser
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <a
-                  href="https://memberspot.lohnlab.de"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-[var(--lohn-primary)] hover:bg-gray-100 transition-colors px-8 py-4 rounded-full font-semibold"
-                >
-                  Zur Lernplattform
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6 text-center">
-                  Einblick in die Lernplattform
-                </h3>
-
-                {/* Memberspot Screenshot */}
-                <div className="mb-6 rounded-xl overflow-hidden shadow-lg relative">
-                  <img
-                    src={memberspotImage}
-                    alt="LohnLab Lernplattform - Memberspot"
-                    className="w-full h-auto object-cover cursor-pointer transition-transform hover:scale-105"
-                    onClick={() => setIsScreenshotExpanded(true)}
-                  />
-                  <div className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-lg opacity-75 hover:opacity-100 transition-opacity">
-                    <Expand className="w-4 h-4" />
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <Database className="w-8 h-8 text-[var(--lohn-teal)]" />
-                    <div>
-                      <h4 className="font-semibold">Zentrale Dokumentation</h4>
-                      <p className="text-sm text-blue-100">
-                        Alle Ressourcen an einem Ort verfügbar
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Users className="w-8 h-8 text-[var(--lohn-teal)]" />
-                    <div>
-                      <h4 className="font-semibold">Team-Schulungen</h4>
-                      <p className="text-sm text-blue-100">
-                        Interaktive Lernmodule für alle Mitarbeiter
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Settings className="w-8 h-8 text-[var(--lohn-teal)]" />
-                    <div>
-                      <h4 className="font-semibold">Individuelle Prozesse</h4>
-                      <p className="text-sm text-blue-100">
-                        Maßgeschneidert für deine Kanzlei
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features für Steuerberater */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
-              Tools, die Ihren Alltag erleichtern
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Speziell entwickelte Funktionen für die Zusammenarbeit zwischen
-              Steuerberatern und Mandanten
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative group"
-              >
-                <CardHeader className="pb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-teal)] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="text-white" size={28} />
-                  </div>
-                  <CardTitle className="text-lg text-[var(--lohn-primary)]">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {feature.description}
-                  </p>
-                  {feature.link &&
-                    feature.title !== "Monatliche Importdatei" && (
-                      <Link href={feature.link}>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="text-[var(--lohn-primary)] hover:text-white hover:bg-[var(--lohn-primary)] transition-colors group-hover:translate-x-1 duration-300"
-                        >
-                          Mehr erfahren
-                          <ChevronRight className="w-4 h-4 ml-1" />
-                        </Button>
-                      </Link>
-                    )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Partner Vorteile */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
-                Deine Partnerschaft mit LohnLab
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Werde Teil eines innovativen Netzwerks und biete deinen
-                Mandanten echten Mehrwert durch moderne Lohnoptimierung.
-              </p>
-
-              <div className="space-y-6">
-                {partnerBenefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-gray-700 font-medium">{benefit}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <Link href="/kontakt">
-                  <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors px-8 py-4 rounded-full font-semibold flex items-center gap-2">
-                    Jetzt Partner werden
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-purple)] rounded-3xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">
-                  Gemeinsam erfolgreich
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <Target className="w-8 h-8 text-[var(--lohn-teal)]" />
-                    <div>
-                      <h4 className="font-semibold">
-                        Individuelle Richtlinien
-                      </h4>
-                      <p className="text-sm text-blue-100">
-                        Angepasst an Ihren Kanzleialltag
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Settings className="w-8 h-8 text-[var(--lohn-teal)]" />
-                    <div>
-                      <h4 className="font-semibold">
-                        Maßgeschneiderte Prozesse
-                      </h4>
-                      <p className="text-sm text-blue-100">
-                        Perfekt integriert in deine Workflows
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <Award className="w-8 h-8 text-[var(--lohn-teal)]" />
-                    <div>
-                      <h4 className="font-semibold">
-                        Kontinuierliche Weiterentwicklung
-                      </h4>
-                      <p className="text-sm text-blue-100">
-                        Immer am Puls der Zeit
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partner Referenzen */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-6">
-              Steuerberater vertrauen uns
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Erfolgreiche Partnerschaften mit innovativen Kanzleien
-            </p>
-          </div>
-
-          <div className="max-w-6xl mx-auto">
-            {/* Einheitliche Partner-Referenz Karte */}
-            <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200 max-h-[600px]">
-              {/* Header mit Theme-Farbe - immer mit Gradient */}
-              <div
-                className={`h-2 bg-gradient-to-r ${
-                  getThemeColors(currentPartner.themeColor).gradient
-                }`}
-              ></div>
-
-              {/* Main Content */}
-              <div className="p-6 lg:p-8">
-                <div className="flex flex-col lg:flex-row gap-6 items-start h-full">
-                  {/* Profile Section */}
-                  <div className="flex-shrink-0 text-center lg:text-left lg:w-72">
-                    <div className="relative inline-block mb-3">
-                      <img
-                        src={currentPartner.image}
-                        alt={currentPartner.name}
-                        className="w-24 h-24 lg:w-28 lg:h-28 rounded-full object-cover shadow-md border-4 border-white"
-                      />
-                      {/* Colored ring around image */}
-                      <div
-                        className={`absolute inset-0 rounded-full border-2 ${
-                          getThemeColors(currentPartner.themeColor).ring
-                        } opacity-50`}
-                      ></div>
-                    </div>
-
-                    <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2">
-                      {currentPartner.name}
-                    </h3>
-                    <p
-                      className={`text-base font-semibold mb-3 ${
-                        getThemeColors(currentPartner.themeColor).accent
-                      }`}
-                    >
-                      {currentPartner.title}
-                    </p>
-
-                    {/* Company Names as Links */}
-                    <div className="space-y-1 mb-3">
-                      {currentPartner.companies.map((company, index) => (
-                        <a
-                          key={index}
-                          href={company.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-gray-600 text-sm font-medium hover:text-[var(--lohn-primary)] transition-colors"
-                        >
-                          {company.name}
-                        </a>
-                      ))}
-                    </div>
-
-                    {/* Company Info */}
-                    <div className="bg-gray-50 rounded-lg p-2 text-xs text-gray-600">
-                      {currentPartner.companyInfo.map((info, index) => (
-                        <div
-                          key={index}
-                          className={`flex items-center justify-between ${
-                            index < currentPartner.companyInfo.length - 1
-                              ? "mb-1"
-                              : ""
-                          }`}
-                        >
-                          <span>{info.label}:</span>
-                          <span className="font-semibold">{info.value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Content Section */}
-                  <div className="flex-1 space-y-4 min-h-0">
-                    {/* Quote */}
-                    <div
-                      className={`${
-                        getThemeColors(currentPartner.themeColor).background
-                      } p-4 rounded-xl border-l-4 ${
-                        getThemeColors(currentPartner.themeColor).border
-                      } max-h-40`}
-                    >
-                      <div className="flex items-start space-x-3 h-full">
-                        <Quote
-                          className={`w-5 h-5 ${
-                            getThemeColors(currentPartner.themeColor).accent
-                          } mt-1 flex-shrink-0`}
-                        />
-                        <div className="flex-1 min-h-0">
-                          <blockquote className="text-gray-800 leading-relaxed font-medium text-sm lg:text-base overflow-y-auto max-h-32 pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-                            „{currentPartner.quote}"
-                          </blockquote>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Tags */}
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                        Schwerpunkte
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {currentPartner.tags.map((tag, index) => (
-                          <Badge
-                            key={index}
-                            variant="secondary"
-                            className={`${
-                              getThemeColors(currentPartner.themeColor).tagBg
-                            } text-xs px-2 py-1 font-medium border-0`}
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Footer Accent */}
-              <div
-                className={`h-1 bg-gradient-to-r ${
-                  getThemeColors(currentPartner.themeColor).gradient
-                } opacity-60`}
-              ></div>
-            </div>
-
-            {/* Navigation - Only show when there are multiple partners */}
-            {partners.length > 1 && (
-              <div className="flex justify-center mt-8 space-x-4">
-                <button
-                  onClick={prevPartner}
-                  className="p-2 bg-white/80 hover:bg-white rounded-full shadow-md transition-all duration-200"
-                >
-                  <ChevronLeft className="w-5 h-5 text-gray-600" />
-                </button>
-
-                <div className="flex space-x-2 items-center">
-                  {partners.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentPartnerIndex(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                        index === currentPartnerIndex
-                          ? `bg-[var(--lohn-primary)]`
-                          : "bg-gray-300 hover:bg-gray-400"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  onClick={nextPartner}
-                  className="p-2 bg-white/80 hover:bg-white rounded-full shadow-md transition-all duration-200"
-                >
-                  <ChevronRight className="w-5 h-5 text-gray-600" />
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[var(--lohn-primary)] to-[var(--lohn-teal)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Bereit für die Zukunft der Steuerberatung?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Starte noch heute deine Partnerschaft mit LohnLab und biete
-            deinen Mandanten innovativen Mehrwert.
-          </p>
-          <div className="flex justify-center">
-            <Link href="/kontakt">
-              <Button className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 transition-colors px-8 py-4 rounded-full font-semibold">
-                Kontakt aufnehmen
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-
-      {/* Screenshot Fullscreen Modal */}
-      {isScreenshotExpanded && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
-          onClick={() => setIsScreenshotExpanded(false)}
-        >
-          <div className="relative max-w-6xl max-h-full">
-            <img
-              src={memberspotImage}
-              alt="LohnLab Lernplattform - Memberspot (Vergrößerte Ansicht)"
-              className="max-w-full max-h-full rounded-lg shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
+            {/* Close Button */}
             <button
-              onClick={() => setIsScreenshotExpanded(false)}
-              className="absolute top-4 right-4 bg-white text-gray-800 rounded-full p-2 hover:bg-gray-100 transition-colors"
+              onClick={() => setShowConstructionNotice(false)}
+              className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="Hinweis schließen"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
       )}
+
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20" style={{ backgroundColor: "#ebedf3" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left Column - Content */}
+            <div className="flex flex-col justify-between space-y-6">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight">
+                LohnLab für Steuerberater.
+                <br />
+                Mehr Service für Mandanten ohne Zusatzaufwand.
+              </h1>
+              <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein <strong>strategisches Beratungs- und Steuerungsinstrument</strong>. Steuerberater liefern ihren Mandanten <strong>messbaren wirtschaftlichen Mehrwert</strong>, ohne ihre Prozesse zu verkomplizieren.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 mt-auto">
+                <Link href="/kontakt">
+                  <Button className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full px-6 py-5 text-base font-semibold shadow-md">
+                    Partnerschaft anfragen
+                  </Button>
+                </Link>
+                <Link href="/kontakt">
+                  <Button
+                    variant="outline"
+                    className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 transition-colors rounded-full px-6 py-5 text-base font-semibold bg-transparent"
+                  >
+                    Beratungsgespräch vereinbaren
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column - Video */}
+            <div className="flex flex-col justify-end">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                {!isVideoPlaying ? (
+                  <>
+                    {/* Video Thumbnail */}
+                    <img
+                      src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                      alt="LohnLab Cockpit Video"
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Play Button Overlay - Bottom Left */}
+                    <div className="absolute inset-0">
+                      <div className="absolute bottom-4 left-4">
+                        <button
+                          onClick={handlePlayVideo}
+                          className="w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl border border-white/30 group"
+                          aria-label="Video abspielen"
+                        >
+                          <Play
+                            className="w-8 h-8 md:w-10 md:h-10 text-white ml-1"
+                            fill="white"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+                    title="LohnLab Cockpit Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                )}
+              </div>
+
+              {/* Logo Carousel */}
+              <div className="mt-8 relative overflow-hidden">
+                <p className="text-xs text-gray-600 mb-2 text-center">20+ unterstützte Lohnabrechnungssysteme</p>
+                <div className="flex items-center justify-center gap-6 animate-scroll">
+                  {/* Duplicate logos for seamless loop */}
+                  {[...logos, ...logos, ...logos].map((logo, index) => (
+                    <div
+                      key={`${logo.name}-${index}`}
+                      className="flex-shrink-0 h-10 flex items-center justify-center px-3 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.name}
+                        className="h-full w-auto object-contain object-center"
+                        style={{
+                          maxHeight: '40px',
+                          height: '40px',
+                          width: 'auto',
+                          objectFit: 'contain',
+                          objectPosition: 'center'
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: "#ebedf3" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { number: "Umsatz+", label: "bei vielen Mandaten", sublabel: "durch Upselling" },
+              { number: "Ø 2.000 €", label: "Ersparnis pro Mandant", sublabel: "Im Jahr" },
+              { number: "< 3 Monate", label: "ROI", sublabel: "Typischerweise" },
+              { number: "100%", label: "Rechtssicher", sublabel: "Made in Germany" },
+            ].map((stat, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-200">
+                <div className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-black font-semibold text-sm md:text-base mb-1">
+                  {stat.label}
+                </div>
+                <div className="text-gray-500 text-xs">
+                  {stat.sublabel}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vorteile Section - 3 Kacheln */}
+      <section className="py-20 md:py-28" style={{ backgroundColor: "#ebedf3" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
+              Deine Vorteile als Partner
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Wettbewerbsvorteil",
+                description: "Durch innovativen Mehrwert positionierst du dich als moderner Partner für deine Mandanten.",
+                icon: TrendingUp,
+              },
+              {
+                title: "Höhere Mandantenbindung",
+                description: "Erweiterte Dienstleistung stärkt die Beziehung zu deinen Mandanten nachhaltig.",
+                icon: Users,
+              },
+              {
+                title: "Transparent & Rechtssicher",
+                description: "Transparente Preisgestaltung ohne versteckte Gebühren. 100% rechtssicher durch 'Made in Germany' Qualität.",
+                icon: Shield,
+              },
+            ].map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col border border-gray-300/30"
+              >
+                <div className="mb-6">
+                  <div className="w-16 h-16 bg-gray-400/40 rounded-2xl flex items-center justify-center">
+                    <benefit.icon className="w-8 h-8 text-gray-600" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm flex-grow">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              Warum Steuerberater LohnLab lieben
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Moderne Lohnoptimierung, die deinen Kanzleialltag revolutioniert und deine Mandanten begeistert
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: Clock,
+                title: "Zeitersparnis durch Automatisierung",
+                description: "Mandanten erstellen selbständig Berechnungen und Probeabrechnungen - kein E-Mail-Pingpong mehr",
+              },
+              {
+                icon: Database,
+                title: "DATEV-Integration",
+                description: "DSGVO-konforme Datenübertragung in perfekt verarbeitbarer Struktur direkt aus dem Cockpit",
+              },
+              {
+                icon: Shield,
+                title: "Rechtssicherheit als Filter",
+                description: "Das Cockpit prüft automatisch die rechtliche Zulässigkeit aller Lohnoptimierungen",
+              },
+              {
+                icon: Euro,
+                title: "Mehrwert für Mandanten",
+                description: "Bis zu 2.000€ Ersparnis pro Mitarbeiter und Jahr - ein einzigartiges Angebot für deine Kanzlei",
+              },
+            ].map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-300/30"
+              >
+                <div className="w-16 h-16 bg-gray-400/40 rounded-2xl flex items-center justify-center mb-6">
+                  <benefit.icon className="w-8 h-8 text-gray-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20" style={{ backgroundColor: "#ebedf3" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              Tools, die deinen Alltag erleichtern
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Speziell entwickelte Funktionen für die Zusammenarbeit zwischen Steuerberatern und Mandanten
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Neueinstellungsrechner",
+                description: "Mandanten kalkulieren optimal strukturierte Vergütungspakete für neue Mitarbeiter",
+                icon: Users,
+              },
+              {
+                title: "Lohnerhöhungsrechner",
+                description: "Effiziente Berechnung von Gehaltsanpassungen mit sofortiger Probeabrechnung",
+                icon: TrendingUp,
+              },
+              {
+                title: "Monatliche Importdatei",
+                description: "Monatliche Bewegungslohn-Datei für saubere Trennung aller Lohnbausteine",
+                icon: FileText,
+              },
+              {
+                title: "Cloud-Dokumentation",
+                description: "Alle Zusatzvereinbarungen und Listen zentral für Sachbearbeiter und Betriebsprüfer",
+                icon: Database,
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-xl hover:scale-105 transition-all duration-300 text-center"
+              >
+                <div className="w-16 h-16 bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="text-white" size={28} />
+                </div>
+                <h3 className="text-lg font-bold text-black mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* References Section */}
+      <section className="py-20" style={{ backgroundColor: "#ebedf6" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              Steuerberater vertrauen uns
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Erfolgreiche Partnerschaften mit innovativen Kanzleien
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                quote:
+                  "Wir als Verantwortlicher für die Lohnbuchhaltung von vielen Unternehmen standen Lohnoptimierern auf Grund der Zusatzaufwände immer skeptisch gegenüber. Die LohnLab hat es geschafft uns für das Thema zu begeistern, da der Kostenersparnis beim Mandanten bei gleichzeitig höherem Nutzen für den Mitarbeiter durch die hohe Automatisierung fast kein Zusatzaufwand gegenübersteht.",
+                name: "Martin Grau",
+                position: "Steuerberater & Inhaber",
+                company: "megra / Neuplaner",
+                image: martinGrauImage,
+                keywords: ["hohe Automatisierung", "fast kein Zusatzaufwand"],
+              },
+              {
+                quote:
+                  "LohnLab hat sich im Markt der Lohnoptimierer als Premium-Dienstleister herauskristallisiert, der besonderen Wert auf das Thema Rechtssicherheit legt. Dieser Aspekt war uns für unsere Mandanten das wichtigste.",
+                name: "Hartmut Schubert",
+                position: "Geschäftsführer",
+                company: "HaackSchubert Partnerschaftsgesellschaft mbB",
+                image: haackSchubertLogo,
+                keywords: ["Premium-Dienstleister", "Rechtssicherheit"],
+              },
+            ].map((ref, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200"
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <Quote className="w-8 h-8 text-gray-600 flex-shrink-0" />
+                  <p
+                    className="text-gray-600 text-sm leading-snug flex-1"
+                    dangerouslySetInnerHTML={{
+                      __html: highlightKeywords(ref.quote, ref.keywords),
+                    }}
+                  />
+                </div>
+                <div className="flex items-center gap-4 mt-6 pt-6 border-t border-gray-200">
+                  <img
+                    src={ref.image}
+                    alt={ref.name}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-bold text-black">{ref.name}</p>
+                    <p className="text-sm text-gray-600">{ref.position}</p>
+                    <p className="text-xs text-gray-500">{ref.company}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FinalCTASection />
+      <Footer />
     </div>
   );
 }

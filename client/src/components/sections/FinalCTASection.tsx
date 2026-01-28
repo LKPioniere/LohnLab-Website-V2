@@ -22,7 +22,7 @@ export default function FinalCTASection() {
                 {/* Linke Hälfte: Text mit Farbverlauf */}
                 <div className="bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 md:p-12 flex flex-col justify-center">
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-                    Bereit, Ihren Lohn zu optimieren?
+                    Bereit, deinen Lohn zu optimieren?
                   </h3>
                   <p className="text-white/90 text-base md:text-lg mb-6 leading-relaxed">
                     LohnLab wurde nicht als klassische Software entwickelt, sondern

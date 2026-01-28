@@ -57,12 +57,12 @@ export default function HeroSection() {
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black leading-tight break-words">
               Mehr Netto für Mitarbeiter.
               <br />
-              Weniger Lohnkosten für Ihr Unternehmen.
+              Weniger Lohnkosten für dein Unternehmen.
             </h1>
 
             {/* Subheading */}
             <p className="text-sm md:text-base text-gray-700 leading-relaxed max-w-xl">
-              Mit dem LohnLab Cockpit steuern Sie ihre komplette Gehaltsstruktur
+              Mit dem LohnLab Cockpit steuerst du deine komplette Gehaltsstruktur
               in Echtzeit – transparent, steueroptimiert und voll automatisiert.
             </p>
 

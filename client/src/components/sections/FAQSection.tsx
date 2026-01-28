@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "wouter";
 
 const faqs = [
   {
@@ -44,7 +45,7 @@ const faqs = [
     question: "Kann ich mit meinem Steuerberater weiter zusammenarbeiten?",
     answer: (
       <p>
-        Ja. Wir arbeiten eng mit Ihrem Steuerberater / Lohnbüro zusammen und
+        Ja. Wir arbeiten eng mit deinem Steuerberater / Lohnbüro zusammen und
         kümmern uns um den reibungslosen Ablauf.
       </p>
     ),
@@ -72,7 +73,7 @@ const faqs = [
     answer: (
       <p>
         Der Implementierungsaufwand ist minimal. Wir übernehmen die komplette
-        Einrichtung und Integration in Ihre bestehenden Prozesse.
+        Einrichtung und Integration in deine bestehenden Prozesse.
       </p>
     ),
   },
@@ -120,8 +121,12 @@ export default function FAQSection() {
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
             Wir haben Antworten auf die häufigsten Fragen unserer Kunden
-            gesammelt – damit Sie unsere Prozesse, Zeitpläne und
-            Kollaborationsbedingungen besser verstehen können.
+            gesammelt – damit du unsere Prozesse, Zeitpläne und
+            Kollaborationsbedingungen besser verstehen kannst.
+            {" "}
+            <Link href="/faq" className="text-[var(--lohn-primary)] hover:underline text-base">
+              Weitere Fragen?
+            </Link>
           </p>
         </div>
 

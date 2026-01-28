@@ -23,7 +23,13 @@ import {
   Loader2,
   ChevronRight,
   ArrowRight,
+  CheckCircle2,
+  Lightbulb,
+  X,
 } from "lucide-react";
+import lrImage from "@/assets/lr-neu.jpg";
+import kkImage from "@/assets/kk-neu.jpg";
+import rbImage from "@/assets/rb-neu.jpg";
 
 type CalendarType = "company" | "service" | "partner";
 
@@ -95,17 +101,42 @@ function HubspotMeetingEmbed({
 }
 
 export default function Kontakt() {
-  const [selectedCalendar, setSelectedCalendar] = useState<CalendarType | null>(
-    null
+  const [selectedCalendar, setSelectedCalendar] = useState<CalendarType>(
+    "company"
   );
   const [calendarLoading, setCalendarLoading] = useState(false);
   const [embedReloadTrigger, setEmbedReloadTrigger] = useState(0);
+  const [showFeedbackNotice, setShowFeedbackNotice] = useState(true);
+  const [isMinimized, setIsMinimized] = useState(false);
   const { formData, handleSubmit, handleInputChange, isSubmitting } =
     useContactForm();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Kalender direkt laden, da "company" default ist
+    setCalendarLoading(true);
+    // Nach 5 Sekunden minimieren
+    const timer = setTimeout(() => {
+      setIsMinimized(true);
+    }, 5000);
+    return () => clearTimeout(timer);
   }, []);
+
+  // E-Mail-Vorlage für Feedback
+  const feedbackEmail = {
+    subject: encodeURIComponent("Feedback zur Kontaktseite"),
+    body: encodeURIComponent(`Hi Lennart, bitte ändere noch folgendes auf der Page "Kontaktseite":
+
+[Dein Feedback hier einfügen]
+
+---
+Feedback-Regeln:
+• Beschreibe möglichst genau, was geändert werden soll
+• Gib an, wo sich das Element befindet (z.B. "im Hero-Bereich", "in der FAQ-Sektion")
+• Beschreibe das gewünschte Ergebnis
+• Du kannst auch Screenshots anhängen, um dein Feedback zu verdeutlichen
+`),
+  };
 
   const handleCalendarSelect = (type: CalendarType) => {
     setSelectedCalendar(type);
@@ -124,6 +155,67 @@ export default function Kontakt() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
+
+      {/* Feedback Notice - schiebt sich von rechts rein */}
+      {showFeedbackNotice && (
+        <div 
+          className={`fixed top-20 right-0 z-50 animate-slide-in-right transition-all duration-300 ${
+            isMinimized ? 'group' : ''
+          }`}
+          onMouseEnter={() => {
+            if (isMinimized) {
+              setIsMinimized(false);
+            }
+          }}
+        >
+          <div className={`bg-white rounded-l-2xl shadow-2xl border-2 border-green-500 flex items-center gap-4 transition-all duration-300 ${
+            isMinimized ? 'p-2' : 'p-4 pr-6'
+          }`}>
+            {/* Grüne Leuchte */}
+            <div className="relative flex-shrink-0">
+              <div className={`w-12 h-12 bg-green-500 rounded-full flex items-center justify-center ${
+                isMinimized ? '' : 'animate-pulse'
+              }`}>
+                <Lightbulb className="w-6 h-6 text-white" />
+              </div>
+              {!isMinimized && (
+                <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
+              )}
+            </div>
+            {/* Text - nur sichtbar wenn nicht minimiert */}
+            {!isMinimized && (
+              <>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-black">
+                    Verbesserungsvorschläge?
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    <a 
+                      href={`mailto:lr@lohnlab.de?subject=${feedbackEmail.subject}&body=${feedbackEmail.body}`}
+                      className="text-[var(--lohn-primary)] hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      lr@lohnlab.de
+                    </a>
+                  </p>
+                </div>
+                {/* Minimize Button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsMinimized(true);
+                  }}
+                  className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Hinweis minimieren"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 md:pt-32 md:pb-20" style={{ backgroundColor: "#ebedf3" }}>
@@ -156,14 +248,19 @@ export default function Kontakt() {
             {/* Card 1 - Unternehmen & Interessenten */}
             <Card 
               onClick={() => handleCalendarSelect("company")}
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 border border-gray-200 overflow-hidden flex flex-col rounded-2xl ${
+              className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border border-gray-300 overflow-hidden flex flex-col rounded-2xl relative ${
                 selectedCalendar === "company" 
-                  ? "ring-2 ring-[var(--lohn-primary)] shadow-xl" 
+                  ? "shadow-md border-[var(--lohn-primary)]" 
                   : "shadow-sm"
               }`}
             >
+              {selectedCalendar === "company" && (
+                <div className="absolute top-4 right-4 z-10">
+                  <CheckCircle2 className="w-6 h-6 text-[var(--lohn-primary)] bg-white rounded-full" />
+                </div>
+              )}
               <div className="relative bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 pb-6">
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 transition-transform duration-300">
                   <Building className="text-white" size={40} />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3 text-center min-h-[64px] flex items-center justify-center">
@@ -191,14 +288,19 @@ export default function Kontakt() {
             {/* Card 2 - Bestandskunden */}
             <Card 
               onClick={() => handleCalendarSelect("service")}
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 border border-gray-200 overflow-hidden flex flex-col rounded-2xl ${
+              className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border border-gray-300 overflow-hidden flex flex-col rounded-2xl relative ${
                 selectedCalendar === "service" 
-                  ? "ring-2 ring-[var(--lohn-primary)] shadow-xl" 
+                  ? "shadow-md border-[var(--lohn-primary)]" 
                   : "shadow-sm"
               }`}
             >
+              {selectedCalendar === "service" && (
+                <div className="absolute top-4 right-4 z-10">
+                  <CheckCircle2 className="w-6 h-6 text-[var(--lohn-primary)] bg-white rounded-full" />
+                </div>
+              )}
               <div className="relative bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 pb-6">
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 transition-transform duration-300">
                   <Headset className="text-white" size={40} />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3 text-center min-h-[64px] flex items-center justify-center">
@@ -226,14 +328,19 @@ export default function Kontakt() {
             {/* Card 3 - Kooperationspartner */}
             <Card 
               onClick={() => handleCalendarSelect("partner")}
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 border border-gray-200 overflow-hidden flex flex-col rounded-2xl ${
+              className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border border-gray-300 overflow-hidden flex flex-col rounded-2xl relative ${
                 selectedCalendar === "partner" 
-                  ? "ring-2 ring-[var(--lohn-primary)] shadow-xl" 
+                  ? "shadow-md border-[var(--lohn-primary)]" 
                   : "shadow-sm"
               }`}
             >
+              {selectedCalendar === "partner" && (
+                <div className="absolute top-4 right-4 z-10">
+                  <CheckCircle2 className="w-6 h-6 text-[var(--lohn-primary)] bg-white rounded-full" />
+                </div>
+              )}
               <div className="relative bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 pb-6">
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 transition-transform duration-300">
                   <Handshake className="text-white" size={40} />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3 text-center min-h-[64px] flex items-center justify-center">
@@ -321,8 +428,8 @@ export default function Kontakt() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <div className="bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] rounded-2xl p-8 text-white shadow-xl">
-              <h3 className="text-2xl font-bold mb-6">Schreib uns</h3>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-300">
+              <h3 className="text-2xl font-bold text-black mb-6">Schreib uns</h3>
               <ContactForm
                 formData={formData}
                 onSubmit={handleSubmit}
@@ -331,34 +438,101 @@ export default function Kontakt() {
               />
             </div>
 
-            {/* Address Card */}
-            <Card className="text-center rounded-2xl shadow-sm border border-gray-200">
-              <CardHeader>
-                <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="text-white" size={24} />
-                </div>
-                <CardTitle className="text-black">
-                  Adresse
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg font-semibold text-gray-800">
-                  LohnLab GmbH
-                </p>
-                <p className="text-sm text-gray-600">Hauptstraße 20</p>
-                <p className="text-sm text-gray-600">63755 Alzenau</p>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="flex items-center justify-center space-x-2 text-gray-600">
-                    <Mail size={18} />
-                    <ObfuscatedEmail
-                      user="service"
-                      domain="lohnlab.de"
-                      className="hover:text-[var(--lohn-primary)] transition-colors"
+            {/* Address Card mit Team-Bildern */}
+            <div className="space-y-6">
+              <Card className="text-center rounded-2xl shadow-lg border-2 border-gray-300">
+                <CardHeader>
+                  <div className="w-12 h-12 flex-shrink-0 bg-[var(--lohn-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="text-white" size={24} />
+                  </div>
+                  <CardTitle className="text-black">
+                    Adresse
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-lg font-semibold text-gray-800">
+                    LohnLab GmbH
+                  </p>
+                  <p className="text-sm text-gray-600">Hauptstraße 20</p>
+                  <p className="text-sm text-gray-600">63755 Alzenau</p>
+                  <div className="mt-6 pt-6 border-t-2 border-gray-300">
+                    <div className="flex items-center justify-center space-x-2 text-gray-600">
+                      <Mail size={18} />
+                      <ObfuscatedEmail
+                        user="service"
+                        domain="lohnlab.de"
+                        className="hover:text-[var(--lohn-primary)] transition-colors"
+                      />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Team-Bilder Card */}
+              <Card className="rounded-2xl shadow-lg border-2 border-gray-300 p-6">
+                <h3 className="text-xl font-bold text-black mb-6 text-center">
+                  Unser Team
+                </h3>
+                <div className="space-y-6">
+                  {/* Robert Behrend */}
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={rbImage}
+                      alt="Robert Behrend"
+                      className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover flex-shrink-0"
                     />
+                    <div className="flex-1">
+                      <p className="font-bold text-black">Robert Behrend</p>
+                      <p className="text-sm text-gray-600 mb-1">Vertrieb & Partnerschaften</p>
+                      <a href="mailto:rb@lohnlab.de" className="text-sm text-[var(--lohn-primary)] hover:underline block" target="_blank" rel="noopener noreferrer">
+                        rb@lohnlab.de
+                      </a>
+                      <a href="tel:01621665562" className="text-sm text-gray-600 hover:text-[var(--lohn-primary)] block">
+                        01621665562
+                      </a>
+                    </div>
+                  </div>
+                  
+                  {/* Kilian Kaupp */}
+                  <div className="flex items-center gap-4 pt-4 border-t-2 border-gray-300">
+                    <img
+                      src={kkImage}
+                      alt="Kilian Kaupp"
+                      className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover flex-shrink-0"
+                    />
+                    <div className="flex-1">
+                      <p className="font-bold text-black">Kilian Kaupp</p>
+                      <p className="text-sm text-gray-600 mb-1">Bestandskundenmanagement</p>
+                      <a href="mailto:kk@lohnlab.de" className="text-sm text-[var(--lohn-primary)] hover:underline block" target="_blank" rel="noopener noreferrer">
+                        kk@lohnlab.de
+                      </a>
+                      <a href="tel:017666810923" className="text-sm text-gray-600 hover:text-[var(--lohn-primary)] block">
+                        017666810923
+                      </a>
+                    </div>
+                  </div>
+                  
+                  {/* Lennart Reichert */}
+                  <div className="flex items-center gap-4 pt-4 border-t-2 border-gray-300">
+                    <img
+                      src={lrImage}
+                      alt="Lennart Reichert"
+                      className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover flex-shrink-0"
+                    />
+                    <div className="flex-1">
+                      <p className="font-bold text-black">Lennart Reichert</p>
+                      <p className="text-sm text-gray-600 mb-1">Produktentwicklung</p>
+                      <a href="mailto:lr@lohnlab.de" className="text-sm text-[var(--lohn-primary)] hover:underline block" target="_blank" rel="noopener noreferrer">
+                        lr@lohnlab.de
+                      </a>
+                      <a href="tel:01727738271" className="text-sm text-gray-600 hover:text-[var(--lohn-primary)] block">
+                        01727738271
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

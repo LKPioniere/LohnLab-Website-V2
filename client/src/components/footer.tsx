@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-blue-100">
-          <p>&copy; 2025 LohnLab GmbH. Alle Rechte vorbehalten.</p>
+          <p>&copy; 2026 LohnLab GmbH. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

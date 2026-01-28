@@ -33,11 +33,11 @@ export default function Unternehmen() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <Coffee className="w-8 h-8 text-[var(--lohn-primary)]" />
               <p className="text-lg text-gray-600">
-                Während wir hier werkeln, können Sie gerne einen Kaffee trinken
+                Während wir hier werkeln, kannst du gerne einen Kaffee trinken
               </p>
             </div>
             <p className="text-gray-500 text-sm">
-              (Oder schauen Sie sich unsere anderen Seiten an – die sind schon fertig!)
+              (Oder schau dir unsere anderen Seiten an – die sind schon fertig!)
             </p>
           </div>
 

@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="text-white pt-40 md:pt-60 pb-12" style={{ backgroundColor: "#2c2c2c" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <img
               src={lohnlabLogo}
@@ -38,14 +38,43 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Produkt</h4>
+            <h4 className="font-semibold mb-4">Lösungen</h4>
             <ul className="space-y-2 text-blue-100">
               <li>
                 <Link
-                  href="/faq"
+                  href="/loesungen/lohnerhoehung"
                   className="hover:text-white transition-colors"
                 >
-                  FAQ
+                  Lohnerhöhung
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/loesungen/neueinstellungen"
+                  className="hover:text-white transition-colors"
+                >
+                  Neueinstellungen
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">Für Wen</h4>
+            <ul className="space-y-2 text-blue-100">
+              <li>
+                <Link
+                  href="/steuerberater"
+                  className="hover:text-white transition-colors"
+                >
+                  Steuerberater
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/unternehmen"
+                  className="hover:text-white transition-colors"
+                >
+                  Unternehmen
                 </Link>
               </li>
             </ul>
@@ -63,25 +92,39 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/impressum"
+                  href="/karriere"
                   className="hover:text-white transition-colors"
                 >
-                  Impressum
+                  Karriere
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/datenschutz"
+                  href="/faq"
                   className="hover:text-white transition-colors"
                 >
-                  Datenschutz
+                  FAQ
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-white/20 mt-8 pt-8 text-center text-blue-100">
-          <p>&copy; 2026 LohnLab GmbH. Alle Rechte vorbehalten.</p>
+        <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-blue-100">&copy; 2026 LohnLab GmbH. Alle Rechte vorbehalten.</p>
+          <div className="flex gap-6 text-blue-100">
+            <Link
+              href="/impressum"
+              className="hover:text-white transition-colors"
+            >
+              Impressum
+            </Link>
+            <Link
+              href="/datenschutz"
+              className="hover:text-white transition-colors"
+            >
+              Datenschutz
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

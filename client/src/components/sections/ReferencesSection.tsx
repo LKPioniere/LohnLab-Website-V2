@@ -174,27 +174,29 @@ export default function ReferencesSection() {
                   href={logo.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 w-32 h-16 flex items-center justify-center grayscale transition-all duration-300 opacity-100"
+                  className="flex-shrink-0 w-32 h-16 relative group flex items-center justify-center"
                 >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    className="w-full h-full object-contain object-center"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      width: 'auto',
-                      height: 'auto',
-                      objectFit: 'contain',
-                      objectPosition: 'center',
-                      filter: logo.needsInvert 
-                        ? "invert(1) brightness(0) contrast(1.2)" 
-                        : logo.needsBgRemove 
-                        ? "brightness(0) contrast(1.5)" 
-                        : "brightness(0) contrast(1.2)",
-                      opacity: 1,
-                    }}
-                  />
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    {/* Schwarzes Logo - Standard */}
+                    <img
+                      src={logo.src}
+                      alt={logo.name}
+                      className="max-w-full max-h-full object-contain absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                      style={{
+                        filter: logo.needsInvert 
+                          ? "invert(1) brightness(0) contrast(1.2)" 
+                          : logo.needsBgRemove 
+                          ? "brightness(0) contrast(1.5)" 
+                          : "brightness(0) contrast(1.2)",
+                      }}
+                    />
+                    {/* Farbiges Logo - Hover */}
+                    <img
+                      src={logo.src}
+                      alt={logo.name}
+                      className="max-w-full max-h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
                 </a>
               ))}
             </div>

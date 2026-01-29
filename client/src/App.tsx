@@ -9,6 +9,7 @@ import Lohnerhoehung from "@/pages/lohnerhoehung";
 // import Lohnoptimierung from "@/pages/lohnoptimierung";
 import Neueinstellungen from "@/pages/neueinstellungen";
 import Kontakt from "@/pages/kontakt";
+import Karriere from "@/pages/karriere";
 import FAQ from "@/pages/faq";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/steuerberater" component={Steuerberater} />
       <Route path="/unternehmen" component={Unternehmen} />
       <Route path="/kontakt" component={Kontakt} />
+      <Route path="/karriere" component={Karriere} />
       <Route path="/faq" component={FAQ} />
       {/* <Route path="/entwicklungsfortschritt" component={Roadmap} /> */}
       {/* <Route path="/roadmap" component={Roadmap} /> */}

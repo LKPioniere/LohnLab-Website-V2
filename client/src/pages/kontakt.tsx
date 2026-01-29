@@ -30,6 +30,7 @@ import {
 import lrImage from "@/assets/lr-neu.jpg";
 import kkImage from "@/assets/kk-neu.jpg";
 import rbImage from "@/assets/rb-neu.jpg";
+import lindaDenkImage from "@/assets/linda-denk.jpg";
 
 type CalendarType = "company" | "service" | "partner";
 
@@ -428,7 +429,7 @@ Feedback-Regeln:
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-300">
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
               <h3 className="text-2xl font-bold text-black mb-6">Schreib uns</h3>
               <ContactForm
                 formData={formData}
@@ -508,6 +509,25 @@ Feedback-Regeln:
                       </a>
                       <a href="tel:017666810923" className="text-sm text-gray-600 hover:text-[var(--lohn-primary)] block">
                         017666810923
+                      </a>
+                    </div>
+                  </div>
+                  
+                  {/* Linda Denk */}
+                  <div className="flex items-center gap-4 pt-4 border-t-2 border-gray-300">
+                    <img
+                      src={lindaDenkImage}
+                      alt="Linda Denk"
+                      className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover flex-shrink-0"
+                    />
+                    <div className="flex-1">
+                      <p className="font-bold text-black">Linda Denk</p>
+                      <p className="text-sm text-gray-600 mb-1">Bestandskundenmanagement</p>
+                      <a href="mailto:ld@lohnlab.de" className="text-sm text-[var(--lohn-primary)] hover:underline block" target="_blank" rel="noopener noreferrer">
+                        ld@lohnlab.de
+                      </a>
+                      <a href="tel:06023918017" className="text-sm text-gray-600 hover:text-[var(--lohn-primary)] block">
+                        06023918017
                       </a>
                     </div>
                   </div>

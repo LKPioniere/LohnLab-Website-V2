@@ -1,10 +1,12 @@
-import { Star } from "lucide-react";
+import { Star, UserPlus } from "lucide-react";
+import { Link } from "wouter";
 import michaelSchmittImage from "@/assets/michi-new.jpg";
 import martinGrauImage from "@/assets/martin-grau.jpg";
 import holgerPluemerImage from "@/assets/holger-new.jpg";
 import lrImage from "@/assets/lr-neu.jpg";
 import kkImage from "@/assets/kk-neu.jpg";
 import rbImage from "@/assets/rb-neu.jpg";
+import lindaDenkImage from "@/assets/linda-denk.jpg";
 
 const experts = [
   {
@@ -27,6 +29,13 @@ const experts = [
     email: "rb@lohnlab.de",
     phone: "01621665562",
     image: rbImage,
+  },
+  {
+    name: "Linda Denk",
+    role: "Bestandskundenmanagement",
+    email: "ld@lohnlab.de",
+    phone: "06023918017",
+    image: lindaDenkImage,
   },
 ];
 
@@ -107,18 +116,19 @@ export default function TeamSection() {
               <p className="text-gray-700 text-sm mb-4">
                 Engagierte Fachleute unterstützen deine Lohnoptimierung.
               </p>
-              {/* 3 runde Mitarbeiterbilder als Stapel - rechts über links */}
+              {/* Runde Mitarbeiterbilder als Stapel - links über rechts */}
               <div className="flex items-center -space-x-3 relative">
                 {experts.map((expert, index) => (
                   <div
                     key={expert.name}
                     className="relative group"
-                    style={{ zIndex: 30 + index }}
+                    style={{ zIndex: 30 + (experts.length - index) }}
                   >
                     <img
                       src={expert.image}
                       alt={expert.name}
                       className="w-16 h-16 rounded-full border-4 border-white flex-shrink-0 object-cover cursor-pointer hover:scale-110 transition-transform duration-300"
+                      style={expert.name === "Linda Denk" ? { objectPosition: "center 65%" } : {}}
                     />
                     {/* Tooltip beim Hover */}
                     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
@@ -147,6 +157,32 @@ export default function TeamSection() {
                     </div>
                   </div>
                 ))}
+                
+                {/* Leerer Kreis für zukünftige Mitarbeiter */}
+                <Link href="/karriere">
+                  <div
+                    className="relative group"
+                    style={{ zIndex: 25 }}
+                  >
+                    <div className="w-16 h-16 rounded-full border-4 border-white flex-shrink-0 bg-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                      <UserPlus className="w-8 h-8 text-gray-300" />
+                    </div>
+                    {/* Tooltip beim Hover */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                      <div className="bg-gray-700 text-white rounded-lg p-4 shadow-2xl min-w-[260px] text-sm">
+                        <p className="font-bold text-base mb-1">Das könntest du sein!</p>
+                        <p className="text-gray-300 mb-2 text-xs leading-relaxed">
+                          Wir suchen Verstärkung für unser Vertriebsteam. Werde Teil unserer Mission!
+                        </p>
+                        <span className="text-white hover:text-blue-300 block text-xs font-semibold">
+                          Bewirb dich jetzt auf unserer Karriereseite!
+                        </span>
+                        {/* Tooltip Pfeil */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-transparent border-t-gray-700"></div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

@@ -13,6 +13,7 @@ import Karriere from "@/pages/karriere";
 import FAQ from "@/pages/faq";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
+import SaasVertrag from "@/pages/saas-vertrag";
 import Roadmap from "@/pages/roadmap";
 import Steuerberater from "@/pages/steuerberater";
 import Unternehmen from "@/pages/unternehmen";
@@ -40,6 +41,7 @@ function Router() {
       />
       <Route path="/impressum" component={Impressum} />
       <Route path="/datenschutz" component={Datenschutz} />
+      <Route path="/saas-vertrag" component={SaasVertrag} />
       <Route component={NotFound} />
     </Switch>
   );

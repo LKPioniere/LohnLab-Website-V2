@@ -124,6 +124,12 @@ export default function Footer() {
             >
               Datenschutz
             </Link>
+            <Link
+              href="/saas-vertrag"
+              className="hover:text-white transition-colors"
+            >
+              SaaS-Vertrag
+            </Link>
           </div>
         </div>
       </div>

@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { Play, TrendingUp, TrendingDown, CheckCircle } from "lucide-react";
+import { Play, TrendingUp, TrendingDown, CheckCircle, Users, Calendar, PiggyBank } from "lucide-react";
+import christianRaithImage from "@/assets/christian-raith.jpg";
+import stephanWepplerImage from "@/assets/stephan-weppler.png";
 
 /**
- * Customer Success Sektion - 2 Case Studies mit Video
+ * Customer Success Sektion - 2 Case Studies mit Video/Bild
  */
 export default function CustomerSuccessSection() {
   const [videoStates, setVideoStates] = useState<{ [key: string]: boolean }>({
-    lohnnebenkosten: false,
-    mitarbeiterbindung: false,
+    imm_photonics: false,
+    weppler_filter: false,
   });
 
   const handlePlayVideo = (caseId: string) => {
@@ -16,44 +18,50 @@ export default function CustomerSuccessSection() {
 
   const cases = [
     {
-      id: "lohnnebenkosten",
-      title: "Senkung der Lohnnebenkosten",
-      videoId: "FZ2tLYBSlrU", // Platzhalter - später Video vom Geschäftsführer
+      id: "imm_photonics",
+      title: "IMM Photonics GmbH",
+      type: "image" as const,
+      image: christianRaithImage,
+      name: "Dipl.-Ing. Christian Raith",
+      position: "Geschäftsführer",
       challenge: {
         title: "Herausforderung",
-        text: "Der Kunde stand vor stark steigenden Personalkosten, sinkenden Margen und fehlender Transparenz über seine tatsächliche Abgabenstruktur. Gehaltserhöhungen waren wirtschaftlich kaum noch darstellbar, gleichzeitig wuchs der Druck durch Fachkräftemangel und Inflation.",
+        text: "Das Unternehmen wollte für seine Mitarbeiter das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben.",
       },
       solution: {
         title: "Lösung",
-        text: "Mit dem LohnLab Cockpit wurde die komplette Lohnstruktur erstmals transparent analysiert, simuliert und neu strukturiert. Steueroptimierte Gehaltsmodelle wurden automatisiert umgesetzt und laufend überwacht.",
+        text: "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeitern angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter weitergegeben – on top zur ursprünglichen Erhöhung.",
       },
       result: {
         title: "Ergebnis",
         items: [
-          { text: "–34 % Lohnnebenkosten", icon: TrendingDown, positive: true },
-          { text: "+86.000 € jährliche Einsparung", icon: TrendingUp, positive: true },
-          { text: "ROI in unter 3 Monaten.", icon: CheckCircle, positive: true },
+          { text: "56 Mitarbeiter profitieren", icon: Users, positive: true },
+          { text: "Rentenlücke vollständig geschlossen", icon: CheckCircle, positive: true },
+          { text: "Ø +140 € Netto durch Lohnbausteine", icon: TrendingUp, positive: true },
         ],
       },
     },
     {
-      id: "mitarbeiterbindung",
-      title: "Stärkung der Mitarbeiterbindung",
-      videoId: "FZ2tLYBSlrU", // Platzhalter - später Video vom Geschäftsführer
+      id: "weppler_filter",
+      title: "Weppler Filter GmbH",
+      type: "image" as const,
+      image: stephanWepplerImage,
+      name: "Stephan Weppler",
+      position: "Geschäftsführer",
       challenge: {
         title: "Herausforderung",
-        text: "Der Kunde kämpfte mit hoher Fluktuation, steigenden Gehaltsforderungen und geringer Arbeitgeberattraktivität. Klassische Gehaltserhöhungen führten zu hohen Mehrkosten, ohne spürbaren Motivationseffekt bei den Mitarbeitern.",
+        text: "Das Unternehmen zahlt angelehnt an einen Tarifvertrag, was präzise Berechnungen und das strikte Einhalten arbeitsvertraglicher Regelungen voraussetzt. Laut Tarifvertrag stand der Belegschaft eine Lohnerhöhung von 1,8% brutto sofort und weitere 1,8% nach einem Jahr zu. Die Frage war: Wie lässt sich das tarifgerecht umsetzen und trotzdem mehr für alle rausholen?",
       },
       solution: {
         title: "Lösung",
-        text: "Mit dem LohnLab Cockpit wurden individuelle Netto-Optimierungen und moderne Benefit-Strukturen eingeführt. Jeder Mitarbeiter erhielt ein messbar besseres Gesamtpaket – ohne Erhöhung der Bruttolohnkosten.",
+        text: "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft beide Tariferhöhungen direkt – nicht gestaffelt über ein Jahr, sondern sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter bekamen sogar 20% mehr Netto on top, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
       },
       result: {
         title: "Ergebnis",
         items: [
-          { text: "+520 € Netto pro Mitarbeiter / Jahr", icon: TrendingUp, positive: true },
-          { text: "–29 % Mitarbeiterfluktuation", icon: TrendingDown, positive: true },
-          { text: "Spürbar höhere Zufriedenheit im Team", icon: CheckCircle, positive: true },
+          { text: "+20% mehr Netto für die Belegschaft", icon: TrendingUp, positive: true },
+          { text: "140.000 € Einsparung pro Jahr", icon: PiggyBank, positive: true },
+          { text: "Seit 8 Jahren erfolgreich im Einsatz", icon: Calendar, positive: true },
         ],
       },
     },
@@ -114,47 +122,59 @@ export default function CustomerSuccessSection() {
                   </div>
                 </div>
 
-                {/* Right: Video - exaktes 16:9 Format, nicht verzerrt */}
+                {/* Right: Video oder Bild - exaktes 16:9 Format, nicht verzerrt */}
                 <div className="flex flex-col items-start w-full">
                   <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                     <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
-                      {!videoStates[caseStudy.id] ? (
-                        <>
-                          {/* Video Thumbnail */}
-                          <img
-                            src={`https://img.youtube.com/vi/${caseStudy.videoId}/maxresdefault.jpg`}
-                            alt={`${caseStudy.title} Video`}
-                            className="w-full h-full object-cover"
-                          />
-                          {/* Play Button Overlay - Center */}
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <button
-                              onClick={() => handlePlayVideo(caseStudy.id)}
-                              className="w-20 h-20 md:w-24 md:h-24 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl border border-white/30 group"
-                              aria-label={`${caseStudy.title} Video abspielen`}
-                            >
-                              <Play
-                                className="w-10 h-10 md:w-12 md:h-12 text-white ml-1"
-                                fill="white"
-                              />
-                            </button>
-                          </div>
-                        </>
+                      {caseStudy.type === "image" ? (
+                        // Statisches Bild für IMM Photonics
+                        <img
+                          src={caseStudy.image}
+                          alt={caseStudy.name}
+                          className="w-full h-full object-cover object-top"
+                        />
                       ) : (
-                        <iframe
-                          className="w-full h-full"
-                          src={`https://www.youtube.com/embed/${caseStudy.videoId}?autoplay=1&rel=0`}
-                          title={`${caseStudy.title} Video`}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
+                        // Video für andere Case Studies
+                        <>
+                          {!videoStates[caseStudy.id] ? (
+                            <>
+                              {/* Video Thumbnail */}
+                              <img
+                                src={`https://img.youtube.com/vi/${caseStudy.videoId}/maxresdefault.jpg`}
+                                alt={`${caseStudy.title} Video`}
+                                className="w-full h-full object-cover"
+                              />
+                              {/* Play Button Overlay - Center */}
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <button
+                                  onClick={() => handlePlayVideo(caseStudy.id)}
+                                  className="w-20 h-20 md:w-24 md:h-24 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl border border-white/30 group"
+                                  aria-label={`${caseStudy.title} Video abspielen`}
+                                >
+                                  <Play
+                                    className="w-10 h-10 md:w-12 md:h-12 text-white ml-1"
+                                    fill="white"
+                                  />
+                                </button>
+                              </div>
+                            </>
+                          ) : (
+                            <iframe
+                              className="w-full h-full"
+                              src={`https://www.youtube.com/embed/${caseStudy.videoId}?autoplay=1&rel=0`}
+                              title={`${caseStudy.title} Video`}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            ></iframe>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
-                  {/* Name und Position unter dem Video */}
+                  {/* Name und Position unter dem Video/Bild */}
                   <div className="mt-4 text-center w-full">
-                    <p className="text-white font-semibold text-lg">Max Mustermann</p>
-                    <p className="text-gray-300 text-base">CEO</p>
+                    <p className="text-white font-semibold text-lg">{caseStudy.name}</p>
+                    <p className="text-gray-300 text-base">{caseStudy.position}</p>
                   </div>
                 </div>
               </div>

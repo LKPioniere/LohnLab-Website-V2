@@ -32,7 +32,7 @@ const logos = [
  */
 export default function HeroSection() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoId = "FZ2tLYBSlrU";
+  const videoId = "tRKPtfIrJ4E";
 
   const handlePlayVideo = () => {
     setIsVideoPlaying(true);

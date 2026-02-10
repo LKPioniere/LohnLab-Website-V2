@@ -16,7 +16,7 @@ export default function StatsSection() {
     {
       value: "Ø 2.000 €",
       label: "Ersparnis pro Mitarbeiter",
-      sublabel: "im Monat",
+      sublabel: "pro Jahr",
     },
     {
       value: "+14.900",

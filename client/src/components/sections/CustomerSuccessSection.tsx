@@ -36,8 +36,8 @@ export default function CustomerSuccessSection() {
         title: "Ergebnis",
         items: [
           { text: "56 Mitarbeiter profitieren", icon: Users, positive: true },
+          { text: "Ø +140 € mtl. Netto durch Lohnbausteine", icon: TrendingUp, positive: true },
           { text: "Rentenlücke vollständig geschlossen", icon: CheckCircle, positive: true },
-          { text: "Ø +140 € Netto durch Lohnbausteine", icon: TrendingUp, positive: true },
         ],
       },
     },
@@ -50,11 +50,11 @@ export default function CustomerSuccessSection() {
       position: "Geschäftsführer",
       challenge: {
         title: "Herausforderung",
-        text: "Das Unternehmen zahlt angelehnt an einen Tarifvertrag, was präzise Berechnungen und das strikte Einhalten arbeitsvertraglicher Regelungen voraussetzt. Laut Tarifvertrag stand der Belegschaft eine Lohnerhöhung von 1,8% brutto sofort und weitere 1,8% nach einem Jahr zu. Die Frage war: Wie lässt sich das tarifgerecht umsetzen und trotzdem mehr für alle rausholen?",
+        text: "Das Unternehmen zahlt angelehnt an einen Tarifvertrag und wollte 2018 die Mitarbeiter mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter herausholen und trotzdem Lohnkosten sparen?",
       },
       solution: {
         title: "Lösung",
-        text: "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft beide Tariferhöhungen direkt – nicht gestaffelt über ein Jahr, sondern sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter bekamen sogar 20% mehr Netto on top, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
+        text: "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
       },
       result: {
         title: "Ergebnis",
@@ -125,9 +125,11 @@ export default function CustomerSuccessSection() {
                 {/* Right: Video oder Bild - exaktes 16:9 Format, nicht verzerrt */}
                 <div className="flex flex-col items-start w-full">
                   <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                    <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                    <div className={`absolute inset-0 rounded-2xl overflow-hidden shadow-2xl ${
+                      caseStudy.type === "image" ? "" : "bg-gray-900"
+                    }`}>
                       {caseStudy.type === "image" ? (
-                        // Statisches Bild für IMM Photonics
+                        // Statisches Bild - unterschiedliche Darstellung je nach Case Study
                         <img
                           src={caseStudy.image}
                           alt={caseStudy.name}

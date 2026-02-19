@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Play } from "lucide-react";
 import sterneReferenzen from "@/assets/5SterneReferenzen.png";
 
 // Logo-Imports
@@ -31,13 +29,6 @@ const logos = [
  * Hero-Sektion Komponente - Neue Landingpage
  */
 export default function HeroSection() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoId = "tRKPtfIrJ4E";
-
-  const handlePlayVideo = () => {
-    setIsVideoPlaying(true);
-  };
-
   return (
     <section className="py-16 md:py-24" style={{ backgroundColor: "#ebedf3" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,42 +77,10 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column - Video */}
+          {/* Right Column - Platzhalter */}
           <div className="flex flex-col justify-end">
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
-              {!isVideoPlaying ? (
-                <>
-                  {/* Video Thumbnail */}
-                  <img
-                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                    alt="LohnLab Cockpit Video"
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Play Button Overlay - Bottom Left */}
-                  <div className="absolute inset-0">
-                    <div className="absolute bottom-4 left-4">
-                      <button
-                        onClick={handlePlayVideo}
-                        className="w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-xl border border-white/30 group"
-                        aria-label="Video abspielen"
-                      >
-                        <Play
-                          className="w-8 h-8 md:w-10 md:h-10 text-white ml-1"
-                          fill="white"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <iframe
-                  className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-                  title="LohnLab Cockpit Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              )}
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-300 flex items-center justify-center">
+              <span className="text-gray-600 text-lg font-medium">Video Platzhalter</span>
             </div>
 
             {/* Logo Carousel */}

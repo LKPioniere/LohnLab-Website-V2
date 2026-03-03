@@ -49,7 +49,7 @@ export default function ReferencesSection() {
     {
       id: "weppler",
       quote:
-        "<strong>Herausforderung:</strong> Die Mitarbeiter besser stellen als bei Tarifbindung (3,6 % Bruttoerhöhung).<br><br><strong>Lösung:</strong> Durch ein Lohnkonzept erhielt die Belegschaft die Erhöhungen der kommenden zwei Jahre (2x 1,8 %) sofort. Das Ergebnis: Bis zu 20 % mehr Netto im Vergleich zur Tariferhöhung – bei gleichzeitiger Lohnkosteneinsparung.",
+        "<strong>Herausforderung:</strong> Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre (3,6 % Bruttoerhöhung).<br><br><strong>Lösung:</strong> Durch ein Lohnkonzept erhielt die Belegschaft die Erhöhungen der kommenden zwei Jahre (2x 1,8 %) sofort. Das Ergebnis: Bis zu 20 % mehr Netto im Vergleich zur Tariferhöhung – bei gleichzeitiger Lohnkosteneinsparung.",
       keywords: ["20 % mehr Netto", "Lohnkosteneinsparung"],
       name: "Stephan Weppler",
       position: "Geschäftsführer",

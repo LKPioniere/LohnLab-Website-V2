@@ -17,10 +17,10 @@ const logos = [
   { name: "DATEV", src: datevLogo },
   { name: "SAP", src: sapLogo },
   { name: "Lexware", src: lexwareLogo },
-  { name: "Sage", src: sageLogo },
+  { name: "Sage", src: sageLogo, scale: 1.8 },
   { name: "Wolters Kluwer", src: wolterskluverLogo },
   { name: "CSS LOHN", src: csslohnLogo },
-  { name: "PI", src: piLogo },
+  { name: "PI", src: piLogo, scale: 1.8 },
   { name: "VRG", src: vrgLogo },
   { name: "Agenda", src: agendaLogo },
 ];
@@ -36,13 +36,13 @@ export default function HeroSection() {
           {/* Left Column - Content */}
           <div className="flex flex-col justify-between space-y-6">
             {/* Google Bewertungen */}
-            <div>
+            {/* <div>
               <img
                 src={sterneReferenzen}
                 alt="4.6/5 basierend auf über 1400 Bewertungen"
                 className="h-auto w-auto max-w-xs mb-2"
               />
-            </div>
+            </div> */}
 
             {/* Main Hero Text */}
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black leading-tight break-words">
@@ -66,14 +66,13 @@ export default function HeroSection() {
                   Beratungsgespräch vereinbaren
                 </Button>
               </Link>
-              <Link href="/#case-studies">
-                <Button
-                  variant="outline"
-                  className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 transition-colors rounded-full px-6 py-5 text-base font-semibold bg-transparent"
-                >
-                  Alle Case Studies ansehen
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 transition-colors rounded-full px-6 py-5 text-base font-semibold bg-transparent"
+                onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Alle Case Studies ansehen
+              </Button>
             </div>
           </div>
 
@@ -102,7 +101,8 @@ export default function HeroSection() {
                         height: '40px',
                         width: 'auto',
                         objectFit: 'contain',
-                        objectPosition: 'center'
+                        objectPosition: 'center',
+                        transform: logo.scale ? `scale(${logo.scale})` : undefined,
                       }}
                     />
                   </div>

@@ -58,7 +58,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div>
+          {/* Für Wen - TEMPORÄR DEAKTIVIERT */}
+          {/* <div>
             <h4 className="font-semibold mb-4">Für Wen</h4>
             <ul className="space-y-2 text-blue-100">
               <li>
@@ -78,7 +79,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div>
             <h4 className="font-semibold mb-4">Unternehmen</h4>
             <ul className="space-y-2 text-blue-100">

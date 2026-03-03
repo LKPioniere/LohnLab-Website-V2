@@ -56,8 +56,8 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-1">
-            {/* Für Unternehmen Link */}
-            <Link href="/unternehmen">
+            {/* Für Unternehmen Link - TEMPORÄR DEAKTIVIERT */}
+            {/* <Link href="/unternehmen">
               <button
                 className={`group relative px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
                   location === "/unternehmen"
@@ -76,10 +76,10 @@ export default function Navigation() {
                   ></span>
                 </span>
               </button>
-            </Link>
+            </Link> */}
 
-            {/* Für Steuerberater Link */}
-            <Link href="/steuerberater">
+            {/* Für Steuerberater Link - TEMPORÄR DEAKTIVIERT */}
+            {/* <Link href="/steuerberater">
               <button
                 className={`group relative px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
                   location === "/steuerberater"
@@ -98,7 +98,7 @@ export default function Navigation() {
                   ></span>
                 </span>
               </button>
-            </Link>
+            </Link> */}
 
             {/* Lösungen Dropdown - AUSKOMMENTIERT */}
             {/* <div
@@ -287,8 +287,8 @@ export default function Navigation() {
             style={{ backgroundColor: navBgColor }}
           >
             <div className="flex flex-col space-y-2">
-              {/* Mobile Unternehmen Link */}
-              <Link href="/unternehmen">
+              {/* Mobile Unternehmen Link - TEMPORÄR DEAKTIVIERT */}
+              {/* <Link href="/unternehmen">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`w-full px-4 py-3 text-left text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${
@@ -299,10 +299,10 @@ export default function Navigation() {
                 >
                   Für Unternehmen
                 </button>
-              </Link>
+              </Link> */}
 
-              {/* Mobile Für Steuerberater Link */}
-              <Link href="/steuerberater">
+              {/* Mobile Für Steuerberater Link - TEMPORÄR DEAKTIVIERT */}
+              {/* <Link href="/steuerberater">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`w-full px-4 py-3 text-left text-gray-700 hover:text-[var(--lohn-primary)] transition-colors font-medium ${
@@ -313,7 +313,7 @@ export default function Navigation() {
                 >
                   Für Steuerberater
                 </button>
-              </Link>
+              </Link> */}
 
               {/* Mobile Solutions Dropdown - AUSKOMMENTIERT */}
               {/* <div className="border-y border-gray-100">

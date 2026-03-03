@@ -89,14 +89,15 @@ export default function CockpitSection() {
 
               {/* Buttons - nebeneinander */}
               <div className="flex gap-3">
-                <Link href="/kontakt" className="flex-1">
+                <Link href={card.id === "unternehmen" ? "/kontakt" : "/kontakt?type=partner"} className="flex-1">
                   <Button
                     className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full py-3 text-sm font-semibold shadow-md"
                   >
                     Beratungsgespräch vereinbaren
                   </Button>
                 </Link>
-                <Link href={card.link}>
+                {/* Pfeil-Button - TEMPORÄR DEAKTIVIERT */}
+                {/* <Link href={card.link}>
                   <Button
                     variant="outline"
                     className="w-12 h-12 border-2 border-gray-400 text-gray-600 hover:bg-gray-100 transition-colors rounded-full p-0 flex items-center justify-center bg-transparent"
@@ -104,7 +105,7 @@ export default function CockpitSection() {
                   >
                     <ArrowRight className="w-5 h-5" />
                   </Button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           ))}

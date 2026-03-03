@@ -24,8 +24,6 @@ import {
   ChevronRight,
   ArrowRight,
   CheckCircle2,
-  Lightbulb,
-  X,
 } from "lucide-react";
 import lrImage from "@/assets/lr-neu.jpg";
 import kkImage from "@/assets/kk-neu.jpg";
@@ -107,37 +105,28 @@ export default function Kontakt() {
   );
   const [calendarLoading, setCalendarLoading] = useState(false);
   const [embedReloadTrigger, setEmbedReloadTrigger] = useState(0);
-  const [showFeedbackNotice, setShowFeedbackNotice] = useState(true);
-  const [isMinimized, setIsMinimized] = useState(false);
+  
   const { formData, handleSubmit, handleInputChange, isSubmitting } =
     useContactForm();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    // Kalender direkt laden, da "company" default ist
-    setCalendarLoading(true);
-    // Nach 5 Sekunden minimieren
-    const timer = setTimeout(() => {
-      setIsMinimized(true);
-    }, 5000);
-    return () => clearTimeout(timer);
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+
+    if (type === "partner") {
+      setSelectedCalendar("partner");
+      setEmbedReloadTrigger((prev) => prev + 1);
+      setCalendarLoading(true);
+      setTimeout(() => {
+        document.getElementById("calendar-section")?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      window.scrollTo(0, 0);
+      setCalendarLoading(true);
+    }
+
+    
   }, []);
-
-  // E-Mail-Vorlage für Feedback
-  const feedbackEmail = {
-    subject: encodeURIComponent("Feedback zur Kontaktseite"),
-    body: encodeURIComponent(`Hi Lennart, bitte ändere noch folgendes auf der Page "Kontaktseite":
-
-[Dein Feedback hier einfügen]
-
----
-Feedback-Regeln:
-• Beschreibe möglichst genau, was geändert werden soll
-• Gib an, wo sich das Element befindet (z.B. "im Hero-Bereich", "in der FAQ-Sektion")
-• Beschreibe das gewünschte Ergebnis
-• Du kannst auch Screenshots anhängen, um dein Feedback zu verdeutlichen
-`),
-  };
 
   const handleCalendarSelect = (type: CalendarType) => {
     setSelectedCalendar(type);
@@ -156,67 +145,6 @@ Feedback-Regeln:
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
-
-      {/* Feedback Notice - schiebt sich von rechts rein */}
-      {showFeedbackNotice && (
-        <div 
-          className={`fixed top-20 right-0 z-50 animate-slide-in-right transition-all duration-300 ${
-            isMinimized ? 'group' : ''
-          }`}
-          onMouseEnter={() => {
-            if (isMinimized) {
-              setIsMinimized(false);
-            }
-          }}
-        >
-          <div className={`bg-white rounded-l-2xl shadow-2xl border-2 border-green-500 flex items-center gap-4 transition-all duration-300 ${
-            isMinimized ? 'p-2' : 'p-4 pr-6'
-          }`}>
-            {/* Grüne Leuchte */}
-            <div className="relative flex-shrink-0">
-              <div className={`w-12 h-12 bg-green-500 rounded-full flex items-center justify-center ${
-                isMinimized ? '' : 'animate-pulse'
-              }`}>
-                <Lightbulb className="w-6 h-6 text-white" />
-              </div>
-              {!isMinimized && (
-                <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
-              )}
-            </div>
-            {/* Text - nur sichtbar wenn nicht minimiert */}
-            {!isMinimized && (
-              <>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-black">
-                    Verbesserungsvorschläge?
-                  </p>
-                  <p className="text-xs text-gray-600">
-                    <a 
-                      href={`mailto:lr@lohnlab.de?subject=${feedbackEmail.subject}&body=${feedbackEmail.body}`}
-                      className="text-[var(--lohn-primary)] hover:underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      lr@lohnlab.de
-                    </a>
-                  </p>
-                </div>
-                {/* Minimize Button */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsMinimized(true);
-                  }}
-                  className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
-                  aria-label="Hinweis minimieren"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 md:pt-32 md:pb-20" style={{ backgroundColor: "#ebedf3" }}>

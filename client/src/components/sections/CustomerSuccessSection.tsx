@@ -68,7 +68,7 @@ export default function CustomerSuccessSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28" style={{ backgroundColor: "#404040" }}>
+    <section id="case-studies" className="py-20 md:py-28" style={{ backgroundColor: "#404040" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Überschrift */}
         <div className="text-center mb-16">

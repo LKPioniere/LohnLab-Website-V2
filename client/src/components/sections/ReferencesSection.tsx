@@ -49,8 +49,8 @@ export default function ReferencesSection() {
     {
       id: "weppler",
       quote:
-        "<strong>Herausforderung:</strong> Die Mitarbeiter besser stellen als bei Tarifbindung (3,6 % Bruttoerhöhung).<br><br><strong>Lösung:</strong> Durch ein Lohnkonzept erhielt die Belegschaft die Erhöhungen der kommenden zwei Jahre (2x 1,8 %) sofort. Das Ergebnis: Bis zu 20 % mehr Netto im Vergleich zur Tariferhöhung – bei gleichzeitiger Lohnkosteneinsparung.",
-      keywords: ["20 % mehr Netto", "Lohnkosteneinsparung"],
+        "Durch LohnLab haben wir die Möglichkeit das Optimierungspotential jedes einzelnen Mitarbeiters zu verstehen und zu nutzen. Gehaltserhöhungen können mittels Massenberechnung für unsere komplette Belegschaft berechnet und einfach umgesetzt werden.",
+      keywords: ["Gehaltserhöhungen", "einfach umgesetzt"],
       name: "Stephan Weppler",
       position: "Geschäftsführer",
       logo: wepplerLogo,

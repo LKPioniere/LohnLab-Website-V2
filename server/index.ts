@@ -19,15 +19,20 @@ app.use(
           "'unsafe-inline'",
           "https://static.hsappstatic.net",
           "https://replit.com",
-          "https://va.vercel-scripts.com", // Vercel Analytics
+          "https://va.vercel-scripts.com",
+          "https://*.wistia.com",
+          "https://*.wistia.net",
         ],
         imgSrc: ["'self'", "data:", "https:"],
+        mediaSrc: ["'self'", "https://*.wistia.com", "https://*.wistia.net", "blob:"],
         connectSrc: [
           "'self'",
           "https://meetings-eu1.hubspot.com",
-          "https://vitals.vercel-insights.com", // Vercel Analytics endpoint
+          "https://vitals.vercel-insights.com",
+          "https://*.wistia.com",
+          "https://*.wistia.net",
         ],
-        frameSrc: ["'self'", "https://meetings-eu1.hubspot.com"],
+        frameSrc: ["'self'", "https://meetings-eu1.hubspot.com", "https://*.wistia.com", "https://*.wistia.net"],
       },
     },
     crossOriginEmbedderPolicy: false, // Allow HubSpot meeting embeds

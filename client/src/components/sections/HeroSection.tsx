@@ -29,6 +29,7 @@ const logos = [
  * Hero-Sektion Komponente - Neue Landingpage
  */
 export default function HeroSection() {
+
   return (
     <section className="py-16 md:py-24" style={{ backgroundColor: "#ebedf3" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,9 +79,12 @@ export default function HeroSection() {
 
           {/* Right Column - Platzhalter */}
           <div className="flex flex-col justify-end">
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-300 flex items-center justify-center">
-              <span className="text-gray-600 text-lg font-medium">Video Platzhalter</span>
-            </div>
+            <div
+              className="rounded-2xl shadow-2xl overflow-hidden"
+              dangerouslySetInnerHTML={{
+                __html: '<wistia-player media-id="zrcdz7nm5p" aspect="1.7777777777777777"></wistia-player>',
+              }}
+            />
 
             {/* Logo Carousel */}
             <div className="mt-8 relative overflow-hidden">

@@ -58,6 +58,20 @@
       rel="stylesheet"
     />
 
+    <!-- Wistia Video Player -->
+    <link rel="dns-prefetch" href="https://fast.wistia.com" />
+    <link rel="preconnect" href="https://fast.wistia.com" crossorigin />
+    <script src="https://fast.wistia.com/player.js" async></script>
+    <script src="https://fast.wistia.com/embed/zrcdz7nm5p.js" async type="module"></script>
+    <style>
+      wistia-player[media-id='zrcdz7nm5p']:not(:defined) {
+        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zrcdz7nm5p/swatch');
+        display: block;
+        filter: blur(5px);
+        padding-top: 56.25%;
+      }
+    </style>
+
     <!-- HubSpot Performance Optimization -->
     <link rel="dns-prefetch" href="https://static.hsappstatic.net" />
     <link rel="dns-prefetch" href="https://meetings-eu1.hubspot.com" />

@@ -107,7 +107,7 @@ export default function HeroSection() {
             {/* Logo Carousel */}
             <div className="mt-8">
               <p className="text-xs text-gray-600 mb-2 text-center">20+ unterstützte Lohnabrechnungssysteme</p>
-              <InfiniteLogoCarousel logos={LOHN_SYSTEM_LOGOS} speed={0.8} logoHeight={40} />
+              <InfiniteLogoCarousel logos={LOHN_SYSTEM_LOGOS} speed={0.8} logoHeight={40} slideWidth={140} slideGap={28} />
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
@@ -15,6 +15,8 @@ interface InfiniteLogoCarouselProps {
   logos: Logo[];
   speed?: number;
   logoHeight?: number;
+  slideWidth?: number;
+  slideGap?: number;
   pauseOnHover?: boolean;
   showColorOnHover?: boolean;
   className?: string;
@@ -24,10 +26,14 @@ export default function InfiniteLogoCarousel({
   logos,
   speed = 1,
   logoHeight = 40,
+  slideWidth = 192,
+  slideGap = 48,
   pauseOnHover = true,
   showColorOnHover = false,
   className = "",
 }: InfiniteLogoCarouselProps) {
+  const resumeTimer = useRef<ReturnType<typeof setTimeout>>(null);
+
   const duplicatedLogos = useMemo(() => {
     if (logos.length === 0) return [];
     const minSlides = 12;
@@ -49,7 +55,7 @@ export default function InfiniteLogoCarousel({
       AutoScroll({
         speed,
         startDelay: 0,
-        stopOnInteraction: false,
+        stopOnInteraction: true,
         stopOnMouseEnter: pauseOnHover,
       }),
     ]
@@ -57,8 +63,11 @@ export default function InfiniteLogoCarousel({
 
   const handlePointerUp = useCallback(() => {
     if (!emblaApi) return;
-    const autoScroll = emblaApi.plugins().autoScroll;
-    if (autoScroll) autoScroll.play();
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = setTimeout(() => {
+      const autoScroll = emblaApi.plugins().autoScroll;
+      if (autoScroll) autoScroll.play();
+    }, 2000);
   }, [emblaApi]);
 
   useEffect(() => {
@@ -66,61 +75,76 @@ export default function InfiniteLogoCarousel({
     emblaApi.on("pointerUp", handlePointerUp);
     return () => {
       emblaApi.off("pointerUp", handlePointerUp);
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
     };
   }, [emblaApi, handlePointerUp]);
 
   if (logos.length === 0) return null;
 
   return (
-    <div className={`overflow-hidden ${className}`} ref={emblaRef}>
-      <div className="flex">
+    <div className={`overflow-hidden cursor-grab active:cursor-grabbing ${className}`} ref={emblaRef}>
+      <div className="flex" style={{ gap: slideGap }}>
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo.name}-${index}`}
-            className="shrink-0 flex items-end justify-center px-4 md:px-6"
-            style={{ minWidth: "33.333%", maxWidth: "25%" }}
+            className="shrink-0 flex items-center justify-center"
+            style={{ width: slideWidth, height: logoHeight }}
           >
             {showColorOnHover && logo.website ? (
               <a
                 href={logo.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group flex items-end justify-center"
+                className="relative group flex items-center justify-center w-full"
                 style={{ height: logoHeight }}
               >
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  className="h-full w-auto object-contain opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                  className="max-h-full max-w-full object-contain opacity-100 group-hover:opacity-0 transition-opacity duration-300"
                   style={{
-                    maxHeight: logoHeight,
                     transform: logo.scale ? `scale(${logo.scale})` : undefined,
                     filter: logo.needsInvert
-                      ? "invert(1) brightness(0) contrast(1.2)"
-                      : "brightness(0) contrast(1.2)",
+                      ? "invert(1) grayscale(1) contrast(1.1)"
+                      : "grayscale(1) contrast(1.1)",
                   }}
                 />
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  className="absolute inset-0 h-full w-auto object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300 mx-auto"
+                  className="absolute inset-0 max-h-full max-w-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300 m-auto"
                   style={{
-                    maxHeight: logoHeight,
+                    transform: logo.scale ? `scale(${logo.scale})` : undefined,
+                  }}
+                />
+              </a>
+            ) : logo.website ? (
+              <a
+                href={logo.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full"
+                style={{ height: logoHeight }}
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  className="max-h-full max-w-full object-contain"
+                  style={{
                     transform: logo.scale ? `scale(${logo.scale})` : undefined,
                   }}
                 />
               </a>
             ) : (
               <div
-                className="flex items-end justify-center"
+                className="flex items-center justify-center w-full"
                 style={{ height: logoHeight }}
               >
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  className="h-full w-auto object-contain"
+                  className="max-h-full max-w-full object-contain"
                   style={{
-                    maxHeight: logoHeight,
                     transform: logo.scale ? `scale(${logo.scale})` : undefined,
                   }}
                 />

@@ -16,7 +16,6 @@ import computerklinikLogo from "@/assets/logos/kunden/computerklinik.png";
 import creacheckLogo from "@/assets/logos/kunden/creacheck.png";
 import designgenieLogo from "@/assets/logos/kunden/designgenie.png";
 import dbaLogo from "@/assets/logos/kunden/dba.png";
-import digitaxpertsLogo from "@/assets/logos/kunden/digitaxperts.png";
 import eichwaldLogo from "@/assets/logos/kunden/eichwald.png";
 import ergoLogo from "@/assets/logos/kunden/ergo-ripberger.png";
 import fliesenfreiLogo from "@/assets/logos/kunden/fliesen-frei.png";
@@ -83,7 +82,6 @@ export default function ReferencesSection() {
     { name: "CreaCheck", src: creacheckLogo, website: "https://creacheck.com" },
     { name: "DesignGenie", src: designgenieLogo, website: "https://design-genie.de", needsInvert: true },
     { name: "Digital Brand Academy", src: dbaLogo, website: "https://digitalbrand-academy.com" },
-    { name: "DiGiTAXperts", src: digitaxpertsLogo, website: "https://digitaxperts.de" },
     { name: "Eichwald Apotheke", src: eichwaldLogo, website: "https://www.eichwald-apotheke.com" },
     { name: "ERGO Ripberger", src: ergoLogo, website: "https://guenter-ripberger.ergo.de" },
     { name: "Fliesen Frei", src: fliesenfreiLogo, website: "https://www.fliesen-frei.de" },
@@ -119,7 +117,7 @@ export default function ReferencesSection() {
       </div>
 
       {/* Content Container mit Padding oben für die CTA Card */}
-      <div className="pt-36 md:pt-28 pb-20 md:pb-28">
+      <div className="pt-36 md:pt-28 pb-10 md:pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 3 Referenz-Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -174,7 +172,7 @@ export default function ReferencesSection() {
             <InfiniteLogoCarousel
               logos={customerLogos}
               speed={0.6}
-              logoHeight={48}
+              logoHeight={58}
               showColorOnHover
             />
           </div>

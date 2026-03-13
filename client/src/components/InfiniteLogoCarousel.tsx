@@ -28,7 +28,7 @@ export default function InfiniteLogoCarousel({
   logoHeight = 40,
   slideWidth = 192,
   slideGap = 48,
-  pauseOnHover = true,
+  pauseOnHover = false,
   showColorOnHover = false,
   className = "",
 }: InfiniteLogoCarouselProps) {

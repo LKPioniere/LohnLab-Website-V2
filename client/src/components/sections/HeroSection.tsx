@@ -47,7 +47,7 @@ function WistiaPlayer() {
 export default function HeroSection() {
   const gendered = useGender();
   const consent = useConsent();
-  const marketingAllowed = consent?.marketing === true;
+  const marketingRejected = consent?.marketing === false;
 
   return (
     <section className="py-16 md:py-24" style={{ backgroundColor: "#ebedf3" }}>
@@ -98,10 +98,10 @@ export default function HeroSection() {
 
           {/* Right Column - Video */}
           <div className="flex flex-col justify-end">
-            {marketingAllowed ? (
-              <WistiaPlayer />
-            ) : (
+            {marketingRejected ? (
               <ConsentPlaceholder service="Dieses Video" />
+            ) : (
+              <WistiaPlayer />
             )}
 
             {/* Logo Carousel */}

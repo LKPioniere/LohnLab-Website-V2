@@ -47,7 +47,7 @@ export default function HeroSection() {
 
             {/* Main Hero Text */}
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black leading-tight break-words">
-              Mehr Netto für Mitarbeiter.
+              Mehr Netto für Mitarbeiter*innen.
               <br />
               Weniger Lohnkosten für dein Unternehmen.
             </h1>

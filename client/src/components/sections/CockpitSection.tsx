@@ -11,25 +11,25 @@ export default function CockpitSection() {
       id: "unternehmen",
       title: "Für Unternehmen",
       description:
-        "Das LohnLab Cockpit wird täglich von Unternehmen genutzt, um ihre Personalkosten strategisch zu steuern. Die Ergebnisse sind klar, reproduzierbar und messbar. Geschäftsführer senken damit nachhaltig ihre Lohnnebenkosten.",
+        "Das LohnLab Cockpit wird täglich von Unternehmen genutzt, um ihre Personalkosten strategisch zu steuern. Die Ergebnisse sind klar, reproduzierbar und messbar. Geschäftsführer*innen senken damit nachhaltig ihre Lohnnebenkosten.",
       keywords: ["Personalkosten strategisch zu steuern.", "klar, reproduzierbar und messbar."],
       icon: Building2,
       link: "/unternehmer",
     },
     {
       id: "steuerberater",
-      title: "Für Steuerberater",
+      title: "Für Steuerberater*innen",
       description:
-        "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater liefern ihren Mandanten messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren.",
+        "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater*innen liefern ihren Mandant*innen messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren.",
       keywords: ["strategisches Beratungs- und Steuerungsinstrument.", "messbaren wirtschaftlichen Mehrwert,"],
       icon: Briefcase,
       link: "/steuerberater",
     },
     {
       id: "lohnabrechner",
-      title: "Für Lohnabrechner",
+      title: "Für Lohnabrechner*innen",
       description:
-        "Das LohnLab Cockpit vereinfacht die operative Lohnabrechnung durch automatisierte Prozesse, klare Strukturen und intelligente Steuerungslogik. Lohnabrechner nutzen das Cockpit als Whitelabel-Software und erschließen weitere Märkte.",
+        "Das LohnLab Cockpit vereinfacht die operative Lohnabrechnung durch automatisierte Prozesse, klare Strukturen und intelligente Steuerungslogik. Lohnabrechner*innen nutzen das Cockpit als Whitelabel-Software und erschließen weitere Märkte.",
       keywords: ["vereinfacht die operative Lohnabrechnung", "erschließen weitere Märkte."],
       icon: Calculator,
       link: "/lohnabrechner",

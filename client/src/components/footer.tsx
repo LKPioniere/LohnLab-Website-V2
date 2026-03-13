@@ -22,7 +22,7 @@ export default function Footer() {
             />
             <p className="text-blue-100 mb-4">
               Dein digitales Werkzeug für moderne Lohnoptimierung - entwickelt
-              für Steuerberater und Unternehmen, die auf Präzision und Effizienz
+              für Steuerberater*innen und Unternehmen, die auf Präzision und Effizienz
               setzen.
             </p>
             <div className="flex space-x-4">
@@ -67,7 +67,7 @@ export default function Footer() {
                   href="/steuerberater"
                   className="hover:text-white transition-colors"
                 >
-                  Steuerberater
+                  Steuerberater*innen
                 </Link>
               </li>
               <li>

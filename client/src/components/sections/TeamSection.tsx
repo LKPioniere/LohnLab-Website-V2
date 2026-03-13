@@ -46,29 +46,29 @@ export default function TeamSection() {
         {/* Erste Zeile: Überschrift und Text - oben/unten bündig */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black break-words">
-            Triff die Experten, die deinen Lohn optimieren.
+            Triff die Expert*innen, die deinen Lohn optimieren.
           </h2>
           <div className="text-gray-700 leading-relaxed flex flex-col justify-start">
             <p>
               Hinter LohnLab steht ein interdisziplinäres Team aus
-              Steuerexperten, Payroll-Spezialisten, HR-Strategen,
-              Software-Architekten und Unternehmensberatern – mit einem
+              Steuerexpert*innen, Payroll-Spezialist*innen, HR-Strateg*innen,
+              Software-Architekt*innen und Unternehmensberater*innen – mit einem
               gemeinsamen Ziel:{" "}
               <strong>
                 Personalkosten steuerbar machen. Nettoeffekte maximieren.
-                Arbeitgeberattraktivität nachhaltig stärken.
+                Arbeitgeber*innenattraktivität nachhaltig stärken.
               </strong>
             </p>
             <p className="mt-4 text-sm italic">
               Jedes Detail spiegelt unser Engagement für Exzellenz und
-              langfristige Kundenzufriedenheit wider.
+              langfristige Kund*innenzufriedenheit wider.
             </p>
           </div>
         </div>
 
         {/* Zweite Zeile: Team-Mitglieder - komplett oben/unten bündig, alle gleich breit */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch" style={{ minHeight: "600px" }}>
-          {/* Links: Michael Schmitt oben + Experten-Kachel mit Bildern unten */}
+          {/* Links: Michael Schmitt oben + Expert*innen-Kachel mit Bildern unten */}
           <div className="flex flex-col gap-6">
             {/* Michael Schmitt - größer gemacht */}
             <div className="relative rounded-2xl overflow-hidden flex-grow group" style={{ flex: "3" }}>
@@ -108,10 +108,10 @@ export default function TeamSection() {
               </div>
             </div>
 
-            {/* Experten-Kachel mit Bildern - kleiner gemacht */}
+            {/* Expert*innen-Kachel mit Bildern - kleiner gemacht */}
             <div className="bg-gray-100 rounded-2xl p-6" style={{ flex: "0.5" }}>
               <p className="text-black font-bold text-lg mb-2">
-                ... und viele weitere Experten
+                ... und viele weitere Expert*innen
               </p>
               <p className="text-gray-700 text-sm mb-4">
                 Engagierte Fachleute unterstützen deine Lohnoptimierung.
@@ -158,7 +158,7 @@ export default function TeamSection() {
                   </div>
                 ))}
                 
-                {/* Leerer Kreis für zukünftige Mitarbeiter */}
+                {/* Leerer Kreis für zukünftige Mitarbeiter*innen */}
                 <Link href="/karriere">
                   <div
                     className="relative group"
@@ -240,7 +240,7 @@ export default function TeamSection() {
                   ))}
                 </div>
                 <p className="text-gray-700 text-sm">
-                  Vertrauen von über 220 Unternehmenskunden
+                  Vertrauen von über 220 Unternehmenskund*innen
                 </p>
               </div>
             </div>

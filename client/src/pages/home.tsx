@@ -14,15 +14,15 @@ import { useSEO } from "@/hooks/useSEO";
 export default function Home() {
   useSEO({
     title:
-      "LohnLab Cockpit - Lohnoptimierung für Steuerberater und Unternehmen",
+      "LohnLab Cockpit - Lohnoptimierung für Steuerberater*innen und Unternehmen",
     description:
       "Moderne Lohnoptimierungslösung mit DATEV-Integration. Bis zu 50% Lohnkosten sparen bei Lohnerhöhungen und Neueinstellungen. Rechtssicher und transparent.",
     keywords:
-      "Lohnoptimierung, DATEV Integration, Steuerberater Software, Lohnkosten sparen, Gehaltsabrechnung, Mitarbeiterbindung",
+      "Lohnoptimierung, DATEV Integration, Steuerberater*innen Software, Lohnkosten sparen, Gehaltsabrechnung, Mitarbeiter*innenbindung",
     canonical: "https://www.lohnlab.de/",
     ogTitle: "LohnLab Cockpit - Bis zu 50% Lohnkosten sparen",
     ogDescription:
-      "Moderne Lohnoptimierung für Unternehmen und Steuerberater. DATEV-Integration, rechtssicher, transparent.",
+      "Moderne Lohnoptimierung für Unternehmen und Steuerberater*innen. DATEV-Integration, rechtssicher, transparent.",
   });
 
   useEffect(() => {

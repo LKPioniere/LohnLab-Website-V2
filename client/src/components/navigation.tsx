@@ -78,7 +78,7 @@ export default function Navigation() {
               </button>
             </Link> */}
 
-            {/* Für Steuerberater Link - TEMPORÄR DEAKTIVIERT */}
+            {/* Für Steuerberater*innen Link - TEMPORÄR DEAKTIVIERT */}
             {/* <Link href="/steuerberater">
               <button
                 className={`group relative px-3 py-2 ${textColorClass} font-medium transition-all duration-300 ${
@@ -88,7 +88,7 @@ export default function Navigation() {
                 }`}
               >
                 <span className="relative">
-                  Für Steuerberater
+                  Für Steuerberater*innen
                   <span
                     className={`absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 ${
                       location === "/steuerberater"
@@ -152,7 +152,7 @@ export default function Navigation() {
                             Lohnerhöhung
                           </div>
                           <div className="text-sm text-gray-500">
-                            Exakte Berechnungen für alle Mitarbeiter
+                            Exakte Berechnungen für alle Mitarbeiter*innen
                           </div>
                         </div>
                       </div>
@@ -248,7 +248,7 @@ export default function Navigation() {
                             Handbücher & Anleitungen
                           </div>
                           <div className="text-sm text-gray-500">
-                            Für Kunden und Partner
+                            Für Kund*innen und Partner*innen
                           </div>
                         </div>
                       </div>
@@ -301,7 +301,7 @@ export default function Navigation() {
                 </button>
               </Link> */}
 
-              {/* Mobile Für Steuerberater Link - TEMPORÄR DEAKTIVIERT */}
+              {/* Mobile Für Steuerberater*innen Link - TEMPORÄR DEAKTIVIERT */}
               {/* <Link href="/steuerberater">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -311,7 +311,7 @@ export default function Navigation() {
                       : ""
                   }`}
                 >
-                  Für Steuerberater
+                  Für Steuerberater*innen
                 </button>
               </Link> */}
 
@@ -441,7 +441,7 @@ export default function Navigation() {
                         <div
                           className="text-sm text-gray-500"
                         >
-                          Für Kunden und Partner
+                          Für Kund*innen und Partner*innen
                         </div>
                       </div>
                     </a>

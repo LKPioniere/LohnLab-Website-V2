@@ -8,20 +8,20 @@ const faqs = [
     answer: (
       <div>
         <p className="mb-3">
-          Für alle Unternehmen ab ca. 10 Mitarbeitern, die:
+          Für alle Unternehmen ab ca. 10 Mitarbeiter*innen, die:
         </p>
         <ul className="list-disc list-inside space-y-2 mb-4">
           <li>steigende Personalkosten haben</li>
           <li>ihre Margen schützen wollen</li>
-          <li>Mitarbeiter binden möchten</li>
-          <li>ihre Arbeitgeberattraktivität steigern wollen</li>
+          <li>Mitarbeiter*innen binden möchten</li>
+          <li>ihre Arbeitgeber*innenattraktivität steigern wollen</li>
         </ul>
         <p className="font-semibold mb-2">Besonders relevant für:</p>
         <ul className="list-disc list-inside space-y-2">
           <li>Mittelstand</li>
           <li>Industrie</li>
           <li>Handwerk</li>
-          <li>Dienstleister</li>
+          <li>Dienstleister*innen</li>
           <li>wachstumsstarke Unternehmen</li>
         </ul>
       </div>
@@ -42,10 +42,10 @@ const faqs = [
     ),
   },
   {
-    question: "Kann ich mit meinem Steuerberater weiter zusammenarbeiten?",
+    question: "Kann ich mit meiner*m Steuerberater*in weiter zusammenarbeiten?",
     answer: (
       <p>
-        Ja. Wir arbeiten eng mit deinem Steuerberater / Lohnbüro zusammen und
+        Ja. Wir arbeiten eng mit deiner*m Steuerberater*in / Lohnbüro zusammen und
         kümmern uns um den reibungslosen Ablauf.
       </p>
     ),
@@ -120,7 +120,7 @@ export default function FAQSection() {
             Häufig gestellte Fragen
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-            Wir haben Antworten auf die häufigsten Fragen unserer Kunden
+            Wir haben Antworten auf die häufigsten Fragen unserer Kund*innen
             gesammelt – damit du unsere Prozesse, Zeitpläne und
             Kollaborationsbedingungen besser verstehen kannst.
             {" "}

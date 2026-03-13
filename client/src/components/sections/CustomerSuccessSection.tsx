@@ -23,19 +23,19 @@ export default function CustomerSuccessSection() {
       type: "image" as const,
       image: christianRaithImage,
       name: "Dipl.-Ing. Christian Raith",
-      position: "Geschäftsführer",
+      position: "Geschäftsführer*in",
       challenge: {
         title: "Herausforderung",
-        text: "Das Unternehmen wollte für seine Mitarbeiter das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben.",
+        text: "Das Unternehmen wollte für seine Mitarbeiter*innen das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter*innen bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben.",
       },
       solution: {
         title: "Lösung",
-        text: "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeitern angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter weitergegeben – on top zur ursprünglichen Erhöhung.",
+        text: "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeiter*innen angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter*innen weitergegeben – on top zur ursprünglichen Erhöhung.",
       },
       result: {
         title: "Ergebnis",
         items: [
-          { text: "56 Mitarbeiter profitieren", icon: Users, positive: true },
+          { text: "56 Mitarbeiter*innen profitieren", icon: Users, positive: true },
           { text: "Ø +140 € mtl. Netto durch Lohnbausteine", icon: TrendingUp, positive: true },
           { text: "Rentenlücke vollständig geschlossen", icon: CheckCircle, positive: true },
         ],
@@ -47,14 +47,14 @@ export default function CustomerSuccessSection() {
       type: "image" as const,
       image: stephanWepplerImage,
       name: "Stephan Weppler",
-      position: "Geschäftsführer",
+      position: "Geschäftsführer*in",
       challenge: {
         title: "Herausforderung",
-        text: "Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter herausholen und trotzdem Lohnkosten sparen?",
+        text: "Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter*innen mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter*innen 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter*innen herausholen und trotzdem Lohnkosten sparen?",
       },
       solution: {
         title: "Lösung",
-        text: "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
+        text: "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter*innen bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
       },
       result: {
         title: "Ergebnis",

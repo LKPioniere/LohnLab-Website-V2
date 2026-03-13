@@ -10,12 +10,12 @@ export default function StatsSection() {
     },
     {
       value: "220+",
-      label: "Unternehmenskunden",
+      label: "Unternehmenskund*innen",
       sublabel: "seit Gründung",
     },
     {
       value: "Ø 2.000 €",
-      label: "Ersparnis pro Mitarbeiter",
+      label: "Ersparnis pro Mitarbeiter*in",
       sublabel: "pro Jahr",
     },
     {

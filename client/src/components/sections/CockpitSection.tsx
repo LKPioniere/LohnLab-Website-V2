@@ -18,7 +18,7 @@ export default function CockpitSection() {
     },
     {
       id: "steuerberater",
-      title: "Für Steuerberater*innen",
+      title: "Für Steuer\u00ADberater*innen",
       description:
         "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater*innen liefern ihren Mandant*innen messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren.",
       keywords: ["strategisches Beratungs- und Steuerungsinstrument.", "messbaren wirtschaftlichen Mehrwert,"],
@@ -27,7 +27,7 @@ export default function CockpitSection() {
     },
     {
       id: "lohnabrechner",
-      title: "Für Lohnabrechner*innen",
+      title: "Für Lohn\u00ADabrechner*innen",
       description:
         "Das LohnLab Cockpit vereinfacht die operative Lohnabrechnung durch automatisierte Prozesse, klare Strukturen und intelligente Steuerungslogik. Lohnabrechner*innen nutzen das Cockpit als Whitelabel-Software und erschließen weitere Märkte.",
       keywords: ["vereinfacht die operative Lohnabrechnung", "erschließen weitere Märkte."],
@@ -75,7 +75,7 @@ export default function CockpitSection() {
               </div>
 
               {/* Titel - groß */}
-              <h3 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              <h3 className="text-3xl md:text-[2rem] lg:text-4xl font-bold text-black mb-4 break-words hyphens-auto" lang="de">
                 {card.title}
               </h3>
 

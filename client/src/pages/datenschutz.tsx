@@ -14,12 +14,12 @@ export default function Datenschutz() {
 
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-[var(--lohn-primary)] mb-8">
+          <h1 className="text-4xl font-bold text-lohn-primary mb-8">
             Datenschutzerklärung
           </h1>
 
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               1. Einleitung
             </h2>
             <p className="mb-4">
@@ -36,7 +36,7 @@ export default function Datenschutz() {
               IP-Adresse.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.1. Kontaktdaten
             </h3>
             <p className="mb-4">
@@ -46,7 +46,7 @@ export default function Datenschutz() {
               <ObfuscatedEmail
                 user="service"
                 domain="lohnlab.de"
-                className="text-[var(--lohn-primary)] hover:underline"
+                className="text-lohn-primary hover:underline"
               />
               . Gesetzlich vertreten werden wir durch Michael Schmitt, Holger
               Plümer.
@@ -57,7 +57,7 @@ export default function Datenschutz() {
               datenschutz@heydata.eu erreichbar.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.2. Umfang der Datenverarbeitung, Verarbeitungszwecke und
               Rechtsgrundlagen
             </h3>
@@ -90,7 +90,7 @@ export default function Datenschutz() {
               </li>
             </ul>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.3. Datenverarbeitung außerhalb des EWR
             </h3>
             <p className="mb-8">
@@ -100,7 +100,7 @@ export default function Datenschutz() {
               bei der Weitergabe, soweit diese vorhanden sind.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.4. Speicherdauer
             </h3>
             <p className="mb-8">
@@ -110,7 +110,7 @@ export default function Datenschutz() {
               Löschung keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.5. Rechte der Betroffenen
             </h3>
             <p className="mb-4">
@@ -132,14 +132,14 @@ export default function Datenschutz() {
               Datenschutz-Aufsichtsbehörden sind unter
               <a
                 href="https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html"
-                className="text-[var(--lohn-primary)] hover:underline"
+                className="text-lohn-primary hover:underline"
               >
                 https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html
               </a>{" "}
               abrufbar.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.6. Pflicht zur Bereitstellung von Daten
             </h3>
             <p className="mb-8">
@@ -150,7 +150,7 @@ export default function Datenschutz() {
               sind.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.7. Keine automatische Entscheidungsfindung im Einzelfall
             </h3>
             <p className="mb-8">
@@ -159,7 +159,7 @@ export default function Datenschutz() {
               gemäß Artikel 22 DSGVO.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               1.8. Kontaktaufnahme
             </h3>
             <p className="mb-8">
@@ -170,7 +170,7 @@ export default function Datenschutz() {
               S. 1 lit. f DSGVO).
             </p>
 
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               2. Newsletter
             </h2>
             <p className="mb-8">
@@ -181,11 +181,11 @@ export default function Datenschutz() {
               Datenverarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DSGVO.
             </p>
 
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               3. Datenverarbeitung auf unserer Website
             </h2>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               3.1. Hinweis für Websitebesucher aus Deutschland
             </h3>
             <p className="mb-8">
@@ -196,7 +196,7 @@ export default function Datenschutz() {
               Websitebesucher (§ 25 Abs. 1 TDDDG).
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               3.2. Informatorische Nutzung der Website
             </h3>
             <p className="mb-4">
@@ -221,7 +221,7 @@ export default function Datenschutz() {
               spätestens nach 14 Tagen.
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               3.3. Webhosting und Bereitstellung der Website
             </h3>
             <p className="mb-8">
@@ -232,14 +232,14 @@ export default function Datenschutz() {
               des Anbieters unter
               <a
                 href="https://www.goneo.de/hilfe_kontakt/datenschutz.html"
-                className="text-[var(--lohn-primary)] hover:underline"
+                className="text-lohn-primary hover:underline"
               >
                 https://www.goneo.de/hilfe_kontakt/datenschutz.html
               </a>
               .
             </p>
 
-            <h3 className="text-xl font-bold text-[var(--lohn-primary)] mb-3">
+            <h3 className="text-xl font-bold text-lohn-primary mb-3">
               3.4. Kontaktformular
             </h3>
             <p className="mb-8">

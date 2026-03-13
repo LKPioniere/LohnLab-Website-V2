@@ -35,6 +35,8 @@ export default function ObfuscatedEmail({
     <a
       href={`mailto:${email}`}
       className={className}
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={(e) => {
         // Ensure mailto opens even if JavaScript is disabled after page load
         e.currentTarget.href = `mailto:${email}`;

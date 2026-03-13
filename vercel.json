@@ -1,6 +1,21 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' https://*.wistia.com https://*.wistia.net; script-src 'self' 'unsafe-inline' https://static.hsappstatic.net https://va.vercel-scripts.com https://*.wistia.com https://*.wistia.net https://browser.sentry-cdn.com; img-src 'self' data: https:; media-src 'self' https://*.wistia.com https://*.wistia.net http://*.wistia.com http://*.wistia.net blob:; connect-src 'self' https://meetings-eu1.hubspot.com https://vitals.vercel-insights.com https://*.wistia.com https://*.wistia.net http://*.wistia.com http://*.wistia.net; frame-src 'self' https://meetings-eu1.hubspot.com https://*.wistia.com https://*.wistia.net"
+        },
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "unsafe-none"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

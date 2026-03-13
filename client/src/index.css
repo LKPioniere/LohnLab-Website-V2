@@ -1,10 +1,98 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Custom background for problem section */
-.bg-red-25 {
-  background-color: rgb(254, 242, 242);
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./assets/fonts/poppins-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./assets/fonts/poppins-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./assets/fonts/poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/poppins-700.woff2') format('woff2');
+}
+
+@theme inline {
+  --color-background: hsl(0, 0%, 100%);
+  --color-foreground: hsl(20, 14.3%, 4.1%);
+  --color-muted: hsl(60, 4.8%, 95.9%);
+  --color-muted-foreground: hsl(25, 5.3%, 44.7%);
+  --color-popover: hsl(0, 0%, 100%);
+  --color-popover-foreground: hsl(20, 14.3%, 4.1%);
+  --color-card: hsl(0, 0%, 100%);
+  --color-card-foreground: hsl(20, 14.3%, 4.1%);
+  --color-border: hsl(20, 5.9%, 90%);
+  --color-input: hsl(20, 5.9%, 90%);
+  --color-primary: hsl(237, 97%, 20%);
+  --color-primary-foreground: hsl(211, 100%, 99%);
+  --color-secondary: hsl(225, 69%, 44%);
+  --color-secondary-foreground: hsl(60, 9.1%, 97.8%);
+  --color-accent: hsl(60, 4.8%, 95.9%);
+  --color-accent-foreground: hsl(24, 9.8%, 10%);
+  --color-destructive: hsl(0, 84.2%, 60.2%);
+  --color-destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --color-ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  --color-chart-1: hsl(12, 76%, 61%);
+  --color-chart-2: hsl(173, 58%, 39%);
+  --color-chart-3: hsl(197, 37%, 24%);
+  --color-chart-4: hsl(43, 74%, 66%);
+  --color-chart-5: hsl(27, 87%, 67%);
+  --color-sidebar: hsl(0, 0%, 98%);
+  --color-sidebar-foreground: hsl(240, 5.3%, 26.1%);
+  --color-sidebar-primary: hsl(240, 5.9%, 10%);
+  --color-sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --color-sidebar-accent: hsl(240, 4.8%, 95.9%);
+  --color-sidebar-accent-foreground: hsl(240, 5.9%, 10%);
+  --color-sidebar-border: hsl(220, 13%, 91%);
+  --color-sidebar-ring: hsl(217.2, 91.2%, 59.8%);
+
+  --color-lohn-primary: hsl(237, 97%, 20%);
+  --color-lohn-secondary: hsl(225, 69%, 44%);
+  --color-lohn-purple: hsl(256, 39%, 53%);
+  --color-lohn-teal: hsl(175, 51%, 64%);
+  --color-lohn-light: hsl(220, 38%, 86%);
+  --color-lohn-accent: hsl(175, 51%, 64%);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
 }
 
 :root {
@@ -28,8 +116,7 @@
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
-  
-  /* LohnLab brand colors */
+
   --lohn-primary: hsl(237, 97%, 20%);
   --lohn-secondary: hsl(225, 69%, 44%);
   --lohn-purple: hsl(256, 39%, 53%);
@@ -37,37 +124,56 @@
   --lohn-light: hsl(220, 38%, 86%);
 }
 
+.bg-red-25 {
+  background-color: rgb(254, 242, 242);
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out forwards;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes progress {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll-infinite {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+  will-change: transform;
+  display: flex;
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
 }
 
 .dark {
@@ -94,51 +200,25 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--color-border);
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-.lohn-primary {
-  color: var(--lohn-primary);
-}
-
-.bg-lohn-primary {
-  background-color: var(--lohn-primary);
-}
-
-.lohn-secondary {
-  color: var(--lohn-secondary);
-}
-
-.bg-lohn-secondary {
-  background-color: var(--lohn-secondary);
-}
-
-.lohn-purple {
-  color: var(--lohn-purple);
-}
-
-.bg-lohn-purple {
-  background-color: var(--lohn-purple);
-}
-
-.lohn-teal {
-  color: var(--lohn-teal);
-}
-
-.bg-lohn-teal {
-  background-color: var(--lohn-teal);
-}
-
-.lohn-light {
-  color: var(--lohn-light);
-}
-
-.bg-lohn-light {
-  background-color: var(--lohn-light);
-}
+.lohn-primary { color: var(--lohn-primary); }
+.bg-lohn-primary { background-color: var(--lohn-primary); }
+.lohn-secondary { color: var(--lohn-secondary); }
+.bg-lohn-secondary { background-color: var(--lohn-secondary); }
+.lohn-purple { color: var(--lohn-purple); }
+.bg-lohn-purple { background-color: var(--lohn-purple); }
+.lohn-teal { color: var(--lohn-teal); }
+.bg-lohn-teal { background-color: var(--lohn-teal); }
+.lohn-light { color: var(--lohn-light); }
+.bg-lohn-light { background-color: var(--lohn-light); }

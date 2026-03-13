@@ -25,42 +25,42 @@ export default function FeatureCard({ id, title, description, link }: FeatureCar
     switch(featureId) {
       case 'lohnoptimierung':
         return {
-          background: 'bg-gradient-to-br from-[var(--lohn-purple)] via-purple-600 to-[var(--lohn-primary)]',
+          background: 'bg-linear-to-br from-lohn-purple via-purple-600 to-lohn-primary',
           iconBg: 'bg-yellow-400/20',
           iconColor: 'text-yellow-400',
           titleColor: 'text-white',
           textColor: 'text-purple-100',
           linkColor: 'text-white hover:text-yellow-200',
-          border: 'border-[var(--lohn-purple)]/20'
+          border: 'border-lohn-purple/20'
         };
       case 'lohnerhoehung':
         return {
-          background: 'bg-gradient-to-br from-[var(--lohn-primary)] via-[var(--lohn-secondary)] to-[var(--lohn-purple)]',
+          background: 'bg-linear-to-br from-lohn-teal via-lohn-secondary to-lohn-primary',
           iconBg: 'bg-white/20',
           iconColor: 'text-white',
           titleColor: 'text-white',
           textColor: 'text-blue-100',
           linkColor: 'text-white hover:text-blue-200',
-          border: 'border-[var(--lohn-primary)]/20'
+          border: 'border-lohn-purple/20'
         };
       case 'neueinstellungen':
         return {
-          background: 'bg-gradient-to-br from-[var(--lohn-primary)] to-[var(--lohn-teal)]',
+          background: 'bg-linear-to-br from-lohn-primary to-lohn-secondary',
           iconBg: 'bg-white/20',
           iconColor: 'text-white',
           titleColor: 'text-white',
           textColor: 'text-blue-100',
           linkColor: 'text-white hover:text-blue-200',
-          border: 'border-[var(--lohn-teal)]/20'
+          border: 'border-lohn-purple/20'
         };
       default:
         return {
           background: 'bg-white',
-          iconBg: 'bg-[var(--lohn-teal)]/10',
-          iconColor: 'text-[var(--lohn-teal)]',
-          titleColor: 'text-[var(--lohn-primary)]',
+          iconBg: 'bg-lohn-teal/10',
+          iconColor: 'text-lohn-teal',
+          titleColor: 'text-lohn-primary',
           textColor: 'text-gray-600',
-          linkColor: 'text-[var(--lohn-primary)] hover:text-[var(--lohn-teal)]',
+          linkColor: 'text-lohn-primary hover:text-lohn-teal',
           border: 'border-gray-100'
         };
     }

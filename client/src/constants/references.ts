@@ -1,6 +1,6 @@
-import christopherImage from "@/assets/christopher-bausch.webp";
-import juliusImage from "@/assets/julius-henne.jpg";
-import stephanImage from "@/assets/stephan-weppler.webp";
+import christopherImage from "@/assets/images/references/christopher-bausch.webp";
+import juliusImage from "@/assets/images/references/julius-henne.jpg";
+import stephanImage from "@/assets/images/references/stephan-weppler.webp";
 
 /**
  * Referenz-Interface für das Baukasten-System
@@ -13,7 +13,7 @@ export interface Reference {
   quote: string;
   image: string;
   tags: string[];
-  themeColor: string; // Tailwind color class (e.g., 'blue', 'green', 'purple')
+  themeColor: string;
   industry: string;
 }
 
@@ -68,45 +68,46 @@ export const REFERENCE_THEMES = {
 /**
  * Referenzen-Daten - Einfach zu erweitern und zu warten
  */
-export const REFERENCES: Reference[] = [
-  {
-    id: "christopher-bausch",
-    name: "Christopher Bausch",
-    title: "Kinobetreiber",
-    company: "Casino Aschaffenburg & Arthouse Kinos Frankfurt",
-    quote:
-      "Für uns als kleiner Betrieb ist individuelle Betreuung wichtig. Aus diesem Grund schätzen wir die Beratung durch LohnLab.",
-    image: christopherImage,
-    tags: ["Individuelle Betreuung", "Entertainment", "Kleinbetrieb"],
-    themeColor: "purple",
-    industry: "Entertainment",
-  },
-  {
-    id: "julius-henne",
-    name: "Julius Henne",
-    title: "Geschäftsführer",
-    company: "Stebah GmbH & Co. KG",
-    quote:
-      "Die Firmenkreditkarte ist ein echter Gamechanger für uns. Die vielfältigen Einsatzmöglichkeiten und die einfache Verwaltung über LohnLab machen die Lohnoptimierung zum Kinderspiel.",
-    image: juliusImage,
-    tags: ["Firmenkreditkarte", "Baugewerbe", "Lohnoptimierung"],
-    themeColor: "blue",
-    industry: "Baugewerbe",
-  },
-  {
-    id: "stephan-weppler",
-    name: "Stephan Weppler",
-    title: "Geschäftsführer",
-    company: "Weppler Filter GmbH",
-    quote:
-      "Durch LohnLab haben wir die Möglichkeit das Optimierungspotential jedes einzelnen Mitarbeiters zu verstehen und zu nutzen. Gehaltserhöhungen können mittels Massenberechnung für unsere komplette Belegschaft berechnet und einfach umgesetzt werden.",
-    image: stephanImage,
-    tags: [
-      "Massenberechnung",
-      "Optimierungspotential",
-      "Komplette Belegschaft",
-    ],
-    themeColor: "emerald",
-    industry: "Filterindustrie",
-  },
-];
+export function getReferences(gendered: boolean): Reference[] {
+  return [
+    {
+      id: "christopher-bausch",
+      name: "Christopher Bausch",
+      title: "Kinobetreiber",
+      company: "Casino Aschaffenburg & Arthouse Kinos Frankfurt",
+      quote:
+        "Für uns als kleiner Betrieb ist individuelle Betreuung wichtig. Aus diesem Grund schätzen wir die Beratung durch LohnLab.",
+      image: christopherImage,
+      tags: ["Individuelle Betreuung", "Entertainment", "Kleinbetrieb"],
+      themeColor: "purple",
+      industry: "Entertainment",
+    },
+    {
+      id: "julius-henne",
+      name: "Julius Henne",
+      title: gendered ? "Geschäftsführer*in" : "Geschäftsführer",
+      company: "Stebah GmbH & Co. KG",
+      quote:
+        "Die Firmenkreditkarte ist ein echter Gamechanger für uns. Die vielfältigen Einsatzmöglichkeiten und die einfache Verwaltung über LohnLab machen die Lohnoptimierung zum Kinderspiel.",
+      image: juliusImage,
+      tags: ["Firmenkreditkarte", "Baugewerbe", "Lohnoptimierung"],
+      themeColor: "blue",
+      industry: "Baugewerbe",
+    },
+    {
+      id: "stephan-weppler",
+      name: "Stephan Weppler",
+      title: gendered ? "Geschäftsführer*in" : "Geschäftsführer",
+      company: "Weppler Filter GmbH",
+      quote: `Durch LohnLab haben wir die Möglichkeit das Optimierungspotential ${gendered ? "jeder/jedes einzelnen Mitarbeiter*in" : "jedes einzelnen Mitarbeiters"} zu verstehen und zu nutzen. Gehaltserhöhungen können mittels Massenberechnung für unsere komplette Belegschaft berechnet und einfach umgesetzt werden.`,
+      image: stephanImage,
+      tags: [
+        "Massenberechnung",
+        "Optimierungspotential",
+        "Komplette Belegschaft",
+      ],
+      themeColor: "emerald",
+      industry: "Filterindustrie",
+    },
+  ];
+}

@@ -22,7 +22,7 @@ export default function CockpitSection() {
     },
     {
       id: "steuerberater",
-      title: gendered ? "Für Steuerberater*innen" : "Für Steuerberater",
+      title: gendered ? "Für Steuer\u00ADberater*innen" : "Für Steuerberater",
       description: gendered
         ? "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater*innen liefern ihren Mandanten messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren."
         : "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater liefern ihren Mandanten messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren.",
@@ -32,9 +32,10 @@ export default function CockpitSection() {
     },
     {
       id: "lohnabrechner",
-      title: "Für Lohnabrechner",
-      description:
-        "Das LohnLab Cockpit vereinfacht die operative Lohnabrechnung durch automatisierte Prozesse, klare Strukturen und intelligente Steuerungslogik. Lohnabrechner nutzen das Cockpit als Whitelabel-Software und erschließen weitere Märkte.",
+      title: gendered ? "Für Lohn\u00ADabrechner*innen" : "Für Lohnabrechner",
+      description: gendered
+        ? "Das LohnLab Cockpit vereinfacht die operative Lohnabrechnung durch automatisierte Prozesse, klare Strukturen und intelligente Steuerungslogik. Lohnabrechner*innen nutzen das Cockpit als Whitelabel-Software und erschließen weitere Märkte."
+        : "Das LohnLab Cockpit vereinfacht die operative Lohnabrechnung durch automatisierte Prozesse, klare Strukturen und intelligente Steuerungslogik. Lohnabrechner nutzen das Cockpit als Whitelabel-Software und erschließen weitere Märkte.",
       keywords: ["vereinfacht die operative Lohnabrechnung", "erschließen weitere Märkte."],
       icon: Calculator,
       link: "/lohnabrechner",

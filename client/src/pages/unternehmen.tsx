@@ -31,7 +31,7 @@ export default function Unternehmen() {
 
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg mb-8">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <Coffee className="w-8 h-8 text-[var(--lohn-primary)]" />
+              <Coffee className="w-8 h-8 text-lohn-primary" />
               <p className="text-lg text-gray-600">
                 Während wir hier werkeln, kannst du gerne einen Kaffee trinken
               </p>
@@ -44,7 +44,7 @@ export default function Unternehmen() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/">
               <Button
-                className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full px-8 py-3 text-base font-semibold shadow-md flex items-center gap-2"
+                className="bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full px-8 py-3 text-base font-semibold shadow-md flex items-center gap-2"
               >
                 <ArrowLeft className="w-5 h-5" />
                 Zurück zur Startseite

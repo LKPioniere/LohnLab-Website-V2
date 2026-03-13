@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/select";
 import { ContactForm as ContactFormType } from "@/types/contact";
 import { useState } from "react";
+import { useGender } from "@/lib/gender";
 
 interface ContactFormProps {
   formData: ContactFormType;
@@ -27,7 +28,7 @@ export default function ContactForm({
   onInputChange,
   isSubmitting,
 }: ContactFormProps) {
-  // Honeypot field for spam protection
+  const gendered = useGender();
   const [honeypot, setHoneypot] = useState("");
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -65,7 +66,7 @@ export default function ContactForm({
             required
             value={formData.name}
             onChange={(e) => onInputChange("name", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)]"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary"
             placeholder="Dein Name"
           />
         </div>
@@ -76,7 +77,7 @@ export default function ContactForm({
             required
             value={formData.email}
             onChange={(e) => onInputChange("email", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)]"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary"
             placeholder="deine@email.de"
           />
         </div>
@@ -86,14 +87,14 @@ export default function ContactForm({
             value={formData.userType}
             onValueChange={(value) => onInputChange("userType", value)}
           >
-            <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)] [&>span]:text-gray-900">
+            <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary [&>span]:text-gray-900">
               <SelectValue
                 placeholder="Bitte auswählen"
                 className="text-gray-900"
               />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="steuerberater">Steuerberater</SelectItem>
+              <SelectItem value="steuerberater">{gendered ? "Steuerberater*in" : "Steuerberater"}</SelectItem>
               <SelectItem value="unternehmen">Unternehmen</SelectItem>
               <SelectItem value="sonstiges">Sonstiges</SelectItem>
             </SelectContent>
@@ -105,14 +106,14 @@ export default function ContactForm({
             rows={8}
             value={formData.message}
             onChange={(e) => onInputChange("message", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)] resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary resize-none"
             placeholder="Deine Nachricht..."
           />
         </div>
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full py-3 font-semibold shadow-md"
+          className="w-full bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full py-3 font-semibold shadow-md"
         >
           {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}
         </Button>

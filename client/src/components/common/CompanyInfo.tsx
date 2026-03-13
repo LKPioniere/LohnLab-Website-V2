@@ -11,8 +11,8 @@ export default function CompanyInfo() {
       <h3 className="text-2xl font-bold mb-6">{COMPANY_INFO.name}</h3>
       <div className="space-y-4">
         <div className="flex items-start space-x-4">
-          <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mt-1">
-            <MapPin className="text-[var(--lohn-primary)] text-sm" />
+          <div className="w-8 h-8 bg-lohn-teal rounded-lg flex items-center justify-center mt-1">
+            <MapPin className="text-lohn-primary text-sm" />
           </div>
           <div>
             <p className="font-medium">Adresse</p>
@@ -24,8 +24,8 @@ export default function CompanyInfo() {
           </div>
         </div>
         <div className="flex items-start space-x-4">
-          <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mt-1">
-            <Mail className="text-[var(--lohn-primary)] text-sm" />
+          <div className="w-8 h-8 bg-lohn-teal rounded-lg flex items-center justify-center mt-1">
+            <Mail className="text-lohn-primary text-sm" />
           </div>
           <div>
             <p className="font-medium">E-Mail</p>
@@ -37,8 +37,8 @@ export default function CompanyInfo() {
           </div>
         </div>
         <div className="flex items-start space-x-4">
-          <div className="w-8 h-8 bg-[var(--lohn-teal)] rounded-lg flex items-center justify-center mt-1">
-            <Phone className="text-[var(--lohn-primary)] text-sm" />
+          <div className="w-8 h-8 bg-lohn-teal rounded-lg flex items-center justify-center mt-1">
+            <Phone className="text-lohn-primary text-sm" />
           </div>
           <div>
             <p className="font-medium">Telefon</p>

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Play, TrendingUp, TrendingDown, CheckCircle, Users, Calendar, PiggyBank } from "lucide-react";
-import christianRaithImage from "@/assets/christian-raith.jpg";
-import stephanWepplerImage from "@/assets/stephan-weppler.png";
+import christianRaithImage from "@/assets/images/references/christian-raith.jpg";
+import stephanWepplerImage from "@/assets/images/references/stephan-weppler.png";
+import { useGender } from "@/lib/gender";
 
 /**
  * Customer Success Sektion - 2 Case Studies mit Video/Bild
  */
 export default function CustomerSuccessSection() {
+  const gendered = useGender();
   const [videoStates, setVideoStates] = useState<{ [key: string]: boolean }>({
     imm_photonics: false,
     weppler_filter: false,
@@ -23,19 +25,23 @@ export default function CustomerSuccessSection() {
       type: "image" as const,
       image: christianRaithImage,
       name: "Dipl.-Ing. Christian Raith",
-      position: "Geschäftsführer",
+      position: gendered ? "Geschäftsführer*in" : "Geschäftsführer",
       challenge: {
         title: "Herausforderung",
-        text: "Das Unternehmen wollte für seine Mitarbeiter das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben.",
+        text: gendered
+          ? "Das Unternehmen wollte für seine Mitarbeiter*innen das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter*innen bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben."
+          : "Das Unternehmen wollte für seine Mitarbeiter das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben.",
       },
       solution: {
         title: "Lösung",
-        text: "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeitern angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter weitergegeben – on top zur ursprünglichen Erhöhung.",
+        text: gendered
+          ? "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeiter*innen angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter*innen weitergegeben – on top zur ursprünglichen Erhöhung."
+          : "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeitern angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter weitergegeben – on top zur ursprünglichen Erhöhung.",
       },
       result: {
         title: "Ergebnis",
         items: [
-          { text: "56 Mitarbeiter profitieren", icon: Users, positive: true },
+          { text: gendered ? "56 Mitarbeiter*innen profitieren" : "56 Mitarbeiter profitieren", icon: Users, positive: true },
           { text: "Ø +140 € mtl. Netto durch Lohnbausteine", icon: TrendingUp, positive: true },
           { text: "Rentenlücke vollständig geschlossen", icon: CheckCircle, positive: true },
         ],
@@ -47,14 +53,18 @@ export default function CustomerSuccessSection() {
       type: "image" as const,
       image: stephanWepplerImage,
       name: "Stephan Weppler",
-      position: "Geschäftsführer",
+      position: gendered ? "Geschäftsführer*in" : "Geschäftsführer",
       challenge: {
         title: "Herausforderung",
-        text: "Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter herausholen und trotzdem Lohnkosten sparen?",
+        text: gendered
+          ? "Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter*innen mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter*innen 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter*innen herausholen und trotzdem Lohnkosten sparen?"
+          : "Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter herausholen und trotzdem Lohnkosten sparen?",
       },
       solution: {
         title: "Lösung",
-        text: "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
+        text: gendered
+          ? "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter*innen bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte."
+          : "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
       },
       result: {
         title: "Ergebnis",
@@ -68,7 +78,7 @@ export default function CustomerSuccessSection() {
   ];
 
   return (
-    <section id="case-studies" className="py-20 md:py-28" style={{ backgroundColor: "#404040" }}>
+    <section id="case-studies" className="py-20 md:py-28 pb-32 md:pb-28" style={{ backgroundColor: "#404040" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Überschrift */}
         <div className="text-center mb-16">
@@ -140,13 +150,11 @@ export default function CustomerSuccessSection() {
                         <>
                           {!videoStates[caseStudy.id] ? (
                             <>
-                              {/* Video Thumbnail */}
                               <img
                                 src={`https://img.youtube.com/vi/${caseStudy.videoId}/maxresdefault.jpg`}
                                 alt={`${caseStudy.title} Video`}
                                 className="w-full h-full object-cover"
                               />
-                              {/* Play Button Overlay - Center */}
                               <div className="absolute inset-0 flex items-center justify-center">
                                 <button
                                   onClick={() => handlePlayVideo(caseStudy.id)}
@@ -194,7 +202,7 @@ export default function CustomerSuccessSection() {
                         key={index}
                         className="flex flex-col items-center justify-center gap-3 bg-gray-600/50 rounded-xl p-6"
                       >
-                        <IconComponent className="w-10 h-10 text-white flex-shrink-0" />
+                        <IconComponent className="w-10 h-10 text-white shrink-0" />
                         <span className="text-white font-bold text-base text-center">
                           {item.text}
                         </span>

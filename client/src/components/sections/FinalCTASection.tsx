@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Check } from "lucide-react";
-import teamMeetingImage from "@/assets/team-meeting.jpg";
+import teamMeetingImage from "@/assets/images/general/team-meeting.jpg";
 
 const competencies = [
   "Steuer- & Arbeitsrecht",
@@ -20,8 +20,8 @@ export default function FinalCTASection() {
             <div className="rounded-3xl shadow-2xl overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Linke Hälfte: Text mit Farbverlauf */}
-                <div className="bg-gradient-to-l from-[var(--lohn-primary)] to-[var(--lohn-secondary)] p-8 md:p-12 flex flex-col justify-center">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+                <div className="bg-linear-to-l from-lohn-primary to-lohn-secondary p-8 md:p-12 flex flex-col justify-center">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 text-center lg:text-left">
                     Bereit, deinen Lohn zu optimieren?
                   </h3>
                   <p className="text-white/90 text-base md:text-lg mb-6 leading-relaxed">
@@ -31,7 +31,7 @@ export default function FinalCTASection() {
                   <ul className="space-y-3 mb-8">
                     {competencies.map((competency, index) => (
                       <li key={index} className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-white flex-shrink-0" />
+                        <Check className="w-5 h-5 text-white shrink-0" />
                         <span className="text-white text-base md:text-lg">
                           {competency}
                         </span>
@@ -40,7 +40,7 @@ export default function FinalCTASection() {
                   </ul>
                   <Link href="/kontakt">
                     <Button
-                      className="bg-white text-[var(--lohn-primary)] hover:bg-gray-100 transition-all rounded-full px-8 py-3 text-base font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform duration-300 w-full md:w-auto"
+                      className="bg-white text-lohn-primary hover:bg-gray-100 transition-all rounded-full px-8 py-3 text-base font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform duration-300 w-full md:w-auto"
                     >
                       Beratungsgespräch vereinbaren
                     </Button>
@@ -62,7 +62,7 @@ export default function FinalCTASection() {
       </div>
 
       {/* Content Container mit Padding oben für die CTA Card */}
-      <div className="pt-20 md:pt-28 pb-20 md:pb-28"></div>
+      <div className="pt-52 md:pt-28 pb-20 md:pb-28"></div>
     </section>
   );
 }

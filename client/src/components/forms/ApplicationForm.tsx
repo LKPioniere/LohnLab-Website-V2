@@ -136,7 +136,7 @@ export default function ApplicationForm({
             required
             value={formData.name}
             onChange={(e) => onInputChange("name", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)]"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary"
             placeholder="Dein Name"
           />
         </div>
@@ -148,7 +148,7 @@ export default function ApplicationForm({
             required
             value={formData.email}
             onChange={(e) => onInputChange("email", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)]"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary"
             placeholder="deine@email.de"
           />
         </div>
@@ -159,7 +159,7 @@ export default function ApplicationForm({
             type="tel"
             value={formData.phone || ""}
             onChange={(e) => onInputChange("phone", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)]"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary"
             placeholder="+49 123 456789"
           />
         </div>
@@ -171,7 +171,7 @@ export default function ApplicationForm({
             onValueChange={(value) => onInputChange("position", value)}
             required
           >
-            <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)] [&>span]:text-gray-900">
+            <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary [&>span]:text-gray-900">
               <SelectValue
                 placeholder="Bitte auswählen"
                 className="text-gray-900"
@@ -191,7 +191,7 @@ export default function ApplicationForm({
             required
             value={formData.message}
             onChange={(e) => onInputChange("message", e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--lohn-primary)] focus:border-[var(--lohn-primary)] resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lohn-primary focus:border-lohn-primary resize-none"
             placeholder="Erzähl uns, warum du Teil unseres Teams werden möchtest..."
             minLength={10}
           />
@@ -205,7 +205,7 @@ export default function ApplicationForm({
           <div
             className={`relative border-2 border-dashed rounded-xl p-6 text-center transition-colors ${
               dragActive
-                ? "border-[var(--lohn-primary)] bg-blue-50"
+                ? "border-lohn-primary bg-blue-50"
                 : "border-gray-300 bg-gray-50"
             }`}
             onDragEnter={handleDrag}
@@ -234,7 +234,7 @@ export default function ApplicationForm({
                 <Button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="mt-4 bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full px-6 py-2"
+                  className="mt-4 bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full px-6 py-2"
                 >
                   Dateien auswählen
                 </Button>
@@ -247,7 +247,7 @@ export default function ApplicationForm({
                     className="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200"
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <FileText className="w-5 h-5 text-[var(--lohn-primary)] flex-shrink-0" />
+                      <FileText className="w-5 h-5 text-lohn-primary shrink-0" />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">
                           {file.name}
@@ -260,7 +260,7 @@ export default function ApplicationForm({
                     <button
                       type="button"
                       onClick={() => removeFile(index)}
-                      className="flex-shrink-0 text-gray-400 hover:text-red-500 transition-colors ml-2"
+                      className="shrink-0 text-gray-400 hover:text-red-500 transition-colors ml-2"
                       aria-label="Datei entfernen"
                     >
                       <X className="w-5 h-5" />
@@ -290,7 +290,7 @@ export default function ApplicationForm({
           <p className="text-xs text-gray-600">
             Mit dem Absenden deiner Bewerbung erklärst du dich damit einverstanden, dass wir deine 
             Daten zur Bearbeitung deiner Bewerbung verwenden. Weitere Informationen findest du in unserer{" "}
-            <a href="/datenschutz" className="text-[var(--lohn-primary)] hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="/datenschutz" className="text-lohn-primary hover:underline" target="_blank" rel="noopener noreferrer">
               Datenschutzerklärung
             </a>.
           </p>
@@ -299,7 +299,7 @@ export default function ApplicationForm({
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full py-3 font-semibold shadow-md"
+          className="w-full bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full py-3 font-semibold shadow-md"
         >
           {isSubmitting ? "Wird gesendet..." : "Jetzt bewerben"}
         </Button>

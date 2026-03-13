@@ -19,16 +19,16 @@ export default function BenefitsList({ benefits, isHiringBenefits = false }: Ben
       {benefits.map((benefit, index) => {
         const isLastHiringBenefit = isHiringBenefits && index === benefits.length - 1;
         const Icon = isLastHiringBenefit ? Crown : Check;
-        const iconBgColor = isLastHiringBenefit ? 'bg-[var(--lohn-purple)]' : 'bg-[var(--lohn-teal)]';
+        const iconBgColor = isLastHiringBenefit ? 'bg-lohn-purple' : 'bg-lohn-teal';
         const iconColor = isLastHiringBenefit ? 'text-yellow-400' : 'text-white';
         
         return (
           <div key={index} className="flex items-start space-x-3">
-            <div className={`${isLastHiringBenefit ? 'w-8 h-8 min-w-8' : 'w-6 h-6'} ${iconBgColor} rounded-full flex items-center justify-center mt-1 flex-shrink-0`}>
+            <div className={`${isLastHiringBenefit ? 'w-8 h-8 min-w-8' : 'w-6 h-6'} ${iconBgColor} rounded-full flex items-center justify-center mt-1 shrink-0`}>
               <Icon className={`${iconColor} text-sm`} />
             </div>
             <div>
-              <h4 className="font-semibold text-[var(--lohn-primary)]">{benefit.title}</h4>
+              <h4 className="font-semibold text-lohn-primary">{benefit.title}</h4>
               <p className="text-gray-600">{benefit.description}</p>
             </div>
           </div>

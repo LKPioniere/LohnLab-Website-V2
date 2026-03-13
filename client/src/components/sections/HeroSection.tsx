@@ -1,34 +1,53 @@
+import { useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import sterneReferenzen from "@/assets/5SterneReferenzen.png";
-
-// Logo-Imports
-import agendaLogo from "@/assets/logos/agenda_logo_ver-300x158-removebg.png";
-import csslohnLogo from "@/assets/logos/CSSLOHN-removebg-preview.png";
-import datevLogo from "@/assets/logos/Datev-Logo--removebg-preview.png";
-import lexwareLogo from "@/assets/logos/Lexware-removebg-preview.png";
-import piLogo from "@/assets/logos/PI-removebg-preview.png";
-import sageLogo from "@/assets/logos/Sage-Group-Logo-Vector-01-removebg-preview.png";
-import sapLogo from "@/assets/logos/SAP-Logo.svg.png";
-import vrgLogo from "@/assets/logos/VRG.png";
-import wolterskluverLogo from "@/assets/logos/Wolterskluver-removebg-preview.png";
-
-const logos = [
-  { name: "DATEV", src: datevLogo },
-  { name: "SAP", src: sapLogo },
-  { name: "Lexware", src: lexwareLogo },
-  { name: "Sage", src: sageLogo, scale: 1.8 },
-  { name: "Wolters Kluwer", src: wolterskluverLogo },
-  { name: "CSS LOHN", src: csslohnLogo },
-  { name: "PI", src: piLogo, scale: 1.8 },
-  { name: "VRG", src: vrgLogo },
-  { name: "Agenda", src: agendaLogo },
-];
+import InfiniteLogoCarousel from "@/components/InfiniteLogoCarousel";
+import ConsentPlaceholder from "@/components/ConsentPlaceholder";
+import { useConsent } from "@/lib/cookie-consent";
+import { useGender } from "@/lib/gender";
+import sterneReferenzen from "@/assets/images/general/5-sterne-referenzen.png";
+import { LOHN_SYSTEM_LOGOS } from "@/constants/logos";
 
 /**
  * Hero-Sektion Komponente - Neue Landingpage
  */
+const WISTIA_MEDIA_ID = "zrcdz7nm5p";
+
+function WistiaPlayer() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const loadedRef = useRef(false);
+
+  const loadWistia = useCallback(() => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+
+    const playerScript = document.createElement("script");
+    playerScript.src = "https://fast.wistia.com/player.js";
+    playerScript.async = true;
+    document.head.appendChild(playerScript);
+
+    const embedScript = document.createElement("script");
+    embedScript.src = `https://fast.wistia.com/embed/${WISTIA_MEDIA_ID}.js`;
+    embedScript.async = true;
+    embedScript.type = "module";
+    document.head.appendChild(embedScript);
+  }, []);
+
+  useEffect(() => {
+    loadWistia();
+  }, [loadWistia]);
+
+  return (
+    <div ref={containerRef} className="rounded-2xl shadow-2xl overflow-hidden">
+      <wistia-player media-id={WISTIA_MEDIA_ID} aspect="1.7777777777777777" />
+    </div>
+  );
+}
+
 export default function HeroSection() {
+  const gendered = useGender();
+  const consent = useConsent();
+  const marketingAllowed = consent?.marketing === true;
 
   return (
     <section className="py-16 md:py-24" style={{ backgroundColor: "#ebedf3" }}>
@@ -47,7 +66,7 @@ export default function HeroSection() {
 
             {/* Main Hero Text */}
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black leading-tight break-words">
-              Mehr Netto für Mitarbeiter.
+              Mehr Netto für {gendered ? "Mitarbeiter*innen" : "Mitarbeiter"}.
               <br />
               Weniger Lohnkosten für dein Unternehmen.
             </h1>
@@ -60,16 +79,16 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2 mt-auto">
-              <Link href="/kontakt">
+              <Link href="/kontakt" className="w-full sm:w-auto">
                 <Button
-                  className="bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full px-6 py-5 text-base font-semibold shadow-md"
+                  className="w-full sm:w-auto bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full px-6 py-5 text-base font-semibold shadow-md"
                 >
                   Beratungsgespräch vereinbaren
                 </Button>
               </Link>
               <Button
                 variant="outline"
-                className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 transition-colors rounded-full px-6 py-5 text-base font-semibold bg-transparent"
+                className="w-full sm:w-auto border-2 border-gray-400 text-gray-700 hover:bg-gray-50 transition-colors rounded-full px-6 py-5 text-base font-semibold bg-transparent"
                 onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Alle Case Studies ansehen
@@ -77,41 +96,18 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column - Platzhalter */}
+          {/* Right Column - Video */}
           <div className="flex flex-col justify-end">
-            <div
-              className="rounded-2xl shadow-2xl overflow-hidden"
-              dangerouslySetInnerHTML={{
-                __html: '<wistia-player media-id="zrcdz7nm5p" aspect="1.7777777777777777"></wistia-player>',
-              }}
-            />
+            {marketingAllowed ? (
+              <WistiaPlayer />
+            ) : (
+              <ConsentPlaceholder service="Dieses Video" />
+            )}
 
             {/* Logo Carousel */}
-            <div className="mt-8 relative overflow-hidden">
+            <div className="mt-8">
               <p className="text-xs text-gray-600 mb-2 text-center">20+ unterstützte Lohnabrechnungssysteme</p>
-              <div className="flex items-center justify-center gap-6 animate-scroll">
-                {/* Duplicate logos for seamless loop */}
-                {[...logos, ...logos, ...logos].map((logo, index) => (
-                  <div
-                    key={`${logo.name}-${index}`}
-                    className="flex-shrink-0 h-10 flex items-center justify-center px-3 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
-                  >
-                    <img
-                      src={logo.src}
-                      alt={logo.name}
-                      className="h-full w-auto object-contain object-center"
-                      style={{
-                        maxHeight: '40px',
-                        height: '40px',
-                        width: 'auto',
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                        transform: logo.scale ? `scale(${logo.scale})` : undefined,
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
+              <InfiniteLogoCarousel logos={LOHN_SYSTEM_LOGOS} speed={0.8} logoHeight={40} />
             </div>
           </div>
         </div>

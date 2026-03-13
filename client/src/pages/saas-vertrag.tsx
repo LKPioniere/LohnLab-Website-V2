@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { FileDown } from "lucide-react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-import saasVertragPdf from "@/assets/SaaS_Vertrag_und_AVV_LL_Unternehmen.pdf";
+import saasVertragPdf from "@/assets/documents/saas-vertrag.pdf";
 
 /** Beim Austausch der PDF dieses Datum anpassen */
 const ZULETZT_GEAENDERT = "09.02.2026";
@@ -18,7 +18,7 @@ export default function SaasVertrag() {
 
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-[var(--lohn-primary)] mb-8">
+          <h1 className="text-4xl font-bold text-lohn-primary mb-8">
             SaaS-Vertrag LohnLab Cockpit
           </h1>
 
@@ -37,7 +37,7 @@ export default function SaasVertrag() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-white transition-colors hover:opacity-90"
-              style={{ backgroundColor: "var(--lohn-primary)" }}
+              style={{ backgroundColor: "varlohn-primary" }}
             >
               <FileDown className="w-5 h-5" />
               PDF in neuem Tab öffnen
@@ -45,7 +45,7 @@ export default function SaasVertrag() {
             <a
               href={saasVertragPdf}
               download="SaaS_Vertrag_und_AVV_LL_Unternehmen.pdf"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium border-2 border-[var(--lohn-primary)] text-[var(--lohn-primary)] transition-colors hover:bg-[var(--lohn-primary)] hover:text-white"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium border-2 border-lohn-primary text-lohn-primary transition-colors hover:bg-lohn-primary hover:text-white"
             >
               <FileDown className="w-5 h-5" />
               PDF herunterladen
@@ -54,7 +54,7 @@ export default function SaasVertrag() {
 
           <p className="mt-8 text-sm text-gray-500">
             Bei Fragen zum Vertrag wende dich gerne an uns über die{" "}
-            <a href="/kontakt" className="text-[var(--lohn-primary)] hover:underline">
+            <a href="/kontakt" className="text-lohn-primary hover:underline">
               Kontaktseite
             </a>
             .

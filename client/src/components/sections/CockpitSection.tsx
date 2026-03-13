@@ -1,26 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Building2, Briefcase, Calculator, ArrowRight } from "lucide-react";
+import { useGender } from "@/lib/gender";
 
 /**
  * LohnLab Cockpit Sektion - 3 Zielgruppen-Kacheln
  */
 export default function CockpitSection() {
+  const gendered = useGender();
+
   const cards = [
     {
       id: "unternehmen",
       title: "Für Unternehmen",
-      description:
-        "Das LohnLab Cockpit wird täglich von Unternehmen genutzt, um ihre Personalkosten strategisch zu steuern. Die Ergebnisse sind klar, reproduzierbar und messbar. Geschäftsführer senken damit nachhaltig ihre Lohnnebenkosten.",
+      description: gendered
+        ? "Das LohnLab Cockpit wird täglich von Unternehmen genutzt, um ihre Personalkosten strategisch zu steuern. Die Ergebnisse sind klar, reproduzierbar und messbar. Geschäftsführer*innen senken damit nachhaltig ihre Lohnnebenkosten."
+        : "Das LohnLab Cockpit wird täglich von Unternehmen genutzt, um ihre Personalkosten strategisch zu steuern. Die Ergebnisse sind klar, reproduzierbar und messbar. Geschäftsführer senken damit nachhaltig ihre Lohnnebenkosten.",
       keywords: ["Personalkosten strategisch zu steuern.", "klar, reproduzierbar und messbar."],
       icon: Building2,
       link: "/unternehmer",
     },
     {
       id: "steuerberater",
-      title: "Für Steuerberater",
-      description:
-        "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater liefern ihren Mandanten messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren.",
+      title: gendered ? "Für Steuerberater*innen" : "Für Steuerberater",
+      description: gendered
+        ? "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater*innen liefern ihren Mandanten messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren."
+        : "Das LohnLab Cockpit erweitert die klassische Lohnabrechnung um ein strategisches Beratungs- und Steuerungsinstrument. Steuerberater liefern ihren Mandanten messbaren wirtschaftlichen Mehrwert, ohne ihre Prozesse zu verkomplizieren.",
       keywords: ["strategisches Beratungs- und Steuerungsinstrument.", "messbaren wirtschaftlichen Mehrwert,"],
       icon: Briefcase,
       link: "/steuerberater",
@@ -65,23 +70,23 @@ export default function CockpitSection() {
           {cards.map((card) => (
             <div
               key={card.id}
-              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col border border-gray-300/30"
+              className="bg-linear-to-br from-gray-100 to-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col border border-gray-300/30"
             >
               {/* Logo oben links - klein und unauffällig */}
-              <div className="mb-6">
+              <div className="mb-6 flex justify-center md:justify-start">
                 <div className="w-10 h-10 bg-gray-400/40 rounded-lg flex items-center justify-center">
                   <card.icon className="w-5 h-5 text-gray-600" />
                 </div>
               </div>
 
               {/* Titel - groß */}
-              <h3 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold text-black mb-4 text-center md:text-left">
                 {card.title}
               </h3>
 
               {/* Beschreibung - sehr klein mit fett hervorgehobenen Keywords */}
               <p
-                className="text-xs text-gray-600 leading-relaxed mb-8 flex-grow"
+                className="text-xs text-gray-600 leading-relaxed mb-8 grow"
                 dangerouslySetInnerHTML={{
                   __html: highlightKeywords(card.description, card.keywords),
                 }}
@@ -91,7 +96,7 @@ export default function CockpitSection() {
               <div className="flex gap-3">
                 <Link href={card.id === "unternehmen" ? "/kontakt" : "/kontakt?type=partner"} className="flex-1">
                   <Button
-                    className="w-full bg-[var(--lohn-primary)] text-white hover:bg-[var(--lohn-secondary)] transition-colors rounded-full py-3 text-sm font-semibold shadow-md"
+                    className="w-full bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full py-3 text-sm font-semibold shadow-md"
                   >
                     Beratungsgespräch vereinbaren
                   </Button>

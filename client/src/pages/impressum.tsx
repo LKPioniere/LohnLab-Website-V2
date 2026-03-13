@@ -14,12 +14,12 @@ export default function Impressum() {
 
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-[var(--lohn-primary)] mb-8">
+          <h1 className="text-4xl font-bold text-lohn-primary mb-8">
             Impressum
           </h1>
 
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               Angaben gemäß § 5 TMG
             </h2>
             <div className="mb-8">
@@ -38,7 +38,7 @@ export default function Impressum() {
               <p className="mb-4">Holger Plümer</p>
             </div>
 
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               Kontakt
             </h2>
             <div className="mb-8">
@@ -49,12 +49,12 @@ export default function Impressum() {
                 <ObfuscatedEmail
                   user="service"
                   domain="lohnlab.de"
-                  className="text-[var(--lohn-primary)] hover:underline"
+                  className="text-lohn-primary hover:underline"
                 />
               </p>
             </div>
 
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               Verbraucherstreitbeilegung/Universalschlichtungsstelle
             </h2>
             <p className="mb-8">
@@ -63,7 +63,7 @@ export default function Impressum() {
               teilzunehmen.
             </p>
 
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               Haftung für Inhalte
             </h2>
             <p className="mb-4">
@@ -83,7 +83,7 @@ export default function Impressum() {
               diese Inhalte umgehend entfernen.
             </p>
 
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               Haftung für Links
             </h2>
             <p className="mb-4">
@@ -103,7 +103,7 @@ export default function Impressum() {
               derartige Links umgehend entfernen.
             </p>
 
-            <h2 className="text-2xl font-bold text-[var(--lohn-primary)] mb-4">
+            <h2 className="text-2xl font-bold text-lohn-primary mb-4">
               Urheberrecht
             </h2>
             <p className="mb-4">
@@ -129,7 +129,7 @@ export default function Impressum() {
               Quelle:{" "}
               <a
                 href="https://www.e-recht24.de"
-                className="text-[var(--lohn-primary)] hover:underline"
+                className="text-lohn-primary hover:underline"
               >
                 https://www.e-recht24.de
               </a>

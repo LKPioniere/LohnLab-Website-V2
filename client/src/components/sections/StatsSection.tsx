@@ -1,7 +1,11 @@
+import { useGender } from "@/lib/gender";
+
 /**
  * Statistik-Kacheln Sektion
  */
 export default function StatsSection() {
+  const gendered = useGender();
+
   const stats = [
     {
       value: "+120.000",
@@ -10,12 +14,12 @@ export default function StatsSection() {
     },
     {
       value: "220+",
-      label: "Unternehmenskunden",
+      label: gendered ? "Unternehmenskund*innen" : "Unternehmenskunden",
       sublabel: "seit Gründung",
     },
     {
       value: "Ø 2.000 €",
-      label: "Ersparnis pro Mitarbeiter",
+      label: gendered ? "Ersparnis pro Mitarbeiter*in" : "Ersparnis pro Mitarbeiter",
       sublabel: "pro Jahr",
     },
     {
@@ -32,9 +36,9 @@ export default function StatsSection() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 text-center sm:text-left"
             >
-              <div className="text-3xl md:text-4xl font-bold text-[var(--lohn-primary)] mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-lohn-primary mb-2">
                 {stat.value}
               </div>
               <div className="text-sm md:text-base font-medium text-black mb-2">

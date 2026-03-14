@@ -5,12 +5,8 @@ import InfiniteLogoCarousel from "@/components/InfiniteLogoCarousel";
 import ConsentPlaceholder from "@/components/ConsentPlaceholder";
 import { useConsent } from "@/lib/cookie-consent";
 import { useGender } from "@/lib/gender";
-import sterneReferenzen from "@/assets/images/general/5-sterne-referenzen.png";
 import { LOHN_SYSTEM_LOGOS } from "@/constants/logos";
 
-/**
- * Hero-Sektion Komponente - Neue Landingpage
- */
 const WISTIA_MEDIA_ID = "zrcdz7nm5p";
 
 function WistiaPlayer() {
@@ -38,11 +34,36 @@ function WistiaPlayer() {
   }, [loadWistia]);
 
   return (
-    <div ref={containerRef} className="rounded-2xl shadow-2xl overflow-hidden">
+    <div ref={containerRef} className="rounded-2xl overflow-hidden">
       <wistia-player media-id={WISTIA_MEDIA_ID} aspect="1.7777777777777777" />
     </div>
   );
 }
+
+function MarkerUnderline() {
+  return (
+    <span className="relative inline-block marker-underline">
+      Null Aufwand.
+      <svg
+        className="absolute -bottom-2 left-0 w-full"
+        viewBox="0 0 300 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ height: "0.35em" }}
+      >
+        <path
+          d="M2 10 C40 4, 80 14, 120 8 S200 3, 240 9 S280 6, 298 8"
+          stroke="hsl(256, 39%, 53%)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          fill="none"
+        />
+      </svg>
+    </span>
+  );
+}
+
 
 export default function HeroSection() {
   const gendered = useGender();
@@ -50,45 +71,29 @@ export default function HeroSection() {
   const marketingRejected = consent?.marketing === false;
 
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: "#ebedf3" }}>
+    <section className="pb-8 md:pb-10 pt-8 md:pt-12" style={{ backgroundColor: "#021065" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Content */}
-          <div className="flex flex-col justify-between space-y-6">
-            {/* Google Bewertungen */}
-            {/* <div>
-              <img
-                src={sterneReferenzen}
-                alt="4.6/5 basierend auf über 1400 Bewertungen"
-                className="h-auto w-auto max-w-xs mb-2"
-              />
-            </div> */}
-
-            {/* Main Hero Text */}
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black leading-tight break-words">
-              Mehr Netto für {gendered ? "Mitarbeiter*innen" : "Mitarbeiter"}.
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+          {/* Left Column - Text + CTA (~40%) */}
+          <div className="lg:col-span-2 flex flex-col space-y-5">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
+              Mehr Netto.
               <br />
-              Weniger Lohnkosten für dein Unternehmen.
+              Weniger Lohnkosten.
+              <br />
+              <MarkerUnderline />
             </h1>
 
-            {/* Subheading */}
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed max-w-xl">
-              Mit dem LohnLab Cockpit steuerst du deine komplette Gehaltsstruktur
-              in Echtzeit – transparent, steueroptimiert und voll automatisiert.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2 mt-auto">
-              <Link href="/kontakt" className="w-full sm:w-auto">
+            <div className="pt-2 flex flex-col gap-3">
+              <Link href="/kontakt" className="w-full">
                 <Button
-                  className="w-full sm:w-auto bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full px-6 py-5 text-base font-semibold shadow-md"
+                  className="btn-cta w-full bg-white text-lohn-primary rounded-full px-8 py-6 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform duration-300 hover:text-white"
                 >
                   Beratungsgespräch vereinbaren
                 </Button>
               </Link>
               <Button
-                variant="outline"
-                className="w-full sm:w-auto border-2 border-gray-400 text-gray-700 hover:bg-gray-50 transition-colors rounded-full px-6 py-5 text-base font-semibold bg-transparent"
+                className="w-full border-2 border-white/30 text-white hover:border-white transition-colors rounded-full px-8 py-6 text-base md:text-lg font-semibold bg-transparent hover:bg-transparent"
                 onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Alle Case Studies ansehen
@@ -96,19 +101,30 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column - Video */}
-          <div className="flex flex-col justify-end">
+          {/* Right Column - Video (~60%) */}
+          <div className="lg:col-span-3">
             {marketingRejected ? (
               <ConsentPlaceholder service="Dieses Video" />
             ) : (
               <WistiaPlayer />
             )}
+          </div>
+        </div>
 
-            {/* Logo Carousel */}
-            <div className="mt-8">
-              <p className="text-xs text-gray-600 mb-2 text-center">20+ unterstützte Lohnabrechnungssysteme</p>
-              <InfiniteLogoCarousel logos={LOHN_SYSTEM_LOGOS} speed={0.8} logoHeight={40} slideWidth={140} slideGap={28} />
-            </div>
+        {/* Logo Carousel */}
+        <div className="mt-12">
+          <div className="w-full">
+            <InfiniteLogoCarousel
+              logos={LOHN_SYSTEM_LOGOS}
+              speed={0.8}
+              logoHeight={40}
+              slideWidth={140}
+              slideGap={28}
+              invertLogos
+            />
+            <p className="text-xs text-white/50 mt-5 text-center">
+              mit jedem Lohnprogramm nutzbar
+            </p>
           </div>
         </div>
       </div>

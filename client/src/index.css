@@ -222,3 +222,67 @@
 .bg-lohn-teal { background-color: var(--lohn-teal); }
 .lohn-light { color: var(--lohn-light); }
 .bg-lohn-light { background-color: var(--lohn-light); }
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.btn-cta {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-cta::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: hsl(256, 39%, 53%);
+  border-radius: inherit;
+  transition: height 0.2s ease-in;
+  z-index: -1;
+}
+
+.btn-cta:hover::before {
+  height: 100%;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsla(256, 39%, 53%, 0.08) 15%,
+    hsla(256, 39%, 53%, 0.3) 40%,
+    hsla(256, 39%, 53%, 0.4) 50%,
+    hsla(256, 39%, 53%, 0.3) 60%,
+    hsla(256, 39%, 53%, 0.12) 80%,
+    hsla(256, 39%, 53%, 0.04) 90%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes marker-draw {
+  from { stroke-dashoffset: 320; }
+  to { stroke-dashoffset: 0; }
+}
+
+.marker-underline svg path {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation: marker-draw 0.8s ease-out 0.3s forwards;
+}

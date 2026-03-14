@@ -3,11 +3,11 @@ import { ChevronDown, ExternalLink, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import lohnlabLogo from "@/assets/logos/branding/lohnlab-logo-blue.png";
+import lohnlabLogo from "@/assets/logos/branding/lohnlab-logo-white.png";
 
 function AnimatedBurger({ isOpen }: { isOpen: boolean }) {
   const lineProps = {
-    className: "block h-0.5 w-6 bg-gray-700 rounded-full",
+    className: "block h-0.5 w-6 bg-white rounded-full",
   };
   return (
     <div className="w-6 h-5 flex flex-col justify-between items-center">
@@ -35,8 +35,8 @@ export default function Navigation() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isMobileLoginOpen, setIsMobileLoginOpen] = useState(false);
 
-  const navBgColor = "#ebedf3";
-  const textColorClass = "text-gray-700";
+  const navBgColor = "#021065";
+  const textColorClass = "text-white";
   const logoSrc = lohnlabLogo;
 
   return (
@@ -72,7 +72,7 @@ export default function Navigation() {
                 <span className="relative">
                   Login
                   <span
-                    className="absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 scale-x-0 group-hover:scale-x-100 bg-lohn-primary"
+                    className="absolute -bottom-0.5 left-0 right-0 h-0.5 transform origin-left transition-all duration-300 scale-x-0 group-hover:scale-x-100 bg-white"
                   ></span>
                 </span>
                 <ChevronDown
@@ -84,52 +84,36 @@ export default function Navigation() {
 
               {isLoginOpen && (
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
-                  <div className="w-80 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 animate-fadeIn">
-                    <div className="px-6 py-3 border-b border-gray-200">
-                      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                        Login & Ressourcen
-                      </h3>
-                    </div>
+                  <div className="w-72 rounded-xl shadow-2xl border border-white/15 py-1 animate-fadeIn backdrop-blur-xl" style={{ backgroundColor: "rgba(2, 16, 101, 0.95)" }}>
                     <a
                       href="https://cockpit.lohnlab.de"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block px-6 py-4 hover:bg-linear-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
+                      className="group flex items-center gap-3 px-5 py-3.5 hover:bg-white/10 transition-all duration-200"
                       onClick={() => setIsLoginOpen(false)}
                     >
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 shrink-0 bg-linear-to-br from-lohn-primary to-lohn-secondary rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                          <ExternalLink className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-800 group-hover:text-lohn-primary transition-colors">
-                            LohnLab Cockpit
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            Zur Anwendung
-                          </div>
-                        </div>
+                      <div className="w-9 h-9 shrink-0 bg-white/15 rounded-lg flex items-center justify-center">
+                        <ExternalLink className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-white">LohnLab Cockpit</div>
+                        <div className="text-xs text-white/50">Zur Anwendung</div>
                       </div>
                     </a>
+                    <div className="mx-4 border-t border-white/10" />
                     <a
                       href="https://memberspot.lohnlab.de"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block px-6 py-4 hover:bg-linear-to-r hover:from-blue-50 hover:to-transparent transition-all duration-300"
+                      className="group flex items-center gap-3 px-5 py-3.5 hover:bg-white/10 transition-all duration-200"
                       onClick={() => setIsLoginOpen(false)}
                     >
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 shrink-0 bg-linear-to-br from-lohn-primary to-lohn-secondary rounded-xl flex items-center justify-center mr-4 shadow-sm group-hover:shadow-md transition-shadow">
-                          <BookOpen className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="font-semibold text-gray-800 group-hover:text-lohn-primary transition-colors">
-                            Handbücher & Anleitungen
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            Für Kunden und Partner
-                          </div>
-                        </div>
+                      <div className="w-9 h-9 shrink-0 bg-white/15 rounded-lg flex items-center justify-center">
+                        <BookOpen className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-white">Handbücher</div>
+                        <div className="text-xs text-white/50">Für Kunden und Partner</div>
                       </div>
                     </a>
                   </div>
@@ -140,7 +124,7 @@ export default function Navigation() {
             <div className="ml-6">
               <Link href="/kontakt">
                 <Button
-                  className="bg-lohn-primary text-white hover:bg-lohn-secondary shadow-md transition-all duration-300 rounded-full px-6 py-2.5 font-semibold"
+                  className="bg-white text-lohn-primary hover:bg-gray-100 shadow-md transition-all duration-300 rounded-full px-6 py-2.5 font-semibold"
                 >
                   Beratungsgespräch vereinbaren
                 </Button>
@@ -151,7 +135,7 @@ export default function Navigation() {
           <div className="md:hidden flex items-center h-10">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:text-lohn-primary hover:bg-gray-100 transition-colors"
+              className="w-10 h-10 flex items-center justify-center rounded-lg text-white hover:text-white/80 hover:bg-white/10 transition-colors"
               aria-label="Menü öffnen"
             >
               <AnimatedBurger isOpen={isMobileMenuOpen} />
@@ -174,10 +158,10 @@ export default function Navigation() {
                 {/* Mobile Für Steuerberater Link - TEMPORÄR DEAKTIVIERT */}
 
                 {/* Mobile Login Dropdown */}
-                <div className="border-b border-gray-200">
+                <div className="border-b border-white/20">
                   <button
                     onClick={() => setIsMobileLoginOpen(!isMobileLoginOpen)}
-                    className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-lohn-primary transition-colors font-medium"
+                    className="w-full px-4 py-3 flex items-center justify-between text-white hover:text-white/80 transition-colors font-medium"
                   >
                     <span>Login</span>
                     <ChevronDown
@@ -206,14 +190,14 @@ export default function Navigation() {
                               setIsMobileMenuOpen(false);
                               setIsMobileLoginOpen(false);
                             }}
-                            className="flex items-center px-6 py-3 text-gray-700 hover:text-lohn-primary transition-colors"
+                            className="flex items-center px-6 py-3 text-white hover:text-white/80 transition-colors"
                           >
-                            <div className="w-10 h-10 shrink-0 bg-linear-to-br from-lohn-primary to-lohn-secondary rounded-lg flex items-center justify-center mr-3">
+                            <div className="w-10 h-10 shrink-0 bg-white/15 rounded-lg flex items-center justify-center mr-3">
                               <ExternalLink className="w-5 h-5 text-white" />
                             </div>
                             <div>
                               <div className="font-medium">LohnLab Cockpit</div>
-                              <div className="text-sm text-gray-500">
+                              <div className="text-sm text-white/60">
                                 Zur Anwendung
                               </div>
                             </div>
@@ -226,16 +210,16 @@ export default function Navigation() {
                               setIsMobileMenuOpen(false);
                               setIsMobileLoginOpen(false);
                             }}
-                            className="flex items-center px-6 py-3 text-gray-700 hover:text-lohn-primary transition-colors"
+                            className="flex items-center px-6 py-3 text-white hover:text-white/80 transition-colors"
                           >
-                            <div className="w-10 h-10 shrink-0 bg-linear-to-br from-lohn-primary to-lohn-secondary rounded-lg flex items-center justify-center mr-3">
+                            <div className="w-10 h-10 shrink-0 bg-white/15 rounded-lg flex items-center justify-center mr-3">
                               <BookOpen className="w-5 h-5 text-white" />
                             </div>
                             <div>
                               <div className="font-medium">
                                 Handbücher & Anleitungen
                               </div>
-                              <div className="text-sm text-gray-500">
+                              <div className="text-sm text-white/60">
                                 Für Kunden und Partner
                               </div>
                             </div>
@@ -251,7 +235,7 @@ export default function Navigation() {
                     href="/kontakt"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Button className="bg-lohn-primary text-white hover:bg-lohn-secondary transition-colors rounded-full w-full">
+                    <Button className="bg-white text-lohn-primary hover:bg-gray-100 transition-colors rounded-full w-full">
                       Beratungsgespräch vereinbaren
                     </Button>
                   </Link>

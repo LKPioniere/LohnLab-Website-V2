@@ -19,6 +19,7 @@ interface InfiniteLogoCarouselProps {
   slideGap?: number;
   pauseOnHover?: boolean;
   showColorOnHover?: boolean;
+  invertLogos?: boolean;
   className?: string;
 }
 
@@ -30,6 +31,7 @@ export default function InfiniteLogoCarousel({
   slideGap = 48,
   pauseOnHover = false,
   showColorOnHover = false,
+  invertLogos = false,
   className = "",
 }: InfiniteLogoCarouselProps) {
   const resumeTimer = useRef<ReturnType<typeof setTimeout>>(null);
@@ -78,6 +80,12 @@ export default function InfiniteLogoCarousel({
       if (resumeTimer.current) clearTimeout(resumeTimer.current);
     };
   }, [emblaApi, handlePointerUp]);
+
+  const getInvertFilter = (logo: Logo) => {
+    if (!invertLogos) return undefined;
+    if (logo.needsInvert) return "invert(1) grayscale(1)";
+    return "brightness(0) invert(1)";
+  };
 
   if (logos.length === 0) return null;
 
@@ -132,6 +140,7 @@ export default function InfiniteLogoCarousel({
                   className="max-h-full max-w-full object-contain"
                   style={{
                     transform: logo.scale ? `scale(${logo.scale})` : undefined,
+                    filter: getInvertFilter(logo),
                   }}
                 />
               </a>
@@ -146,6 +155,7 @@ export default function InfiniteLogoCarousel({
                   className="max-h-full max-w-full object-contain"
                   style={{
                     transform: logo.scale ? `scale(${logo.scale})` : undefined,
+                    filter: getInvertFilter(logo),
                   }}
                 />
               </div>

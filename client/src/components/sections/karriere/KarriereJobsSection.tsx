@@ -43,7 +43,7 @@ export default function KarriereJobsSection({
             Offene Stellen
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Finde die Position, die zu dir passt – oder bewirb dich initiativ
+            Finde die Position, die zu dir passt, oder bewirb dich initiativ
           </p>
         </div>
 

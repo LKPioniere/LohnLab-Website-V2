@@ -38,7 +38,7 @@ export default function StatsSection() {
               key={index}
               className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 text-center sm:text-left"
             >
-              <div className="text-3xl md:text-4xl font-bold text-lohn-primary mb-2">
+              <div className="text-2xl md:text-4xl font-bold text-lohn-primary mb-2">
                 {stat.value}
               </div>
               <div className="text-sm md:text-base font-medium text-black mb-2">

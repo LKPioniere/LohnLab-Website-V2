@@ -103,7 +103,7 @@ function EinsparungenKachel() {
   return (
     <div className="bg-gray-100 rounded-2xl p-6 flex flex-col justify-between" style={{ flex: "0.5" }}>
       <div>
-        <p className="text-black font-bold text-4xl mb-2">
+        <p className="text-black font-bold text-2xl md:text-4xl mb-2">
           +38,4 Mio. €
         </p>
         <p className="text-gray-700 text-sm mb-4">Realisierte Einsparungen</p>
@@ -205,14 +205,14 @@ export default function TeamSection() {
     <section className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black break-words text-center lg:text-left">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black break-words text-center lg:text-left">
             Triff die Experten, die deinen Lohn optimieren.
           </h2>
           <div className="text-gray-700 leading-relaxed flex flex-col justify-start">
             <p>
               Hinter LohnLab steht ein interdisziplinäres Team aus
               Steuerexperten, Payroll-Spezialisten, HR-Strategen,
-              Software-Architekten und Unternehmensberater – mit einem
+              Software-Architekten und Unternehmensberater, mit einem
               gemeinsamen Ziel:{" "}
               <strong>
                 Personalkosten steuerbar machen. Nettoeffekte maximieren.

@@ -21,7 +21,7 @@ export default function FinalCTASection() {
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Linke Hälfte: Text mit Farbverlauf */}
                 <div className="bg-linear-to-l from-lohn-primary to-lohn-secondary p-8 md:p-12 flex flex-col justify-center">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 text-center lg:text-left">
+                  <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white mb-4 text-center lg:text-left">
                     Bereit, deinen Lohn zu optimieren?
                   </h3>
                   <p className="text-white/90 text-base md:text-lg mb-6 leading-relaxed">

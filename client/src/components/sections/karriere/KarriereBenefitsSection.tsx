@@ -40,9 +40,9 @@ export default function KarriereBenefitsSection() {
               </h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 Jeden Monat erhältst du 50€ Sachbezug auf deine eigene LohnLab
-                Card – ein echter Mehrwert, den du überall in deiner Region
+                Card, ein echter Mehrwert, den du überall in deiner Region
                 nutzen kannst, wo Kartenzahlung akzeptiert wird. Plus: 60€ zum
-                Geburtstag und mindestens 156€ zum Urlaub – alles steuerfrei!
+                Geburtstag und mindestens 156€ zum Urlaub, alles steuerfrei!
               </p>
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-lohn-primary font-semibold">

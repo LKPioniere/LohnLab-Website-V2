@@ -57,10 +57,10 @@ export default function CockpitSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Überschrift */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
             Unser LohnLab-Cockpit.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto">
+          <p className="text-base md:text-2xl text-gray-700 max-w-4xl mx-auto">
             Was früher ein reiner Kostenblock war, wird mit dem LohnLab Cockpit
             zu einem aktiven Steuerungsinstrument.
           </p>
@@ -81,7 +81,7 @@ export default function CockpitSection() {
               </div>
 
               {/* Titel - groß */}
-              <h3 className="text-3xl md:text-4xl font-bold text-black mb-4 text-center md:text-left">
+              <h3 className="text-2xl md:text-4xl font-bold text-black mb-4 text-center md:text-left">
                 {card.title}
               </h3>
 

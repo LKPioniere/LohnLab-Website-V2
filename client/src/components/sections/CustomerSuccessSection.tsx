@@ -29,14 +29,14 @@ export default function CustomerSuccessSection() {
       challenge: {
         title: "Herausforderung",
         text: gendered
-          ? "Das Unternehmen wollte für seine Mitarbeiter*innen das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter*innen bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben."
-          : "Das Unternehmen wollte für seine Mitarbeiter das Maximum aus dem Budget für die Lohnerhöhung rausholen. Die Sorge: Bei einer klassischen Erhöhung verpufft ein Großteil durch Steuern und Abgaben. Gleichzeitig sollten die Mitarbeiter bei der Lohnoptimierung keine Nachteile bei ihrer Altersvorsorge haben.",
+          ? "Bei klassischen Lohnerhöhungen verpufft ein Großteil durch Steuern und Abgaben. IMM Photonics wollte das Maximum für seine Mitarbeiter*innen rausholen, ohne Nachteile bei der Altersvorsorge."
+          : "Bei klassischen Lohnerhöhungen verpufft ein Großteil durch Steuern und Abgaben. IMM Photonics wollte das Maximum für seine Mitarbeiter rausholen, ohne Nachteile bei der Altersvorsorge.",
       },
       solution: {
         title: "Lösung",
         text: gendered
-          ? "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeiter*innen angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter*innen weitergegeben – on top zur ursprünglichen Erhöhung."
-          : "Für IMM Photonics wurde berechnet, was bei einer Bruttoerhöhung netto bei den Mitarbeitern angekommen wäre. Anschließend wurde die Rentenlücke, die durch sv-freie Lohnbausteine entsteht mit einem maßgeschneiderten Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis wurde zu 100% als zusätzliches Netto an die Mitarbeiter weitergegeben – on top zur ursprünglichen Erhöhung.",
+          ? "Die Rentenlücke durch sv-freie Lohnbausteine wurde mit einem Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis ging zu 100% als zusätzliches Netto an die Mitarbeiter*innen, on top zur ursprünglichen Erhöhung."
+          : "Die Rentenlücke durch sv-freie Lohnbausteine wurde mit einem Rentenschutzpaket vollständig geschlossen. Die gesamte verbleibende Ersparnis ging zu 100% als zusätzliches Netto an die Mitarbeiter, on top zur ursprünglichen Erhöhung.",
       },
       result: {
         title: "Ergebnis",
@@ -57,14 +57,14 @@ export default function CustomerSuccessSection() {
       challenge: {
         title: "Herausforderung",
         text: gendered
-          ? "Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter*innen mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter*innen 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter*innen herausholen und trotzdem Lohnkosten sparen?"
-          : "Das Unternehmen wollte 2018 angelehnt an damalige Abschlüsse die Mitarbeiter mit Lohnoptimierung besser stellen, als es bei tarifgebundenen Unternehmen der Fall gewesen wäre. In anderen Unternehmen haben die Mitarbeiter 1,8% Bruttolohnerhöhung sofort und nach einem Jahr weitere 1,8% erhalten. Die Frage war: Wie können wir mehr für unsere Mitarbeiter herausholen und trotzdem Lohnkosten sparen?",
+          ? "Weppler Filter wollte seine Mitarbeiter*innen besser stellen als tarifgebundene Unternehmen und gleichzeitig Lohnkosten sparen."
+          : "Weppler Filter wollte seine Mitarbeiter besser stellen als tarifgebundene Unternehmen und gleichzeitig Lohnkosten sparen.",
       },
       solution: {
         title: "Lösung",
         text: gendered
-          ? "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter*innen bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte."
-          : "Durch ein maßgeschneidertes Lohnkonzept erhielt die Belegschaft die gesamten Erhöhungen der nächsten beiden Jahre sofort. Umgesetzt wurden diese durch steueroptimierte Lohnbausteine. Das Ergebnis: Die Mitarbeiter bekamen nach individueller Berechnung durch LohnLab sogar 20% mehr Netto als bei der klassischen Tariferhöhung, während das Unternehmen gleichzeitig Lohnkosten einsparte.",
+          ? "Durch steueroptimierte Lohnbausteine erhielt die Belegschaft die Erhöhungen der nächsten zwei Jahre sofort. Das Ergebnis: 20% mehr Netto als bei einer klassischen Tariferhöhung, und das Unternehmen sparte gleichzeitig Kosten."
+          : "Durch steueroptimierte Lohnbausteine erhielt die Belegschaft die Erhöhungen der nächsten zwei Jahre sofort. Das Ergebnis: 20% mehr Netto als bei einer klassischen Tariferhöhung, und das Unternehmen sparte gleichzeitig Kosten.",
       },
       result: {
         title: "Ergebnis",
@@ -82,10 +82,10 @@ export default function CustomerSuccessSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Überschrift */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Bewährte Ergebnisse, die für sich sprechen
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto">
+          <p className="text-sm md:text-xl text-gray-300 max-w-4xl mx-auto">
             Das LohnLab Cockpit wird täglich von Unternehmen genutzt, um ihre
             Personalkosten strategisch zu steuern.{" "}
             <strong className="text-white font-semibold">
@@ -107,26 +107,26 @@ export default function CustomerSuccessSection() {
                 {/* Left: Text Content */}
                 <div className="flex flex-col justify-between">
                   {/* Titel */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                  <h3 className="text-xl md:text-3xl font-bold text-white mb-6">
                     {caseStudy.title}
                   </h3>
 
                   {/* Herausforderung */}
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-white mb-2">
+                    <h4 className="text-base md:text-lg font-semibold text-white mb-2">
                       {caseStudy.challenge.title}
                     </h4>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-300 leading-relaxed">
                       {caseStudy.challenge.text}
                     </p>
                   </div>
 
                   {/* Lösung */}
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">
+                    <h4 className="text-base md:text-lg font-semibold text-white mb-2">
                       {caseStudy.solution.title}
                     </h4>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-300 leading-relaxed">
                       {caseStudy.solution.text}
                     </p>
                   </div>

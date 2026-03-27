@@ -64,6 +64,16 @@ function MarkerUnderline() {
   );
 }
 
+function CtaButton({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <Button
+      className={`btn-cta bg-white hover:bg-white text-lohn-primary hover:text-white rounded-full ${className ?? ""}`}
+    >
+      <div className="cta-fill bg-lohn-purple" />
+      <span className="cta-label">{children}</span>
+    </Button>
+  );
+}
 
 export default function HeroSection() {
   const gendered = useGender();
@@ -87,11 +97,9 @@ export default function HeroSection() {
             {/* Buttons: auf Desktop sichtbar, auf Mobile versteckt */}
             <div className="pt-2 hidden lg:flex flex-col gap-3">
               <Link href="/kontakt" className="w-full">
-                <Button
-                  className="btn-cta w-full bg-white text-lohn-primary rounded-full px-8 py-6 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform duration-300 hover:text-white"
-                >
+                <CtaButton className="w-full px-8 py-6 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform duration-300">
                   Beratungsgespräch vereinbaren
-                </Button>
+                </CtaButton>
               </Link>
               <Button
                 className="w-full border-2 border-white/30 text-white hover:border-white transition-colors rounded-full px-8 py-6 text-base md:text-lg font-semibold bg-transparent hover:bg-transparent"
@@ -114,11 +122,9 @@ export default function HeroSection() {
           {/* Buttons: auf Mobile sichtbar (unter Video), auf Desktop versteckt */}
           <div className="flex flex-col gap-3 lg:hidden">
             <Link href="/kontakt" className="w-full">
-              <Button
-                className="btn-cta w-full bg-white text-lohn-primary rounded-full px-8 py-6 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform duration-300 hover:text-white"
-              >
+              <CtaButton className="w-full px-8 py-6 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform duration-300">
                 Beratungsgespräch vereinbaren
-              </Button>
+              </CtaButton>
             </Link>
             <Button
               className="w-full border-2 border-white/30 text-white hover:border-white transition-colors rounded-full px-8 py-6 text-base md:text-lg font-semibold bg-transparent hover:bg-transparent"

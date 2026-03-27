@@ -118,12 +118,12 @@ export default function FAQSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Überschrift und Einleitung */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
             Häufig gestellte Fragen
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+          <p className="text-gray-700 text-sm md:text-lg leading-relaxed max-w-3xl mx-auto">
             Wir haben Antworten auf die häufigsten Fragen unserer {gendered ? "Kund*innen" : "Kunden"}{" "}
-            gesammelt – damit du unsere Prozesse, Zeitpläne und
+            gesammelt, damit du unsere Prozesse, Zeitpläne und
             Kollaborationsbedingungen besser verstehen kannst.
             {" "}
             <Link href="/faq" className="text-lohn-primary hover:underline text-base">
@@ -143,7 +143,7 @@ export default function FAQSection() {
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none"
               >
-                <span className="text-lg font-semibold text-black pr-4">
+                <span className="text-sm md:text-lg font-semibold text-black pr-4">
                   {faq.question}
                 </span>
                 <ChevronDown

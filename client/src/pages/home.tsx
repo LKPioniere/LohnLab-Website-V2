@@ -9,6 +9,7 @@ import TeamSection from "@/components/sections/TeamSection";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
 import Footer from "@/components/footer";
+import ScrollReveal from "@/components/ScrollReveal";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Home() {
@@ -33,13 +34,13 @@ export default function Home() {
     <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
       <HeroSection />
-      <StatsSection />
-      <CockpitSection />
-      <CustomerSuccessSection />
-      <ReferencesSection />
-      <TeamSection />
-      <FAQSection />
-      <FinalCTASection />
+      <ScrollReveal><StatsSection /></ScrollReveal>
+      <ScrollReveal><CockpitSection /></ScrollReveal>
+      <ScrollReveal><CustomerSuccessSection /></ScrollReveal>
+      <ScrollReveal><ReferencesSection /></ScrollReveal>
+      <ScrollReveal><TeamSection /></ScrollReveal>
+      <ScrollReveal><FAQSection /></ScrollReveal>
+      <ScrollReveal><FinalCTASection /></ScrollReveal>
       <Footer />
     </div>
   );

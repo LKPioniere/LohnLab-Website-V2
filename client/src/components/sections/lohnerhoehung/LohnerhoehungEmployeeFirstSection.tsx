@@ -32,8 +32,8 @@ export default function LohnerhoehungEmployeeFirstSection() {
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Nutze LohnLab, um bei Lohnerhöhungen systematisch Kosten zu
-            sparen – weil Wirtschaftlichkeit heute kein Luxus, sondern
-            Voraussetzung ist.
+            sparen. Denn Wirtschaftlichkeit ist heute kein Luxus, sondern
+            Voraussetzung.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function LohnerhoehungEmployeeFirstSection() {
                   <div className="text-gray-700">
                     <strong>Kosten senken:</strong> Optimierte
                     Vergütungsmodelle sparen bis zur Hälfte der üblichen
-                    Lohnkosten – auch bei Lohnerhöhungen.
+                    Lohnkosten, auch bei Lohnerhöhungen.
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -66,7 +66,7 @@ export default function LohnerhoehungEmployeeFirstSection() {
                   <CheckCircle className="w-6 h-6 text-green-600 mt-1 shrink-0" />
                   <div className="text-gray-700">
                     <strong>Realer Nutzen:</strong> Deine {gendered ? "Mitarbeiter*innen" : "Mitarbeiter"}
-                    profitieren direkt – nicht in Form von Versprechen,
+                    profitieren direkt: nicht in Form von Versprechen,
                     sondern als echtes Plus im Alltag.
                   </div>
                 </div>
@@ -74,7 +74,7 @@ export default function LohnerhoehungEmployeeFirstSection() {
                   <CheckCircle className="w-6 h-6 text-green-600 mt-1 shrink-0" />
                   <div className="text-gray-700">
                     <strong>{gendered ? "Mitarbeiter*innen" : "Mitarbeiter"} binden:</strong> Aus Wertschätzung
-                    wird Verlässlichkeit – weil gute Bedingungen verbinden.
+                    wird Verlässlichkeit, weil gute Bedingungen verbinden.
                   </div>
                 </div>
               </div>

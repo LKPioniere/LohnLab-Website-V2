@@ -43,7 +43,7 @@ export default function LohnerhoehungResultsSection() {
               Höhere {gendered ? "Mitarbeiter*innen\u00ADzufriedenheit" : "Mitarbeiterzufriedenheit"}
             </h3>
             <p className="text-gray-600">
-              {gendered ? "Mitarbeiter*innen" : "Mitarbeiter"} verstehen auf einen Blick, was sie bekommen – klar,
+              {gendered ? "Mitarbeiter*innen" : "Mitarbeiter"} verstehen auf einen Blick, was sie bekommen: klar,
               greifbar und wertvoll im Alltag.
             </p>
           </Card>
@@ -73,7 +73,7 @@ export default function LohnerhoehungResultsSection() {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                  Smarte Benefits für dein Team – Die zusätzliche Option mit
+                  Smarte Benefits für dein Team: Die zusätzliche Option mit
                   LohnLab
                 </h3>
                 <p className="text-lg text-gray-700 mb-4">
@@ -93,7 +93,7 @@ export default function LohnerhoehungResultsSection() {
                       Wir setzen um:
                     </strong>{" "}
                     Von der steuerlich geprüften Berechnung bis zur
-                    professionellen Umsetzung – gemeinsam mit spezialisierten
+                    professionellen Umsetzung, gemeinsam mit spezialisierten
                     Partnern unserer Gruppe.
                   </p>
                 </div>

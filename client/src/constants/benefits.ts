@@ -17,7 +17,7 @@ export function getGeneralBenefits(gendered: boolean) {
     },
     {
       title: 'Einfache Integration in bestehende Prozesse',
-      description: 'Nahtlose DATEV-Anbindung – keine Umstellung, keine Zusatzarbeit, sofort einsatzbereit.'
+      description: 'Nahtlose DATEV-Anbindung: keine Umstellung, keine Zusatzarbeit, sofort einsatzbereit.'
     }
   ];
 }
@@ -29,7 +29,7 @@ export function getHiringBenefits(gendered: boolean) {
   return [
     {
       title: 'Flexible Vorgaben',
-      description: 'Ob Brutto, Netto oder Arbeitgeberbudget – du entscheidest, wie gerechnet wird.'
+      description: 'Ob Brutto, Netto oder Arbeitgeberbudget: du entscheidest, wie gerechnet wird.'
     },
     {
       title: 'Intelligente Templates',
@@ -41,7 +41,7 @@ export function getHiringBenefits(gendered: boolean) {
     },
     {
       title: 'Zahlt sich doppelt aus',
-      description: 'Gewinne deine Favoriten mit attraktiven Gehaltspaketen – und spare dabei selbst bares Geld.'
+      description: 'Gewinne deine Favoriten mit attraktiven Gehaltspaketen und spare dabei selbst bares Geld.'
     }
   ];
 }

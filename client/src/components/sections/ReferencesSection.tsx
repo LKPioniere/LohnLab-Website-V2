@@ -100,7 +100,7 @@ export default function ReferencesSection() {
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-linear-to-l from-lohn-primary to-lohn-secondary rounded-3xl shadow-2xl p-8 md:p-10">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <h3 className="text-2xl md:text-3xl font-bold text-white flex-1 text-center md:text-left">
+                <h3 className="text-xl md:text-3xl font-bold text-white flex-1 text-center md:text-left">
                   Bereit, deinen Lohn zu optimieren?
                 </h3>
                 <Link href="/kontakt" className="shrink-0">
@@ -166,7 +166,7 @@ export default function ReferencesSection() {
 
           {/* Customer Logo Carousel */}
           <div className="mt-16">
-            <p className="text-center text-gray-700 font-semibold mb-6">
+            <p className="text-center text-gray-700 font-semibold mb-6 text-sm md:text-base">
               Über 220 Unternehmen vertrauen bereits auf LohnLab
             </p>
             <InfiniteLogoCarousel

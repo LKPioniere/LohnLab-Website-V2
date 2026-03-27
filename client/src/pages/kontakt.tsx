@@ -171,7 +171,7 @@ export default function Kontakt() {
                 Wähle deinen Wunschtermin
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Suche dir einen passenden Termin aus – wir freuen uns auf das Gespräch mit dir!
+                Suche dir einen passenden Termin aus. Wir freuen uns auf das Gespräch mit dir!
               </p>
             </div>
 

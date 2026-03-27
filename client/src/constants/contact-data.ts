@@ -82,7 +82,7 @@ export function getCalendarFunnelCards(gendered: boolean): CalendarFunnelCardDat
     {
       type: "partner",
       title: gendered ? "Kooperationspartner*innen" : "Kooperationspartner",
-      description: `${gendered ? "Steuerberater*innen" : "Steuerberater"} und Versicherungsvermittler – werde ${gendered ? "Partner*in" : "Partner"} oder nutze bestehende Vorteile.`,
+      description: `${gendered ? "Steuerberater*innen" : "Steuerberater"} und Versicherungsvermittler: werde ${gendered ? "Partner*in" : "Partner"} oder nutze bestehende Vorteile.`,
       icon: Handshake,
     },
   ];

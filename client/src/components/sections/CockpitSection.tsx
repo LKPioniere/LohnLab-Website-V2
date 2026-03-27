@@ -19,6 +19,9 @@ export default function CockpitSection() {
       keywords: ["Personalkosten strategisch zu steuern.", "klar, reproduzierbar und messbar."],
       icon: Building2,
       link: "/unternehmer",
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600",
+      borderColor: "border-t-blue-500",
     },
     {
       id: "steuerberater",
@@ -29,6 +32,9 @@ export default function CockpitSection() {
       keywords: ["strategisches Beratungs- und Steuerungsinstrument.", "messbaren wirtschaftlichen Mehrwert,"],
       icon: Briefcase,
       link: "/steuerberater",
+      iconBg: "bg-purple-100",
+      iconColor: "text-purple-600",
+      borderColor: "border-t-purple-500",
     },
     {
       id: "lohnabrechner",
@@ -39,6 +45,9 @@ export default function CockpitSection() {
       keywords: ["vereinfacht die operative Lohnabrechnung", "erschließen weitere Märkte."],
       icon: Calculator,
       link: "/lohnabrechner",
+      iconBg: "bg-teal-100",
+      iconColor: "text-teal-600",
+      borderColor: "border-t-teal-500",
     },
   ];
 
@@ -57,10 +66,10 @@ export default function CockpitSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Überschrift */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-6">
             Unser LohnLab-Cockpit.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto">
+          <p className="text-base md:text-2xl text-gray-700 max-w-4xl mx-auto">
             Was früher ein reiner Kostenblock war, wird mit dem LohnLab Cockpit
             zu einem aktiven Steuerungsinstrument.
           </p>
@@ -71,17 +80,16 @@ export default function CockpitSection() {
           {cards.map((card) => (
             <div
               key={card.id}
-              className="bg-linear-to-br from-gray-100 to-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col border border-gray-300/30"
+              className={`bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col border border-gray-200 border-t-4 ${card.borderColor}`}
             >
-              {/* Logo oben links - klein und unauffällig */}
               <div className="mb-6 flex justify-center md:justify-start">
-                <div className="w-10 h-10 bg-gray-400/40 rounded-lg flex items-center justify-center">
-                  <card.icon className="w-5 h-5 text-gray-600" />
+                <div className={`w-10 h-10 ${card.iconBg} rounded-lg flex items-center justify-center`}>
+                  <card.icon className={`w-5 h-5 ${card.iconColor}`} />
                 </div>
               </div>
 
               {/* Titel - groß */}
-              <h3 className="text-3xl md:text-4xl font-bold text-black mb-4 text-center md:text-left">
+              <h3 className="text-2xl md:text-4xl font-bold text-black mb-4 text-center md:text-left">
                 {card.title}
               </h3>
 

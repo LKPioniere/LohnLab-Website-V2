@@ -179,7 +179,7 @@ export const screenshotSteps: ScreenshotStep[] = [
         icon: FileCheck,
         title: "Optimierte Übergabe",
         description:
-          "Sobald das Gehalt optimiert ist, wird es im Hintergrund schon für dein Lohnsystem importierbar gemacht – keine Doppelarbeit, denn das LohnLab Cockpit ersetzt keine Systeme, es ergänzt und vereinfacht deinen Prozess.",
+          "Sobald das Gehalt optimiert ist, wird es im Hintergrund schon für dein Lohnsystem importierbar gemacht. Keine Doppelarbeit, denn das LohnLab Cockpit ersetzt keine Systeme, es ergänzt und vereinfacht deinen Prozess.",
       },
     ],
   },

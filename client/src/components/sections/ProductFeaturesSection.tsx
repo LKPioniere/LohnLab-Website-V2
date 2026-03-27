@@ -16,10 +16,10 @@ export default function ProductFeaturesSection() {
     <section id="features" className="py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-lohn-primary mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-lohn-primary mb-4">
             Intelligente Lohngestaltung
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
             Systematische Kostenersparnis durch die Nutzung von Lohnbausteinen.
             <br />
             <span className="text-lohn-secondary font-semibold">

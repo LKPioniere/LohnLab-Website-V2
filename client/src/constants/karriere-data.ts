@@ -94,21 +94,21 @@ export const benefits: BenefitCategory[] = [
         title: "LohnLab Card",
         shortDesc: "50€ monatlich + 60€ Geburtstag + 156€ Urlaub",
         longDesc:
-          "Jeden Monat erhältst du 50€ steuerfreien Sachbezug auf deine eigene LohnLab Card – ein echter Mehrwert, den du überall in deiner Region nutzen kannst, wo Kartenzahlung akzeptiert wird. Zusätzlich gibt's 60€ zu deinem Geburtstag und mindestens 156€ zum Urlaub. Alles 100% steuerfrei und kommt netto bei dir an!",
+          "Jeden Monat erhältst du 50€ steuerfreien Sachbezug auf deine eigene LohnLab Card, ein echter Mehrwert, den du überall in deiner Region nutzen kannst, wo Kartenzahlung akzeptiert wird. Zusätzlich gibt's 60€ zu deinem Geburtstag und mindestens 156€ zum Urlaub. Alles 100% steuerfrei und kommt netto bei dir an!",
       },
       {
         icon: UtensilsCrossed,
         title: "Essenszuschuss",
         shortDesc: "7,23€ pro Arbeitstag",
         longDesc:
-          "Pro Arbeitstag gibt es 7,23€ zurück auf dein Konto – für dein Mittagessen oder Lebensmitteleinkäufe. So kannst du dich während der Arbeit stärken, ohne dass es dein Gehalt belastet.",
+          "Pro Arbeitstag gibt es 7,23€ zurück auf dein Konto, für dein Mittagessen oder Lebensmitteleinkäufe. So kannst du dich während der Arbeit stärken, ohne dass es dein Gehalt belastet.",
       },
       {
         icon: CheckCircle2,
         title: "Betriebliche Altersvorsorge",
         shortDesc: "100% arbeitgeberfinanziert",
         longDesc:
-          "Wir sorgen für deine Zukunft: Du erhältst eine vollständig arbeitgeberfinanzierte betriebliche Altersvorsorge – ohne eigenen Beitrag! Zusätzlich hast du die Option, privat aufzustocken und profitierst dann von 30% Arbeitgeberzuschuss.",
+          "Wir sorgen für deine Zukunft: Du erhältst eine vollständig arbeitgeberfinanzierte betriebliche Altersvorsorge, komplett ohne eigenen Beitrag! Zusätzlich hast du die Option, privat aufzustocken und profitierst dann von 30% Arbeitgeberzuschuss.",
       },
     ],
   },
@@ -135,7 +135,7 @@ export const benefits: BenefitCategory[] = [
         title: "Jobbike",
         shortDesc: "Inkl. Versicherung & Zubehör",
         longDesc:
-          "Lease dein Wunschrad über uns – egal ob E-Bike, Mountainbike oder Citybike. Wir übernehmen die Versicherung und das Zubehör. Bleib fit und schone die Umwelt!",
+          "Lease dein Wunschrad über uns, egal ob E-Bike, Mountainbike oder Citybike. Wir übernehmen die Versicherung und das Zubehör. Bleib fit und schone die Umwelt!",
       },
     ],
   },
@@ -148,7 +148,7 @@ export const benefits: BenefitCategory[] = [
         title: "100% Remote möglich",
         shortDesc: "Arbeite von überall in Deutschland",
         longDesc:
-          "Bei uns bist du nicht an einen Standort gebunden. Arbeite von zu Hause, aus dem Café oder von wo immer du möchtest – solange du in Deutschland bist. Echte Flexibilität für deine Work-Life-Balance.",
+          "Bei uns bist du nicht an einen Standort gebunden. Arbeite von zu Hause, aus dem Café oder von wo immer du möchtest, solange du in Deutschland bist. Echte Flexibilität für deine Work-Life-Balance.",
       },
       {
         icon: Clock,
@@ -169,7 +169,7 @@ export const benefits: BenefitCategory[] = [
         title: "Diensthandy",
         shortDesc: "Berufliches und Privates trennen",
         longDesc:
-          "Du erhältst ein modernes Diensthandy mit passenden Tarifen. Nutze es auch privat – so kannst du Berufliches und Privates besser trennen oder hast nur noch ein Gerät.",
+          "Du erhältst ein modernes Diensthandy mit passenden Tarifen. Nutze es auch privat, so kannst du Berufliches und Privates besser trennen oder hast nur noch ein Gerät.",
       },
       {
         icon: Wifi,
@@ -216,7 +216,7 @@ export const benefits: BenefitCategory[] = [
         title: "Dein Lieblings-Benefit ist nicht dabei?",
         shortDesc: "Lass uns darüber sprechen!",
         longDesc:
-          "Wir sind offen für individuelle Lösungen! Hast du einen Benefit im Kopf, der hier fehlt? Sprich uns einfach an – wir finden gemeinsam eine Lösung, die zu dir passt.",
+          "Wir sind offen für individuelle Lösungen! Hast du einen Benefit im Kopf, der hier fehlt? Sprich uns einfach an, wir finden gemeinsam eine Lösung, die zu dir passt.",
       },
     ],
   },

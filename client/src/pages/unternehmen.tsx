@@ -25,7 +25,7 @@ export default function Unternehmen() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-            Unsere "Über uns" Seite ist gerade im Bau – wie ein guter Wein braucht auch
+            Unsere "Über uns" Seite ist gerade im Bau. Wie ein guter Wein braucht auch
             eine gute Unternehmensseite ihre Zeit zum Reifen.
           </p>
 
@@ -37,7 +37,7 @@ export default function Unternehmen() {
               </p>
             </div>
             <p className="text-gray-500 text-sm">
-              (Oder schau dir unsere anderen Seiten an – die sind schon fertig!)
+              (Oder schau dir unsere anderen Seiten an, die sind schon fertig!)
             </p>
           </div>
 

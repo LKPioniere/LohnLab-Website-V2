@@ -4,6 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import lohnlabLogo from "@/assets/logos/branding/lohnlab-logo-white.png";
+import givveIcon from "@/assets/logos/apps/givve-icon.png";
+import cleverlunchIcon from "@/assets/logos/apps/cleverlunch-icon.png";
+import mobikoIcon from "@/assets/logos/apps/mobiko-icon.png";
+import lohnlabAppIcon from "@/assets/logos/apps/lohnlab-app-icon.png";
 
 function AnimatedBurger({ isOpen }: { isOpen: boolean }) {
   const lineProps = {
@@ -35,14 +39,12 @@ export default function Navigation() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isMobileLoginOpen, setIsMobileLoginOpen] = useState(false);
 
-  const navBgColor = "#021065";
   const textColorClass = "text-white";
   const logoSrc = lohnlabLogo;
 
   return (
     <nav
-      className="z-50 transition-all duration-300"
-      style={{ backgroundColor: navBgColor }}
+      className="z-50 transition-all duration-300 bg-linear-to-l from-lohn-primary to-lohn-secondary"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -85,11 +87,14 @@ export default function Navigation() {
               {isLoginOpen && (
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
                   <div className="w-72 rounded-xl shadow-2xl border border-white/15 py-1 animate-fadeIn backdrop-blur-xl" style={{ backgroundColor: "rgba(2, 16, 101, 0.95)" }}>
+                    <div className="px-5 pt-3 pb-1.5">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">Für Arbeitgeber</span>
+                    </div>
                     <a
                       href="https://cockpit.lohnlab.de"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-5 py-3.5 hover:bg-white/10 transition-all duration-200"
+                      className="group flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-all duration-200"
                       onClick={() => setIsLoginOpen(false)}
                     >
                       <div className="w-9 h-9 shrink-0 bg-white/15 rounded-lg flex items-center justify-center">
@@ -100,12 +105,11 @@ export default function Navigation() {
                         <div className="text-xs text-white/50">Zur Anwendung</div>
                       </div>
                     </a>
-                    <div className="mx-4 border-t border-white/10" />
                     <a
                       href="https://memberspot.lohnlab.de"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 px-5 py-3.5 hover:bg-white/10 transition-all duration-200"
+                      className="group flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-all duration-200"
                       onClick={() => setIsLoginOpen(false)}
                     >
                       <div className="w-9 h-9 shrink-0 bg-white/15 rounded-lg flex items-center justify-center">
@@ -114,6 +118,71 @@ export default function Navigation() {
                       <div>
                         <div className="text-sm font-semibold text-white">Handbücher</div>
                         <div className="text-xs text-white/50">Für Kunden und Partner</div>
+                      </div>
+                    </a>
+                    <div className="mx-4 my-1 border-t border-white/10" />
+                    <div className="px-5 pt-2 pb-1.5">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">Für Mitarbeiter</span>
+                    </div>
+                    <a
+                      href="https://card.givve.com/login"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-all duration-200"
+                      onClick={() => setIsLoginOpen(false)}
+                    >
+                      <div className="w-9 h-9 shrink-0 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src={givveIcon} alt="givve Card" className="w-full h-full object-contain brightness-0 invert" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-white">givve Card</div>
+                        <div className="text-xs text-white/50">Sachbezug-Karte</div>
+                      </div>
+                    </a>
+                    <a
+                      href="https://app.cleverlunch.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-all duration-200"
+                      onClick={() => setIsLoginOpen(false)}
+                    >
+                      <div className="w-9 h-9 shrink-0 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src={cleverlunchIcon} alt="CleverLunch" className="w-full h-full object-contain brightness-0 invert" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-white">CleverLunch</div>
+                        <div className="text-xs text-white/50">Essenszuschuss</div>
+                      </div>
+                    </a>
+                    <a
+                      href="https://app.mobiko.net"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-all duration-200"
+                      onClick={() => setIsLoginOpen(false)}
+                    >
+                      <div className="w-9 h-9 shrink-0 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src={mobikoIcon} alt="Mobiko" className="w-full h-full object-contain brightness-0 invert" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-white">Mobiko</div>
+                        <div className="text-xs text-white/50">Jobticket</div>
+                      </div>
+                    </a>
+                    <div className="mx-4 my-1 border-t border-white/10" />
+                    <a
+                      href="https://app.lohnlab.de"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-all duration-200"
+                      onClick={() => setIsLoginOpen(false)}
+                    >
+                      <div className="w-9 h-9 shrink-0 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src={lohnlabAppIcon} alt="mein LohnLab" className="w-full h-full object-contain rounded-lg" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-white">mein LohnLab</div>
+                        <div className="text-xs text-white/50">Coming soon: alles in einer App</div>
                       </div>
                     </a>
                   </div>
@@ -126,7 +195,7 @@ export default function Navigation() {
                 <Button
                   className="bg-white text-lohn-primary hover:bg-gray-100 shadow-md transition-all duration-300 rounded-full px-6 py-2.5 font-semibold"
                 >
-                  Beratungsgespräch vereinbaren
+                  Kontakt
                 </Button>
               </Link>
             </div>
@@ -146,8 +215,7 @@ export default function Navigation() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden overflow-hidden"
-              style={{ backgroundColor: navBgColor }}
+              className="md:hidden overflow-hidden bg-linear-to-l from-lohn-primary to-lohn-secondary"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -179,9 +247,11 @@ export default function Navigation() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.25, ease: "easeInOut" }}
                         className="overflow-hidden"
-                        style={{ backgroundColor: navBgColor }}
                       >
                         <div className="py-2">
+                          <div className="px-6 pt-1 pb-2">
+                            <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">Für Arbeitgeber</span>
+                          </div>
                           <a
                             href="https://cockpit.lohnlab.de"
                             target="_blank"
@@ -197,9 +267,7 @@ export default function Navigation() {
                             </div>
                             <div>
                               <div className="font-medium">LohnLab Cockpit</div>
-                              <div className="text-sm text-white/60">
-                                Zur Anwendung
-                              </div>
+                              <div className="text-sm text-white/60">Zur Anwendung</div>
                             </div>
                           </a>
                           <a
@@ -216,12 +284,85 @@ export default function Navigation() {
                               <BookOpen className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                              <div className="font-medium">
-                                Handbücher & Anleitungen
-                              </div>
-                              <div className="text-sm text-white/60">
-                                Für Kunden und Partner
-                              </div>
+                              <div className="font-medium">Handbücher & Anleitungen</div>
+                              <div className="text-sm text-white/60">Für Kunden und Partner</div>
+                            </div>
+                          </a>
+                          <div className="mx-6 my-2 border-t border-white/10" />
+                          <div className="px-6 pt-1 pb-2">
+                            <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">Für Mitarbeiter</span>
+                          </div>
+                          <a
+                            href="https://card.givve.com/login"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileLoginOpen(false);
+                            }}
+                            className="flex items-center px-6 py-3 text-white hover:text-white/80 transition-colors"
+                          >
+                            <div className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center overflow-hidden mr-3">
+                              <img src={givveIcon} alt="givve Card" className="w-full h-full object-contain brightness-0 invert" />
+                            </div>
+                            <div>
+                              <div className="font-medium">givve Card</div>
+                              <div className="text-sm text-white/60">Sachbezug-Karte</div>
+                            </div>
+                          </a>
+                          <a
+                            href="https://app.cleverlunch.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileLoginOpen(false);
+                            }}
+                            className="flex items-center px-6 py-3 text-white hover:text-white/80 transition-colors"
+                          >
+                            <div className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center overflow-hidden mr-3">
+                              <img src={cleverlunchIcon} alt="CleverLunch" className="w-full h-full object-contain brightness-0 invert" />
+                            </div>
+                            <div>
+                              <div className="font-medium">CleverLunch</div>
+                              <div className="text-sm text-white/60">Essenszuschuss</div>
+                            </div>
+                          </a>
+                          <a
+                            href="https://app.mobiko.net"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileLoginOpen(false);
+                            }}
+                            className="flex items-center px-6 py-3 text-white hover:text-white/80 transition-colors"
+                          >
+                            <div className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center overflow-hidden mr-3">
+                              <img src={mobikoIcon} alt="Mobiko" className="w-full h-full object-contain brightness-0 invert" />
+                            </div>
+                            <div>
+                              <div className="font-medium">Mobiko</div>
+                              <div className="text-sm text-white/60">Jobticket</div>
+                            </div>
+                          </a>
+                          <div className="mx-6 my-2 border-t border-white/10" />
+                          <a
+                            href="https://app.lohnlab.de"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileLoginOpen(false);
+                            }}
+                            className="flex items-center px-6 py-3 text-white hover:text-white/80 transition-colors"
+                          >
+                            <div className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center overflow-hidden mr-3">
+                              <img src={lohnlabAppIcon} alt="mein LohnLab" className="w-full h-full object-contain rounded-lg" />
+                            </div>
+                            <div>
+                              <div className="font-medium">mein LohnLab</div>
+                              <div className="text-sm text-white/60">Coming soon: alles in einer App</div>
                             </div>
                           </a>
                         </div>
@@ -236,7 +377,7 @@ export default function Navigation() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Button className="bg-white text-lohn-primary hover:bg-gray-100 transition-colors rounded-full w-full">
-                      Beratungsgespräch vereinbaren
+                      Kontakt
                     </Button>
                   </Link>
                 </div>

@@ -81,7 +81,7 @@ export default function HeroSection() {
   const marketingRejected = consent?.marketing === false;
 
   return (
-    <section className="pb-8 md:pb-10 pt-8 md:pt-12 bg-linear-to-l from-lohn-primary to-lohn-secondary relative overflow-visible">
+    <section className="pb-8 md:pb-10 pt-8 md:pt-12 bg-linear-to-l from-lohn-primary to-lohn-secondary relative overflow-hidden 2xl:overflow-visible">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
           {/* Headline — always on top */}

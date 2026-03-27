@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#ebedf3" }}>
+    <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor: "#ebedf3" }}>
       <Navigation />
       <HeroSection />
       <ScrollReveal><StatsSection /></ScrollReveal>

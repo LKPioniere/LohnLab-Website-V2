@@ -16,6 +16,13 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/contact",
+      "destination": "/kontakt",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

@@ -140,7 +140,7 @@ export default function Navigation() {
                       </div>
                     </a>
                     <a
-                      href="https://app.cleverlunch.com"
+                      href="https://app.cleverlunch.de"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-all duration-200"
@@ -311,7 +311,7 @@ export default function Navigation() {
                             </div>
                           </a>
                           <a
-                            href="https://app.cleverlunch.com"
+                            href="https://app.cleverlunch.de"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => {
